@@ -316,6 +316,7 @@
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/string.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: mem_latency_stat.h power_stat.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: visualizer.h reg_study.h
+../../build/4020/release/gpgpu-sim/gpu-sim.o: irregular.h
 ../../build/4020/release/gpgpu-sim/histogram.o: histogram.h
 ../../build/4020/release/gpgpu-sim/histogram.o: /usr/include/assert.h
 ../../build/4020/release/gpgpu-sim/histogram.o: /usr/include/features.h
@@ -850,6 +851,7 @@
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/linux/limits.h
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/bits/posix2_lim.h
 ../../build/4020/release/gpgpu-sim/shader.o: shader_trace.h reg_study.h
+../../build/4020/release/gpgpu-sim/shader.o: irregular.h
 ../../build/4020/release/gpgpu-sim/stack.o: stack.h
 ../../build/4020/release/gpgpu-sim/stack.o: ../abstract_hardware_model.h
 ../../build/4020/release/gpgpu-sim/stack.o: /usr/include/stdlib.h

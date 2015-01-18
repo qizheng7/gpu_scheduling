@@ -50,7 +50,12 @@
 #define PRIORITIZE_MSHR_OVER_WB 1
 #define MAX(a,b) (((a)>(b))?(a):(b))
 
+//Qi Zheng -- VCA Study
 #include "reg_study.h"
+
+//Irregular_Study
+#include "irregular.h"
+
 
 //#define DETAILED
     
@@ -941,6 +946,21 @@ void scheduler_unit::cycle()
         m_stats->shader_cycle_distro[1]++; // waiting for RAW hazards (possibly due to memory) 
     else if( !issued_inst ) 
         m_stats->shader_cycle_distro[2]++; // pipeline stalled
+
+    //Irregular_Study
+#ifdef IRREGULAR_MOT
+    if(!(valid_inst && ready_inst && issued_inst)){
+      unsigned int warpcounter = 0;
+      for ( std::vector< shd_warp_t* >::const_iterator iter = m_next_cycle_prioritized_warps.begin();
+            iter != m_next_cycle_prioritized_warps.end();
+            iter++ ){
+        if ( (*iter) != NULL && (!(*iter)->done_exit()) ) {
+          warpcounter++;
+        }
+      }
+      printf("Core %d stall_at_cycle %lld Active_warp %u\n", this->get_sid(),gpu_tot_sim_cycle+gpu_sim_cycle, warpcounter);
+    }
+#endif
 }
 
 void scheduler_unit::do_on_warp_issued( unsigned warp_id,
@@ -1061,13 +1081,14 @@ printf("\n");
                            (m_next_cycle_prioritized_warps.back())->get_warp_id(),
                            (m_next_cycle_prioritized_warps.back())->get_dynamic_warp_id() );
 //Qi Zheng -- VCA study
-            if( (m_next_cycle_prioritized_warps.back())->get_warp_id() != -1 ){
 /*
+            if( (m_next_cycle_prioritized_warps.back())->get_warp_id() != -1 ){
                 printf("PROMOTED warp_id= %d dynamic_warp_id= %d\n",
                                (m_next_cycle_prioritized_warps.back())->get_warp_id(),
                                (m_next_cycle_prioritized_warps.back())->get_dynamic_warp_id() );
-*/
+
             }
+*/
             ++num_promoted;
     	}
     } else {
