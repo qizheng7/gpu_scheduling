@@ -1,0 +1,955 @@
+# DO NOT DELETE
+
+obj_opt/XML_Parse.o: /usr/include/stdio.h /usr/include/features.h
+obj_opt/XML_Parse.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/XML_Parse.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/XML_Parse.o: /usr/include/gnu/stubs-64.h /usr/include/bits/types.h
+obj_opt/XML_Parse.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+obj_opt/XML_Parse.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/XML_Parse.o: /usr/include/bits/wchar.h /usr/include/xlocale.h
+obj_opt/XML_Parse.o: /usr/include/bits/stdio_lim.h
+obj_opt/XML_Parse.o: /usr/include/bits/sys_errlist.h xmlParser.h
+obj_opt/XML_Parse.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/XML_Parse.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/XML_Parse.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/XML_Parse.o: /usr/include/sys/types.h /usr/include/time.h
+obj_opt/XML_Parse.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/XML_Parse.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/XML_Parse.o: /usr/include/sys/sysmacros.h
+obj_opt/XML_Parse.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/XML_Parse.o: XML_Parse.h /usr/include/string.h
+obj_opt/array.o: cacti/area.h cacti/cacti_interface.h cacti/const.h
+obj_opt/array.o: /usr/include/stdint.h /usr/include/features.h
+obj_opt/array.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/array.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/array.o: /usr/include/gnu/stubs-64.h /usr/include/bits/wchar.h
+obj_opt/array.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/array.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/array.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/array.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/array.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/array.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/array.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/array.o: /usr/include/sys/sysmacros.h
+obj_opt/array.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/array.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/array.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/array.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/array.o: /usr/include/bits/stdio_lim.h
+obj_opt/array.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/array.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+obj_opt/array.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/array.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/array.o: /usr/include/bits/mathcalls.h cacti/basic_circuit.h array.h
+obj_opt/array.o: basic_components.h XML_Parse.h xmlParser.h cacti/parameter.h
+obj_opt/array.o: cacti/area.h cacti/io.h cacti/const.h
+obj_opt/array.o: cacti/cacti_interface.h cacti/component.h cacti/parameter.h
+obj_opt/array.o: /usr/include/assert.h globalvar.h
+obj_opt/basic_components.o: basic_components.h XML_Parse.h
+obj_opt/basic_components.o: /usr/include/stdio.h /usr/include/features.h
+obj_opt/basic_components.o: /usr/include/bits/predefs.h
+obj_opt/basic_components.o: /usr/include/sys/cdefs.h
+obj_opt/basic_components.o: /usr/include/bits/wordsize.h
+obj_opt/basic_components.o: /usr/include/gnu/stubs.h
+obj_opt/basic_components.o: /usr/include/gnu/stubs-64.h
+obj_opt/basic_components.o: /usr/include/bits/types.h
+obj_opt/basic_components.o: /usr/include/bits/typesizes.h
+obj_opt/basic_components.o: /usr/include/libio.h /usr/include/_G_config.h
+obj_opt/basic_components.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+obj_opt/basic_components.o: /usr/include/xlocale.h
+obj_opt/basic_components.o: /usr/include/bits/stdio_lim.h
+obj_opt/basic_components.o: /usr/include/bits/sys_errlist.h xmlParser.h
+obj_opt/basic_components.o: /usr/include/stdlib.h
+obj_opt/basic_components.o: /usr/include/bits/waitflags.h
+obj_opt/basic_components.o: /usr/include/bits/waitstatus.h
+obj_opt/basic_components.o: /usr/include/endian.h /usr/include/bits/endian.h
+obj_opt/basic_components.o: /usr/include/bits/byteswap.h
+obj_opt/basic_components.o: /usr/include/sys/types.h /usr/include/time.h
+obj_opt/basic_components.o: /usr/include/sys/select.h
+obj_opt/basic_components.o: /usr/include/bits/select.h
+obj_opt/basic_components.o: /usr/include/bits/sigset.h
+obj_opt/basic_components.o: /usr/include/bits/time.h
+obj_opt/basic_components.o: /usr/include/sys/sysmacros.h
+obj_opt/basic_components.o: /usr/include/bits/pthreadtypes.h
+obj_opt/basic_components.o: /usr/include/alloca.h /usr/include/string.h
+obj_opt/basic_components.o: cacti/parameter.h cacti/area.h cacti/const.h
+obj_opt/basic_components.o: /usr/include/stdint.h /usr/include/math.h
+obj_opt/basic_components.o: /usr/include/bits/huge_val.h
+obj_opt/basic_components.o: /usr/include/bits/huge_valf.h
+obj_opt/basic_components.o: /usr/include/bits/huge_vall.h
+obj_opt/basic_components.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+obj_opt/basic_components.o: /usr/include/bits/mathdef.h
+obj_opt/basic_components.o: /usr/include/bits/mathcalls.h
+obj_opt/basic_components.o: cacti/cacti_interface.h cacti/io.h
+obj_opt/basic_components.o: /usr/include/assert.h
+obj_opt/core.o: cacti/io.h cacti/const.h /usr/include/stdint.h
+obj_opt/core.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/core.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/core.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/core.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/core.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+obj_opt/core.o: /usr/include/endian.h /usr/include/bits/endian.h
+obj_opt/core.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+obj_opt/core.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+obj_opt/core.o: /usr/include/time.h /usr/include/sys/select.h
+obj_opt/core.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+obj_opt/core.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+obj_opt/core.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/core.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/core.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/core.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/core.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+obj_opt/core.o: /usr/include/math.h /usr/include/bits/huge_val.h
+obj_opt/core.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+obj_opt/core.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+obj_opt/core.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+obj_opt/core.o: cacti/cacti_interface.h cacti/parameter.h
+obj_opt/core.o: cacti/basic_circuit.h XML_Parse.h xmlParser.h
+obj_opt/core.o: /usr/include/assert.h core.h logic.h cacti/const.h
+obj_opt/core.o: cacti/component.h cacti/area.h basic_components.h
+obj_opt/core.o: cacti/parameter.h cacti/cacti_interface.h cacti/decoder.h
+obj_opt/core.o: cacti/component.h arch_const.h array.h interconnect.h
+obj_opt/core.o: cacti/subarray.h cacti/wire.h cacti/basic_circuit.h
+obj_opt/core.o: sharedcache.h cacti/area.h cacti/crossbar.h cacti/mat.h
+obj_opt/core.o: cacti/decoder.h cacti/wire.h cacti/subarray.h cacti/arbiter.h
+obj_opt/core.o: noc.h cacti/router.h cacti/crossbar.h cacti/arbiter.h
+obj_opt/interconnect.o: interconnect.h cacti/basic_circuit.h cacti/const.h
+obj_opt/interconnect.o: /usr/include/stdint.h /usr/include/features.h
+obj_opt/interconnect.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/interconnect.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/interconnect.o: /usr/include/gnu/stubs-64.h /usr/include/bits/wchar.h
+obj_opt/interconnect.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/interconnect.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/interconnect.o: /usr/include/bits/endian.h
+obj_opt/interconnect.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+obj_opt/interconnect.o: /usr/include/bits/types.h
+obj_opt/interconnect.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/interconnect.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/interconnect.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/interconnect.o: /usr/include/sys/sysmacros.h
+obj_opt/interconnect.o: /usr/include/bits/pthreadtypes.h
+obj_opt/interconnect.o: /usr/include/alloca.h /usr/include/string.h
+obj_opt/interconnect.o: /usr/include/xlocale.h /usr/include/stdio.h
+obj_opt/interconnect.o: /usr/include/libio.h /usr/include/_G_config.h
+obj_opt/interconnect.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+obj_opt/interconnect.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/interconnect.o: /usr/include/bits/huge_val.h
+obj_opt/interconnect.o: /usr/include/bits/huge_valf.h
+obj_opt/interconnect.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/interconnect.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/interconnect.o: /usr/include/bits/mathcalls.h cacti/cacti_interface.h
+obj_opt/interconnect.o: basic_components.h XML_Parse.h xmlParser.h
+obj_opt/interconnect.o: cacti/parameter.h cacti/area.h cacti/io.h
+obj_opt/interconnect.o: cacti/component.h cacti/parameter.h
+obj_opt/interconnect.o: /usr/include/assert.h cacti/subarray.h
+obj_opt/interconnect.o: cacti/component.h cacti/cacti_interface.h
+obj_opt/interconnect.o: cacti/wire.h cacti/basic_circuit.h cacti/wire.h
+obj_opt/interconnect.o: globalvar.h
+obj_opt/iocontrollers.o: cacti/io.h cacti/const.h /usr/include/stdint.h
+obj_opt/iocontrollers.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/iocontrollers.o: /usr/include/sys/cdefs.h
+obj_opt/iocontrollers.o: /usr/include/bits/wordsize.h
+obj_opt/iocontrollers.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/iocontrollers.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/iocontrollers.o: /usr/include/bits/waitflags.h
+obj_opt/iocontrollers.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/iocontrollers.o: /usr/include/bits/endian.h
+obj_opt/iocontrollers.o: /usr/include/bits/byteswap.h
+obj_opt/iocontrollers.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/iocontrollers.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/iocontrollers.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/iocontrollers.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/iocontrollers.o: /usr/include/sys/sysmacros.h
+obj_opt/iocontrollers.o: /usr/include/bits/pthreadtypes.h
+obj_opt/iocontrollers.o: /usr/include/alloca.h /usr/include/string.h
+obj_opt/iocontrollers.o: /usr/include/xlocale.h /usr/include/stdio.h
+obj_opt/iocontrollers.o: /usr/include/libio.h /usr/include/_G_config.h
+obj_opt/iocontrollers.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+obj_opt/iocontrollers.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/iocontrollers.o: /usr/include/bits/huge_val.h
+obj_opt/iocontrollers.o: /usr/include/bits/huge_valf.h
+obj_opt/iocontrollers.o: /usr/include/bits/huge_vall.h
+obj_opt/iocontrollers.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+obj_opt/iocontrollers.o: /usr/include/bits/mathdef.h
+obj_opt/iocontrollers.o: /usr/include/bits/mathcalls.h
+obj_opt/iocontrollers.o: cacti/cacti_interface.h cacti/parameter.h logic.h
+obj_opt/iocontrollers.o: cacti/const.h cacti/component.h cacti/area.h
+obj_opt/iocontrollers.o: basic_components.h XML_Parse.h xmlParser.h
+obj_opt/iocontrollers.o: cacti/parameter.h cacti/basic_circuit.h
+obj_opt/iocontrollers.o: cacti/cacti_interface.h cacti/decoder.h
+obj_opt/iocontrollers.o: cacti/component.h arch_const.h /usr/include/assert.h
+obj_opt/iocontrollers.o: iocontrollers.h array.h
+obj_opt/logic.o: logic.h cacti/const.h cacti/component.h cacti/parameter.h
+obj_opt/logic.o: cacti/area.h basic_components.h XML_Parse.h
+obj_opt/logic.o: /usr/include/stdio.h /usr/include/features.h
+obj_opt/logic.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/logic.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/logic.o: /usr/include/gnu/stubs-64.h /usr/include/bits/types.h
+obj_opt/logic.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+obj_opt/logic.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/logic.o: /usr/include/bits/wchar.h /usr/include/xlocale.h
+obj_opt/logic.o: /usr/include/bits/stdio_lim.h
+obj_opt/logic.o: /usr/include/bits/sys_errlist.h xmlParser.h
+obj_opt/logic.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/logic.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/logic.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/logic.o: /usr/include/sys/types.h /usr/include/time.h
+obj_opt/logic.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/logic.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/logic.o: /usr/include/sys/sysmacros.h
+obj_opt/logic.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/logic.o: /usr/include/string.h cacti/parameter.h cacti/const.h
+obj_opt/logic.o: /usr/include/stdint.h /usr/include/math.h
+obj_opt/logic.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+obj_opt/logic.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/logic.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/logic.o: /usr/include/bits/mathcalls.h cacti/cacti_interface.h
+obj_opt/logic.o: cacti/io.h cacti/basic_circuit.h cacti/cacti_interface.h
+obj_opt/logic.o: cacti/decoder.h cacti/component.h arch_const.h
+obj_opt/main.o: cacti/io.h cacti/const.h /usr/include/stdint.h
+obj_opt/main.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/main.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/main.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/main.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/main.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+obj_opt/main.o: /usr/include/endian.h /usr/include/bits/endian.h
+obj_opt/main.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+obj_opt/main.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+obj_opt/main.o: /usr/include/time.h /usr/include/sys/select.h
+obj_opt/main.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+obj_opt/main.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+obj_opt/main.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/main.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/main.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/main.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/main.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+obj_opt/main.o: /usr/include/math.h /usr/include/bits/huge_val.h
+obj_opt/main.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+obj_opt/main.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+obj_opt/main.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+obj_opt/main.o: cacti/cacti_interface.h xmlParser.h XML_Parse.h processor.h
+obj_opt/main.o: cacti/area.h cacti/basic_circuit.h cacti/decoder.h
+obj_opt/main.o: cacti/area.h cacti/component.h cacti/parameter.h
+obj_opt/main.o: cacti/parameter.h array.h basic_components.h cacti/const.h
+obj_opt/main.o: cacti/cacti_interface.h cacti/component.h cacti/arbiter.h
+obj_opt/main.o: /usr/include/assert.h cacti/mat.h cacti/decoder.h
+obj_opt/main.o: cacti/wire.h cacti/subarray.h core.h logic.h
+obj_opt/main.o: cacti/basic_circuit.h arch_const.h interconnect.h
+obj_opt/main.o: cacti/subarray.h cacti/wire.h sharedcache.h cacti/crossbar.h
+obj_opt/main.o: noc.h cacti/router.h cacti/crossbar.h cacti/arbiter.h
+obj_opt/main.o: memoryctrl.h iocontrollers.h ../gpgpu-sim/visualizer.h
+obj_opt/main.o: /usr/include/zlib.h /usr/include/zconf.h
+obj_opt/main.o: /usr/include/zlibdefs.h /usr/include/unistd.h
+obj_opt/main.o: /usr/include/bits/posix_opt.h /usr/include/bits/confname.h
+obj_opt/main.o: /usr/include/getopt.h /usr/include/ctype.h globalvar.h
+obj_opt/main.o: version.h
+obj_opt/memoryctrl.o: cacti/io.h cacti/const.h /usr/include/stdint.h
+obj_opt/memoryctrl.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/memoryctrl.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/memoryctrl.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/memoryctrl.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/memoryctrl.o: /usr/include/bits/waitflags.h
+obj_opt/memoryctrl.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/memoryctrl.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/memoryctrl.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/memoryctrl.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/memoryctrl.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/memoryctrl.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/memoryctrl.o: /usr/include/sys/sysmacros.h
+obj_opt/memoryctrl.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/memoryctrl.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/memoryctrl.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/memoryctrl.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/memoryctrl.o: /usr/include/bits/stdio_lim.h
+obj_opt/memoryctrl.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/memoryctrl.o: /usr/include/bits/huge_val.h
+obj_opt/memoryctrl.o: /usr/include/bits/huge_valf.h
+obj_opt/memoryctrl.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/memoryctrl.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/memoryctrl.o: /usr/include/bits/mathcalls.h cacti/cacti_interface.h
+obj_opt/memoryctrl.o: cacti/parameter.h logic.h cacti/const.h
+obj_opt/memoryctrl.o: cacti/component.h cacti/area.h basic_components.h
+obj_opt/memoryctrl.o: XML_Parse.h xmlParser.h cacti/parameter.h
+obj_opt/memoryctrl.o: cacti/basic_circuit.h cacti/cacti_interface.h
+obj_opt/memoryctrl.o: cacti/decoder.h cacti/component.h arch_const.h
+obj_opt/memoryctrl.o: /usr/include/assert.h memoryctrl.h array.h
+obj_opt/noc.o: cacti/io.h cacti/const.h /usr/include/stdint.h
+obj_opt/noc.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/noc.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/noc.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/noc.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/noc.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+obj_opt/noc.o: /usr/include/endian.h /usr/include/bits/endian.h
+obj_opt/noc.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+obj_opt/noc.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+obj_opt/noc.o: /usr/include/time.h /usr/include/sys/select.h
+obj_opt/noc.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+obj_opt/noc.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+obj_opt/noc.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/noc.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/noc.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/noc.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/noc.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+obj_opt/noc.o: /usr/include/math.h /usr/include/bits/huge_val.h
+obj_opt/noc.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+obj_opt/noc.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+obj_opt/noc.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+obj_opt/noc.o: cacti/cacti_interface.h cacti/parameter.h
+obj_opt/noc.o: cacti/basic_circuit.h XML_Parse.h xmlParser.h
+obj_opt/noc.o: /usr/include/assert.h noc.h logic.h cacti/const.h
+obj_opt/noc.o: cacti/component.h cacti/area.h basic_components.h
+obj_opt/noc.o: cacti/parameter.h cacti/cacti_interface.h cacti/decoder.h
+obj_opt/noc.o: cacti/component.h arch_const.h array.h interconnect.h
+obj_opt/noc.o: cacti/subarray.h cacti/wire.h cacti/basic_circuit.h
+obj_opt/noc.o: cacti/router.h cacti/mat.h cacti/decoder.h cacti/wire.h
+obj_opt/noc.o: cacti/subarray.h cacti/crossbar.h cacti/arbiter.h
+obj_opt/processor.o: /usr/include/string.h /usr/include/features.h
+obj_opt/processor.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/processor.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/processor.o: /usr/include/gnu/stubs-64.h /usr/include/xlocale.h
+obj_opt/processor.o: /usr/include/stdio.h /usr/include/bits/types.h
+obj_opt/processor.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+obj_opt/processor.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/processor.o: /usr/include/bits/wchar.h /usr/include/bits/stdio_lim.h
+obj_opt/processor.o: /usr/include/bits/sys_errlist.h /usr/include/assert.h
+obj_opt/processor.o: cacti/parameter.h array.h basic_components.h XML_Parse.h
+obj_opt/processor.o: xmlParser.h /usr/include/stdlib.h
+obj_opt/processor.o: /usr/include/bits/waitflags.h
+obj_opt/processor.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/processor.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/processor.o: /usr/include/sys/types.h /usr/include/time.h
+obj_opt/processor.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/processor.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/processor.o: /usr/include/sys/sysmacros.h
+obj_opt/processor.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/processor.o: cacti/parameter.h cacti/area.h cacti/const.h
+obj_opt/processor.o: /usr/include/stdint.h /usr/include/math.h
+obj_opt/processor.o: /usr/include/bits/huge_val.h
+obj_opt/processor.o: /usr/include/bits/huge_valf.h
+obj_opt/processor.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/processor.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/processor.o: /usr/include/bits/mathcalls.h cacti/cacti_interface.h
+obj_opt/processor.o: cacti/io.h cacti/const.h cacti/cacti_interface.h
+obj_opt/processor.o: cacti/component.h cacti/basic_circuit.h processor.h
+obj_opt/processor.o: cacti/area.h cacti/basic_circuit.h cacti/decoder.h
+obj_opt/processor.o: cacti/component.h cacti/arbiter.h cacti/mat.h
+obj_opt/processor.o: cacti/decoder.h cacti/wire.h cacti/subarray.h core.h
+obj_opt/processor.o: logic.h arch_const.h interconnect.h cacti/subarray.h
+obj_opt/processor.o: cacti/wire.h sharedcache.h cacti/crossbar.h noc.h
+obj_opt/processor.o: cacti/router.h cacti/crossbar.h cacti/arbiter.h
+obj_opt/processor.o: memoryctrl.h iocontrollers.h ../gpgpu-sim/visualizer.h
+obj_opt/processor.o: /usr/include/zlib.h /usr/include/zconf.h
+obj_opt/processor.o: /usr/include/zlibdefs.h /usr/include/unistd.h
+obj_opt/processor.o: /usr/include/bits/posix_opt.h
+obj_opt/processor.o: /usr/include/bits/confname.h /usr/include/getopt.h
+obj_opt/processor.o: /usr/include/ctype.h version.h
+obj_opt/sharedcache.o: cacti/io.h cacti/const.h /usr/include/stdint.h
+obj_opt/sharedcache.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/sharedcache.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/sharedcache.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/sharedcache.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/sharedcache.o: /usr/include/bits/waitflags.h
+obj_opt/sharedcache.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/sharedcache.o: /usr/include/bits/endian.h
+obj_opt/sharedcache.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+obj_opt/sharedcache.o: /usr/include/bits/types.h
+obj_opt/sharedcache.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/sharedcache.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/sharedcache.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/sharedcache.o: /usr/include/sys/sysmacros.h
+obj_opt/sharedcache.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/sharedcache.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/sharedcache.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/sharedcache.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/sharedcache.o: /usr/include/bits/stdio_lim.h
+obj_opt/sharedcache.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/sharedcache.o: /usr/include/bits/huge_val.h
+obj_opt/sharedcache.o: /usr/include/bits/huge_valf.h
+obj_opt/sharedcache.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/sharedcache.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/sharedcache.o: /usr/include/bits/mathcalls.h cacti/cacti_interface.h
+obj_opt/sharedcache.o: cacti/parameter.h cacti/area.h array.h
+obj_opt/sharedcache.o: basic_components.h XML_Parse.h xmlParser.h
+obj_opt/sharedcache.o: cacti/const.h cacti/cacti_interface.h
+obj_opt/sharedcache.o: cacti/component.h cacti/parameter.h logic.h
+obj_opt/sharedcache.o: cacti/basic_circuit.h cacti/decoder.h
+obj_opt/sharedcache.o: cacti/component.h arch_const.h cacti/arbiter.h
+obj_opt/sharedcache.o: /usr/include/assert.h cacti/basic_circuit.h
+obj_opt/sharedcache.o: cacti/mat.h cacti/decoder.h cacti/wire.h
+obj_opt/sharedcache.o: cacti/subarray.h sharedcache.h cacti/area.h
+obj_opt/xmlParser.o: xmlParser.h /usr/include/stdlib.h
+obj_opt/xmlParser.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/xmlParser.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/xmlParser.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/xmlParser.o: /usr/include/bits/waitflags.h
+obj_opt/xmlParser.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/xmlParser.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/xmlParser.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/xmlParser.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/xmlParser.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/xmlParser.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/xmlParser.o: /usr/include/sys/sysmacros.h
+obj_opt/xmlParser.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/xmlParser.o: /usr/include/wchar.h /usr/include/stdio.h
+obj_opt/xmlParser.o: /usr/include/libio.h /usr/include/_G_config.h
+obj_opt/xmlParser.o: /usr/include/bits/stdio_lim.h
+obj_opt/xmlParser.o: /usr/include/bits/sys_errlist.h
+obj_opt/xmlParser.o: /usr/include/bits/wchar.h /usr/include/xlocale.h
+obj_opt/xmlParser.o: /usr/include/memory.h /usr/include/string.h
+obj_opt/xmlParser.o: /usr/include/assert.h
+obj_opt/gpgpu_sim_wrapper.o: gpgpu_sim_wrapper.h processor.h XML_Parse.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/stdio.h /usr/include/features.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/predefs.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/sys/cdefs.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/wordsize.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/gnu/stubs.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/gnu/stubs-64.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/types.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/typesizes.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/libio.h /usr/include/_G_config.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/xlocale.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/stdio_lim.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/sys_errlist.h xmlParser.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/stdlib.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/waitflags.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/waitstatus.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/endian.h /usr/include/bits/endian.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/byteswap.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/sys/types.h /usr/include/time.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/sys/select.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/select.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/sigset.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/time.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/sys/sysmacros.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/pthreadtypes.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/alloca.h /usr/include/string.h
+obj_opt/gpgpu_sim_wrapper.o: cacti/area.h cacti/cacti_interface.h
+obj_opt/gpgpu_sim_wrapper.o: cacti/const.h /usr/include/stdint.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/math.h /usr/include/bits/huge_val.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/huge_valf.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/huge_vall.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/mathdef.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/mathcalls.h
+obj_opt/gpgpu_sim_wrapper.o: cacti/basic_circuit.h cacti/decoder.h
+obj_opt/gpgpu_sim_wrapper.o: cacti/area.h cacti/component.h cacti/parameter.h
+obj_opt/gpgpu_sim_wrapper.o: cacti/parameter.h cacti/io.h array.h
+obj_opt/gpgpu_sim_wrapper.o: basic_components.h cacti/const.h
+obj_opt/gpgpu_sim_wrapper.o: cacti/cacti_interface.h cacti/component.h
+obj_opt/gpgpu_sim_wrapper.o: cacti/arbiter.h /usr/include/assert.h
+obj_opt/gpgpu_sim_wrapper.o: cacti/mat.h cacti/decoder.h cacti/wire.h
+obj_opt/gpgpu_sim_wrapper.o: cacti/subarray.h core.h logic.h
+obj_opt/gpgpu_sim_wrapper.o: cacti/basic_circuit.h arch_const.h
+obj_opt/gpgpu_sim_wrapper.o: interconnect.h cacti/subarray.h cacti/wire.h
+obj_opt/gpgpu_sim_wrapper.o: sharedcache.h cacti/crossbar.h noc.h
+obj_opt/gpgpu_sim_wrapper.o: cacti/router.h cacti/crossbar.h cacti/arbiter.h
+obj_opt/gpgpu_sim_wrapper.o: memoryctrl.h iocontrollers.h
+obj_opt/gpgpu_sim_wrapper.o: ../gpgpu-sim/visualizer.h /usr/include/zlib.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/zconf.h /usr/include/zlibdefs.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/unistd.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/posix_opt.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/confname.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/getopt.h /usr/include/ctype.h
+
+obj_opt/area.o: area.h cacti_interface.h const.h /usr/include/stdint.h
+obj_opt/area.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/area.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/area.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/area.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/area.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+obj_opt/area.o: /usr/include/endian.h /usr/include/bits/endian.h
+obj_opt/area.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+obj_opt/area.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+obj_opt/area.o: /usr/include/time.h /usr/include/sys/select.h
+obj_opt/area.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+obj_opt/area.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+obj_opt/area.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/area.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/area.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/area.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/area.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+obj_opt/area.o: /usr/include/math.h /usr/include/bits/huge_val.h
+obj_opt/area.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+obj_opt/area.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+obj_opt/area.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+obj_opt/area.o: basic_circuit.h component.h parameter.h io.h decoder.h
+obj_opt/area.o: /usr/include/assert.h
+obj_opt/bank.o: bank.h component.h parameter.h area.h cacti_interface.h
+obj_opt/bank.o: const.h /usr/include/stdint.h /usr/include/features.h
+obj_opt/bank.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/bank.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/bank.o: /usr/include/gnu/stubs-64.h /usr/include/bits/wchar.h
+obj_opt/bank.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/bank.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/bank.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/bank.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/bank.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/bank.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/bank.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/bank.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+obj_opt/bank.o: /usr/include/alloca.h /usr/include/string.h
+obj_opt/bank.o: /usr/include/xlocale.h /usr/include/stdio.h
+obj_opt/bank.o: /usr/include/libio.h /usr/include/_G_config.h
+obj_opt/bank.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+obj_opt/bank.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/bank.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+obj_opt/bank.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/bank.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/bank.o: /usr/include/bits/mathcalls.h basic_circuit.h io.h decoder.h
+obj_opt/bank.o: mat.h wire.h /usr/include/assert.h subarray.h htree2.h
+obj_opt/mat.o: mat.h component.h parameter.h area.h cacti_interface.h const.h
+obj_opt/mat.o: /usr/include/stdint.h /usr/include/features.h
+obj_opt/mat.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/mat.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/mat.o: /usr/include/gnu/stubs-64.h /usr/include/bits/wchar.h
+obj_opt/mat.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/mat.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/mat.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/mat.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/mat.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/mat.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/mat.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/mat.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+obj_opt/mat.o: /usr/include/alloca.h /usr/include/string.h
+obj_opt/mat.o: /usr/include/xlocale.h /usr/include/stdio.h
+obj_opt/mat.o: /usr/include/libio.h /usr/include/_G_config.h
+obj_opt/mat.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+obj_opt/mat.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/mat.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+obj_opt/mat.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/mat.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/mat.o: /usr/include/bits/mathcalls.h basic_circuit.h io.h decoder.h
+obj_opt/mat.o: wire.h /usr/include/assert.h subarray.h
+obj_opt/main.o: io.h const.h /usr/include/stdint.h /usr/include/features.h
+obj_opt/main.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/main.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/main.o: /usr/include/gnu/stubs-64.h /usr/include/bits/wchar.h
+obj_opt/main.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/main.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/main.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/main.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/main.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/main.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/main.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/main.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+obj_opt/main.o: /usr/include/alloca.h /usr/include/string.h
+obj_opt/main.o: /usr/include/xlocale.h /usr/include/stdio.h
+obj_opt/main.o: /usr/include/libio.h /usr/include/_G_config.h
+obj_opt/main.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+obj_opt/main.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/main.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+obj_opt/main.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/main.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/main.o: /usr/include/bits/mathcalls.h cacti_interface.h
+obj_opt/Ucache.o: /usr/include/time.h /usr/include/bits/types.h
+obj_opt/Ucache.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/Ucache.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/Ucache.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/Ucache.o: /usr/include/bits/typesizes.h /usr/include/math.h
+obj_opt/Ucache.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+obj_opt/Ucache.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/Ucache.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/Ucache.o: /usr/include/bits/mathcalls.h area.h cacti_interface.h
+obj_opt/Ucache.o: const.h /usr/include/stdint.h /usr/include/bits/wchar.h
+obj_opt/Ucache.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/Ucache.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/Ucache.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/Ucache.o: /usr/include/sys/types.h /usr/include/sys/select.h
+obj_opt/Ucache.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+obj_opt/Ucache.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+obj_opt/Ucache.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/Ucache.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/Ucache.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/Ucache.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/Ucache.o: /usr/include/bits/stdio_lim.h
+obj_opt/Ucache.o: /usr/include/bits/sys_errlist.h basic_circuit.h bank.h
+obj_opt/Ucache.o: component.h parameter.h io.h decoder.h mat.h wire.h
+obj_opt/Ucache.o: /usr/include/assert.h subarray.h htree2.h Ucache.h router.h
+obj_opt/Ucache.o: crossbar.h arbiter.h nuca.h uca.h /usr/include/pthread.h
+obj_opt/Ucache.o: /usr/include/sched.h /usr/include/bits/sched.h
+obj_opt/Ucache.o: /usr/include/bits/setjmp.h
+obj_opt/io.o: io.h const.h /usr/include/stdint.h /usr/include/features.h
+obj_opt/io.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/io.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/io.o: /usr/include/gnu/stubs-64.h /usr/include/bits/wchar.h
+obj_opt/io.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/io.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/io.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/io.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/io.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/io.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/io.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/io.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+obj_opt/io.o: /usr/include/alloca.h /usr/include/string.h
+obj_opt/io.o: /usr/include/xlocale.h /usr/include/stdio.h
+obj_opt/io.o: /usr/include/libio.h /usr/include/_G_config.h
+obj_opt/io.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+obj_opt/io.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/io.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+obj_opt/io.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/io.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/io.o: /usr/include/bits/mathcalls.h cacti_interface.h area.h
+obj_opt/io.o: basic_circuit.h parameter.h Ucache.h router.h
+obj_opt/io.o: /usr/include/assert.h component.h mat.h decoder.h wire.h
+obj_opt/io.o: subarray.h crossbar.h arbiter.h nuca.h
+obj_opt/technology.o: basic_circuit.h const.h /usr/include/stdint.h
+obj_opt/technology.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/technology.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/technology.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/technology.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/technology.o: /usr/include/bits/waitflags.h
+obj_opt/technology.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/technology.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/technology.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/technology.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/technology.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/technology.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/technology.o: /usr/include/sys/sysmacros.h
+obj_opt/technology.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/technology.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/technology.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/technology.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/technology.o: /usr/include/bits/stdio_lim.h
+obj_opt/technology.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/technology.o: /usr/include/bits/huge_val.h
+obj_opt/technology.o: /usr/include/bits/huge_valf.h
+obj_opt/technology.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/technology.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/technology.o: /usr/include/bits/mathcalls.h cacti_interface.h
+obj_opt/technology.o: parameter.h area.h io.h
+obj_opt/basic_circuit.o: basic_circuit.h const.h /usr/include/stdint.h
+obj_opt/basic_circuit.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/basic_circuit.o: /usr/include/sys/cdefs.h
+obj_opt/basic_circuit.o: /usr/include/bits/wordsize.h
+obj_opt/basic_circuit.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/basic_circuit.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/basic_circuit.o: /usr/include/bits/waitflags.h
+obj_opt/basic_circuit.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/basic_circuit.o: /usr/include/bits/endian.h
+obj_opt/basic_circuit.o: /usr/include/bits/byteswap.h
+obj_opt/basic_circuit.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/basic_circuit.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/basic_circuit.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/basic_circuit.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/basic_circuit.o: /usr/include/sys/sysmacros.h
+obj_opt/basic_circuit.o: /usr/include/bits/pthreadtypes.h
+obj_opt/basic_circuit.o: /usr/include/alloca.h /usr/include/string.h
+obj_opt/basic_circuit.o: /usr/include/xlocale.h /usr/include/stdio.h
+obj_opt/basic_circuit.o: /usr/include/libio.h /usr/include/_G_config.h
+obj_opt/basic_circuit.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+obj_opt/basic_circuit.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/basic_circuit.o: /usr/include/bits/huge_val.h
+obj_opt/basic_circuit.o: /usr/include/bits/huge_valf.h
+obj_opt/basic_circuit.o: /usr/include/bits/huge_vall.h
+obj_opt/basic_circuit.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+obj_opt/basic_circuit.o: /usr/include/bits/mathdef.h
+obj_opt/basic_circuit.o: /usr/include/bits/mathcalls.h cacti_interface.h
+obj_opt/basic_circuit.o: parameter.h area.h io.h /usr/include/assert.h
+obj_opt/parameter.o: parameter.h area.h cacti_interface.h const.h
+obj_opt/parameter.o: /usr/include/stdint.h /usr/include/features.h
+obj_opt/parameter.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/parameter.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/parameter.o: /usr/include/gnu/stubs-64.h /usr/include/bits/wchar.h
+obj_opt/parameter.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/parameter.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/parameter.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/parameter.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/parameter.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/parameter.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/parameter.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/parameter.o: /usr/include/sys/sysmacros.h
+obj_opt/parameter.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/parameter.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/parameter.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/parameter.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/parameter.o: /usr/include/bits/stdio_lim.h
+obj_opt/parameter.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/parameter.o: /usr/include/bits/huge_val.h
+obj_opt/parameter.o: /usr/include/bits/huge_valf.h
+obj_opt/parameter.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/parameter.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/parameter.o: /usr/include/bits/mathcalls.h basic_circuit.h io.h
+obj_opt/decoder.o: area.h cacti_interface.h const.h /usr/include/stdint.h
+obj_opt/decoder.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/decoder.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/decoder.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/decoder.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/decoder.o: /usr/include/bits/waitflags.h
+obj_opt/decoder.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/decoder.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/decoder.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/decoder.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/decoder.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/decoder.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/decoder.o: /usr/include/sys/sysmacros.h
+obj_opt/decoder.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/decoder.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/decoder.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/decoder.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/decoder.o: /usr/include/bits/stdio_lim.h
+obj_opt/decoder.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/decoder.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+obj_opt/decoder.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/decoder.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/decoder.o: /usr/include/bits/mathcalls.h basic_circuit.h decoder.h
+obj_opt/decoder.o: component.h parameter.h io.h /usr/include/assert.h
+obj_opt/component.o: /usr/include/assert.h /usr/include/features.h
+obj_opt/component.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/component.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/component.o: /usr/include/gnu/stubs-64.h /usr/include/math.h
+obj_opt/component.o: /usr/include/bits/huge_val.h
+obj_opt/component.o: /usr/include/bits/huge_valf.h
+obj_opt/component.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/component.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/component.o: /usr/include/bits/mathcalls.h bank.h component.h
+obj_opt/component.o: parameter.h area.h cacti_interface.h const.h
+obj_opt/component.o: /usr/include/stdint.h /usr/include/bits/wchar.h
+obj_opt/component.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/component.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/component.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/component.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/component.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/component.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/component.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/component.o: /usr/include/sys/sysmacros.h
+obj_opt/component.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/component.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/component.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/component.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/component.o: /usr/include/bits/stdio_lim.h
+obj_opt/component.o: /usr/include/bits/sys_errlist.h basic_circuit.h io.h
+obj_opt/component.o: decoder.h mat.h wire.h subarray.h htree2.h
+obj_opt/uca.o: /usr/include/math.h /usr/include/features.h
+obj_opt/uca.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/uca.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/uca.o: /usr/include/gnu/stubs-64.h /usr/include/bits/huge_val.h
+obj_opt/uca.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+obj_opt/uca.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+obj_opt/uca.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+obj_opt/uca.o: uca.h area.h cacti_interface.h const.h /usr/include/stdint.h
+obj_opt/uca.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/uca.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+obj_opt/uca.o: /usr/include/endian.h /usr/include/bits/endian.h
+obj_opt/uca.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+obj_opt/uca.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+obj_opt/uca.o: /usr/include/time.h /usr/include/sys/select.h
+obj_opt/uca.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+obj_opt/uca.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+obj_opt/uca.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/uca.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/uca.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/uca.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/uca.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+obj_opt/uca.o: basic_circuit.h bank.h component.h parameter.h io.h decoder.h
+obj_opt/uca.o: mat.h wire.h /usr/include/assert.h subarray.h htree2.h
+obj_opt/subarray.o: /usr/include/math.h /usr/include/features.h
+obj_opt/subarray.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/subarray.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/subarray.o: /usr/include/gnu/stubs-64.h /usr/include/bits/huge_val.h
+obj_opt/subarray.o: /usr/include/bits/huge_valf.h
+obj_opt/subarray.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/subarray.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/subarray.o: /usr/include/bits/mathcalls.h /usr/include/assert.h
+obj_opt/subarray.o: subarray.h area.h cacti_interface.h const.h
+obj_opt/subarray.o: /usr/include/stdint.h /usr/include/bits/wchar.h
+obj_opt/subarray.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/subarray.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/subarray.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/subarray.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/subarray.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/subarray.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/subarray.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/subarray.o: /usr/include/sys/sysmacros.h
+obj_opt/subarray.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/subarray.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/subarray.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/subarray.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/subarray.o: /usr/include/bits/stdio_lim.h
+obj_opt/subarray.o: /usr/include/bits/sys_errlist.h basic_circuit.h
+obj_opt/subarray.o: component.h parameter.h io.h
+obj_opt/wire.o: wire.h basic_circuit.h const.h /usr/include/stdint.h
+obj_opt/wire.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/wire.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/wire.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/wire.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/wire.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+obj_opt/wire.o: /usr/include/endian.h /usr/include/bits/endian.h
+obj_opt/wire.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+obj_opt/wire.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+obj_opt/wire.o: /usr/include/time.h /usr/include/sys/select.h
+obj_opt/wire.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+obj_opt/wire.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+obj_opt/wire.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/wire.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/wire.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/wire.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/wire.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+obj_opt/wire.o: /usr/include/math.h /usr/include/bits/huge_val.h
+obj_opt/wire.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+obj_opt/wire.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+obj_opt/wire.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+obj_opt/wire.o: cacti_interface.h component.h parameter.h area.h io.h
+obj_opt/wire.o: /usr/include/assert.h
+obj_opt/htree2.o: htree2.h basic_circuit.h const.h /usr/include/stdint.h
+obj_opt/htree2.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/htree2.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/htree2.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/htree2.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/htree2.o: /usr/include/bits/waitflags.h
+obj_opt/htree2.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/htree2.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/htree2.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/htree2.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/htree2.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/htree2.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/htree2.o: /usr/include/sys/sysmacros.h
+obj_opt/htree2.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/htree2.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/htree2.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/htree2.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/htree2.o: /usr/include/bits/stdio_lim.h
+obj_opt/htree2.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/htree2.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+obj_opt/htree2.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/htree2.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/htree2.o: /usr/include/bits/mathcalls.h cacti_interface.h component.h
+obj_opt/htree2.o: parameter.h area.h io.h /usr/include/assert.h subarray.h
+obj_opt/htree2.o: wire.h
+obj_opt/cacti_interface.o: /usr/include/time.h /usr/include/bits/types.h
+obj_opt/cacti_interface.o: /usr/include/features.h
+obj_opt/cacti_interface.o: /usr/include/bits/predefs.h
+obj_opt/cacti_interface.o: /usr/include/sys/cdefs.h
+obj_opt/cacti_interface.o: /usr/include/bits/wordsize.h
+obj_opt/cacti_interface.o: /usr/include/gnu/stubs.h
+obj_opt/cacti_interface.o: /usr/include/gnu/stubs-64.h
+obj_opt/cacti_interface.o: /usr/include/bits/typesizes.h /usr/include/math.h
+obj_opt/cacti_interface.o: /usr/include/bits/huge_val.h
+obj_opt/cacti_interface.o: /usr/include/bits/huge_valf.h
+obj_opt/cacti_interface.o: /usr/include/bits/huge_vall.h
+obj_opt/cacti_interface.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+obj_opt/cacti_interface.o: /usr/include/bits/mathdef.h
+obj_opt/cacti_interface.o: /usr/include/bits/mathcalls.h area.h
+obj_opt/cacti_interface.o: cacti_interface.h const.h /usr/include/stdint.h
+obj_opt/cacti_interface.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/cacti_interface.o: /usr/include/bits/waitflags.h
+obj_opt/cacti_interface.o: /usr/include/bits/waitstatus.h
+obj_opt/cacti_interface.o: /usr/include/endian.h /usr/include/bits/endian.h
+obj_opt/cacti_interface.o: /usr/include/bits/byteswap.h
+obj_opt/cacti_interface.o: /usr/include/sys/types.h /usr/include/sys/select.h
+obj_opt/cacti_interface.o: /usr/include/bits/select.h
+obj_opt/cacti_interface.o: /usr/include/bits/sigset.h
+obj_opt/cacti_interface.o: /usr/include/bits/time.h
+obj_opt/cacti_interface.o: /usr/include/sys/sysmacros.h
+obj_opt/cacti_interface.o: /usr/include/bits/pthreadtypes.h
+obj_opt/cacti_interface.o: /usr/include/alloca.h /usr/include/string.h
+obj_opt/cacti_interface.o: /usr/include/xlocale.h /usr/include/stdio.h
+obj_opt/cacti_interface.o: /usr/include/libio.h /usr/include/_G_config.h
+obj_opt/cacti_interface.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+obj_opt/cacti_interface.o: /usr/include/bits/sys_errlist.h basic_circuit.h
+obj_opt/cacti_interface.o: component.h parameter.h io.h Ucache.h router.h
+obj_opt/cacti_interface.o: /usr/include/assert.h mat.h decoder.h wire.h
+obj_opt/cacti_interface.o: subarray.h crossbar.h arbiter.h nuca.h
+obj_opt/cacti_interface.o: /usr/include/pthread.h /usr/include/sched.h
+obj_opt/cacti_interface.o: /usr/include/bits/sched.h
+obj_opt/cacti_interface.o: /usr/include/bits/setjmp.h
+obj_opt/router.o: router.h /usr/include/assert.h /usr/include/features.h
+obj_opt/router.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/router.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/router.o: /usr/include/gnu/stubs-64.h basic_circuit.h const.h
+obj_opt/router.o: /usr/include/stdint.h /usr/include/bits/wchar.h
+obj_opt/router.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/router.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/router.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/router.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/router.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/router.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/router.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/router.o: /usr/include/sys/sysmacros.h
+obj_opt/router.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/router.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/router.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/router.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/router.o: /usr/include/bits/stdio_lim.h
+obj_opt/router.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/router.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+obj_opt/router.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/router.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/router.o: /usr/include/bits/mathcalls.h cacti_interface.h component.h
+obj_opt/router.o: parameter.h area.h io.h mat.h decoder.h wire.h subarray.h
+obj_opt/router.o: crossbar.h arbiter.h
+obj_opt/nuca.o: nuca.h basic_circuit.h const.h /usr/include/stdint.h
+obj_opt/nuca.o: /usr/include/features.h /usr/include/bits/predefs.h
+obj_opt/nuca.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+obj_opt/nuca.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+obj_opt/nuca.o: /usr/include/bits/wchar.h /usr/include/stdlib.h
+obj_opt/nuca.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+obj_opt/nuca.o: /usr/include/endian.h /usr/include/bits/endian.h
+obj_opt/nuca.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+obj_opt/nuca.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+obj_opt/nuca.o: /usr/include/time.h /usr/include/sys/select.h
+obj_opt/nuca.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+obj_opt/nuca.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+obj_opt/nuca.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/nuca.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/nuca.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/nuca.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/nuca.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+obj_opt/nuca.o: /usr/include/math.h /usr/include/bits/huge_val.h
+obj_opt/nuca.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+obj_opt/nuca.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+obj_opt/nuca.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+obj_opt/nuca.o: cacti_interface.h component.h parameter.h area.h io.h
+obj_opt/nuca.o: /usr/include/assert.h wire.h mat.h decoder.h subarray.h
+obj_opt/nuca.o: router.h crossbar.h arbiter.h Ucache.h
+obj_opt/crossbar.o: crossbar.h /usr/include/assert.h /usr/include/features.h
+obj_opt/crossbar.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/crossbar.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/crossbar.o: /usr/include/gnu/stubs-64.h basic_circuit.h const.h
+obj_opt/crossbar.o: /usr/include/stdint.h /usr/include/bits/wchar.h
+obj_opt/crossbar.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/crossbar.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/crossbar.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/crossbar.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/crossbar.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/crossbar.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/crossbar.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/crossbar.o: /usr/include/sys/sysmacros.h
+obj_opt/crossbar.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/crossbar.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/crossbar.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/crossbar.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/crossbar.o: /usr/include/bits/stdio_lim.h
+obj_opt/crossbar.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/crossbar.o: /usr/include/bits/huge_val.h
+obj_opt/crossbar.o: /usr/include/bits/huge_valf.h
+obj_opt/crossbar.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/crossbar.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/crossbar.o: /usr/include/bits/mathcalls.h cacti_interface.h
+obj_opt/crossbar.o: component.h parameter.h area.h io.h mat.h decoder.h
+obj_opt/crossbar.o: wire.h subarray.h
+obj_opt/arbiter.o: arbiter.h /usr/include/assert.h /usr/include/features.h
+obj_opt/arbiter.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
+obj_opt/arbiter.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+obj_opt/arbiter.o: /usr/include/gnu/stubs-64.h basic_circuit.h const.h
+obj_opt/arbiter.o: /usr/include/stdint.h /usr/include/bits/wchar.h
+obj_opt/arbiter.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+obj_opt/arbiter.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+obj_opt/arbiter.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+obj_opt/arbiter.o: /usr/include/sys/types.h /usr/include/bits/types.h
+obj_opt/arbiter.o: /usr/include/bits/typesizes.h /usr/include/time.h
+obj_opt/arbiter.o: /usr/include/sys/select.h /usr/include/bits/select.h
+obj_opt/arbiter.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+obj_opt/arbiter.o: /usr/include/sys/sysmacros.h
+obj_opt/arbiter.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+obj_opt/arbiter.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/arbiter.o: /usr/include/stdio.h /usr/include/libio.h
+obj_opt/arbiter.o: /usr/include/_G_config.h /usr/include/wchar.h
+obj_opt/arbiter.o: /usr/include/bits/stdio_lim.h
+obj_opt/arbiter.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+obj_opt/arbiter.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+obj_opt/arbiter.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+obj_opt/arbiter.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+obj_opt/arbiter.o: /usr/include/bits/mathcalls.h cacti_interface.h
+obj_opt/arbiter.o: component.h parameter.h area.h io.h mat.h decoder.h wire.h
+obj_opt/arbiter.o: subarray.h
