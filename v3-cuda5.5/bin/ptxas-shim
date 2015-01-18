@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$DISABLE_SHIM" == "0" ] || [ -z "$DISABLE_SHIM" ]; then
+    $CUDA_INSTALL_PATH/bin/ptxas "$@" 2>&1 | sed '/gmem/d' > /dev/stderr
+else
+    $CUDA_INSTALL_PATH/bin/ptxas "$@"
+fi;
