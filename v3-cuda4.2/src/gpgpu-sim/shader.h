@@ -211,6 +211,10 @@ public:
     unsigned get_dynamic_warp_id() const { return m_dynamic_warp_id; }
     unsigned get_warp_id() const { return m_warp_id; }
 
+    //Irregular_Study
+    inline unsigned get_tsid() const;
+    //end
+
 private:
     static const unsigned IBUFFER_SIZE=2;
     class shader_core_ctx *m_shader;
@@ -278,6 +282,7 @@ enum concrete_scheduler
     CONCRETE_SCHEDULER_TWO_LEVEL_ACTIVE,
     //Irregular_Study
     CONCRETE_SCHEDULER_CRI_ORACLE_INSTCOMMIT,
+    //end
     NUM_CONCRETE_SCHEDULERS
 };
 
@@ -323,6 +328,9 @@ public:
         // No greedy scheduling based on last to issue. Only the priority function determines
         // priority
         ORDERED_PRIORITY_FUNC_ONLY,
+        //Irregular_Study
+        ORDERED_PRIORITY_INST_COMMIT,
+        //end
         NUM_ORDERING,
     };
     template < typename U >
@@ -333,6 +341,9 @@ public:
                             OrderingType age_ordering,
                             bool (*priority_func)(U lhs, U rhs) );
     static bool sort_warps_by_oldest_dynamic_id(shd_warp_t* lhs, shd_warp_t* rhs);
+    //Irregular_Study
+    static bool sort_warps_by_inst_commit(shd_warp_t* lhs, shd_warp_t* rhs);
+    //end
 
     // Derived classes can override this function to populate
     // m_supervised_warps with their scheduling policies
@@ -451,6 +462,24 @@ private:
 };
 
 
+//Irregular_Study
+class oracle_instcommit_scheduler : public scheduler_unit {
+public:
+	oracle_instcommit_scheduler ( shader_core_stats* stats, shader_core_ctx* shader,
+                                      Scoreboard* scoreboard, simt_stack** simt,
+                                      std::vector<shd_warp_t>* warp,
+                                      register_set* sp_out,
+                                      register_set* sfu_out,
+                                      register_set* mem_out,
+                                      int id )
+	: scheduler_unit ( stats, shader, scoreboard, simt, warp, sp_out, sfu_out, mem_out, id ){}
+	virtual ~oracle_instcommit_scheduler () {}
+	virtual void order_warps ();
+        virtual void done_adding_supervised_warps() {
+            m_last_supervised_issued = m_supervised_warps.end();
+        }
+};
+//end
 
 class opndcoll_rfu_t { // operand collector based register file unit
 public:
@@ -1914,5 +1943,9 @@ private:
 
 
 inline int scheduler_unit::get_sid() const { return m_shader->get_sid(); }
+
+//Irregular_Study
+inline unsigned shd_warp_t::get_tsid() const{ return m_shader->get_sid(); }
+//end
 
 #endif /* SHADER_H */

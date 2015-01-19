@@ -52,6 +52,7 @@
 
 //Irregular_Study
 #include "irregular.h"
+//end
 
 
 //#define DETAILED
@@ -138,6 +139,10 @@ shader_core_ctx::shader_core_ctx( class gpgpu_sim *gpu,
                                          CONCRETE_SCHEDULER_TWO_LEVEL_ACTIVE :
                                          sched_config.find("gto") != std::string::npos ?
                                          CONCRETE_SCHEDULER_GTO :
+                                         //Irregular_Study
+                                         sched_config.find("oracle_instcommit") != std::string::npos ?
+                                         CONCRETE_SCHEDULER_CRI_ORACLE_INSTCOMMIT :
+                                         //end
                                          NUM_CONCRETE_SCHEDULERS;
     assert ( scheduler != NUM_CONCRETE_SCHEDULERS );
     
@@ -187,6 +192,22 @@ shader_core_ctx::shader_core_ctx( class gpgpu_sim *gpu,
                                      )
                 );
                 break;
+            //Irregular_Study
+            case CONCRETE_SCHEDULER_CRI_ORACLE_INSTCOMMIT:
+                schedulers.push_back(
+                    new oracle_instcommit_scheduler( m_stats,
+                                                     this,
+                                                     m_scoreboard,
+                                                     m_simt_stack,
+                                                     &m_warp,
+                                                     &m_pipeline_reg[ID_OC_SP],
+                                                     &m_pipeline_reg[ID_OC_SFU],
+                                                     &m_pipeline_reg[ID_OC_MEM],
+                                                     i
+                                                   )
+                );
+                break;
+            //end
             default:
                 abort();
         };
@@ -646,6 +667,7 @@ void shader_core_ctx::fetch()
                     assert(instcommit_dyn_warp_id[get_sid()][warp_id] == tdynwid);
                     instcommit_dyn_warp_id[get_sid()][warp_id] = -1;
                     warp_committed_inst[get_sid()][warp_id] = 0;
+                    //end
 		}
             }
 
@@ -822,6 +844,14 @@ void scheduler_unit::order_by_priority( std::vector< T >& result_list,
         for ( unsigned count = 0; count < num_warps_to_add; ++count, ++iter ) {
             result_list.push_back( *iter );
         }
+//Irregular_Study      
+    } else if ( ORDERED_PRIORITY_INST_COMMIT == ordering ) {
+        std::sort( temp.begin(), temp.end(), priority_func );
+        typename std::vector< T >::iterator iter = temp.begin();
+        for ( unsigned count = 0; count < num_warps_to_add; ++count, ++iter ) {
+            result_list.push_back( *iter );
+        }
+//end
     } else {
         fprintf( stderr, "Unknown ordering - %d\n", ordering );
         abort();
@@ -959,6 +989,7 @@ void scheduler_unit::cycle()
       printf("Core %d stall_at_cycle %lld Active_warp %u\n", this->get_sid(),gpu_tot_sim_cycle+gpu_sim_cycle, warpcounter);
     }
 #endif
+    //end
 }
 
 void scheduler_unit::do_on_warp_issued( unsigned warp_id,
@@ -981,6 +1012,28 @@ bool scheduler_unit::sort_warps_by_oldest_dynamic_id(shd_warp_t* lhs, shd_warp_t
     }
 }
 
+//Irregular_Study
+bool scheduler_unit::sort_warps_by_inst_commit(shd_warp_t* lhs, shd_warp_t* rhs)
+{
+    unsigned tsid = lhs->get_tsid(); 
+    unsigned ltdid = lhs->get_dynamic_warp_id();
+    unsigned ltwid = lhs->get_warp_id();
+    unsigned rtdid = rhs->get_dynamic_warp_id();
+    unsigned rtwid = rhs->get_warp_id();
+    assert(ltwid <= INSTCOMMIT_MAX_WARP && rtwid <= INSTCOMMIT_MAX_WARP);
+    if(instcommit_dyn_warp_id[tsid][ltwid] != ltdid && 
+       instcommit_dyn_warp_id[tsid][ltwid] != -1    &&
+       instcommit_dyn_warp_id[tsid][rtwid] != rtdid && 
+       instcommit_dyn_warp_id[tsid][rtwid] != -1 ){ 
+//        printf("Cycle: %lld, Core: %d, d_id:%u, w_id:%u, stored_id:%u\n",gpu_tot_sim_cycle+gpu_sim_cycle, tsid, tdynwid,twid,instcommit_dyn_warp_id[tsid][twid]);
+        assert(0);
+    }
+    unsigned linstcommit = warp_committed_inst[tsid][ltwid];
+    unsigned rinstcommit = warp_committed_inst[tsid][rtwid];
+    return (linstcommit < rinstcommit); 
+}
+//end
+
 void lrr_scheduler::order_warps()
 {
     order_lrr( m_next_cycle_prioritized_warps,
@@ -998,6 +1051,18 @@ void gto_scheduler::order_warps()
                        ORDERING_GREEDY_THEN_PRIORITY_FUNC,
                        scheduler_unit::sort_warps_by_oldest_dynamic_id );
 }
+
+//Irregular_Study
+void oracle_instcommit_scheduler::order_warps()
+{
+    order_by_priority( m_next_cycle_prioritized_warps,
+                       m_supervised_warps,
+                       m_last_supervised_issued,
+                       m_supervised_warps.size(),
+                       ORDERED_PRIORITY_INST_COMMIT,
+                       scheduler_unit::sort_warps_by_inst_commit );
+}
+//end
 
 void
 two_level_active_scheduler::do_on_warp_issued( unsigned warp_id,
