@@ -50,9 +50,6 @@
 #define PRIORITIZE_MSHR_OVER_WB 1
 #define MAX(a,b) (((a)>(b))?(a):(b))
 
-//Qi Zheng -- VCA Study
-#include "reg_study.h"
-
 //Irregular_Study
 #include "irregular.h"
 
@@ -643,11 +640,12 @@ void shader_core_ctx::fetch()
                 }
                 if( did_exit ){ 
                     m_warp[warp_id].set_done_exit();
-//Qi Zheng -- VCA study
-/*
-printf("VCA -- Warpexit: %u %u\n",
-	warp_id, m_warp[warp_id].get_dynamic_warp_id());
-*/
+                    //Irregular_Study
+                    unsigned tdynwid = m_warp[warp_id].get_dynamic_warp_id();
+                    assert(warp_id <= INSTCOMMIT_MAX_WARP);
+                    assert(instcommit_dyn_warp_id[get_sid()][warp_id] == tdynwid);
+                    instcommit_dyn_warp_id[get_sid()][warp_id] = -1;
+                    warp_committed_inst[get_sid()][warp_id] = 0;
 		}
             }
 
@@ -1024,14 +1022,6 @@ two_level_active_scheduler::do_on_warp_issued( unsigned warp_id,
 
 void two_level_active_scheduler::order_warps()
 {
-//Qi Zheng -- VCA study
-/*
-printf("  In the order_warps: there are %d active warps -- ",m_next_cycle_prioritized_warps.size());
-for(int i=0;i<m_next_cycle_prioritized_warps.size();i++){
-	printf("%d ", m_next_cycle_prioritized_warps.at(i)->get_warp_id());
-}
-printf("\n");
-*/
     //Move waiting warps to m_pending_warps
     unsigned num_demoted = 0;
     for (std::vector< shd_warp_t* >::iterator iter = m_next_cycle_prioritized_warps.begin();
@@ -1046,15 +1036,6 @@ printf("\n");
 	}
 
 	if( waiting ) {
-//Qi Zheng -- VCA study
-	    if( (*iter)->get_warp_id() != -1 ){
-/*
-	        printf("DEMOTED warp_id= %d dynamic_warp_id= %d\n",
-	                 (*iter)->get_warp_id(),
-	                 (*iter)->get_dynamic_warp_id());
-*/
-	    }
-
 	    m_pending_warps.push_back(*iter);
 	    iter = m_next_cycle_prioritized_warps.erase(iter);
             SCHED_DPRINTF( "DEMOTED warp_id=%d, dynamic_warp_id=%d\n",
@@ -1080,15 +1061,6 @@ printf("\n");
             SCHED_DPRINTF( "PROMOTED warp_id=%d, dynamic_warp_id=%d\n",
                            (m_next_cycle_prioritized_warps.back())->get_warp_id(),
                            (m_next_cycle_prioritized_warps.back())->get_dynamic_warp_id() );
-//Qi Zheng -- VCA study
-/*
-            if( (m_next_cycle_prioritized_warps.back())->get_warp_id() != -1 ){
-                printf("PROMOTED warp_id= %d dynamic_warp_id= %d\n",
-                               (m_next_cycle_prioritized_warps.back())->get_warp_id(),
-                               (m_next_cycle_prioritized_warps.back())->get_dynamic_warp_id() );
-
-            }
-*/
             ++num_promoted;
     	}
     } else {
@@ -1266,10 +1238,6 @@ void ldst_unit::set_icnt_power_stats(unsigned &simt_to_mem) const{
 
 void shader_core_ctx::warp_inst_complete(const warp_inst_t &inst)
 {
-   #if 0
-      printf("[warp_inst_complete] uid=%u core=%u warp=%u pc=%#x @ time=%llu issued@%llu\n", 
-             inst.get_uid(), m_sid, inst.warp_id(), inst.pc, gpu_tot_sim_cycle + gpu_sim_cycle, inst.get_issue_cycle()); 
-   #endif
   if(inst.op4==SP__OP)
 	  m_stats->m_num_sp_committed[m_sid]++;
   else if(inst.op4==SFU__OP)
@@ -1285,6 +1253,20 @@ void shader_core_ctx::warp_inst_complete(const warp_inst_t &inst)
   m_stats->m_num_sim_winsn[m_sid]++;
   m_gpu->gpu_sim_insn += inst.active_count();
   inst.completed(gpu_tot_sim_cycle + gpu_sim_cycle);
+
+  //Irregular_Study
+  unsigned tdynwid = inst.dynamic_warp_id();
+  unsigned twid = inst.warp_id();
+  assert(twid <= INSTCOMMIT_MAX_WARP);
+  if(instcommit_dyn_warp_id[get_sid()][twid] != tdynwid && instcommit_dyn_warp_id[get_sid()][twid] != -1){
+    printf("Cycle: %lld, Core: %d, d_id:%u, w_id:%u, stored_id:%u\n",gpu_tot_sim_cycle+gpu_sim_cycle, get_sid(), tdynwid,twid,instcommit_dyn_warp_id[get_sid()][twid]);
+    assert(0);
+  }
+  if(instcommit_dyn_warp_id[get_sid()][twid] == -1) {
+    instcommit_dyn_warp_id[get_sid()][twid] = tdynwid;
+  }
+  warp_committed_inst[get_sid()][twid] += inst.active_count();
+  //end
 }
 
 void shader_core_ctx::writeback()
@@ -3032,7 +3014,6 @@ bool opndcoll_rfu_t::collector_unit_t::allocate( register_set* pipeline_reg_set,
    m_output_register = output_reg_set;
    warp_inst_t **pipeline_reg = pipeline_reg_set->get_ready();
    if( (pipeline_reg) and !((*pipeline_reg)->empty()) ) {
-//Qi Zheng -- VCA study
        //collect the num of global loads
        if((*pipeline_reg)->space.get_type() == global_space){
            if(!((*pipeline_reg)->is_store())){
@@ -3043,164 +3024,6 @@ bool opndcoll_rfu_t::collector_unit_t::allocate( register_set* pipeline_reg_set,
    	       }    
            }
        }
-#ifdef RF_TRACE
-//   printf("/*========================*/\n");
-   bool AnyRegFlag = false;
-   for(int op=0;op<MAX_REG_OPERANDS;op++){
-       if((*pipeline_reg)->arch_reg.src[op] >=0 || (*pipeline_reg)->arch_reg.dst[op] >=0 ) {
-           AnyRegFlag = true;
-	   break;
-       }
-   }
-   if(AnyRegFlag){
-	bool tempflag = false;
-   	//printf("RF_DETAILED -- Cur_cycle: %d\n",gpu_sim_cycle);
-   	printf("shader_id: %d w_id: %d dynaw_id: %d", m_sid,(*pipeline_reg)->warp_id(), (*pipeline_reg)->dynamic_warp_id());
-   	//(*pipeline_reg)->print_insn(stdout);
-   	printf(" src: ");
-   	for(int op=0;op<MAX_REG_OPERANDS;op++){
-       		if((*pipeline_reg)->arch_reg.src[op] >=0){
-       	    		printf("%d,", (*pipeline_reg)->arch_reg.src[op] );
-			tempflag = true;
-       		}
-   	} 
-	if(tempflag == false) printf("n/a");
-	tempflag = false;
-   	printf(" dst: ");
-   	for(int op=0;op<MAX_REG_OPERANDS;op++){
-        	if((*pipeline_reg)->arch_reg.dst[op] >=0){
-           		printf("%d,", (*pipeline_reg)->arch_reg.dst[op] );
-			tempflag = true;
-       		}
-   	} 
-	if(tempflag == false) printf("n/a");
-   	printf("\n");
-   }
-//   printf("/*========================*/\n");
-#endif
-#ifdef RF_STUDY
-    //find the position of a warp in the vector
-    unsigned dw_id = (*pipeline_reg)->dynamic_warp_id(); 
-    std::map< unsigned, unsigned >::iterator warp_it = warp_idx[m_sid].find(dw_id); 
-    unsigned warp_pos;
-    if(warp_it == warp_idx[m_sid].end()){
-        warp_idx[m_sid][dw_id] = vector_size[m_sid];
-        warp_pos = vector_size[m_sid];
-        vector_size[m_sid]++;
-        assert(reg_tot_dist[m_sid].size() == (vector_size[m_sid]-1));
-        for(int op=0;op<MAX_REG_OPERANDS;op++){
-            int reg_id = (*pipeline_reg)->arch_reg.src[op];
-            if(reg_id >=0){
-                if(reg_tot_dist[m_sid].size() == (vector_size[m_sid]-1)){
-                    assert(reg_acc_count[m_sid].size() == (vector_size[m_sid]-1));
-                    assert(reg_last_acc[m_sid].size() == (vector_size[m_sid]-1));
-                    map<unsigned, unsigned long long> temppair;
-                    temppair[reg_id] = 0;
-                    reg_tot_dist[m_sid].push_back(temppair);
-                    temppair[reg_id] = 1;
-                    reg_acc_count[m_sid].push_back(temppair);
-                    temppair[reg_id] = gpu_sim_cycle;
-                    reg_last_acc[m_sid].push_back(temppair);
-                }else if(reg_tot_dist[m_sid].size() == vector_size[m_sid]){
-                    assert(reg_acc_count[m_sid].size() == vector_size[m_sid]);
-                    assert(reg_last_acc[m_sid].size() == vector_size[m_sid]);
-                    if(reg_tot_dist[m_sid][warp_pos].find(reg_id) == reg_tot_dist[m_sid][warp_pos].end()){
-                        assert(reg_acc_count[m_sid][warp_pos].find(reg_id) == reg_acc_count[m_sid][warp_pos].end());
-                        assert(reg_last_acc[m_sid][warp_pos].find(reg_id) == reg_last_acc[m_sid][warp_pos].end());
-                        (reg_tot_dist[m_sid][warp_pos])[reg_id] = 0; 
-                        (reg_acc_count[m_sid][warp_pos])[reg_id] = 1;
-                        (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                    }else{
-                        assert(reg_acc_count[m_sid][warp_pos].find(reg_id) != reg_acc_count[m_sid][warp_pos].end());
-                        assert(reg_last_acc[m_sid][warp_pos].find(reg_id) != reg_last_acc[m_sid][warp_pos].end());
-                        unsigned long long olddist = reg_tot_dist[m_sid][warp_pos].find(reg_id)->second;
-                        (reg_tot_dist[m_sid][warp_pos])[reg_id] = olddist + gpu_sim_cycle - (reg_last_acc[m_sid][warp_pos])[reg_id];
-                        (reg_acc_count[m_sid][warp_pos])[reg_id]++;
-                        (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                    }
-                }else{
-                    assert(0);
-                }
-            }
-        }
-        for(int op=0;op<MAX_REG_OPERANDS;op++){
-            int reg_id = (*pipeline_reg)->arch_reg.dst[op];
-            if(reg_id >=0){
-                if(reg_tot_dist[m_sid].size() == (vector_size[m_sid]-1)){
-                    assert(reg_acc_count[m_sid].size() == (vector_size[m_sid]-1));
-                    assert(reg_last_acc[m_sid].size() == (vector_size[m_sid]-1));
-                    map<unsigned, unsigned long long> temppair;
-                    temppair[reg_id] = 0;
-                    reg_tot_dist[m_sid].push_back(temppair);
-                    temppair[reg_id] = 1;
-                    reg_acc_count[m_sid].push_back(temppair);
-                    temppair[reg_id] = gpu_sim_cycle;
-                    reg_last_acc[m_sid].push_back(temppair);
-                }else if(reg_tot_dist[m_sid].size() == vector_size[m_sid]){
-                    assert(reg_acc_count[m_sid].size() == vector_size[m_sid]);
-                    assert(reg_last_acc[m_sid].size() == vector_size[m_sid]);
-                    if(reg_tot_dist[m_sid][warp_pos].find(reg_id) == reg_tot_dist[m_sid][warp_pos].end()){
-                        assert(reg_acc_count[m_sid][warp_pos].find(reg_id) == reg_acc_count[m_sid][warp_pos].end());
-                        assert(reg_last_acc[m_sid][warp_pos].find(reg_id) == reg_last_acc[m_sid][warp_pos].end());
-                        (reg_tot_dist[m_sid][warp_pos])[reg_id] = 0; 
-                        (reg_acc_count[m_sid][warp_pos])[reg_id] = 1;
-                        (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                    }else{
-                        assert(reg_acc_count[m_sid][warp_pos].find(reg_id) != reg_acc_count[m_sid][warp_pos].end());
-                        assert(reg_last_acc[m_sid][warp_pos].find(reg_id) != reg_last_acc[m_sid][warp_pos].end());
-                        unsigned long long olddist = reg_tot_dist[m_sid][warp_pos].find(reg_id)->second;
-                        (reg_tot_dist[m_sid][warp_pos])[reg_id] = olddist + gpu_sim_cycle - (reg_last_acc[m_sid][warp_pos])[reg_id];
-                        (reg_acc_count[m_sid][warp_pos])[reg_id]++;
-                        (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                    }
-                }else{
-                    assert(0);
-                }
-            }
-        }
-    } else {
-        warp_pos = warp_it->second;
-        //find the corresponding reg of this warp
-        for(int op=0;op<MAX_REG_OPERANDS;op++){
-            int reg_id = (*pipeline_reg)->arch_reg.src[op];
-            if(reg_id >=0){
-                if(reg_tot_dist[m_sid][warp_pos].find(reg_id) == reg_tot_dist[m_sid][warp_pos].end()){
-                    assert(reg_acc_count[m_sid][warp_pos].find(reg_id) == reg_acc_count[m_sid][warp_pos].end());
-                    assert(reg_last_acc[m_sid][warp_pos].find(reg_id) == reg_last_acc[m_sid][warp_pos].end());
-                    (reg_tot_dist[m_sid][warp_pos])[reg_id] = 0; 
-                    (reg_acc_count[m_sid][warp_pos])[reg_id] = 1;
-                    (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                }else{
-                    assert(reg_acc_count[m_sid][warp_pos].find(reg_id) != reg_acc_count[m_sid][warp_pos].end());
-                    assert(reg_last_acc[m_sid][warp_pos].find(reg_id) != reg_last_acc[m_sid][warp_pos].end());
-                    unsigned long long olddist = reg_tot_dist[m_sid][warp_pos].find(reg_id)->second;
-                    (reg_tot_dist[m_sid][warp_pos])[reg_id] = olddist + gpu_sim_cycle - (reg_last_acc[m_sid][warp_pos])[reg_id];
-                    (reg_acc_count[m_sid][warp_pos])[reg_id]++;
-                    (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                }
-            }
-        }
-        for(int op=0;op<MAX_REG_OPERANDS;op++){
-            int reg_id = (*pipeline_reg)->arch_reg.dst[op];
-            if(reg_id >=0){
-                if(reg_tot_dist[m_sid][warp_pos].find(reg_id) == reg_tot_dist[m_sid][warp_pos].end()){
-                    assert(reg_acc_count[m_sid][warp_pos].find(reg_id) == reg_acc_count[m_sid][warp_pos].end());
-                    assert(reg_last_acc[m_sid][warp_pos].find(reg_id) == reg_last_acc[m_sid][warp_pos].end());
-                    (reg_tot_dist[m_sid][warp_pos])[reg_id] = 0; 
-                    (reg_acc_count[m_sid][warp_pos])[reg_id] = 1;
-                    (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                }else{
-                    assert(reg_acc_count[m_sid][warp_pos].find(reg_id) != reg_acc_count[m_sid][warp_pos].end());
-                    assert(reg_last_acc[m_sid][warp_pos].find(reg_id) != reg_last_acc[m_sid][warp_pos].end());
-                    unsigned long long olddist = reg_tot_dist[m_sid][warp_pos].find(reg_id)->second;
-                    (reg_tot_dist[m_sid][warp_pos])[reg_id] = olddist + gpu_sim_cycle - (reg_last_acc[m_sid][warp_pos])[reg_id];
-                    (reg_acc_count[m_sid][warp_pos])[reg_id]++;
-                    (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                }
-            }
-        }
-     }
-#endif
       m_warp_id = (*pipeline_reg)->warp_id();
       for( unsigned op=0; op < MAX_REG_OPERANDS; op++ ) {
          int reg_num = (*pipeline_reg)->arch_reg.src[op]; // this math needs to match that used in function_info::ptx_decode_inst
