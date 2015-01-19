@@ -815,6 +815,7 @@ void scheduler_unit::order_lrr( std::vector< T >& result_list,
  *                           with the oldest warps having the most priority, then the priority_function
  *                           would compare the age of the two warps.
  */
+
 template < class T >
 void scheduler_unit::order_by_priority( std::vector< T >& result_list,
                                         const typename std::vector< T >& input_list,
@@ -1015,11 +1016,20 @@ bool scheduler_unit::sort_warps_by_oldest_dynamic_id(shd_warp_t* lhs, shd_warp_t
 //Irregular_Study
 bool scheduler_unit::sort_warps_by_inst_commit(shd_warp_t* lhs, shd_warp_t* rhs)
 {
+    if(!(rhs && lhs)){
+      return lhs < rhs;
+    }
+
     unsigned tsid = lhs->get_tsid(); 
     unsigned ltdid = lhs->get_dynamic_warp_id();
     unsigned ltwid = lhs->get_warp_id();
     unsigned rtdid = rhs->get_dynamic_warp_id();
     unsigned rtwid = rhs->get_warp_id();
+    if(ltwid > INSTCOMMIT_MAX_WARP || rtwid > INSTCOMMIT_MAX_WARP){
+      //printf("Core: %u, lwid: %u ldid: %u, rwid: %u rdid: %u\n", tsid, ltwid, ltdid, rtwid, rtdid);
+      //assert(0);
+      return ltdid < rtdid;
+    }
     assert(ltwid <= INSTCOMMIT_MAX_WARP && rtwid <= INSTCOMMIT_MAX_WARP);
     if(instcommit_dyn_warp_id[tsid][ltwid] != ltdid && 
        instcommit_dyn_warp_id[tsid][ltwid] != -1    &&
