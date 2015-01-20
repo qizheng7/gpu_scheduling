@@ -638,14 +638,32 @@ void shader_core_ctx::fetch()
                 }
                 if( did_exit ){ 
                     m_warp[warp_id].set_done_exit();
+///////////////////////////////////////////
 //Qi Zheng -- VCA study
-/*
 printf("VCA -- Warpexit: %u %u\n",
 	warp_id, m_warp[warp_id].get_dynamic_warp_id());
-*/
+///////////////////////////////////////////
+// caogao -- profile warp divergence
+/*  warp finishes, print out warp runtime in cycles */
+                    m_warp[warp_id].finish_cycle = gpu_sim_cycle; 
+                    int warp_runtime = m_warp[warp_id].start_cycle - m_warp[warp_id].finish_cycle;
+                    if (warp_runtime < 0)
+                      fprintf(fout, "error: runtime < 0",
+                    fprintf(fout, "warp_finish\twarp_id\t%ustart_cycle\t%u\tfinish_cycle\t%u\trun_time\t%i\n",
+                              warp_id, m_warp[warp_id].start_cycle, m_warp[warp_id].finish_cycle, warp_runtime);
 		}
+///////////////////////////////////////////
             }
-
+///////////////////////////////////////////
+// caogao -- profile warp divergence
+/*  check if this is a new warp */
+            if (!m_warp[warp_id].started) {
+              m_warp[warp_id].start_cycle = gpu_sim_cycle;
+              m_warp[warp_id].started = true;
+              m_warp[warp_id].inst_committed = 0;
+              fprintf(fout, "warp%u started", warp_id);
+            }
+///////////////////////////////////////////
             // this code fetches instructions from the i-cache or generates memory requests
             if( !m_warp[warp_id].functional_done() && !m_warp[warp_id].imiss_pending() && m_warp[warp_id].ibuffer_empty() ) {
                 address_type pc  = m_warp[warp_id].get_pc();
@@ -1264,6 +1282,11 @@ void shader_core_ctx::warp_inst_complete(const warp_inst_t &inst)
   m_stats->m_num_sim_winsn[m_sid]++;
   m_gpu->gpu_sim_insn += inst.active_count();
   inst.completed(gpu_tot_sim_cycle + gpu_sim_cycle);
+///////////////////////////////////////////
+//caogao -- profile warp divergence
+// increment instruction committ counts for this warp
+  inst.warp_id().inst_committed++;
+///////////////////////////////////////////
 }
 
 void shader_core_ctx::writeback()
@@ -2413,7 +2436,26 @@ void shader_core_ctx::cycle()
     issue();
     decode();
     fetch();
+///////////////////////////////////////////
+// caogao -- profile warp divergence
+/* sample percentage of warp progress */
+    int sample_period = m_cluster->m_gpu->m_config.warp_progress_sample_period;
+    if ((gpu_sim_cycle % sample_period) == 0)
+      sample_warp_progress();
+///////////////////////////////////////////
 }
+
+///////////////////////////////////////////
+// caogao -- profile warp divergence
+/* sample percentage of warp progress */
+void shader_core_ctx::sample_warp_progress() {
+  printf ("Sampling warp progress for core%i", coreid);
+  for (std::vector<shd_warp_t>::iterator it = m_warp.begin(); it != m_warp.end(); it++) { //iterate through m_warp)
+    // TODO: get the total number of insts for warps
+    printf ("Proress for warp %u: %u committed", it->m_warp_id, it->inst_committed);
+  }
+}
+///////////////////////////////////////////
 
 // Flushes all content of the cache to memory
 

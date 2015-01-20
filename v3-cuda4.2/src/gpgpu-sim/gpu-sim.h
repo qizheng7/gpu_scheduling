@@ -341,7 +341,11 @@ private:
     int gpu_stat_sample_freq;
     int gpu_runtime_stat_flag;
 
-
+///////////////////////////////////////////
+// caogao -- profile warp divergence
+/* sample percentage of warp progress */
+    unsigned warp_progress_sample_period;
+///////////////////////////////////////////
 
 
     friend class gpgpu_sim;

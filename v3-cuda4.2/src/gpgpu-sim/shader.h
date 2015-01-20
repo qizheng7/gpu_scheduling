@@ -122,6 +122,10 @@ public:
         n_completed   -= active.count(); // active threads are not yet completed
         m_active_threads = active;
         m_done_exit=false;
+///////////////////////////////////////
+// caogao -- profile warp divergence
+        m_started=false;
+///////////////////////////////////////
     }
 
     bool functional_done() const;
@@ -210,6 +214,14 @@ public:
 
     unsigned get_dynamic_warp_id() const { return m_dynamic_warp_id; }
     unsigned get_warp_id() const { return m_warp_id; }
+
+/////////////////////////////////////
+// caogao -- profile warp divergence
+    bool started;
+    unsigned inst_committed;
+    unsigned start_cycle;
+    unsigned finish_cycle;
+/////////////////////////////////////
 
 private:
     static const unsigned IBUFFER_SIZE=2;
@@ -1723,6 +1735,11 @@ public:
 
 //Qi Zheng -- VCA study
          void incgloballoadaccess(){m_stats->gpgpu_n_global_load_access++;}
+///////////////////////////////////////////
+// caogao -- profile warp divergence
+/* sample percentage of warp progress */
+   void sample_warp_progress();
+///////////////////////////////////////////
 private:
 	 unsigned inactive_lanes_accesses_sfu(unsigned active_count,double latency){
       return  ( ((32-active_count)>>1)*latency) + ( ((32-active_count)>>3)*latency) + ( ((32-active_count)>>3)*latency);
@@ -1809,7 +1826,7 @@ private:
     ldst_unit *m_ldst_unit;
     static const unsigned MAX_ALU_LATENCY = 512;
     unsigned num_result_bus;
-    std::vector< std::bitset<MAX_ALU_LATENCY>* > m_result_bus;
+   std::vector< std::bitset<MAX_ALU_LATENCY>* > m_result_bus;
 
     // used for local address mapping with single kernel launch
     unsigned kernel_max_cta_per_shader;
