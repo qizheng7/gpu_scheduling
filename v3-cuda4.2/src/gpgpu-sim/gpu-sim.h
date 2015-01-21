@@ -301,6 +301,12 @@ public:
     unsigned num_cluster() const { return m_shader_config.n_simt_clusters; }
     unsigned get_max_concurrent_kernel() const { return max_concurrent_kernel; }
 
+///////////////////////////////////////////
+// caogao -- profile warp divergence
+/* sample percentage of warp progress */
+    unsigned warp_progress_sample_period;
+///////////////////////////////////////////
+
 private:
     void init_clock_domains(void ); 
 
@@ -340,12 +346,6 @@ private:
     // statistics collection
     int gpu_stat_sample_freq;
     int gpu_runtime_stat_flag;
-
-///////////////////////////////////////////
-// caogao -- profile warp divergence
-/* sample percentage of warp progress */
-    unsigned warp_progress_sample_period;
-///////////////////////////////////////////
 
 
     friend class gpgpu_sim;

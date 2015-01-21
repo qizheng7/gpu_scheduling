@@ -124,7 +124,7 @@ public:
         m_done_exit=false;
 ///////////////////////////////////////
 // caogao -- profile warp divergence
-        m_started=false;
+        started=false;
 ///////////////////////////////////////
     }
 

@@ -602,7 +602,7 @@ void gpgpu_sim::set_prop( cudaDeviceProp *prop )
 const struct cudaDeviceProp *gpgpu_sim::get_prop() const
 {
   //Qi Zheng
-  printf("%zd\n",m_cuda_properties->maxThreadsPerMultiProcessor);
+//  printf("%zd\n",m_cuda_properties->maxThreadsPerMultiProcessor);
    return m_cuda_properties;
 }
 
