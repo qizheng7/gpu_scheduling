@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 2.5.  */
+/* A Bison parser, made by GNU Bison 2.7.  */
 
 /* Bison interface for Yacc-like parsers in C
    
-      Copyright (C) 1984, 1989-1990, 2000-2011 Free Software Foundation, Inc.
+      Copyright (C) 1984, 1989-1990, 2000-2012 Free Software Foundation, Inc.
    
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -30,6 +30,15 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
+#ifndef YY_SASS_SASS_PARSER_HH_INCLUDED
+# define YY_SASS_SASS_PARSER_HH_INCLUDED
+/* Enabling traces.  */
+#ifndef YYDEBUG
+# define YYDEBUG 1
+#endif
+#if YYDEBUG
+extern int sass_debug;
+#endif
 
 /* Tokens.  */
 #ifndef YYTOKENTYPE
@@ -238,12 +247,10 @@
 #endif
 
 
-
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
 {
-
-/* Line 2068 of yacc.c  */
+/* Line 2058 of yacc.c  */
 #line 42 "sass.y"
 
   double double_value;
@@ -253,9 +260,8 @@ typedef union YYSTYPE
   void * ptr_value;
 
 
-
-/* Line 2068 of yacc.c  */
-#line 259 "sass_parser.hh"
+/* Line 2058 of yacc.c  */
+#line 265 "sass_parser.hh"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -264,4 +270,18 @@ typedef union YYSTYPE
 
 extern YYSTYPE sass_lval;
 
+#ifdef YYPARSE_PARAM
+#if defined __STDC__ || defined __cplusplus
+int sass_parse (void *YYPARSE_PARAM);
+#else
+int sass_parse ();
+#endif
+#else /* ! YYPARSE_PARAM */
+#if defined __STDC__ || defined __cplusplus
+int sass_parse (void);
+#else
+int sass_parse ();
+#endif
+#endif /* ! YYPARSE_PARAM */
 
+#endif /* !YY_SASS_SASS_PARSER_HH_INCLUDED  */

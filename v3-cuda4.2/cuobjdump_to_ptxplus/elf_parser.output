@@ -93,7 +93,7 @@ c14line (27)
     on left: 22, on right: 20 21
 
 
-state 0
+State 0
 
     0 $accept: . elffile $end
     1 elffile: . symtab program
@@ -105,21 +105,21 @@ state 0
     symtab   go to state 3
 
 
-state 1
+State 1
 
     2 symtab: STBEGIN . STHEADER stcontent
 
     STHEADER  shift, and go to state 4
 
 
-state 2
+State 2
 
     0 $accept: elffile . $end
 
     $end  shift, and go to state 5
 
 
-state 3
+State 3
 
     1 elffile: symtab . program
     7 program: . program cmemsection
@@ -132,7 +132,7 @@ state 3
     program  go to state 6
 
 
-state 4
+State 4
 
     2 symtab: STBEGIN STHEADER . stcontent
     3 stcontent: . stcontent stline
@@ -146,14 +146,14 @@ state 4
     stline     go to state 9
 
 
-state 5
+State 5
 
     0 $accept: elffile $end .
 
     $default  accept
 
 
-state 6
+State 6
 
     1 elffile: symtab program .  [$end]
     7 program: program . cmemsection
@@ -177,7 +177,7 @@ state 6
     cmem14section    go to state 16
 
 
-state 7
+State 7
 
     5 stline: NUMBER . NUMBER NUMBER NUMBER NUMBER NUMBER IDENTIFIER
     6       | NUMBER . NUMBER NUMBER NUMBER NUMBER NUMBER
@@ -185,7 +185,7 @@ state 7
     NUMBER  shift, and go to state 17
 
 
-state 8
+State 8
 
     2 symtab: STBEGIN STHEADER stcontent .  [$end, C1BEGIN, C14BEGIN, C0BEGIN, LOCALMEM]
     3 stcontent: stcontent . stline
@@ -199,14 +199,14 @@ state 8
     stline  go to state 18
 
 
-state 9
+State 9
 
     4 stcontent: stline .
 
     $default  reduce using rule 4 (stcontent)
 
 
-state 10
+State 10
 
    12 $@1: .
    13 cmemsection: C1BEGIN . $@1 cmemvals
@@ -216,7 +216,7 @@ state 10
     $@1  go to state 19
 
 
-state 11
+State 11
 
    18 cmem14section: C14BEGIN . c14content
    19              | C14BEGIN .  [$end, C1BEGIN, C14BEGIN, C0BEGIN, LOCALMEM]
@@ -232,7 +232,7 @@ state 11
     c14line     go to state 22
 
 
-state 12
+State 12
 
    14 $@2: .
    15 cmemsection: C0BEGIN . $@2 cmemvals
@@ -242,35 +242,35 @@ state 12
     $@2  go to state 23
 
 
-state 13
+State 13
 
    11 localmemsection: LOCALMEM .
 
     $default  reduce using rule 11 (localmemsection)
 
 
-state 14
+State 14
 
     8 program: program localmemsection .
 
     $default  reduce using rule 8 (program)
 
 
-state 15
+State 15
 
     7 program: program cmemsection .
 
     $default  reduce using rule 7 (program)
 
 
-state 16
+State 16
 
     9 program: program cmem14section .
 
     $default  reduce using rule 9 (program)
 
 
-state 17
+State 17
 
     5 stline: NUMBER NUMBER . NUMBER NUMBER NUMBER NUMBER IDENTIFIER
     6       | NUMBER NUMBER . NUMBER NUMBER NUMBER NUMBER
@@ -278,14 +278,14 @@ state 17
     NUMBER  shift, and go to state 24
 
 
-state 18
+State 18
 
     3 stcontent: stcontent stline .
 
     $default  reduce using rule 3 (stcontent)
 
 
-state 19
+State 19
 
    13 cmemsection: C1BEGIN $@1 . cmemvals
    16 cmemvals: . cmemvals CMEMVAL SPACE2
@@ -296,14 +296,14 @@ state 19
     cmemvals  go to state 25
 
 
-state 20
+State 20
 
    22 c14line: NUMBER . IDENTIFIER IDENTIFIER
 
     IDENTIFIER  shift, and go to state 26
 
 
-state 21
+State 21
 
    18 cmem14section: C14BEGIN c14content .  [$end, C1BEGIN, C14BEGIN, C0BEGIN, LOCALMEM]
    20 c14content: c14content . c14line
@@ -316,14 +316,14 @@ state 21
     c14line  go to state 27
 
 
-state 22
+State 22
 
    21 c14content: c14line .
 
     $default  reduce using rule 21 (c14content)
 
 
-state 23
+State 23
 
    15 cmemsection: C0BEGIN $@2 . cmemvals
    16 cmemvals: . cmemvals CMEMVAL SPACE2
@@ -334,7 +334,7 @@ state 23
     cmemvals  go to state 28
 
 
-state 24
+State 24
 
     5 stline: NUMBER NUMBER NUMBER . NUMBER NUMBER NUMBER IDENTIFIER
     6       | NUMBER NUMBER NUMBER . NUMBER NUMBER NUMBER
@@ -342,7 +342,7 @@ state 24
     NUMBER  shift, and go to state 29
 
 
-state 25
+State 25
 
    13 cmemsection: C1BEGIN $@1 cmemvals .  [$end, C1BEGIN, C14BEGIN, C0BEGIN, LOCALMEM]
    16 cmemvals: cmemvals . CMEMVAL SPACE2
@@ -352,21 +352,21 @@ state 25
     $default  reduce using rule 13 (cmemsection)
 
 
-state 26
+State 26
 
    22 c14line: NUMBER IDENTIFIER . IDENTIFIER
 
     IDENTIFIER  shift, and go to state 31
 
 
-state 27
+State 27
 
    20 c14content: c14content c14line .
 
     $default  reduce using rule 20 (c14content)
 
 
-state 28
+State 28
 
    15 cmemsection: C0BEGIN $@2 cmemvals .  [$end, C1BEGIN, C14BEGIN, C0BEGIN, LOCALMEM]
    16 cmemvals: cmemvals . CMEMVAL SPACE2
@@ -376,7 +376,7 @@ state 28
     $default  reduce using rule 15 (cmemsection)
 
 
-state 29
+State 29
 
     5 stline: NUMBER NUMBER NUMBER NUMBER . NUMBER NUMBER IDENTIFIER
     6       | NUMBER NUMBER NUMBER NUMBER . NUMBER NUMBER
@@ -384,21 +384,21 @@ state 29
     NUMBER  shift, and go to state 32
 
 
-state 30
+State 30
 
    16 cmemvals: cmemvals CMEMVAL . SPACE2
 
     SPACE2  shift, and go to state 33
 
 
-state 31
+State 31
 
    22 c14line: NUMBER IDENTIFIER IDENTIFIER .
 
     $default  reduce using rule 22 (c14line)
 
 
-state 32
+State 32
 
     5 stline: NUMBER NUMBER NUMBER NUMBER NUMBER . NUMBER IDENTIFIER
     6       | NUMBER NUMBER NUMBER NUMBER NUMBER . NUMBER
@@ -406,14 +406,14 @@ state 32
     NUMBER  shift, and go to state 34
 
 
-state 33
+State 33
 
    16 cmemvals: cmemvals CMEMVAL SPACE2 .
 
     $default  reduce using rule 16 (cmemvals)
 
 
-state 34
+State 34
 
     5 stline: NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER . IDENTIFIER
     6       | NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER .  [$end, C1BEGIN, C14BEGIN, C0BEGIN, NUMBER, LOCALMEM]
@@ -423,7 +423,7 @@ state 34
     $default  reduce using rule 6 (stline)
 
 
-state 35
+State 35
 
     5 stline: NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER IDENTIFIER .
 

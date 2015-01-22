@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 2.5.  */
+/* A Bison parser, made by GNU Bison 2.7.  */
 
 /* Bison implementation for Yacc-like parsers in C
    
-      Copyright (C) 1984, 1989-1990, 2000-2011 Free Software Foundation, Inc.
+      Copyright (C) 1984, 1989-1990, 2000-2012 Free Software Foundation, Inc.
    
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "2.5"
+#define YYBISON_VERSION "2.7"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -58,8 +58,6 @@
 /* Pull parsers.  */
 #define YYPULL 1
 
-/* Using locations.  */
-#define YYLSP_NEEDED 0
 
 /* Substitute the variable and function names.  */
 #define yyparse         ptx_parse
@@ -70,17 +68,18 @@
 #define yydebug         ptx_debug
 #define yynerrs         ptx_nerrs
 
-
 /* Copy the first part of user declarations.  */
 
+/* Line 371 of yacc.c  */
+#line 75 "ptx.tab.c"
 
-/* Line 268 of yacc.c  */
-#line 79 "ptx.tab.c"
-
-/* Enabling traces.  */
-#ifndef YYDEBUG
-# define YYDEBUG 1
-#endif
+# ifndef YY_NULL
+#  if defined __cplusplus && 201103L <= __cplusplus
+#   define YY_NULL nullptr
+#  else
+#   define YY_NULL 0
+#  endif
+# endif
 
 /* Enabling verbose error messages.  */
 #ifdef YYERROR_VERBOSE
@@ -90,11 +89,17 @@
 # define YYERROR_VERBOSE 0
 #endif
 
-/* Enabling the token table.  */
-#ifndef YYTOKEN_TABLE
-# define YYTOKEN_TABLE 0
+/* In a future release of Bison, this section will be replaced
+   by #include "ptx.tab.h".  */
+#ifndef YY_PTX_PTX_TAB_H_INCLUDED
+# define YY_PTX_PTX_TAB_H_INCLUDED
+/* Enabling traces.  */
+#ifndef YYDEBUG
+# define YYDEBUG 1
 #endif
-
+#if YYDEBUG
+extern int ptx_debug;
+#endif
 
 /* Tokens.  */
 #ifndef YYTOKENTYPE
@@ -258,12 +263,10 @@
 #endif
 
 
-
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
 {
-
-/* Line 293 of yacc.c  */
+/* Line 387 of yacc.c  */
 #line 30 "../src/cuda-sim/ptx.y"
 
   double double_value;
@@ -273,19 +276,34 @@ typedef union YYSTYPE
   void * ptr_value;
 
 
-
-/* Line 293 of yacc.c  */
-#line 279 "ptx.tab.c"
+/* Line 387 of yacc.c  */
+#line 281 "ptx.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
 #endif
 
+extern YYSTYPE ptx_lval;
+
+#ifdef YYPARSE_PARAM
+#if defined __STDC__ || defined __cplusplus
+int ptx_parse (void *YYPARSE_PARAM);
+#else
+int ptx_parse ();
+#endif
+#else /* ! YYPARSE_PARAM */
+#if defined __STDC__ || defined __cplusplus
+int ptx_parse (void);
+#else
+int ptx_parse ();
+#endif
+#endif /* ! YYPARSE_PARAM */
+
+#endif /* !YY_PTX_PTX_TAB_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
-
-/* Line 343 of yacc.c  */
+/* Line 390 of yacc.c  */
 #line 194 "../src/cuda-sim/ptx.y"
 
   	#include "ptx_parser.h"
@@ -297,9 +315,8 @@ typedef union YYSTYPE
 	int ptx_lex(void);
 	int ptx_error(const char *);
 
-
-/* Line 343 of yacc.c  */
-#line 303 "ptx.tab.c"
+/* Line 390 of yacc.c  */
+#line 320 "ptx.tab.c"
 
 #ifdef short
 # undef short
@@ -352,24 +369,24 @@ typedef short int yytype_int16;
 # if defined YYENABLE_NLS && YYENABLE_NLS
 #  if ENABLE_NLS
 #   include <libintl.h> /* INFRINGES ON USER NAME SPACE */
-#   define YY_(msgid) dgettext ("bison-runtime", msgid)
+#   define YY_(Msgid) dgettext ("bison-runtime", Msgid)
 #  endif
 # endif
 # ifndef YY_
-#  define YY_(msgid) msgid
+#  define YY_(Msgid) Msgid
 # endif
 #endif
 
 /* Suppress unused-variable warnings by "using" E.  */
 #if ! defined lint || defined __GNUC__
-# define YYUSE(e) ((void) (e))
+# define YYUSE(E) ((void) (E))
 #else
-# define YYUSE(e) /* empty */
+# define YYUSE(E) /* empty */
 #endif
 
 /* Identity function, used to suppress warnings about constant conditions.  */
 #ifndef lint
-# define YYID(n) (n)
+# define YYID(N) (N)
 #else
 #if (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
@@ -405,6 +422,7 @@ YYID (yyi)
 #    if ! defined _ALLOCA_H && ! defined EXIT_SUCCESS && (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
 #     include <stdlib.h> /* INFRINGES ON USER NAME SPACE */
+      /* Use EXIT_SUCCESS as a witness for stdlib.h.  */
 #     ifndef EXIT_SUCCESS
 #      define EXIT_SUCCESS 0
 #     endif
@@ -496,20 +514,20 @@ union yyalloc
 #endif
 
 #if defined YYCOPY_NEEDED && YYCOPY_NEEDED
-/* Copy COUNT objects from FROM to TO.  The source and destination do
+/* Copy COUNT objects from SRC to DST.  The source and destination do
    not overlap.  */
 # ifndef YYCOPY
 #  if defined __GNUC__ && 1 < __GNUC__
-#   define YYCOPY(To, From, Count) \
-      __builtin_memcpy (To, From, (Count) * sizeof (*(From)))
+#   define YYCOPY(Dst, Src, Count) \
+      __builtin_memcpy (Dst, Src, (Count) * sizeof (*(Src)))
 #  else
-#   define YYCOPY(To, From, Count)		\
-      do					\
-	{					\
-	  YYSIZE_T yyi;				\
-	  for (yyi = 0; yyi < (Count); yyi++)	\
-	    (To)[yyi] = (From)[yyi];		\
-	}					\
+#   define YYCOPY(Dst, Src, Count)              \
+      do                                        \
+        {                                       \
+          YYSIZE_T yyi;                         \
+          for (yyi = 0; yyi < (Count); yyi++)   \
+            (Dst)[yyi] = (Src)[yyi];            \
+        }                                       \
       while (YYID (0))
 #  endif
 # endif
@@ -731,7 +749,7 @@ static const yytype_uint16 yyrline[] =
 };
 #endif
 
-#if YYDEBUG || YYERROR_VERBOSE || YYTOKEN_TABLE
+#if YYDEBUG || YYERROR_VERBOSE || 0
 /* YYTNAME[SYMBOL-NUM] -- String name of the symbol SYMBOL-NUM.
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
@@ -785,7 +803,7 @@ static const char *const yytname[] =
   "rounding_mode", "floating_point_rounding_mode", "integer_rounding_mode",
   "compare_spec", "operand_list", "operand", "vector_operand",
   "tex_operand", "$@14", "builtin_operand", "memory_operand",
-  "twin_operand", "literal_operand", "address_expression", 0
+  "twin_operand", "literal_operand", "address_expression", YY_NULL
 };
 #endif
 
@@ -1059,10 +1077,10 @@ static const yytype_int16 yytable[] =
       37,    38,    39,    40,    41,    42,    43,    44,    45
 };
 
-#define yypact_value_is_default(yystate) \
-  ((yystate) == (-270))
+#define yypact_value_is_default(Yystate) \
+  (!!((Yystate) == (-270)))
 
-#define yytable_value_is_error(yytable_value) \
+#define yytable_value_is_error(Yytable_value) \
   YYID (0)
 
 static const yytype_int16 yycheck[] =
@@ -1200,62 +1218,35 @@ static const yytype_uint8 yystos[] =
 
 #define YYRECOVERING()  (!!yyerrstatus)
 
-#define YYBACKUP(Token, Value)					\
-do								\
-  if (yychar == YYEMPTY && yylen == 1)				\
-    {								\
-      yychar = (Token);						\
-      yylval = (Value);						\
-      YYPOPSTACK (1);						\
-      goto yybackup;						\
-    }								\
-  else								\
-    {								\
+#define YYBACKUP(Token, Value)                                  \
+do                                                              \
+  if (yychar == YYEMPTY)                                        \
+    {                                                           \
+      yychar = (Token);                                         \
+      yylval = (Value);                                         \
+      YYPOPSTACK (yylen);                                       \
+      yystate = *yyssp;                                         \
+      goto yybackup;                                            \
+    }                                                           \
+  else                                                          \
+    {                                                           \
       yyerror (YY_("syntax error: cannot back up")); \
       YYERROR;							\
     }								\
 while (YYID (0))
 
-
+/* Error token number */
 #define YYTERROR	1
 #define YYERRCODE	256
 
 
-/* YYLLOC_DEFAULT -- Set CURRENT to span from RHS[1] to RHS[N].
-   If N is 0, then set CURRENT to the empty location which ends
-   the previous symbol: RHS[0] (always defined).  */
-
-#define YYRHSLOC(Rhs, K) ((Rhs)[K])
-#ifndef YYLLOC_DEFAULT
-# define YYLLOC_DEFAULT(Current, Rhs, N)				\
-    do									\
-      if (YYID (N))                                                    \
-	{								\
-	  (Current).first_line   = YYRHSLOC (Rhs, 1).first_line;	\
-	  (Current).first_column = YYRHSLOC (Rhs, 1).first_column;	\
-	  (Current).last_line    = YYRHSLOC (Rhs, N).last_line;		\
-	  (Current).last_column  = YYRHSLOC (Rhs, N).last_column;	\
-	}								\
-      else								\
-	{								\
-	  (Current).first_line   = (Current).last_line   =		\
-	    YYRHSLOC (Rhs, 0).last_line;				\
-	  (Current).first_column = (Current).last_column =		\
-	    YYRHSLOC (Rhs, 0).last_column;				\
-	}								\
-    while (YYID (0))
-#endif
-
-
 /* This macro is provided for backward compatibility. */
-
 #ifndef YY_LOCATION_PRINT
 # define YY_LOCATION_PRINT(File, Loc) ((void) 0)
 #endif
 
 
 /* YYLEX -- calling `yylex' with the right arguments.  */
-
 #ifdef YYLEX_PARAM
 # define YYLEX yylex (YYLEX_PARAM)
 #else
@@ -1305,6 +1296,8 @@ yy_symbol_value_print (yyoutput, yytype, yyvaluep)
     YYSTYPE const * const yyvaluep;
 #endif
 {
+  FILE *yyo = yyoutput;
+  YYUSE (yyo);
   if (!yyvaluep)
     return;
 # ifdef YYPRINT
@@ -1316,7 +1309,7 @@ yy_symbol_value_print (yyoutput, yytype, yyvaluep)
   switch (yytype)
     {
       default:
-	break;
+        break;
     }
 }
 
@@ -1556,12 +1549,11 @@ static int
 yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
                 yytype_int16 *yyssp, int yytoken)
 {
-  YYSIZE_T yysize0 = yytnamerr (0, yytname[yytoken]);
+  YYSIZE_T yysize0 = yytnamerr (YY_NULL, yytname[yytoken]);
   YYSIZE_T yysize = yysize0;
-  YYSIZE_T yysize1;
   enum { YYERROR_VERBOSE_ARGS_MAXIMUM = 5 };
   /* Internationalized format string. */
-  const char *yyformat = 0;
+  const char *yyformat = YY_NULL;
   /* Arguments of yyformat. */
   char const *yyarg[YYERROR_VERBOSE_ARGS_MAXIMUM];
   /* Number of reported tokens (one for the "unexpected", one per
@@ -1621,11 +1613,13 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
                     break;
                   }
                 yyarg[yycount++] = yytname[yyx];
-                yysize1 = yysize + yytnamerr (0, yytname[yyx]);
-                if (! (yysize <= yysize1
-                       && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
-                  return 2;
-                yysize = yysize1;
+                {
+                  YYSIZE_T yysize1 = yysize + yytnamerr (YY_NULL, yytname[yyx]);
+                  if (! (yysize <= yysize1
+                         && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
+                    return 2;
+                  yysize = yysize1;
+                }
               }
         }
     }
@@ -1645,10 +1639,12 @@ yysyntax_error (YYSIZE_T *yymsg_alloc, char **yymsg,
 # undef YYCASE_
     }
 
-  yysize1 = yysize + yystrlen (yyformat);
-  if (! (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
-    return 2;
-  yysize = yysize1;
+  {
+    YYSIZE_T yysize1 = yysize + yystrlen (yyformat);
+    if (! (yysize <= yysize1 && yysize1 <= YYSTACK_ALLOC_MAXIMUM))
+      return 2;
+    yysize = yysize1;
+  }
 
   if (*yymsg_alloc < yysize)
     {
@@ -1708,32 +1704,27 @@ yydestruct (yymsg, yytype, yyvaluep)
     {
 
       default:
-	break;
+        break;
     }
 }
 
 
-/* Prevent warnings from -Wmissing-prototypes.  */
-#ifdef YYPARSE_PARAM
-#if defined __STDC__ || defined __cplusplus
-int yyparse (void *YYPARSE_PARAM);
-#else
-int yyparse ();
-#endif
-#else /* ! YYPARSE_PARAM */
-#if defined __STDC__ || defined __cplusplus
-int yyparse (void);
-#else
-int yyparse ();
-#endif
-#endif /* ! YYPARSE_PARAM */
 
 
 /* The lookahead symbol.  */
 int yychar;
 
+
+#ifndef YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
+# define YY_IGNORE_MAYBE_UNINITIALIZED_END
+#endif
+#ifndef YY_INITIAL_VALUE
+# define YY_INITIAL_VALUE(Value) /* Nothing. */
+#endif
+
 /* The semantic value of the lookahead symbol.  */
-YYSTYPE yylval;
+YYSTYPE yylval YY_INITIAL_VALUE(yyval_default);
 
 /* Number of syntax errors so far.  */
 int yynerrs;
@@ -1773,7 +1764,7 @@ yyparse ()
        `yyss': related to states.
        `yyvs': related to semantic values.
 
-       Refer to the stacks thru separate pointers, to allow yyoverflow
+       Refer to the stacks through separate pointers, to allow yyoverflow
        to reallocate them elsewhere.  */
 
     /* The state stack.  */
@@ -1791,7 +1782,7 @@ yyparse ()
   int yyn;
   int yyresult;
   /* Lookahead token as an internal (translated) token number.  */
-  int yytoken;
+  int yytoken = 0;
   /* The variables used to return semantic value and location from the
      action routines.  */
   YYSTYPE yyval;
@@ -1809,9 +1800,8 @@ yyparse ()
      Keep to zero when no symbol should be popped.  */
   int yylen = 0;
 
-  yytoken = 0;
-  yyss = yyssa;
-  yyvs = yyvsa;
+  yyssp = yyss = yyssa;
+  yyvsp = yyvs = yyvsa;
   yystacksize = YYINITDEPTH;
 
   YYDPRINTF ((stderr, "Starting parse\n"));
@@ -1820,14 +1810,6 @@ yyparse ()
   yyerrstatus = 0;
   yynerrs = 0;
   yychar = YYEMPTY; /* Cause a token to be read.  */
-
-  /* Initialize stack pointers.
-     Waste one element of value and location stack
-     so that they stay on the same level as the state stack.
-     The wasted elements are never initialized.  */
-  yyssp = yyss;
-  yyvsp = yyvs;
-
   goto yysetstate;
 
 /*------------------------------------------------------------.
@@ -1968,7 +1950,9 @@ yybackup:
   yychar = YYEMPTY;
 
   yystate = yyn;
+  YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   *++yyvsp = yylval;
+  YY_IGNORE_MAYBE_UNINITIALIZED_END
 
   goto yynewstate;
 
@@ -2005,43 +1989,37 @@ yyreduce:
   switch (yyn)
     {
         case 6:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 213 "../src/cuda-sim/ptx.y"
     { set_symtab((yyvsp[(1) - (1)].ptr_value)); func_header(".skip"); }
     break;
 
   case 7:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 213 "../src/cuda-sim/ptx.y"
     { end_function(); }
     break;
 
   case 8:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 214 "../src/cuda-sim/ptx.y"
     { set_symtab((yyvsp[(1) - (1)].ptr_value)); }
     break;
 
   case 9:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 214 "../src/cuda-sim/ptx.y"
     { func_header(".skip"); }
     break;
 
   case 10:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 214 "../src/cuda-sim/ptx.y"
     { end_function(); }
     break;
 
   case 11:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 217 "../src/cuda-sim/ptx.y"
     {func_header_info_int(".maxntid", (yyvsp[(2) - (6)].int_value));
 										func_header_info_int(",", (yyvsp[(4) - (6)].int_value));
@@ -2049,323 +2027,277 @@ yyreduce:
     break;
 
   case 12:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 220 "../src/cuda-sim/ptx.y"
     { func_header_info_int(".minnctapersm", (yyvsp[(2) - (2)].int_value)); printf("GPGPU-Sim: Warning: .minnctapersm ignored. \n"); }
     break;
 
   case 13:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 221 "../src/cuda-sim/ptx.y"
     { func_header_info_int(".maxnctapersm", (yyvsp[(2) - (2)].int_value)); printf("GPGPU-Sim: Warning: .maxnctapersm ignored. \n"); }
     break;
 
   case 16:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 228 "../src/cuda-sim/ptx.y"
     { start_function((yyvsp[(1) - (2)].int_value)); func_header_info("(");}
     break;
 
   case 17:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 228 "../src/cuda-sim/ptx.y"
     {func_header_info(")");}
     break;
 
   case 18:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 228 "../src/cuda-sim/ptx.y"
     { (yyval.ptr_value) = reset_symtab(); }
     break;
 
   case 19:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 229 "../src/cuda-sim/ptx.y"
     { start_function((yyvsp[(1) - (1)].int_value)); }
     break;
 
   case 20:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 229 "../src/cuda-sim/ptx.y"
     { (yyval.ptr_value) = reset_symtab(); }
     break;
 
   case 21:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 230 "../src/cuda-sim/ptx.y"
     { start_function((yyvsp[(1) - (1)].int_value)); add_function_name(""); g_func_decl=0; (yyval.ptr_value) = reset_symtab(); }
     break;
 
   case 22:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 233 "../src/cuda-sim/ptx.y"
     { add_function_name((yyvsp[(1) - (1)].string_value)); }
     break;
 
   case 23:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 233 "../src/cuda-sim/ptx.y"
     {func_header_info("(");}
     break;
 
   case 24:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 233 "../src/cuda-sim/ptx.y"
     { g_func_decl=0; func_header_info(")"); }
     break;
 
   case 25:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 234 "../src/cuda-sim/ptx.y"
     { add_function_name((yyvsp[(1) - (1)].string_value)); g_func_decl=0; }
     break;
 
   case 26:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 237 "../src/cuda-sim/ptx.y"
     { (yyval.int_value) = 1; g_func_decl=1; func_header(".entry"); }
     break;
 
   case 27:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 238 "../src/cuda-sim/ptx.y"
     { (yyval.int_value) = 0; g_func_decl=1; func_header(".func"); }
     break;
 
   case 28:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 239 "../src/cuda-sim/ptx.y"
     { (yyval.int_value) = 0; g_func_decl=1; func_header(".func"); }
     break;
 
   case 29:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 240 "../src/cuda-sim/ptx.y"
     { (yyval.int_value) = 2; g_func_decl=1; func_header(".func"); }
     break;
 
   case 31:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 244 "../src/cuda-sim/ptx.y"
     { add_directive(); }
     break;
 
   case 32:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 245 "../src/cuda-sim/ptx.y"
     {func_header_info(",");}
     break;
 
   case 33:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 245 "../src/cuda-sim/ptx.y"
     { add_directive(); }
     break;
 
   case 34:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 247 "../src/cuda-sim/ptx.y"
     { add_space_spec(param_space_unclassified,0); }
     break;
 
   case 35:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 247 "../src/cuda-sim/ptx.y"
     { add_function_arg(); }
     break;
 
   case 36:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 248 "../src/cuda-sim/ptx.y"
     { add_space_spec(reg_space,0); }
     break;
 
   case 37:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 248 "../src/cuda-sim/ptx.y"
     { add_function_arg(); }
     break;
 
   case 41:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 254 "../src/cuda-sim/ptx.y"
     { add_ptr_spec(global_space); }
     break;
 
   case 42:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 255 "../src/cuda-sim/ptx.y"
     { add_ptr_spec(local_space); }
     break;
 
   case 43:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 256 "../src/cuda-sim/ptx.y"
     { add_ptr_spec(shared_space); }
     break;
 
   case 46:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 262 "../src/cuda-sim/ptx.y"
     { add_directive(); }
     break;
 
   case 47:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 263 "../src/cuda-sim/ptx.y"
     { add_instruction(); }
     break;
 
   case 48:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 264 "../src/cuda-sim/ptx.y"
     { add_directive(); }
     break;
 
   case 49:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 265 "../src/cuda-sim/ptx.y"
     { add_instruction(); }
     break;
 
   case 53:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 271 "../src/cuda-sim/ptx.y"
     { add_version_info((yyvsp[(2) - (2)].double_value), 0); }
     break;
 
   case 54:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 272 "../src/cuda-sim/ptx.y"
     { add_version_info((yyvsp[(2) - (3)].double_value),1); }
     break;
 
   case 55:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 273 "../src/cuda-sim/ptx.y"
     {/*Do nothing*/}
     break;
 
   case 56:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 274 "../src/cuda-sim/ptx.y"
     { target_header2((yyvsp[(2) - (4)].string_value),(yyvsp[(4) - (4)].string_value)); }
     break;
 
   case 57:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 275 "../src/cuda-sim/ptx.y"
     { target_header3((yyvsp[(2) - (6)].string_value),(yyvsp[(4) - (6)].string_value),(yyvsp[(6) - (6)].string_value)); }
     break;
 
   case 58:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 276 "../src/cuda-sim/ptx.y"
     { target_header((yyvsp[(2) - (2)].string_value)); }
     break;
 
   case 59:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 277 "../src/cuda-sim/ptx.y"
     { add_file((yyvsp[(2) - (3)].int_value),(yyvsp[(3) - (3)].string_value)); }
     break;
 
   case 61:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 279 "../src/cuda-sim/ptx.y"
     { add_pragma((yyvsp[(2) - (3)].string_value)); }
     break;
 
   case 62:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 280 "../src/cuda-sim/ptx.y"
     {/*Do nothing*/}
     break;
 
   case 63:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 283 "../src/cuda-sim/ptx.y"
     { add_variables(); }
     break;
 
   case 64:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 284 "../src/cuda-sim/ptx.y"
     { add_variables(); }
     break;
 
   case 65:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 285 "../src/cuda-sim/ptx.y"
     { add_variables(); }
     break;
 
   case 66:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 286 "../src/cuda-sim/ptx.y"
     { add_constptr((yyvsp[(2) - (6)].string_value), (yyvsp[(4) - (6)].string_value), (yyvsp[(6) - (6)].int_value)); }
     break;
 
   case 67:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 289 "../src/cuda-sim/ptx.y"
     { set_variable_type(); }
     break;
 
   case 70:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 294 "../src/cuda-sim/ptx.y"
     { add_identifier((yyvsp[(1) - (1)].string_value),0,NON_ARRAY_IDENTIFIER); func_header_info((yyvsp[(1) - (1)].string_value));}
     break;
 
   case 71:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 295 "../src/cuda-sim/ptx.y"
     { func_header_info((yyvsp[(1) - (4)].string_value)); func_header_info_int("<", (yyvsp[(3) - (4)].int_value)); func_header_info(">");
 		int i,lbase,l;
@@ -2382,1143 +2314,980 @@ yyreduce:
     break;
 
   case 72:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 307 "../src/cuda-sim/ptx.y"
     { add_identifier((yyvsp[(1) - (3)].string_value),0,ARRAY_IDENTIFIER_NO_DIM); func_header_info((yyvsp[(1) - (3)].string_value)); func_header_info("["); func_header_info("]");}
     break;
 
   case 73:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 308 "../src/cuda-sim/ptx.y"
     { add_identifier((yyvsp[(1) - (4)].string_value),(yyvsp[(3) - (4)].int_value),ARRAY_IDENTIFIER); func_header_info((yyvsp[(1) - (4)].string_value)); func_header_info_int("[",(yyvsp[(3) - (4)].int_value)); func_header_info("]");}
     break;
 
   case 79:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 317 "../src/cuda-sim/ptx.y"
     { add_extern_spec(); }
     break;
 
   case 80:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 320 "../src/cuda-sim/ptx.y"
     { add_alignment_spec((yyvsp[(2) - (2)].int_value)); }
     break;
 
   case 81:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 322 "../src/cuda-sim/ptx.y"
     {  add_space_spec(reg_space,0); }
     break;
 
   case 82:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 323 "../src/cuda-sim/ptx.y"
     {  add_space_spec(reg_space,0); }
     break;
 
   case 84:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 327 "../src/cuda-sim/ptx.y"
     {  add_space_spec(const_space,(yyvsp[(1) - (1)].int_value)); }
     break;
 
   case 85:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 328 "../src/cuda-sim/ptx.y"
     {  add_space_spec(global_space,0); }
     break;
 
   case 86:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 329 "../src/cuda-sim/ptx.y"
     {  add_space_spec(local_space,0); }
     break;
 
   case 87:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 330 "../src/cuda-sim/ptx.y"
     {  add_space_spec(param_space_unclassified,0); }
     break;
 
   case 88:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 331 "../src/cuda-sim/ptx.y"
     {  add_space_spec(shared_space,0); }
     break;
 
   case 89:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 332 "../src/cuda-sim/ptx.y"
     {  add_space_spec(surf_space,0); }
     break;
 
   case 90:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 333 "../src/cuda-sim/ptx.y"
     {  add_space_spec(tex_space,0); }
     break;
 
   case 93:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 340 "../src/cuda-sim/ptx.y"
     {  add_option(V2_TYPE); func_header_info(".v2");}
     break;
 
   case 94:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 341 "../src/cuda-sim/ptx.y"
     {  add_option(V3_TYPE); func_header_info(".v3");}
     break;
 
   case 95:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 342 "../src/cuda-sim/ptx.y"
     {  add_option(V4_TYPE); func_header_info(".v4");}
     break;
 
   case 96:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 345 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( S8_TYPE ); }
     break;
 
   case 97:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 346 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( S16_TYPE ); }
     break;
 
   case 98:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 347 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( S32_TYPE ); }
     break;
 
   case 99:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 348 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( S64_TYPE ); }
     break;
 
   case 100:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 349 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( U8_TYPE ); }
     break;
 
   case 101:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 350 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( U16_TYPE ); }
     break;
 
   case 102:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 351 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( U32_TYPE ); }
     break;
 
   case 103:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 352 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( U64_TYPE ); }
     break;
 
   case 104:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 353 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( F16_TYPE ); }
     break;
 
   case 105:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 354 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( F32_TYPE ); }
     break;
 
   case 106:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 355 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( F64_TYPE ); }
     break;
 
   case 107:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 356 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( FF64_TYPE ); }
     break;
 
   case 108:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 357 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( B8_TYPE );  }
     break;
 
   case 109:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 358 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( B16_TYPE ); }
     break;
 
   case 110:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 359 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( B32_TYPE ); }
     break;
 
   case 111:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 360 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( B64_TYPE ); }
     break;
 
   case 112:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 361 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( BB64_TYPE ); }
     break;
 
   case 113:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 362 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( BB128_TYPE ); }
     break;
 
   case 114:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 363 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( PRED_TYPE ); }
     break;
 
   case 115:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 364 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( TEXREF_TYPE ); }
     break;
 
   case 116:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 365 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( SAMPLERREF_TYPE ); }
     break;
 
   case 117:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 366 "../src/cuda-sim/ptx.y"
     { add_scalar_type_spec( SURFREF_TYPE ); }
     break;
 
   case 118:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 369 "../src/cuda-sim/ptx.y"
     { add_array_initializer(); }
     break;
 
   case 119:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 370 "../src/cuda-sim/ptx.y"
     { syntax_not_implemented(); }
     break;
 
   case 123:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 376 "../src/cuda-sim/ptx.y"
     { add_label((yyvsp[(1) - (2)].string_value)); }
     break;
 
   case 125:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 379 "../src/cuda-sim/ptx.y"
     { set_return(); }
     break;
 
   case 131:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 386 "../src/cuda-sim/ptx.y"
     { add_opcode((yyvsp[(1) - (1)].int_value)); }
     break;
 
   case 133:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 387 "../src/cuda-sim/ptx.y"
     { add_opcode((yyvsp[(1) - (1)].int_value)); }
     break;
 
   case 134:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 389 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(2) - (2)].string_value),0, -1); }
     break;
 
   case 135:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 390 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(3) - (3)].string_value),1, -1); }
     break;
 
   case 136:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 391 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(2) - (3)].string_value),0,1); }
     break;
 
   case 137:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 392 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(2) - (3)].string_value),0,2); }
     break;
 
   case 138:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 393 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(2) - (3)].string_value),0,3); }
     break;
 
   case 139:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 394 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(2) - (3)].string_value),0,5); }
     break;
 
   case 140:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 395 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(2) - (3)].string_value),0,6); }
     break;
 
   case 141:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 396 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(2) - (3)].string_value),0,10); }
     break;
 
   case 142:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 397 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(2) - (3)].string_value),0,12); }
     break;
 
   case 143:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 398 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(2) - (3)].string_value),0,13); }
     break;
 
   case 144:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 399 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(2) - (3)].string_value),0,17); }
     break;
 
   case 145:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 400 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(2) - (3)].string_value),0,19); }
     break;
 
   case 146:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 401 "../src/cuda-sim/ptx.y"
     { add_pred((yyvsp[(2) - (3)].string_value),0,28); }
     break;
 
   case 153:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 411 "../src/cuda-sim/ptx.y"
     { add_option(UNI_OPTION); }
     break;
 
   case 154:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 412 "../src/cuda-sim/ptx.y"
     { add_option(WIDE_OPTION); }
     break;
 
   case 155:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 413 "../src/cuda-sim/ptx.y"
     { add_option(ANY_OPTION); }
     break;
 
   case 156:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 414 "../src/cuda-sim/ptx.y"
     { add_option(ALL_OPTION); }
     break;
 
   case 157:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 415 "../src/cuda-sim/ptx.y"
     { add_option(BALLOT_OPTION); }
     break;
 
   case 158:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 416 "../src/cuda-sim/ptx.y"
     { add_option(GLOBAL_OPTION); }
     break;
 
   case 159:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 417 "../src/cuda-sim/ptx.y"
     { add_option(CTA_OPTION); }
     break;
 
   case 160:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 418 "../src/cuda-sim/ptx.y"
     { add_option(SYS_OPTION); }
     break;
 
   case 161:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 419 "../src/cuda-sim/ptx.y"
     { add_option(GEOM_MODIFIER_1D); }
     break;
 
   case 162:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 420 "../src/cuda-sim/ptx.y"
     { add_option(GEOM_MODIFIER_2D); }
     break;
 
   case 163:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 421 "../src/cuda-sim/ptx.y"
     { add_option(GEOM_MODIFIER_3D); }
     break;
 
   case 164:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 422 "../src/cuda-sim/ptx.y"
     { add_option(SAT_OPTION); }
     break;
 
   case 165:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 423 "../src/cuda-sim/ptx.y"
     { add_option(FTZ_OPTION); }
     break;
 
   case 166:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 424 "../src/cuda-sim/ptx.y"
     { add_option(NEG_OPTION); }
     break;
 
   case 167:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 425 "../src/cuda-sim/ptx.y"
     { add_option(APPROX_OPTION); }
     break;
 
   case 168:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 426 "../src/cuda-sim/ptx.y"
     { add_option(FULL_OPTION); }
     break;
 
   case 169:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 427 "../src/cuda-sim/ptx.y"
     { add_option(EXIT_OPTION); }
     break;
 
   case 170:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 428 "../src/cuda-sim/ptx.y"
     { add_option(ABS_OPTION); }
     break;
 
   case 172:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 430 "../src/cuda-sim/ptx.y"
     { add_option(TO_OPTION); }
     break;
 
   case 173:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 431 "../src/cuda-sim/ptx.y"
     { add_option(HALF_OPTION); }
     break;
 
   case 174:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 432 "../src/cuda-sim/ptx.y"
     { add_option(CA_OPTION); }
     break;
 
   case 175:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 433 "../src/cuda-sim/ptx.y"
     { add_option(CG_OPTION); }
     break;
 
   case 176:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 434 "../src/cuda-sim/ptx.y"
     { add_option(CS_OPTION); }
     break;
 
   case 177:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 435 "../src/cuda-sim/ptx.y"
     { add_option(LU_OPTION); }
     break;
 
   case 178:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 436 "../src/cuda-sim/ptx.y"
     { add_option(CV_OPTION); }
     break;
 
   case 179:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 437 "../src/cuda-sim/ptx.y"
     { add_option(WB_OPTION); }
     break;
 
   case 180:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 438 "../src/cuda-sim/ptx.y"
     { add_option(WT_OPTION); }
     break;
 
   case 181:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 441 "../src/cuda-sim/ptx.y"
     { add_option(ATOMIC_AND); }
     break;
 
   case 182:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 442 "../src/cuda-sim/ptx.y"
     { add_option(ATOMIC_OR); }
     break;
 
   case 183:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 443 "../src/cuda-sim/ptx.y"
     { add_option(ATOMIC_XOR); }
     break;
 
   case 184:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 444 "../src/cuda-sim/ptx.y"
     { add_option(ATOMIC_CAS); }
     break;
 
   case 185:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 445 "../src/cuda-sim/ptx.y"
     { add_option(ATOMIC_EXCH); }
     break;
 
   case 186:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 446 "../src/cuda-sim/ptx.y"
     { add_option(ATOMIC_ADD); }
     break;
 
   case 187:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 447 "../src/cuda-sim/ptx.y"
     { add_option(ATOMIC_INC); }
     break;
 
   case 188:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 448 "../src/cuda-sim/ptx.y"
     { add_option(ATOMIC_DEC); }
     break;
 
   case 189:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 449 "../src/cuda-sim/ptx.y"
     { add_option(ATOMIC_MIN); }
     break;
 
   case 190:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 450 "../src/cuda-sim/ptx.y"
     { add_option(ATOMIC_MAX); }
     break;
 
   case 193:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 456 "../src/cuda-sim/ptx.y"
     { add_option(RN_OPTION); }
     break;
 
   case 194:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 457 "../src/cuda-sim/ptx.y"
     { add_option(RZ_OPTION); }
     break;
 
   case 195:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 458 "../src/cuda-sim/ptx.y"
     { add_option(RM_OPTION); }
     break;
 
   case 196:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 459 "../src/cuda-sim/ptx.y"
     { add_option(RP_OPTION); }
     break;
 
   case 197:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 462 "../src/cuda-sim/ptx.y"
     { add_option(RNI_OPTION); }
     break;
 
   case 198:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 463 "../src/cuda-sim/ptx.y"
     { add_option(RZI_OPTION); }
     break;
 
   case 199:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 464 "../src/cuda-sim/ptx.y"
     { add_option(RMI_OPTION); }
     break;
 
   case 200:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 465 "../src/cuda-sim/ptx.y"
     { add_option(RPI_OPTION); }
     break;
 
   case 201:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 468 "../src/cuda-sim/ptx.y"
     { add_option(EQ_OPTION); }
     break;
 
   case 202:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 469 "../src/cuda-sim/ptx.y"
     { add_option(NE_OPTION); }
     break;
 
   case 203:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 470 "../src/cuda-sim/ptx.y"
     { add_option(LT_OPTION); }
     break;
 
   case 204:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 471 "../src/cuda-sim/ptx.y"
     { add_option(LE_OPTION); }
     break;
 
   case 205:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 472 "../src/cuda-sim/ptx.y"
     { add_option(GT_OPTION); }
     break;
 
   case 206:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 473 "../src/cuda-sim/ptx.y"
     { add_option(GE_OPTION); }
     break;
 
   case 207:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 474 "../src/cuda-sim/ptx.y"
     { add_option(LO_OPTION); }
     break;
 
   case 208:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 475 "../src/cuda-sim/ptx.y"
     { add_option(LS_OPTION); }
     break;
 
   case 209:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 476 "../src/cuda-sim/ptx.y"
     { add_option(HI_OPTION); }
     break;
 
   case 210:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 477 "../src/cuda-sim/ptx.y"
     { add_option(HS_OPTION); }
     break;
 
   case 211:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 478 "../src/cuda-sim/ptx.y"
     { add_option(EQU_OPTION); }
     break;
 
   case 212:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 479 "../src/cuda-sim/ptx.y"
     { add_option(NEU_OPTION); }
     break;
 
   case 213:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 480 "../src/cuda-sim/ptx.y"
     { add_option(LTU_OPTION); }
     break;
 
   case 214:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 481 "../src/cuda-sim/ptx.y"
     { add_option(LEU_OPTION); }
     break;
 
   case 215:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 482 "../src/cuda-sim/ptx.y"
     { add_option(GTU_OPTION); }
     break;
 
   case 216:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 483 "../src/cuda-sim/ptx.y"
     { add_option(GEU_OPTION); }
     break;
 
   case 217:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 484 "../src/cuda-sim/ptx.y"
     { add_option(NUM_OPTION); }
     break;
 
   case 218:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 485 "../src/cuda-sim/ptx.y"
     { add_option(NAN_OPTION); }
     break;
 
   case 221:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 491 "../src/cuda-sim/ptx.y"
     { add_scalar_operand( (yyvsp[(1) - (1)].string_value) ); }
     break;
 
   case 222:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 492 "../src/cuda-sim/ptx.y"
     { add_neg_pred_operand( (yyvsp[(2) - (2)].string_value) ); }
     break;
 
   case 223:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 493 "../src/cuda-sim/ptx.y"
     { add_scalar_operand( (yyvsp[(2) - (2)].string_value) ); change_operand_neg(); }
     break;
 
   case 228:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 498 "../src/cuda-sim/ptx.y"
     { change_operand_neg(); }
     break;
 
   case 230:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 500 "../src/cuda-sim/ptx.y"
     { add_address_operand((yyvsp[(1) - (3)].string_value),(yyvsp[(3) - (3)].int_value)); }
     break;
 
   case 231:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 501 "../src/cuda-sim/ptx.y"
     { add_scalar_operand( (yyvsp[(1) - (2)].string_value) ); change_operand_lohi(1);}
     break;
 
   case 232:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 502 "../src/cuda-sim/ptx.y"
     { add_scalar_operand( (yyvsp[(2) - (3)].string_value) ); change_operand_lohi(1); change_operand_neg();}
     break;
 
   case 233:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 503 "../src/cuda-sim/ptx.y"
     { add_scalar_operand( (yyvsp[(1) - (2)].string_value) ); change_operand_lohi(2);}
     break;
 
   case 234:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 504 "../src/cuda-sim/ptx.y"
     { add_scalar_operand( (yyvsp[(2) - (3)].string_value) ); change_operand_lohi(2); change_operand_neg();}
     break;
 
   case 235:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 505 "../src/cuda-sim/ptx.y"
     { add_2vector_operand((yyvsp[(1) - (3)].string_value),(yyvsp[(3) - (3)].string_value)); change_double_operand_type(-1);}
     break;
 
   case 236:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 506 "../src/cuda-sim/ptx.y"
     { add_2vector_operand((yyvsp[(1) - (4)].string_value),(yyvsp[(3) - (4)].string_value)); change_double_operand_type(-1); change_operand_lohi(1);}
     break;
 
   case 237:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 507 "../src/cuda-sim/ptx.y"
     { add_2vector_operand((yyvsp[(1) - (4)].string_value),(yyvsp[(3) - (4)].string_value)); change_double_operand_type(-1); change_operand_lohi(2);}
     break;
 
   case 238:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 508 "../src/cuda-sim/ptx.y"
     { add_2vector_operand((yyvsp[(1) - (3)].string_value),(yyvsp[(3) - (3)].string_value)); change_double_operand_type(-3);}
     break;
 
   case 239:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 509 "../src/cuda-sim/ptx.y"
     { add_2vector_operand((yyvsp[(1) - (4)].string_value),(yyvsp[(3) - (4)].string_value)); change_double_operand_type(-3); change_operand_lohi(1);}
     break;
 
   case 240:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 510 "../src/cuda-sim/ptx.y"
     { add_2vector_operand((yyvsp[(1) - (4)].string_value),(yyvsp[(3) - (4)].string_value)); change_double_operand_type(-3); change_operand_lohi(2);}
     break;
 
   case 241:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 513 "../src/cuda-sim/ptx.y"
     { add_2vector_operand((yyvsp[(2) - (5)].string_value),(yyvsp[(4) - (5)].string_value)); }
     break;
 
   case 242:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 514 "../src/cuda-sim/ptx.y"
     { add_3vector_operand((yyvsp[(2) - (7)].string_value),(yyvsp[(4) - (7)].string_value),(yyvsp[(6) - (7)].string_value)); }
     break;
 
   case 243:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 515 "../src/cuda-sim/ptx.y"
     { add_4vector_operand((yyvsp[(2) - (9)].string_value),(yyvsp[(4) - (9)].string_value),(yyvsp[(6) - (9)].string_value),(yyvsp[(8) - (9)].string_value)); }
     break;
 
   case 244:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 516 "../src/cuda-sim/ptx.y"
     { add_1vector_operand((yyvsp[(2) - (3)].string_value)); }
     break;
 
   case 245:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 519 "../src/cuda-sim/ptx.y"
     { add_scalar_operand((yyvsp[(2) - (3)].string_value)); }
     break;
 
   case 247:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 524 "../src/cuda-sim/ptx.y"
     { add_builtin_operand((yyvsp[(1) - (2)].int_value),(yyvsp[(2) - (2)].int_value)); }
     break;
 
   case 248:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 525 "../src/cuda-sim/ptx.y"
     { add_builtin_operand((yyvsp[(1) - (1)].int_value),-1); }
     break;
 
   case 249:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 528 "../src/cuda-sim/ptx.y"
     { add_memory_operand(); }
     break;
 
   case 250:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 529 "../src/cuda-sim/ptx.y"
     { add_memory_operand(); change_memory_addr_space((yyvsp[(1) - (4)].string_value)); }
     break;
 
   case 251:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 530 "../src/cuda-sim/ptx.y"
     { change_memory_addr_space((yyvsp[(1) - (4)].string_value)); }
     break;
 
   case 252:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 531 "../src/cuda-sim/ptx.y"
     { change_memory_addr_space((yyvsp[(1) - (4)].string_value)); add_memory_operand();}
     break;
 
   case 253:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 532 "../src/cuda-sim/ptx.y"
     { change_operand_neg(); }
     break;
 
   case 254:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 535 "../src/cuda-sim/ptx.y"
     { add_double_operand((yyvsp[(1) - (3)].string_value),(yyvsp[(3) - (3)].string_value)); change_double_operand_type(1); }
     break;
 
   case 255:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 536 "../src/cuda-sim/ptx.y"
     { add_double_operand((yyvsp[(1) - (4)].string_value),(yyvsp[(3) - (4)].string_value)); change_double_operand_type(1); change_operand_lohi(1); }
     break;
 
   case 256:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 537 "../src/cuda-sim/ptx.y"
     { add_double_operand((yyvsp[(1) - (4)].string_value),(yyvsp[(3) - (4)].string_value)); change_double_operand_type(1); change_operand_lohi(2); }
     break;
 
   case 257:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 538 "../src/cuda-sim/ptx.y"
     { add_double_operand((yyvsp[(1) - (4)].string_value),(yyvsp[(4) - (4)].string_value)); change_double_operand_type(2); }
     break;
 
   case 258:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 539 "../src/cuda-sim/ptx.y"
     { add_double_operand((yyvsp[(1) - (5)].string_value),(yyvsp[(4) - (5)].string_value)); change_double_operand_type(2); change_operand_lohi(1); }
     break;
 
   case 259:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 540 "../src/cuda-sim/ptx.y"
     { add_double_operand((yyvsp[(1) - (5)].string_value),(yyvsp[(4) - (5)].string_value)); change_double_operand_type(2); change_operand_lohi(2); }
     break;
 
   case 260:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 541 "../src/cuda-sim/ptx.y"
     { add_address_operand((yyvsp[(1) - (4)].string_value),(yyvsp[(4) - (4)].int_value)); change_double_operand_type(3); }
     break;
 
   case 261:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 544 "../src/cuda-sim/ptx.y"
     { add_literal_int((yyvsp[(1) - (1)].int_value)); }
     break;
 
   case 262:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 545 "../src/cuda-sim/ptx.y"
     { add_literal_float((yyvsp[(1) - (1)].float_value)); }
     break;
 
   case 263:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 546 "../src/cuda-sim/ptx.y"
     { add_literal_double((yyvsp[(1) - (1)].double_value)); }
     break;
 
   case 264:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 549 "../src/cuda-sim/ptx.y"
     { add_address_operand((yyvsp[(1) - (1)].string_value),0); }
     break;
 
   case 265:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 550 "../src/cuda-sim/ptx.y"
     { add_address_operand((yyvsp[(1) - (2)].string_value),0); change_operand_lohi(1);}
     break;
 
   case 266:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 551 "../src/cuda-sim/ptx.y"
     { add_address_operand((yyvsp[(1) - (2)].string_value),0); change_operand_lohi(2); }
     break;
 
   case 267:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 552 "../src/cuda-sim/ptx.y"
     { add_address_operand((yyvsp[(1) - (3)].string_value),(yyvsp[(3) - (3)].int_value)); }
     break;
 
   case 268:
-
-/* Line 1806 of yacc.c  */
+/* Line 1792 of yacc.c  */
 #line 553 "../src/cuda-sim/ptx.y"
     { add_address_operand2((yyvsp[(1) - (1)].int_value)); }
     break;
 
 
-
-/* Line 1806 of yacc.c  */
-#line 3522 "ptx.tab.c"
+/* Line 1792 of yacc.c  */
+#line 3291 "ptx.tab.c"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -3681,7 +3450,9 @@ yyerrlab1:
       YY_STACK_PRINT (yyss, yyssp);
     }
 
+  YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   *++yyvsp = yylval;
+  YY_IGNORE_MAYBE_UNINITIALIZED_END
 
 
   /* Shift the error token.  */
@@ -3705,7 +3476,7 @@ yyabortlab:
   yyresult = 1;
   goto yyreturn;
 
-#if !defined(yyoverflow) || YYERROR_VERBOSE
+#if !defined yyoverflow || YYERROR_VERBOSE
 /*-------------------------------------------------.
 | yyexhaustedlab -- memory exhaustion comes here.  |
 `-------------------------------------------------*/
@@ -3747,8 +3518,7 @@ yyreturn:
 }
 
 
-
-/* Line 2067 of yacc.c  */
+/* Line 2055 of yacc.c  */
 #line 556 "../src/cuda-sim/ptx.y"
 
 
@@ -3761,4 +3531,3 @@ void syntax_not_implemented()
 	ptx_error(NULL);
 	abort();
 }
-

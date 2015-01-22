@@ -572,7 +572,7 @@ predicateModifier (236)
     224 225, on right: 203 205
 
 
-state 0
+State 0
 
     0 $accept: . program $end
     1 program: . program sassCode
@@ -588,7 +588,7 @@ state 0
     sassCode  go to state 4
 
 
-state 1
+State 1
 
     3 sassCode: VERSIONHEADER . IDENTIFIER NEWLINE functionList
     5         | VERSIONHEADER . IDENTIFIER NEWLINE
@@ -596,14 +596,14 @@ state 1
     IDENTIFIER  shift, and go to state 5
 
 
-state 2
+State 2
 
     4 sassCode: NEWLINE . VERSIONHEADER IDENTIFIER NEWLINE functionList
 
     VERSIONHEADER  shift, and go to state 6
 
 
-state 3
+State 3
 
     0 $accept: program . $end
     1 program: program . sassCode
@@ -618,14 +618,14 @@ state 3
     sassCode  go to state 8
 
 
-state 4
+State 4
 
     2 program: sassCode .
 
     $default  reduce using rule 2 (program)
 
 
-state 5
+State 5
 
     3 sassCode: VERSIONHEADER IDENTIFIER . NEWLINE functionList
     5         | VERSIONHEADER IDENTIFIER . NEWLINE
@@ -633,28 +633,28 @@ state 5
     NEWLINE  shift, and go to state 9
 
 
-state 6
+State 6
 
     4 sassCode: NEWLINE VERSIONHEADER . IDENTIFIER NEWLINE functionList
 
     IDENTIFIER  shift, and go to state 10
 
 
-state 7
+State 7
 
     0 $accept: program $end .
 
     $default  accept
 
 
-state 8
+State 8
 
     1 program: program sassCode .
 
     $default  reduce using rule 1 (program)
 
 
-state 9
+State 9
 
     3 sassCode: VERSIONHEADER IDENTIFIER NEWLINE . functionList
     5         | VERSIONHEADER IDENTIFIER NEWLINE .  [$end, VERSIONHEADER, NEWLINE]
@@ -670,21 +670,21 @@ state 9
     function      go to state 13
 
 
-state 10
+State 10
 
     4 sassCode: NEWLINE VERSIONHEADER IDENTIFIER . NEWLINE functionList
 
     NEWLINE  shift, and go to state 14
 
 
-state 11
+State 11
 
     9 function: FUNCTIONHEADER . IDENTIFIER $@1 statementList NEWLINE
 
     IDENTIFIER  shift, and go to state 15
 
 
-state 12
+State 12
 
     3 sassCode: VERSIONHEADER IDENTIFIER NEWLINE functionList .  [$end, VERSIONHEADER, NEWLINE]
     6 functionList: functionList . function
@@ -697,14 +697,14 @@ state 12
     function  go to state 16
 
 
-state 13
+State 13
 
     7 functionList: function .
 
     $default  reduce using rule 7 (functionList)
 
 
-state 14
+State 14
 
     4 sassCode: NEWLINE VERSIONHEADER IDENTIFIER NEWLINE . functionList
     6 functionList: . functionList function
@@ -717,7 +717,7 @@ state 14
     function      go to state 13
 
 
-state 15
+State 15
 
     8 $@1: .
     9 function: FUNCTIONHEADER IDENTIFIER . $@1 statementList NEWLINE
@@ -727,14 +727,14 @@ state 15
     $@1  go to state 18
 
 
-state 16
+State 16
 
     6 functionList: functionList function .
 
     $default  reduce using rule 6 (functionList)
 
 
-state 17
+State 17
 
     4 sassCode: NEWLINE VERSIONHEADER IDENTIFIER NEWLINE functionList .  [$end, VERSIONHEADER, NEWLINE]
     6 functionList: functionList . function
@@ -747,7 +747,7 @@ state 17
     function  go to state 16
 
 
-state 18
+State 18
 
     9 function: FUNCTIONHEADER IDENTIFIER $@1 . statementList NEWLINE
    10 statementList: . statementList statement NEWLINE
@@ -767,14 +767,14 @@ state 18
     $@2            go to state 22
 
 
-state 19
+State 19
 
    14 statementList: NEWLINE .
 
     $default  reduce using rule 14 (statementList)
 
 
-state 20
+State 20
 
     9 function: FUNCTIONHEADER IDENTIFIER $@1 statementList . NEWLINE
    10 statementList: statementList . statement NEWLINE
@@ -790,7 +790,7 @@ state 20
     $@2        go to state 22
 
 
-state 21
+State 21
 
    12 statementList: statement . NEWLINE
    13              | statement . SEMICOLON NEWLINE
@@ -799,7 +799,7 @@ state 21
     SEMICOLON  shift, and go to state 26
 
 
-state 22
+State 22
 
    16 statement: $@2 . instructionLabel statementend
    20 instructionLabel: . LABELSTART LABEL LABELEND
@@ -809,14 +809,14 @@ state 22
     instructionLabel  go to state 28
 
 
-state 23
+State 23
 
     9 function: FUNCTIONHEADER IDENTIFIER $@1 statementList NEWLINE .
 
     $default  reduce using rule 9 (function)
 
 
-state 24
+State 24
 
    10 statementList: statementList statement . NEWLINE
    11              | statementList statement . SEMICOLON NEWLINE
@@ -825,28 +825,28 @@ state 24
     SEMICOLON  shift, and go to state 30
 
 
-state 25
+State 25
 
    12 statementList: statement NEWLINE .
 
     $default  reduce using rule 12 (statementList)
 
 
-state 26
+State 26
 
    13 statementList: statement SEMICOLON . NEWLINE
 
     NEWLINE  shift, and go to state 31
 
 
-state 27
+State 27
 
    20 instructionLabel: LABELSTART . LABEL LABELEND
 
     LABEL  shift, and go to state 32
 
 
-state 28
+State 28
 
    16 statement: $@2 instructionLabel . statementend
    17 statementend: . instructionHex assemblyInstruction
@@ -861,49 +861,49 @@ state 28
     instructionHex  go to state 35
 
 
-state 29
+State 29
 
    10 statementList: statementList statement NEWLINE .
 
     $default  reduce using rule 10 (statementList)
 
 
-state 30
+State 30
 
    11 statementList: statementList statement SEMICOLON . NEWLINE
 
     NEWLINE  shift, and go to state 36
 
 
-state 31
+State 31
 
    13 statementList: statement SEMICOLON NEWLINE .
 
     $default  reduce using rule 13 (statementList)
 
 
-state 32
+State 32
 
    20 instructionLabel: LABELSTART LABEL . LABELEND
 
     LABELEND  shift, and go to state 37
 
 
-state 33
+State 33
 
    19 instructionHex: INSTHEX .
 
     $default  reduce using rule 19 (instructionHex)
 
 
-state 34
+State 34
 
    16 statement: $@2 instructionLabel statementend .
 
     $default  reduce using rule 16 (statement)
 
 
-state 35
+State 35
 
    17 statementend: instructionHex . assemblyInstruction
    21 assemblyInstruction: . baseInstruction modifierList operandList
@@ -1115,49 +1115,49 @@ state 35
     branchInstructions   go to state 139
 
 
-state 36
+State 36
 
    11 statementList: statementList statement SEMICOLON NEWLINE .
 
     $default  reduce using rule 11 (statementList)
 
 
-state 37
+State 37
 
    20 instructionLabel: LABELSTART LABEL LABELEND .
 
     $default  reduce using rule 20 (instructionLabel)
 
 
-state 38
+State 38
 
   106 simpleInstructions: BAR .
 
     $default  reduce using rule 106 (simpleInstructions)
 
 
-state 39
+State 39
 
    27 simpleInstructions: ADA .
 
     $default  reduce using rule 27 (simpleInstructions)
 
 
-state 40
+State 40
 
    28 simpleInstructions: AND .
 
     $default  reduce using rule 28 (simpleInstructions)
 
 
-state 41
+State 41
 
    29 simpleInstructions: ANDS .
 
     $default  reduce using rule 29 (simpleInstructions)
 
 
-state 42
+State 42
 
   121 $@4: .  [PREDREGISTER3]
   122 branchInstructions: BRA . $@4 instructionPredicate HEXLITERAL
@@ -1171,14 +1171,14 @@ state 42
     $@5  go to state 141
 
 
-state 43
+State 43
 
    30 simpleInstructions: BRX .
 
     $default  reduce using rule 30 (simpleInstructions)
 
 
-state 44
+State 44
 
   125 $@6: .  [HEXLITERAL]
   126 branchInstructions: CAL . $@6 HEXLITERAL
@@ -1192,602 +1192,602 @@ state 44
     $@7  go to state 143
 
 
-state 45
+State 45
 
    31 simpleInstructions: COS .
 
     $default  reduce using rule 31 (simpleInstructions)
 
 
-state 46
+State 46
 
    32 simpleInstructions: DADD .
 
     $default  reduce using rule 32 (simpleInstructions)
 
 
-state 47
+State 47
 
    33 simpleInstructions: DMIN .
 
     $default  reduce using rule 33 (simpleInstructions)
 
 
-state 48
+State 48
 
    34 simpleInstructions: DMAX .
 
     $default  reduce using rule 34 (simpleInstructions)
 
 
-state 49
+State 49
 
    35 simpleInstructions: DFMA .
 
     $default  reduce using rule 35 (simpleInstructions)
 
 
-state 50
+State 50
 
    36 simpleInstructions: DMUL .
 
     $default  reduce using rule 36 (simpleInstructions)
 
 
-state 51
+State 51
 
    37 simpleInstructions: EX2 .
 
     $default  reduce using rule 37 (simpleInstructions)
 
 
-state 52
+State 52
 
    38 simpleInstructions: F2F .
 
     $default  reduce using rule 38 (simpleInstructions)
 
 
-state 53
+State 53
 
    39 simpleInstructions: F2I .
 
     $default  reduce using rule 39 (simpleInstructions)
 
 
-state 54
+State 54
 
    40 simpleInstructions: FADD .
 
     $default  reduce using rule 40 (simpleInstructions)
 
 
-state 55
+State 55
 
    41 simpleInstructions: FADD32 .
 
     $default  reduce using rule 41 (simpleInstructions)
 
 
-state 56
+State 56
 
    42 simpleInstructions: FADD32I .
 
     $default  reduce using rule 42 (simpleInstructions)
 
 
-state 57
+State 57
 
    43 simpleInstructions: FMAD .
 
     $default  reduce using rule 43 (simpleInstructions)
 
 
-state 58
+State 58
 
    44 simpleInstructions: FMAD32I .
 
     $default  reduce using rule 44 (simpleInstructions)
 
 
-state 59
+State 59
 
    45 simpleInstructions: FMUL .
 
     $default  reduce using rule 45 (simpleInstructions)
 
 
-state 60
+State 60
 
    46 simpleInstructions: FMUL32 .
 
     $default  reduce using rule 46 (simpleInstructions)
 
 
-state 61
+State 61
 
    47 simpleInstructions: FMUL32I .
 
     $default  reduce using rule 47 (simpleInstructions)
 
 
-state 62
+State 62
 
    48 simpleInstructions: FSET .
 
     $default  reduce using rule 48 (simpleInstructions)
 
 
-state 63
+State 63
 
    49 simpleInstructions: DSET .
 
     $default  reduce using rule 49 (simpleInstructions)
 
 
-state 64
+State 64
 
    50 simpleInstructions: G2R .
 
     $default  reduce using rule 50 (simpleInstructions)
 
 
-state 65
+State 65
 
    51 simpleInstructions: GLD .
 
     $default  reduce using rule 51 (simpleInstructions)
 
 
-state 66
+State 66
 
    52 simpleInstructions: GST .
 
     $default  reduce using rule 52 (simpleInstructions)
 
 
-state 67
+State 67
 
    53 simpleInstructions: I2F .
 
     $default  reduce using rule 53 (simpleInstructions)
 
 
-state 68
+State 68
 
    54 simpleInstructions: I2I .
 
     $default  reduce using rule 54 (simpleInstructions)
 
 
-state 69
+State 69
 
    55 simpleInstructions: IADD .
 
     $default  reduce using rule 55 (simpleInstructions)
 
 
-state 70
+State 70
 
    56 simpleInstructions: IADD32 .
 
     $default  reduce using rule 56 (simpleInstructions)
 
 
-state 71
+State 71
 
    57 simpleInstructions: IADD32I .
 
     $default  reduce using rule 57 (simpleInstructions)
 
 
-state 72
+State 72
 
    58 simpleInstructions: IMAD .
 
     $default  reduce using rule 58 (simpleInstructions)
 
 
-state 73
+State 73
 
    59 simpleInstructions: ISAD .
 
     $default  reduce using rule 59 (simpleInstructions)
 
 
-state 74
+State 74
 
    60 simpleInstructions: IMAD24 .
 
     $default  reduce using rule 60 (simpleInstructions)
 
 
-state 75
+State 75
 
    61 simpleInstructions: IMAD32I .
 
     $default  reduce using rule 61 (simpleInstructions)
 
 
-state 76
+State 76
 
    62 simpleInstructions: IMAD32 .
 
     $default  reduce using rule 62 (simpleInstructions)
 
 
-state 77
+State 77
 
   117 simpleInstructions: IADDCARRY .
 
     $default  reduce using rule 117 (simpleInstructions)
 
 
-state 78
+State 78
 
    63 simpleInstructions: IMUL .
 
     $default  reduce using rule 63 (simpleInstructions)
 
 
-state 79
+State 79
 
    64 simpleInstructions: IMUL24 .
 
     $default  reduce using rule 64 (simpleInstructions)
 
 
-state 80
+State 80
 
    65 simpleInstructions: IMUL24H .
 
     $default  reduce using rule 65 (simpleInstructions)
 
 
-state 81
+State 81
 
    66 simpleInstructions: IMULS24 .
 
     $default  reduce using rule 66 (simpleInstructions)
 
 
-state 82
+State 82
 
    67 simpleInstructions: IMUL32 .
 
     $default  reduce using rule 67 (simpleInstructions)
 
 
-state 83
+State 83
 
    68 simpleInstructions: IMUL32S24 .
 
     $default  reduce using rule 68 (simpleInstructions)
 
 
-state 84
+State 84
 
    72 simpleInstructions: IMUL32U24 .
 
     $default  reduce using rule 72 (simpleInstructions)
 
 
-state 85
+State 85
 
    69 simpleInstructions: IMUL32I .
 
     $default  reduce using rule 69 (simpleInstructions)
 
 
-state 86
+State 86
 
    70 simpleInstructions: IMUL32I24 .
 
     $default  reduce using rule 70 (simpleInstructions)
 
 
-state 87
+State 87
 
    71 simpleInstructions: IMUL32IS24 .
 
     $default  reduce using rule 71 (simpleInstructions)
 
 
-state 88
+State 88
 
    73 simpleInstructions: ISET .
 
     $default  reduce using rule 73 (simpleInstructions)
 
 
-state 89
+State 89
 
    74 simpleInstructions: LG2 .
 
     $default  reduce using rule 74 (simpleInstructions)
 
 
-state 90
+State 90
 
    75 simpleInstructions: LLD .
 
     $default  reduce using rule 75 (simpleInstructions)
 
 
-state 91
+State 91
 
    76 simpleInstructions: LST .
 
     $default  reduce using rule 76 (simpleInstructions)
 
 
-state 92
+State 92
 
    77 simpleInstructions: MOV .
 
     $default  reduce using rule 77 (simpleInstructions)
 
 
-state 93
+State 93
 
    78 simpleInstructions: MOV32 .
 
     $default  reduce using rule 78 (simpleInstructions)
 
 
-state 94
+State 94
 
    79 simpleInstructions: MVC .
 
     $default  reduce using rule 79 (simpleInstructions)
 
 
-state 95
+State 95
 
    80 simpleInstructions: MVI .
 
     $default  reduce using rule 80 (simpleInstructions)
 
 
-state 96
+State 96
 
    81 simpleInstructions: NOP .
 
     $default  reduce using rule 81 (simpleInstructions)
 
 
-state 97
+State 97
 
    82 simpleInstructions: NOT .
 
     $default  reduce using rule 82 (simpleInstructions)
 
 
-state 98
+State 98
 
    83 simpleInstructions: NOTS .
 
     $default  reduce using rule 83 (simpleInstructions)
 
 
-state 99
+State 99
 
    84 simpleInstructions: OR .
 
     $default  reduce using rule 84 (simpleInstructions)
 
 
-state 100
+State 100
 
    85 simpleInstructions: ORS .
 
     $default  reduce using rule 85 (simpleInstructions)
 
 
-state 101
+State 101
 
    86 simpleInstructions: R2A .
 
     $default  reduce using rule 86 (simpleInstructions)
 
 
-state 102
+State 102
 
    87 simpleInstructions: R2G .
 
     $default  reduce using rule 87 (simpleInstructions)
 
 
-state 103
+State 103
 
    88 simpleInstructions: R2GU16U8 .
 
     $default  reduce using rule 88 (simpleInstructions)
 
 
-state 104
+State 104
 
    89 simpleInstructions: RCP .
 
     $default  reduce using rule 89 (simpleInstructions)
 
 
-state 105
+State 105
 
    90 simpleInstructions: RCP32 .
 
     $default  reduce using rule 90 (simpleInstructions)
 
 
-state 106
+State 106
 
    91 simpleInstructions: RET .
 
     $default  reduce using rule 91 (simpleInstructions)
 
 
-state 107
+State 107
 
    92 simpleInstructions: RRO .
 
     $default  reduce using rule 92 (simpleInstructions)
 
 
-state 108
+State 108
 
    93 simpleInstructions: RSQ .
 
     $default  reduce using rule 93 (simpleInstructions)
 
 
-state 109
+State 109
 
    96 simpleInstructions: SIN .
 
     $default  reduce using rule 96 (simpleInstructions)
 
 
-state 110
+State 110
 
    94 simpleInstructions: SHL .
 
     $default  reduce using rule 94 (simpleInstructions)
 
 
-state 111
+State 111
 
    95 simpleInstructions: SHR .
 
     $default  reduce using rule 95 (simpleInstructions)
 
 
-state 112
+State 112
 
    97 simpleInstructions: SSY .
 
     $default  reduce using rule 97 (simpleInstructions)
 
 
-state 113
+State 113
 
    98 simpleInstructions: XOR .
 
     $default  reduce using rule 98 (simpleInstructions)
 
 
-state 114
+State 114
 
    99 simpleInstructions: XORS .
 
     $default  reduce using rule 99 (simpleInstructions)
 
 
-state 115
+State 115
 
   100 simpleInstructions: S2R .
 
     $default  reduce using rule 100 (simpleInstructions)
 
 
-state 116
+State 116
 
   101 simpleInstructions: SASS_LD .
 
     $default  reduce using rule 101 (simpleInstructions)
 
 
-state 117
+State 117
 
   102 simpleInstructions: STS .
 
     $default  reduce using rule 102 (simpleInstructions)
 
 
-state 118
+State 118
 
   103 simpleInstructions: LDS .
 
     $default  reduce using rule 103 (simpleInstructions)
 
 
-state 119
+State 119
 
   104 simpleInstructions: SASS_ST .
 
     $default  reduce using rule 104 (simpleInstructions)
 
 
-state 120
+State 120
 
   107 simpleInstructions: IMIN .
 
     $default  reduce using rule 107 (simpleInstructions)
 
 
-state 121
+State 121
 
   108 simpleInstructions: IMAX .
 
     $default  reduce using rule 108 (simpleInstructions)
 
 
-state 122
+State 122
 
   109 simpleInstructions: A2R .
 
     $default  reduce using rule 109 (simpleInstructions)
 
 
-state 123
+State 123
 
   110 simpleInstructions: FMAX .
 
     $default  reduce using rule 110 (simpleInstructions)
 
 
-state 124
+State 124
 
   111 simpleInstructions: FMIN .
 
     $default  reduce using rule 111 (simpleInstructions)
 
 
-state 125
+State 125
 
   112 simpleInstructions: TEX .
 
     $default  reduce using rule 112 (simpleInstructions)
 
 
-state 126
+State 126
 
   113 simpleInstructions: TEX32 .
 
     $default  reduce using rule 113 (simpleInstructions)
 
 
-state 127
+State 127
 
   114 simpleInstructions: C2R .
 
     $default  reduce using rule 114 (simpleInstructions)
 
 
-state 128
+State 128
 
   105 simpleInstructions: EXIT .
 
     $default  reduce using rule 105 (simpleInstructions)
 
 
-state 129
+State 129
 
    24 baseInstruction: GRED . DOT simpleInstructions
 
     DOT  shift, and go to state 144
 
 
-state 130
+State 130
 
   119 $@3: .
   120 pbkInstruction: PBK . $@3 HEXLITERAL
@@ -1797,42 +1797,42 @@ state 130
     $@3  go to state 145
 
 
-state 131
+State 131
 
   115 simpleInstructions: BRK .
 
     $default  reduce using rule 115 (simpleInstructions)
 
 
-state 132
+State 132
 
   116 simpleInstructions: R2C .
 
     $default  reduce using rule 116 (simpleInstructions)
 
 
-state 133
+State 133
 
    25 baseInstruction: GATOM . DOT simpleInstructions
 
     DOT  shift, and go to state 146
 
 
-state 134
+State 134
 
   118 simpleInstructions: VOTE .
 
     $default  reduce using rule 118 (simpleInstructions)
 
 
-state 135
+State 135
 
    17 statementend: instructionHex assemblyInstruction .
 
     $default  reduce using rule 17 (statementend)
 
 
-state 136
+State 136
 
    21 assemblyInstruction: baseInstruction . modifierList operandList
   129 modifierList: . modifier modifierList
@@ -1905,28 +1905,28 @@ state 136
     opTypes       go to state 178
 
 
-state 137
+State 137
 
    22 baseInstruction: simpleInstructions .
 
     $default  reduce using rule 22 (baseInstruction)
 
 
-state 138
+State 138
 
    26 baseInstruction: pbkInstruction .
 
     $default  reduce using rule 26 (baseInstruction)
 
 
-state 139
+State 139
 
    23 baseInstruction: branchInstructions .
 
     $default  reduce using rule 23 (baseInstruction)
 
 
-state 140
+State 140
 
   122 branchInstructions: BRA $@4 . instructionPredicate HEXLITERAL
   203 instructionPredicate: . PREDREGISTER3 predicateModifier
@@ -1937,28 +1937,28 @@ state 140
     instructionPredicate  go to state 180
 
 
-state 141
+State 141
 
   124 branchInstructions: BRA $@5 . HEXLITERAL
 
     HEXLITERAL  shift, and go to state 181
 
 
-state 142
+State 142
 
   126 branchInstructions: CAL $@6 . HEXLITERAL
 
     HEXLITERAL  shift, and go to state 182
 
 
-state 143
+State 143
 
   128 branchInstructions: CAL $@7 . DOTNOINC HEXLITERAL
 
     DOTNOINC  shift, and go to state 183
 
 
-state 144
+State 144
 
    24 baseInstruction: GRED DOT . simpleInstructions
    27 simpleInstructions: . ADA
@@ -2150,14 +2150,14 @@ state 144
     simpleInstructions  go to state 184
 
 
-state 145
+State 145
 
   120 pbkInstruction: PBK $@3 . HEXLITERAL
 
     HEXLITERAL  shift, and go to state 185
 
 
-state 146
+State 146
 
    25 baseInstruction: GATOM DOT . simpleInstructions
    27 simpleInstructions: . ADA
@@ -2349,210 +2349,210 @@ state 146
     simpleInstructions  go to state 186
 
 
-state 147
+State 147
 
   132 modifier: DOTBEXT .
 
     $default  reduce using rule 132 (modifier)
 
 
-state 148
+State 148
 
   133 modifier: DOTS .
 
     $default  reduce using rule 133 (modifier)
 
 
-state 149
+State 149
 
   134 modifier: DOTSFU .
 
     $default  reduce using rule 134 (modifier)
 
 
-state 150
+State 150
 
   135 modifier: DOTTRUNC .
 
     $default  reduce using rule 135 (modifier)
 
 
-state 151
+State 151
 
   136 modifier: DOTCEIL .
 
     $default  reduce using rule 136 (modifier)
 
 
-state 152
+State 152
 
   137 modifier: DOTFLOOR .
 
     $default  reduce using rule 137 (modifier)
 
 
-state 153
+State 153
 
   142 modifier: DOTIR .
 
     $default  reduce using rule 142 (modifier)
 
 
-state 154
+State 154
 
   143 modifier: DOTUN .
 
     $default  reduce using rule 143 (modifier)
 
 
-state 155
+State 155
 
   144 modifier: DOTNODEP .
 
     $default  reduce using rule 144 (modifier)
 
 
-state 156
+State 156
 
   145 modifier: DOTANY .
 
     $default  reduce using rule 145 (modifier)
 
 
-state 157
+State 157
 
   146 modifier: DOTALL .
 
     $default  reduce using rule 146 (modifier)
 
 
-state 158
+State 158
 
   147 opTypes: DOTF16 .
 
     $default  reduce using rule 147 (opTypes)
 
 
-state 159
+State 159
 
   148 opTypes: DOTF32 .
 
     $default  reduce using rule 148 (opTypes)
 
 
-state 160
+State 160
 
   149 opTypes: DOTF64 .
 
     $default  reduce using rule 149 (opTypes)
 
 
-state 161
+State 161
 
   150 opTypes: DOTS8 .
 
     $default  reduce using rule 150 (opTypes)
 
 
-state 162
+State 162
 
   151 opTypes: DOTS16 .
 
     $default  reduce using rule 151 (opTypes)
 
 
-state 163
+State 163
 
   152 opTypes: DOTS32 .
 
     $default  reduce using rule 152 (opTypes)
 
 
-state 164
+State 164
 
   153 opTypes: DOTS64 .
 
     $default  reduce using rule 153 (opTypes)
 
 
-state 165
+State 165
 
   154 opTypes: DOTS128 .
 
     $default  reduce using rule 154 (opTypes)
 
 
-state 166
+State 166
 
   155 opTypes: DOTU8 .
 
     $default  reduce using rule 155 (opTypes)
 
 
-state 167
+State 167
 
   156 opTypes: DOTU16 .
 
     $default  reduce using rule 156 (opTypes)
 
 
-state 168
+State 168
 
   157 opTypes: DOTU32 .
 
     $default  reduce using rule 157 (opTypes)
 
 
-state 169
+State 169
 
   158 opTypes: DOTU24 .
 
     $default  reduce using rule 158 (opTypes)
 
 
-state 170
+State 170
 
   159 opTypes: DOTU64 .
 
     $default  reduce using rule 159 (opTypes)
 
 
-state 171
+State 171
 
   160 opTypes: DOTHI .
 
     $default  reduce using rule 160 (opTypes)
 
 
-state 172
+State 172
 
   138 modifier: DOTX .
 
     $default  reduce using rule 138 (modifier)
 
 
-state 173
+State 173
 
   139 modifier: DOTE .
 
     $default  reduce using rule 139 (modifier)
 
 
-state 174
+State 174
 
   140 modifier: DOTRED .
 
     $default  reduce using rule 140 (modifier)
 
 
-state 175
+State 175
 
   141 modifier: DOTPOPC .
 
     $default  reduce using rule 141 (modifier)
 
 
-state 176
+State 176
 
    21 assemblyInstruction: baseInstruction modifierList . operandList
   162 operandList: . operandList $@8 operand
@@ -2563,7 +2563,7 @@ state 176
     operandList  go to state 187
 
 
-state 177
+State 177
 
   129 modifierList: . modifier modifierList
   129             | modifier . modifierList
@@ -2636,14 +2636,14 @@ state 177
     opTypes       go to state 178
 
 
-state 178
+State 178
 
   131 modifier: opTypes .
 
     $default  reduce using rule 131 (modifier)
 
 
-state 179
+State 179
 
   203 instructionPredicate: PREDREGISTER3 . predicateModifier
   204                     | PREDREGISTER3 .  [HEXLITERAL, RIGHTBRACKET]
@@ -2686,56 +2686,56 @@ state 179
     predicateModifier  go to state 205
 
 
-state 180
+State 180
 
   122 branchInstructions: BRA $@4 instructionPredicate . HEXLITERAL
 
     HEXLITERAL  shift, and go to state 206
 
 
-state 181
+State 181
 
   124 branchInstructions: BRA $@5 HEXLITERAL .
 
     $default  reduce using rule 124 (branchInstructions)
 
 
-state 182
+State 182
 
   126 branchInstructions: CAL $@6 HEXLITERAL .
 
     $default  reduce using rule 126 (branchInstructions)
 
 
-state 183
+State 183
 
   128 branchInstructions: CAL $@7 DOTNOINC . HEXLITERAL
 
     HEXLITERAL  shift, and go to state 207
 
 
-state 184
+State 184
 
    24 baseInstruction: GRED DOT simpleInstructions .
 
     $default  reduce using rule 24 (baseInstruction)
 
 
-state 185
+State 185
 
   120 pbkInstruction: PBK $@3 HEXLITERAL .
 
     $default  reduce using rule 120 (pbkInstruction)
 
 
-state 186
+State 186
 
    25 baseInstruction: GATOM DOT simpleInstructions .
 
     $default  reduce using rule 25 (baseInstruction)
 
 
-state 187
+State 187
 
    21 assemblyInstruction: baseInstruction modifierList operandList .  [NEWLINE, SEMICOLON]
   161 $@8: .  [COS, EX2, SIN, EQ, EQU, GE, GEU, GT, GTU, LE, LEU, LT, LTU, NE, NEU, REGISTER, REGISTERLO, REGISTERHI, OFFSETREGISTER, PREDREGISTER, PREDREGISTER3, SREGISTER, SMEMLOCATION, ABSSMEMLOCATION, GMEMLOCATION, CMEMLOCATION, LMEMLOCATION, IDENTIFIER, HEXLITERAL, LEFTBRACKET, PIPE, TILDE, OSQBRACKET]
@@ -2748,147 +2748,147 @@ state 187
     $@8  go to state 208
 
 
-state 188
+State 188
 
   129 modifierList: modifier modifierList .
 
     $default  reduce using rule 129 (modifierList)
 
 
-state 189
+State 189
 
   210 predicateModifier: DOTEQ .
 
     $default  reduce using rule 210 (predicateModifier)
 
 
-state 190
+State 190
 
   211 predicateModifier: DOTEQU .
 
     $default  reduce using rule 211 (predicateModifier)
 
 
-state 191
+State 191
 
   212 predicateModifier: DOTFALSE .
 
     $default  reduce using rule 212 (predicateModifier)
 
 
-state 192
+State 192
 
   213 predicateModifier: DOTGE .
 
     $default  reduce using rule 213 (predicateModifier)
 
 
-state 193
+State 193
 
   214 predicateModifier: DOTGEU .
 
     $default  reduce using rule 214 (predicateModifier)
 
 
-state 194
+State 194
 
   215 predicateModifier: DOTGT .
 
     $default  reduce using rule 215 (predicateModifier)
 
 
-state 195
+State 195
 
   216 predicateModifier: DOTGTU .
 
     $default  reduce using rule 216 (predicateModifier)
 
 
-state 196
+State 196
 
   217 predicateModifier: DOTLE .
 
     $default  reduce using rule 217 (predicateModifier)
 
 
-state 197
+State 197
 
   218 predicateModifier: DOTLEU .
 
     $default  reduce using rule 218 (predicateModifier)
 
 
-state 198
+State 198
 
   219 predicateModifier: DOTLT .
 
     $default  reduce using rule 219 (predicateModifier)
 
 
-state 199
+State 199
 
   220 predicateModifier: DOTLTU .
 
     $default  reduce using rule 220 (predicateModifier)
 
 
-state 200
+State 200
 
   221 predicateModifier: DOTNE .
 
     $default  reduce using rule 221 (predicateModifier)
 
 
-state 201
+State 201
 
   222 predicateModifier: DOTNEU .
 
     $default  reduce using rule 222 (predicateModifier)
 
 
-state 202
+State 202
 
   223 predicateModifier: DOTNSF .
 
     $default  reduce using rule 223 (predicateModifier)
 
 
-state 203
+State 203
 
   224 predicateModifier: DOTSF .
 
     $default  reduce using rule 224 (predicateModifier)
 
 
-state 204
+State 204
 
   225 predicateModifier: DOTCARRY .
 
     $default  reduce using rule 225 (predicateModifier)
 
 
-state 205
+State 205
 
   203 instructionPredicate: PREDREGISTER3 predicateModifier .
 
     $default  reduce using rule 203 (instructionPredicate)
 
 
-state 206
+State 206
 
   122 branchInstructions: BRA $@4 instructionPredicate HEXLITERAL .
 
     $default  reduce using rule 122 (branchInstructions)
 
 
-state 207
+State 207
 
   128 branchInstructions: CAL $@7 DOTNOINC HEXLITERAL .
 
     $default  reduce using rule 128 (branchInstructions)
 
 
-state 208
+State 208
 
   162 operandList: operandList $@8 . operand
   164 operand: . registerlocation
@@ -2977,112 +2977,112 @@ state 208
     preOperand        go to state 248
 
 
-state 209
+State 209
 
   209 preOperand: COS .
 
     $default  reduce using rule 209 (preOperand)
 
 
-state 210
+State 210
 
   207 preOperand: EX2 .
 
     $default  reduce using rule 207 (preOperand)
 
 
-state 211
+State 211
 
   208 preOperand: SIN .
 
     $default  reduce using rule 208 (preOperand)
 
 
-state 212
+State 212
 
   191 extraModifier: EQ .
 
     $default  reduce using rule 191 (extraModifier)
 
 
-state 213
+State 213
 
   192 extraModifier: EQU .
 
     $default  reduce using rule 192 (extraModifier)
 
 
-state 214
+State 214
 
   193 extraModifier: GE .
 
     $default  reduce using rule 193 (extraModifier)
 
 
-state 215
+State 215
 
   194 extraModifier: GEU .
 
     $default  reduce using rule 194 (extraModifier)
 
 
-state 216
+State 216
 
   195 extraModifier: GT .
 
     $default  reduce using rule 195 (extraModifier)
 
 
-state 217
+State 217
 
   196 extraModifier: GTU .
 
     $default  reduce using rule 196 (extraModifier)
 
 
-state 218
+State 218
 
   197 extraModifier: LE .
 
     $default  reduce using rule 197 (extraModifier)
 
 
-state 219
+State 219
 
   198 extraModifier: LEU .
 
     $default  reduce using rule 198 (extraModifier)
 
 
-state 220
+State 220
 
   199 extraModifier: LT .
 
     $default  reduce using rule 199 (extraModifier)
 
 
-state 221
+State 221
 
   200 extraModifier: LTU .
 
     $default  reduce using rule 200 (extraModifier)
 
 
-state 222
+State 222
 
   201 extraModifier: NE .
 
     $default  reduce using rule 201 (extraModifier)
 
 
-state 223
+State 223
 
   202 extraModifier: NEU .
 
     $default  reduce using rule 202 (extraModifier)
 
 
-state 224
+State 224
 
   174 registerlocation: REGISTER . regMod
   182 regMod: . DOTCC
@@ -3095,28 +3095,28 @@ state 224
     regMod  go to state 250
 
 
-state 225
+State 225
 
   176 registerlocation: REGISTERLO .
 
     $default  reduce using rule 176 (registerlocation)
 
 
-state 226
+State 226
 
   177 registerlocation: REGISTERHI .
 
     $default  reduce using rule 177 (registerlocation)
 
 
-state 227
+State 227
 
   179 registerlocation: OFFSETREGISTER .
 
     $default  reduce using rule 179 (registerlocation)
 
 
-state 228
+State 228
 
   180 registerlocation: PREDREGISTER . PREDREGISTER2
   181                 | PREDREGISTER . REGISTER
@@ -3125,7 +3125,7 @@ state 228
     PREDREGISTER2  shift, and go to state 252
 
 
-state 229
+State 229
 
   205 operandPredicate: PREDREGISTER3 . predicateModifier
   206                 | PREDREGISTER3 .  [COS, EX2, SIN, EQ, EQU, GE, GEU, GT, GTU, LE, LEU, LT, LTU, NE, NEU, REGISTER, REGISTERLO, REGISTERHI, OFFSETREGISTER, PREDREGISTER, PREDREGISTER3, SREGISTER, SMEMLOCATION, ABSSMEMLOCATION, GMEMLOCATION, CMEMLOCATION, LMEMLOCATION, IDENTIFIER, HEXLITERAL, LEFTBRACKET, PIPE, TILDE, NEWLINE, SEMICOLON, OSQBRACKET]
@@ -3168,63 +3168,63 @@ state 229
     predicateModifier  go to state 253
 
 
-state 230
+State 230
 
   178 registerlocation: SREGISTER .
 
     $default  reduce using rule 178 (registerlocation)
 
 
-state 231
+State 231
 
   184 memorylocation: SMEMLOCATION .
 
     $default  reduce using rule 184 (memorylocation)
 
 
-state 232
+State 232
 
   185 memorylocation: ABSSMEMLOCATION .
 
     $default  reduce using rule 185 (memorylocation)
 
 
-state 233
+State 233
 
   186 memorylocation: GMEMLOCATION .
 
     $default  reduce using rule 186 (memorylocation)
 
 
-state 234
+State 234
 
   187 memorylocation: CMEMLOCATION .
 
     $default  reduce using rule 187 (memorylocation)
 
 
-state 235
+State 235
 
   188 memorylocation: LMEMLOCATION .
 
     $default  reduce using rule 188 (memorylocation)
 
 
-state 236
+State 236
 
   189 immediateValue: IDENTIFIER .
 
     $default  reduce using rule 189 (immediateValue)
 
 
-state 237
+State 237
 
   190 immediateValue: HEXLITERAL .
 
     $default  reduce using rule 190 (immediateValue)
 
 
-state 238
+State 238
 
   167 operand: LEFTBRACKET . instructionPredicate RIGHTBRACKET
   203 instructionPredicate: . PREDREGISTER3 predicateModifier
@@ -3235,7 +3235,7 @@ state 238
     instructionPredicate  go to state 254
 
 
-state 239
+State 239
 
   165 operand: PIPE . registerlocation PIPE
   174 registerlocation: . REGISTER regMod
@@ -3258,7 +3258,7 @@ state 239
     registerlocation  go to state 255
 
 
-state 240
+State 240
 
   166 operand: TILDE . registerlocation
   174 registerlocation: . REGISTER regMod
@@ -3281,28 +3281,28 @@ state 240
     registerlocation  go to state 256
 
 
-state 241
+State 241
 
   175 registerlocation: OSQBRACKET . REGISTER CSQBRACKET
 
     REGISTER  shift, and go to state 257
 
 
-state 242
+State 242
 
   162 operandList: operandList $@8 operand .
 
     $default  reduce using rule 162 (operandList)
 
 
-state 243
+State 243
 
   164 operand: registerlocation .
 
     $default  reduce using rule 164 (operand)
 
 
-state 244
+State 244
 
   147 opTypes: . DOTF16
   148        | . DOTF32
@@ -3341,119 +3341,119 @@ state 244
     opTypes  go to state 258
 
 
-state 245
+State 245
 
   170 operand: immediateValue .
 
     $default  reduce using rule 170 (operand)
 
 
-state 246
+State 246
 
   171 operand: extraModifier .
 
     $default  reduce using rule 171 (operand)
 
 
-state 247
+State 247
 
   172 operand: operandPredicate .
 
     $default  reduce using rule 172 (operand)
 
 
-state 248
+State 248
 
   173 operand: preOperand .
 
     $default  reduce using rule 173 (operand)
 
 
-state 249
+State 249
 
   182 regMod: DOTCC .
 
     $default  reduce using rule 182 (regMod)
 
 
-state 250
+State 250
 
   174 registerlocation: REGISTER regMod .
 
     $default  reduce using rule 174 (registerlocation)
 
 
-state 251
+State 251
 
   181 registerlocation: PREDREGISTER REGISTER .
 
     $default  reduce using rule 181 (registerlocation)
 
 
-state 252
+State 252
 
   180 registerlocation: PREDREGISTER PREDREGISTER2 .
 
     $default  reduce using rule 180 (registerlocation)
 
 
-state 253
+State 253
 
   205 operandPredicate: PREDREGISTER3 predicateModifier .
 
     $default  reduce using rule 205 (operandPredicate)
 
 
-state 254
+State 254
 
   167 operand: LEFTBRACKET instructionPredicate . RIGHTBRACKET
 
     RIGHTBRACKET  shift, and go to state 259
 
 
-state 255
+State 255
 
   165 operand: PIPE registerlocation . PIPE
 
     PIPE  shift, and go to state 260
 
 
-state 256
+State 256
 
   166 operand: TILDE registerlocation .
 
     $default  reduce using rule 166 (operand)
 
 
-state 257
+State 257
 
   175 registerlocation: OSQBRACKET REGISTER . CSQBRACKET
 
     CSQBRACKET  shift, and go to state 261
 
 
-state 258
+State 258
 
   168 operand: memorylocation opTypes .
 
     $default  reduce using rule 168 (operand)
 
 
-state 259
+State 259
 
   167 operand: LEFTBRACKET instructionPredicate RIGHTBRACKET .
 
     $default  reduce using rule 167 (operand)
 
 
-state 260
+State 260
 
   165 operand: PIPE registerlocation PIPE .
 
     $default  reduce using rule 165 (operand)
 
 
-state 261
+State 261
 
   175 registerlocation: OSQBRACKET REGISTER CSQBRACKET .
 

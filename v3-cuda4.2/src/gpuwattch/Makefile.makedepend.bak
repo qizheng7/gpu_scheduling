@@ -6,7 +6,6 @@ obj_opt/XML_Parse.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
 obj_opt/XML_Parse.o: /usr/include/gnu/stubs-64.h /usr/include/bits/types.h
 obj_opt/XML_Parse.o: /usr/include/bits/typesizes.h /usr/include/libio.h
 obj_opt/XML_Parse.o: /usr/include/_G_config.h /usr/include/wchar.h
-obj_opt/XML_Parse.o: /usr/include/bits/wchar.h /usr/include/xlocale.h
 obj_opt/XML_Parse.o: /usr/include/bits/stdio_lim.h
 obj_opt/XML_Parse.o: /usr/include/bits/sys_errlist.h xmlParser.h
 obj_opt/XML_Parse.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
@@ -17,7 +16,7 @@ obj_opt/XML_Parse.o: /usr/include/sys/select.h /usr/include/bits/select.h
 obj_opt/XML_Parse.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
 obj_opt/XML_Parse.o: /usr/include/sys/sysmacros.h
 obj_opt/XML_Parse.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-obj_opt/XML_Parse.o: XML_Parse.h /usr/include/string.h
+obj_opt/XML_Parse.o: XML_Parse.h /usr/include/string.h /usr/include/xlocale.h
 obj_opt/array.o: cacti/area.h cacti/cacti_interface.h cacti/const.h
 obj_opt/array.o: /usr/include/stdint.h /usr/include/features.h
 obj_opt/array.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
@@ -55,8 +54,7 @@ obj_opt/basic_components.o: /usr/include/gnu/stubs-64.h
 obj_opt/basic_components.o: /usr/include/bits/types.h
 obj_opt/basic_components.o: /usr/include/bits/typesizes.h
 obj_opt/basic_components.o: /usr/include/libio.h /usr/include/_G_config.h
-obj_opt/basic_components.o: /usr/include/wchar.h /usr/include/bits/wchar.h
-obj_opt/basic_components.o: /usr/include/xlocale.h
+obj_opt/basic_components.o: /usr/include/wchar.h
 obj_opt/basic_components.o: /usr/include/bits/stdio_lim.h
 obj_opt/basic_components.o: /usr/include/bits/sys_errlist.h xmlParser.h
 obj_opt/basic_components.o: /usr/include/stdlib.h
@@ -72,8 +70,9 @@ obj_opt/basic_components.o: /usr/include/bits/time.h
 obj_opt/basic_components.o: /usr/include/sys/sysmacros.h
 obj_opt/basic_components.o: /usr/include/bits/pthreadtypes.h
 obj_opt/basic_components.o: /usr/include/alloca.h /usr/include/string.h
-obj_opt/basic_components.o: cacti/parameter.h cacti/area.h cacti/const.h
-obj_opt/basic_components.o: /usr/include/stdint.h /usr/include/math.h
+obj_opt/basic_components.o: /usr/include/xlocale.h cacti/parameter.h
+obj_opt/basic_components.o: cacti/area.h cacti/const.h /usr/include/stdint.h
+obj_opt/basic_components.o: /usr/include/bits/wchar.h /usr/include/math.h
 obj_opt/basic_components.o: /usr/include/bits/huge_val.h
 obj_opt/basic_components.o: /usr/include/bits/huge_valf.h
 obj_opt/basic_components.o: /usr/include/bits/huge_vall.h
@@ -187,7 +186,6 @@ obj_opt/logic.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
 obj_opt/logic.o: /usr/include/gnu/stubs-64.h /usr/include/bits/types.h
 obj_opt/logic.o: /usr/include/bits/typesizes.h /usr/include/libio.h
 obj_opt/logic.o: /usr/include/_G_config.h /usr/include/wchar.h
-obj_opt/logic.o: /usr/include/bits/wchar.h /usr/include/xlocale.h
 obj_opt/logic.o: /usr/include/bits/stdio_lim.h
 obj_opt/logic.o: /usr/include/bits/sys_errlist.h xmlParser.h
 obj_opt/logic.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
@@ -198,8 +196,9 @@ obj_opt/logic.o: /usr/include/sys/select.h /usr/include/bits/select.h
 obj_opt/logic.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
 obj_opt/logic.o: /usr/include/sys/sysmacros.h
 obj_opt/logic.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-obj_opt/logic.o: /usr/include/string.h cacti/parameter.h cacti/const.h
-obj_opt/logic.o: /usr/include/stdint.h /usr/include/math.h
+obj_opt/logic.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/logic.o: cacti/parameter.h cacti/const.h /usr/include/stdint.h
+obj_opt/logic.o: /usr/include/bits/wchar.h /usr/include/math.h
 obj_opt/logic.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
 obj_opt/logic.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
 obj_opt/logic.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
@@ -240,9 +239,9 @@ obj_opt/main.o: noc.h cacti/router.h cacti/crossbar.h cacti/arbiter.h
 obj_opt/main.o: memoryctrl.h iocontrollers.h ../gpgpu-sim/visualizer.h
 obj_opt/main.o: /usr/include/zlib.h /usr/include/zconf.h
 obj_opt/main.o: /usr/include/zlibdefs.h /usr/include/unistd.h
-obj_opt/main.o: /usr/include/bits/posix_opt.h /usr/include/bits/confname.h
-obj_opt/main.o: /usr/include/getopt.h /usr/include/ctype.h globalvar.h
-obj_opt/main.o: version.h
+obj_opt/main.o: /usr/include/bits/posix_opt.h
+obj_opt/main.o: /usr/include/bits/environments.h /usr/include/bits/confname.h
+obj_opt/main.o: /usr/include/getopt.h globalvar.h version.h
 obj_opt/memoryctrl.o: cacti/io.h cacti/const.h /usr/include/stdint.h
 obj_opt/memoryctrl.o: /usr/include/features.h /usr/include/bits/predefs.h
 obj_opt/memoryctrl.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
@@ -310,7 +309,7 @@ obj_opt/processor.o: /usr/include/gnu/stubs-64.h /usr/include/xlocale.h
 obj_opt/processor.o: /usr/include/stdio.h /usr/include/bits/types.h
 obj_opt/processor.o: /usr/include/bits/typesizes.h /usr/include/libio.h
 obj_opt/processor.o: /usr/include/_G_config.h /usr/include/wchar.h
-obj_opt/processor.o: /usr/include/bits/wchar.h /usr/include/bits/stdio_lim.h
+obj_opt/processor.o: /usr/include/bits/stdio_lim.h
 obj_opt/processor.o: /usr/include/bits/sys_errlist.h /usr/include/assert.h
 obj_opt/processor.o: cacti/parameter.h array.h basic_components.h XML_Parse.h
 obj_opt/processor.o: xmlParser.h /usr/include/stdlib.h
@@ -323,8 +322,8 @@ obj_opt/processor.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
 obj_opt/processor.o: /usr/include/sys/sysmacros.h
 obj_opt/processor.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
 obj_opt/processor.o: cacti/parameter.h cacti/area.h cacti/const.h
-obj_opt/processor.o: /usr/include/stdint.h /usr/include/math.h
-obj_opt/processor.o: /usr/include/bits/huge_val.h
+obj_opt/processor.o: /usr/include/stdint.h /usr/include/bits/wchar.h
+obj_opt/processor.o: /usr/include/math.h /usr/include/bits/huge_val.h
 obj_opt/processor.o: /usr/include/bits/huge_valf.h
 obj_opt/processor.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
 obj_opt/processor.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
@@ -341,8 +340,9 @@ obj_opt/processor.o: memoryctrl.h iocontrollers.h ../gpgpu-sim/visualizer.h
 obj_opt/processor.o: /usr/include/zlib.h /usr/include/zconf.h
 obj_opt/processor.o: /usr/include/zlibdefs.h /usr/include/unistd.h
 obj_opt/processor.o: /usr/include/bits/posix_opt.h
+obj_opt/processor.o: /usr/include/bits/environments.h
 obj_opt/processor.o: /usr/include/bits/confname.h /usr/include/getopt.h
-obj_opt/processor.o: /usr/include/ctype.h version.h
+obj_opt/processor.o: version.h
 obj_opt/sharedcache.o: cacti/io.h cacti/const.h /usr/include/stdint.h
 obj_opt/sharedcache.o: /usr/include/features.h /usr/include/bits/predefs.h
 obj_opt/sharedcache.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
@@ -390,13 +390,12 @@ obj_opt/xmlParser.o: /usr/include/sys/select.h /usr/include/bits/select.h
 obj_opt/xmlParser.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
 obj_opt/xmlParser.o: /usr/include/sys/sysmacros.h
 obj_opt/xmlParser.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
-obj_opt/xmlParser.o: /usr/include/wchar.h /usr/include/stdio.h
+obj_opt/xmlParser.o: /usr/include/wchar.h /usr/include/memory.h
+obj_opt/xmlParser.o: /usr/include/string.h /usr/include/xlocale.h
+obj_opt/xmlParser.o: /usr/include/assert.h /usr/include/stdio.h
 obj_opt/xmlParser.o: /usr/include/libio.h /usr/include/_G_config.h
 obj_opt/xmlParser.o: /usr/include/bits/stdio_lim.h
 obj_opt/xmlParser.o: /usr/include/bits/sys_errlist.h
-obj_opt/xmlParser.o: /usr/include/bits/wchar.h /usr/include/xlocale.h
-obj_opt/xmlParser.o: /usr/include/memory.h /usr/include/string.h
-obj_opt/xmlParser.o: /usr/include/assert.h
 obj_opt/gpgpu_sim_wrapper.o: gpgpu_sim_wrapper.h processor.h XML_Parse.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/stdio.h /usr/include/features.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/predefs.h
@@ -407,8 +406,7 @@ obj_opt/gpgpu_sim_wrapper.o: /usr/include/gnu/stubs-64.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/types.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/typesizes.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/libio.h /usr/include/_G_config.h
-obj_opt/gpgpu_sim_wrapper.o: /usr/include/wchar.h /usr/include/bits/wchar.h
-obj_opt/gpgpu_sim_wrapper.o: /usr/include/xlocale.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/wchar.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/stdio_lim.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/sys_errlist.h xmlParser.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/stdlib.h
@@ -424,8 +422,9 @@ obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/time.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/sys/sysmacros.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/pthreadtypes.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/alloca.h /usr/include/string.h
-obj_opt/gpgpu_sim_wrapper.o: cacti/area.h cacti/cacti_interface.h
-obj_opt/gpgpu_sim_wrapper.o: cacti/const.h /usr/include/stdint.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/xlocale.h cacti/area.h
+obj_opt/gpgpu_sim_wrapper.o: cacti/cacti_interface.h cacti/const.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/stdint.h /usr/include/bits/wchar.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/math.h /usr/include/bits/huge_val.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/huge_valf.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/huge_vall.h
@@ -449,5 +448,6 @@ obj_opt/gpgpu_sim_wrapper.o: ../gpgpu-sim/visualizer.h /usr/include/zlib.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/zconf.h /usr/include/zlibdefs.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/unistd.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/posix_opt.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/environments.h
 obj_opt/gpgpu_sim_wrapper.o: /usr/include/bits/confname.h
-obj_opt/gpgpu_sim_wrapper.o: /usr/include/getopt.h /usr/include/ctype.h
+obj_opt/gpgpu_sim_wrapper.o: /usr/include/getopt.h

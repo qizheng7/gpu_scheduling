@@ -27,11 +27,10 @@
 ../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/libio.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/_G_config.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/wchar.h
-../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/bits/wchar.h
-../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/xlocale.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/bits/stdio_lim.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/bits/sys_errlist.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/string.h
+../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/xlocale.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/assert.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: ../src/gpgpu-sim/gpu-sim.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: ../src/option_parser.h
@@ -58,9 +57,9 @@
 ../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/zlibdefs.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/unistd.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/bits/posix_opt.h
+../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/bits/environments.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/bits/confname.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/getopt.h
-../build/4020/release/libcuda/cuda_runtime_api.o: /usr/include/ctype.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: ../src/gpgpu-sim/scoreboard.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: ../src/gpgpu-sim/mem_fetch.h
 ../build/4020/release/libcuda/cuda_runtime_api.o: ../src/gpgpu-sim/mem_fetch_status.tup

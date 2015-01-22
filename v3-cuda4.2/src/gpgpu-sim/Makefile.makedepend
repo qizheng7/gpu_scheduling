@@ -14,7 +14,6 @@
 ../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/bits/wchar.h
 ../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/stdlib.h
@@ -53,9 +52,9 @@
 ../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/zlibdefs.h
 ../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/addrdec.o: /usr/include/ctype.h
 ../../build/4020/release/gpgpu-sim/addrdec.o: scoreboard.h mem_fetch.h
 ../../build/4020/release/gpgpu-sim/addrdec.o: mem_fetch_status.tup stats.h
 ../../build/4020/release/gpgpu-sim/addrdec.o: gpu-cache.h ../tr1_hash_map.h
@@ -72,8 +71,6 @@
 ../../build/4020/release/gpgpu-sim/dram.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/dram.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/dram.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/dram.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/dram.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/dram.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/dram.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/dram.o: /usr/include/stdlib.h
@@ -110,9 +107,9 @@
 ../../build/4020/release/gpgpu-sim/dram.o: /usr/include/zlibdefs.h
 ../../build/4020/release/gpgpu-sim/dram.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/dram.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/dram.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/dram.o: /usr/include/bits/confname.h
-../../build/4020/release/gpgpu-sim/dram.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/dram.o: /usr/include/ctype.h scoreboard.h
+../../build/4020/release/gpgpu-sim/dram.o: /usr/include/getopt.h scoreboard.h
 ../../build/4020/release/gpgpu-sim/dram.o: mem_fetch.h mem_fetch_status.tup
 ../../build/4020/release/gpgpu-sim/dram.o: stats.h gpu-cache.h
 ../../build/4020/release/gpgpu-sim/dram.o: ../tr1_hash_map.h
@@ -132,8 +129,6 @@
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/assert.h
@@ -159,9 +154,9 @@
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/zlibdefs.h
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/ctype.h
 ../../build/4020/release/gpgpu-sim/dram_sched.o: shader.h /usr/include/math.h
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/bits/huge_val.h
 ../../build/4020/release/gpgpu-sim/dram_sched.o: /usr/include/bits/huge_valf.h
@@ -193,8 +188,6 @@
 ../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/stdlib.h
@@ -225,9 +218,9 @@
 ../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/zlibdefs.h
 ../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/gpu-cache.o: /usr/include/ctype.h
 ../../build/4020/release/gpgpu-sim/gpu-misc.o: gpu-misc.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: gpu-sim.h ../option_parser.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/stdio.h
@@ -242,8 +235,6 @@
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/stdlib.h
@@ -280,9 +271,9 @@
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/zlibdefs.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/ctype.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: scoreboard.h mem_fetch.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: mem_fetch_status.tup stats.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: gpu-cache.h ../tr1_hash_map.h
@@ -314,6 +305,7 @@
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: ../cuda-sim/opcodes.def
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: ../cuda-sim/memory.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/string.h
+../../build/4020/release/gpgpu-sim/gpu-sim.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: mem_latency_stat.h power_stat.h
 ../../build/4020/release/gpgpu-sim/gpu-sim.o: visualizer.h reg_study.h
 ../../build/4020/release/gpgpu-sim/histogram.o: histogram.h
@@ -337,8 +329,6 @@
 ../../build/4020/release/gpgpu-sim/icnt_wrapper.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/icnt_wrapper.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/icnt_wrapper.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/icnt_wrapper.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/icnt_wrapper.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/icnt_wrapper.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/icnt_wrapper.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/icnt_wrapper.o: /usr/include/assert.h
@@ -400,11 +390,10 @@
 ../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/string.h
+../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: ../option_parser.h mem_fetch.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: addrdec.h /usr/include/assert.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: ../abstract_hardware_model.h
@@ -416,9 +405,9 @@
 ../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/zlibdefs.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/l2cache.o: /usr/include/ctype.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: gpu-cache.h ../tr1_hash_map.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: histogram.h l2cache.h gpu-sim.h
 ../../build/4020/release/gpgpu-sim/l2cache.o: ../trace.h ../trace_streams.tup
@@ -445,8 +434,6 @@
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/stdlib.h
@@ -474,10 +461,10 @@
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/zlibdefs.h
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/ctype.h shader.h
-../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/math.h
+../../build/4020/release/gpgpu-sim/mem_fetch.o: shader.h /usr/include/math.h
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/bits/huge_val.h
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/bits/huge_valf.h
 ../../build/4020/release/gpgpu-sim/mem_fetch.o: /usr/include/bits/huge_vall.h
@@ -507,8 +494,6 @@
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/zlib.h
@@ -527,9 +512,9 @@
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/bits/pthreadtypes.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/ctype.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: gpu-sim.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: ../option_parser.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/stdlib.h
@@ -562,6 +547,7 @@
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: ../cuda-sim/ptx-stats.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: visualizer.h
 ../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/string.h
+../../build/4020/release/gpgpu-sim/mem_latency_stat.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: power_interface.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: gpu-sim.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: ../option_parser.h
@@ -577,8 +563,6 @@
 ../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/stdlib.h
@@ -619,9 +603,9 @@
 ../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/zlibdefs.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/power_interface.o: /usr/include/ctype.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: scoreboard.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: mem_fetch.h
 ../../build/4020/release/gpgpu-sim/power_interface.o: mem_fetch_status.tup
@@ -643,8 +627,6 @@
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/zlib.h
@@ -663,9 +645,9 @@
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/bits/pthreadtypes.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/ctype.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: mem_latency_stat.h shader.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/stdlib.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/bits/waitflags.h
@@ -694,6 +676,7 @@
 ../../build/4020/release/gpgpu-sim/power_stat.o: ../cuda-sim/ptx-stats.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: visualizer.h
 ../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/string.h
+../../build/4020/release/gpgpu-sim/power_stat.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: scoreboard.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/stdio.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/features.h
@@ -707,8 +690,6 @@
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/stdlib.h
@@ -744,9 +725,9 @@
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/zlibdefs.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/ctype.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: mem_fetch.h addrdec.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: ../option_parser.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: mem_fetch_status.tup stats.h
@@ -757,6 +738,7 @@
 ../../build/4020/release/gpgpu-sim/scoreboard.o: ../cuda-sim/opcodes.def
 ../../build/4020/release/gpgpu-sim/scoreboard.o: ../cuda-sim/memory.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/string.h
+../../build/4020/release/gpgpu-sim/scoreboard.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: shader_trace.h ../trace.h
 ../../build/4020/release/gpgpu-sim/scoreboard.o: ../trace_streams.tup
 ../../build/4020/release/gpgpu-sim/shader.o: shader.h /usr/include/stdio.h
@@ -771,8 +753,6 @@
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/shader.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/shader.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/stdlib.h
@@ -808,9 +788,9 @@
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/zlibdefs.h
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/shader.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/shader.o: /usr/include/ctype.h
 ../../build/4020/release/gpgpu-sim/shader.o: scoreboard.h mem_fetch.h
 ../../build/4020/release/gpgpu-sim/shader.o: addrdec.h ../option_parser.h
 ../../build/4020/release/gpgpu-sim/shader.o: mem_fetch_status.tup stats.h
@@ -823,6 +803,7 @@
 ../../build/4020/release/gpgpu-sim/shader.o: ../cuda-sim/opcodes.def
 ../../build/4020/release/gpgpu-sim/shader.o: ../cuda-sim/memory.h
 ../../build/4020/release/gpgpu-sim/shader.o: /usr/include/string.h
+../../build/4020/release/gpgpu-sim/shader.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/shader.o: ../cuda-sim/ptx-stats.h
 ../../build/4020/release/gpgpu-sim/shader.o: ../cuda-sim/cuda-sim.h
 ../../build/4020/release/gpgpu-sim/shader.o: ../gpgpu-sim/shader.h
@@ -891,8 +872,6 @@
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/zlib.h
@@ -911,9 +890,9 @@
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/bits/pthreadtypes.h
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/ctype.h
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/stdlib.h
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/bits/waitflags.h
 ../../build/4020/release/gpgpu-sim/stat-tool.o: /usr/include/bits/waitstatus.h
@@ -932,8 +911,6 @@
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/libio.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/_G_config.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/wchar.h
-../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/bits/wchar.h
-../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/zlib.h
@@ -952,9 +929,9 @@
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/bits/pthreadtypes.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/unistd.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/bits/posix_opt.h
+../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/bits/environments.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/bits/confname.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/getopt.h
-../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/ctype.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: gpu-sim.h ../option_parser.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/stdlib.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/bits/waitflags.h
@@ -984,5 +961,6 @@
 ../../build/4020/release/gpgpu-sim/visualizer.o: power_stat.h stat-tool.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: histogram.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/string.h
+../../build/4020/release/gpgpu-sim/visualizer.o: /usr/include/xlocale.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: ../gpgpu-sim/shader.h
 ../../build/4020/release/gpgpu-sim/visualizer.o: ../gpgpu-sim/mem_fetch.h
