@@ -4,6 +4,7 @@
 //    INSTCOMMIT_SM -- this value must be consistent with gpgpusim.config.file.
 
 //#define IRREGULAR_MOT
+//#define DEBUG_ORACLE_INSTCOMMIT
 
 #include <map>
 #include <vector>

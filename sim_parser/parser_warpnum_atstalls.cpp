@@ -18,14 +18,16 @@ using namespace std;
 
 char *benchmark;
 int SMnum;
-int64_t lines;
 int64_t alllines;
 long long curcycle;
 bool isstart;
 map<int, int> buffer;
 
+char* outputfile;
+int kernelcount;
+FILE* outfp;
+
 void init(){
-	lines = 0;
 	alllines = 0;
         curcycle = 0;
         isstart = true;
@@ -33,21 +35,23 @@ void init(){
         for(int i=0;i<SMnum;i++){
           buffer[i] = -1;
         }
+        kernelcount = 0;
+        outfp = NULL;
 }
 
 void print_buffer(){
   //Print the stats
-  printf("%lld,",curcycle);
+  fprintf(outfp,"%lld,",curcycle);
   assert(buffer.size() == SMnum);
   map<int, int>::iterator it = buffer.begin();
   for(int i = 0;i < SMnum-1;i++,it++){
     int temp = it->second;
-    if(temp == -1) printf("%d,",0);
-    else printf("%d,",temp);
+    if(temp == -1) fprintf(outfp,"%d,",0);
+    else fprintf(outfp,"%d,",temp);
   }
   int temp = buffer.rbegin()->second;
-  if(temp == -1) printf("%d\n",0);
-  else printf("%d\n",temp);
+  if(temp == -1) fprintf(outfp,"%d\n",0);
+  else fprintf(outfp,"%d\n",temp);
   
   //Clear
   buffer.clear();
@@ -76,6 +80,7 @@ int parse_line(char* input){
   }else{
     if(isstart){
       isstart = false;
+      curcycle = cycle;
     }else{
       print_buffer();
       curcycle = cycle;
@@ -83,6 +88,45 @@ int parse_line(char* input){
       buffer[sid] = warpnum;
     }
   }
+
+  return 1;
+}
+
+int detect_new(char* input){
+  const char* ref = "New kernel";
+  char curhead[10];
+  memcpy(curhead, input, 10);
+  if(memcmp(ref, curhead,10)){
+    return 0;
+  }
+
+  fclose(outfp);
+
+  int warpsize;
+  sscanf(input,"%*s %*s %*s %d",&warpsize);
+
+  curcycle = 0;
+  isstart = true;
+  buffer.clear();
+  for(int i=0;i<SMnum;i++){
+    buffer[i] = -1;
+  }
+  outfp = NULL;
+
+  char tmpstring[15];
+  sprintf(tmpstring,"%d",kernelcount);
+  outputfile = strcat(benchmark,"-kernel-");
+  outputfile = strcat(outputfile,tmpstring);
+  outputfile = strcat(outputfile,".csv");
+
+  outfp = fopen(outputfile,"w");
+  fprintf(outfp, "-1,");
+  for(int i=0;i<SMnum-1;i++){
+    fprintf(outfp,"%d,",warpsize);
+  }
+  fprintf(outfp,"%d\n",warpsize);
+  
+  kernelcount++;
 
   return 1;
 }
@@ -99,10 +143,10 @@ void process_trace(){
         }
        	while((readlen = getline(&line, &len, fp)) != -1){
 		alllines++;
-                if(parse_line(line)){
+                if(detect_new(line)){
                   continue;
                 }
-		lines++;
+                parse_line(line);
         }	
 
         if(line) free(line);
@@ -116,7 +160,7 @@ int main(int argc, char **argv){
 	benchmark = argv[1];
         SMnum = atoi(argv[2]);
         if(SMnum <= 0){
-          printf("Wrong #SM!\n");
+          fprintf(stderr,"Wrong #SM!\n");
           assert(0);
         }
 

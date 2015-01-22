@@ -848,6 +848,31 @@ void scheduler_unit::order_by_priority( std::vector< T >& result_list,
 //Irregular_Study      
     } else if ( ORDERED_PRIORITY_INST_COMMIT == ordering ) {
         std::sort( temp.begin(), temp.end(), priority_func );
+#ifdef DEBUG_ORACLE_INSTCOMMIT
+        typename std::vector< T >::iterator titer = temp.begin();
+        long tcount = 0;
+        for ( unsigned count = 0; count < num_warps_to_add; ++count, ++titer ) {
+          if(!(*titer)) continue;
+          unsigned tdw = (*titer)->get_dynamic_warp_id();
+          unsigned tw = (*titer)->get_warp_id();
+          if(tw < INSTCOMMIT_MAX_WARP){
+            tcount += warp_committed_inst[get_sid()][tw];
+          }
+        }
+
+        if(tcount > 0){
+          titer = temp.begin();
+          for ( unsigned count = 0; count < num_warps_to_add; ++count, ++titer ) {
+            if(!(*titer)) continue;
+            unsigned tdw = (*titer)->get_dynamic_warp_id();
+            unsigned tw = (*titer)->get_warp_id();
+            if(tw < INSTCOMMIT_MAX_WARP){
+              printf("Cycle: %lld, Core: %d, d_id:%u, w_id:%u, commitinst:%u\n",gpu_tot_sim_cycle+gpu_sim_cycle, get_sid(), tdw,tw,warp_committed_inst[get_sid()][tw]);
+            }
+          }
+          printf("\n");
+        }
+#endif
         typename std::vector< T >::iterator iter = temp.begin();
         for ( unsigned count = 0; count < num_warps_to_add; ++count, ++iter ) {
             result_list.push_back( *iter );
@@ -872,6 +897,9 @@ void scheduler_unit::cycle()
           iter++ ) {
         // Don't consider warps that are not yet valid
         if ( (*iter) == NULL || (*iter)->done_exit() ) {
+#ifdef DEBUG_ORACLE_INSTCOMMIT
+          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u is invalid\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
+#endif
             continue;
         }
         SCHED_DPRINTF( "Testing (warp_id %u, dynamic_warp_id %u)\n",
@@ -912,6 +940,11 @@ void scheduler_unit::cycle()
                                 issued_inst=true;
                                 warp_inst_issued = true;
                             }
+#ifdef DEBUG_ORACLE_INSTCOMMIT
+                            else{
+          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u is MEM structure hazard\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
+                            }
+#endif
                         } else {
                             bool sp_pipe_avail = m_sp_out->has_free();
                             bool sfu_pipe_avail = m_sfu_out->has_free();
@@ -929,8 +962,17 @@ void scheduler_unit::cycle()
                                     warp_inst_issued = true;
                                 }
                             } 
+#ifdef DEBUG_ORACLE_INSTCOMMIT
+                            else{
+          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u is SP/SFU structure hazard\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
+                            }
+#endif
+ 
                         }
                     } else {
+#ifdef DEBUG_ORACLE_INSTCOMMIT
+          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u has data hazard\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
+#endif
                         SCHED_DPRINTF( "Warp (warp_id %u, dynamic_warp_id %u) fails scoreboard\n",
                                        (*iter)->get_warp_id(), (*iter)->get_dynamic_warp_id() );
                     }
@@ -951,6 +993,13 @@ void scheduler_unit::cycle()
             }
             checked++;
         }
+#ifdef DEBUG_ORACLE_INSTCOMMIT
+        if(valid_inst == false && checked == 0){
+          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u does not have valid instruction\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
+        }else if(valid_inst == false && checked > 0){
+          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u has control hazard\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
+        }
+#endif
         if ( issued ) {
             // This might be a bit inefficient, but we need to maintain
             // two ordered list for proper scheduler execution.
@@ -964,6 +1013,9 @@ void scheduler_unit::cycle()
                     m_last_supervised_issued = supervised_iter;
                 }
             }
+#ifdef DEBUG_ORACLE_INSTCOMMIT
+          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u successfully issued\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
+#endif
             break;
         } 
     }
@@ -975,6 +1027,10 @@ void scheduler_unit::cycle()
         m_stats->shader_cycle_distro[1]++; // waiting for RAW hazards (possibly due to memory) 
     else if( !issued_inst ) 
         m_stats->shader_cycle_distro[2]++; // pipeline stalled
+
+    if(!(valid_inst && ready_inst && issued_inst)){
+      if(this->get_sid() == 0) printf("Cycle: %lld Core %d W0_Idel: %u W0_Scoreboard: %u Stall: %u\n", gpu_tot_sim_cycle+gpu_sim_cycle, this->get_sid(), m_stats->shader_cycle_distro[0], m_stats->shader_cycle_distro[1], m_stats->shader_cycle_distro[2]);
+    }
 
     //Irregular_Study
 #ifdef IRREGULAR_MOT
@@ -1341,6 +1397,10 @@ void shader_core_ctx::warp_inst_complete(const warp_inst_t &inst)
     instcommit_dyn_warp_id[get_sid()][twid] = tdynwid;
   }
   warp_committed_inst[get_sid()][twid] += inst.active_count();
+#ifdef DEBUG_ORACLE_INSTCOMMIT
+    printf("Cycle: %lld, Core: %d, d_id:%u, w_id:%u, finish:%u--",gpu_tot_sim_cycle+gpu_sim_cycle, get_sid(), tdynwid,twid,inst.active_count());
+    inst.print(stdout); 
+#endif
   //end
 }
 
