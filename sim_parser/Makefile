@@ -1,6 +1,6 @@
 CC = gcc
 CXX = g++
-FLAGS = -O3
+FLAGS = -O3 -g
 
 
 warpnum: parser_warpnum_atstalls.cpp

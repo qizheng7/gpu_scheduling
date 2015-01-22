@@ -23,13 +23,12 @@ long long curcycle;
 bool isstart;
 map<int, int> buffer;
 
-char* outputfile;
 int kernelcount;
 FILE* outfp;
 
 void init(){
 	alllines = 0;
-        curcycle = 0;
+        curcycle = -1;
         isstart = true;
         buffer.clear();
         for(int i=0;i<SMnum;i++){
@@ -75,12 +74,20 @@ int parse_line(char* input){
 
   //Process trace
   if(cycle == curcycle){
+    if(buffer.find(sid)->second != -1){
+      printf("Line %ld\n",alllines);
+    }
     assert(buffer.find(sid)->second == -1);
     buffer[sid] = warpnum;
   }else{
     if(isstart){
       isstart = false;
       curcycle = cycle;
+      if(buffer.find(sid)->second != -1){
+        printf("Line %ld\n",alllines);
+      }
+      assert(buffer.find(sid)->second == -1);
+      buffer[sid] = warpnum;
     }else{
       print_buffer();
       curcycle = cycle;
@@ -92,7 +99,7 @@ int parse_line(char* input){
   return 1;
 }
 
-int detect_new(char* input){
+int detect_new(char* input, string* outputfile){
   const char* ref = "New kernel";
   char curhead[10];
   memcpy(curhead, input, 10);
@@ -100,12 +107,15 @@ int detect_new(char* input){
     return 0;
   }
 
-  fclose(outfp);
+  if(outfp) fclose(outfp);
 
   int warpsize;
-  sscanf(input,"%*s %*s %*s %d",&warpsize);
+//  sscanf(input,"%*s %*s %*s %d",&warpsize);
 
-  curcycle = 0;
+  char aa[20],bb[20],cc[20],dd[20];
+  sscanf(input,"%s %s %s %s %d",aa,bb,cc,dd,&warpsize);
+
+  curcycle = -1;
   isstart = true;
   buffer.clear();
   for(int i=0;i<SMnum;i++){
@@ -115,11 +125,15 @@ int detect_new(char* input){
 
   char tmpstring[15];
   sprintf(tmpstring,"%d",kernelcount);
-  outputfile = strcat(benchmark,"-kernel-");
-  outputfile = strcat(outputfile,tmpstring);
-  outputfile = strcat(outputfile,".csv");
 
-  outfp = fopen(outputfile,"w");
+  string curfile;
+  curfile.append(*outputfile);
+  curfile.append("-kernel-");
+  curfile.append(tmpstring);
+  curfile.append(".csv");
+
+  const char* cstr = curfile.c_str();
+  outfp = fopen(cstr,"w");
   fprintf(outfp, "-1,");
   for(int i=0;i<SMnum-1;i++){
     fprintf(outfp,"%d,",warpsize);
@@ -131,7 +145,7 @@ int detect_new(char* input){
   return 1;
 }
 
-void process_trace(){
+void process_trace(string* outputfile){
         int i;
         char* line = NULL;
         size_t len = 0;
@@ -143,7 +157,7 @@ void process_trace(){
         }
        	while((readlen = getline(&line, &len, fp)) != -1){
 		alllines++;
-                if(detect_new(line)){
+                if(detect_new(line,outputfile)){
                   continue;
                 }
                 parse_line(line);
@@ -158,6 +172,7 @@ int main(int argc, char **argv){
                 exit(-1);
         }
 	benchmark = argv[1];
+        string outputfile(benchmark);        
         SMnum = atoi(argv[2]);
         if(SMnum <= 0){
           fprintf(stderr,"Wrong #SM!\n");
@@ -165,7 +180,7 @@ int main(int argc, char **argv){
         }
 
 	init();	
-	process_trace();
+	process_trace(&outputfile);
 	return 0;
 }
 
