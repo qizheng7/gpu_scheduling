@@ -640,8 +640,8 @@ void shader_core_ctx::fetch()
                     m_warp[warp_id].set_done_exit();
 ///////////////////////////////////////////
 //Qi Zheng -- VCA study
-printf("VCA -- Warpexit: %u %u\n",
-	warp_id, m_warp[warp_id].get_dynamic_warp_id());
+//printf("VCA -- Warpexit: %u %u\n",
+//	warp_id, m_warp[warp_id].get_dynamic_warp_id());
 ///////////////////////////////////////////
 // caogao -- profile warp divergence
 /*  warp finishes, print out warp runtime in cycles */
@@ -650,8 +650,11 @@ printf("VCA -- Warpexit: %u %u\n",
                     if (warp_runtime < 0) {
                       printf("error: runtime < 0");
                     }
-                    printf("warp_finish\twarp_id\t%ustart_cycle\t%u\tfinish_cycle\t%u\trun_time\t%i\n",
-                              warp_id, m_warp[warp_id].start_cycle, m_warp[warp_id].finish_cycle, warp_runtime);
+                    printf("TEST--Warpexit\n");
+                    printf("warp_id\t%u\tdynamic_warp_id\t%u\tstart_cycle\t%u\tfinish_cycle\t%u\trun_time\t%i\tinst_committed\t%u\n",
+                              warp_id, m_warp[warp_id].get_dynamic_warp_id(), 
+                              m_warp[warp_id].start_cycle, m_warp[warp_id].finish_cycle, warp_runtime, 
+                              m_warp[warp_id].inst_committed / m_config->warp_size);
 		}
 ///////////////////////////////////////////
             }
@@ -1286,7 +1289,7 @@ void shader_core_ctx::warp_inst_complete(const warp_inst_t &inst)
 ///////////////////////////////////////////
 //caogao -- profile warp divergence
 // increment instruction committ counts for this warp
-  m_warp[inst.warp_id()].inst_committed++;
+  m_warp[inst.warp_id()].inst_committed += inst.active_count();
 ///////////////////////////////////////////
 }
 
