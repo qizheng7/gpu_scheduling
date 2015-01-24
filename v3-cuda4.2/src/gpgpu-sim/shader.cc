@@ -646,13 +646,13 @@ void shader_core_ctx::fetch()
 // caogao -- profile warp divergence
 /*  warp finishes, print out warp runtime in cycles */
                     m_warp[warp_id].finish_cycle = gpu_sim_cycle; 
-                    int warp_runtime = m_warp[warp_id].start_cycle - m_warp[warp_id].finish_cycle;
+                    int warp_runtime = m_warp[warp_id].finish_cycle - m_warp[warp_id].start_cycle;
                     if (warp_runtime < 0) {
                       printf("error: runtime < 0");
                     }
-                    printf("TEST--Warpexit\n");
-                    printf("warp_id\t%u\tdynamic_warp_id\t%u\tstart_cycle\t%u\tfinish_cycle\t%u\trun_time\t%i\tinst_committed\t%u\n",
-                              warp_id, m_warp[warp_id].get_dynamic_warp_id(), 
+                    printf("TEST\twarp\texit\n");
+                    printf("TEST\tcore_id\t%u\twarp_id\t%u\tdynamic_warp_id\t%u\tstart_cycle\t%u\tfinish_cycle\t%u\trun_time\t%i\tinst_committed\t%u\n",
+                              m_sid, warp_id, m_warp[warp_id].get_dynamic_warp_id(), 
                               m_warp[warp_id].start_cycle, m_warp[warp_id].finish_cycle, warp_runtime, 
                               m_warp[warp_id].inst_committed / m_config->warp_size);
 		}
@@ -665,7 +665,8 @@ void shader_core_ctx::fetch()
               m_warp[warp_id].start_cycle = gpu_sim_cycle;
               m_warp[warp_id].started = true;
               m_warp[warp_id].inst_committed = 0;
-              printf("warp%u started", warp_id);
+              printf("TEST\twarp\tstart\n");
+              printf("TEST\tcore_id\t%u\twarp_id\t%u\n", m_sid, warp_id);
             }
 ///////////////////////////////////////////
             // this code fetches instructions from the i-cache or generates memory requests
@@ -2443,9 +2444,11 @@ void shader_core_ctx::cycle()
 ///////////////////////////////////////////
 // caogao -- profile warp divergence
 /* sample percentage of warp progress */
+/*
     int sample_period = m_cluster->get_gpu()->get_config().warp_progress_sample_period;
     if ((gpu_sim_cycle % sample_period) == 0)
       sample_warp_progress();
+*/
 ///////////////////////////////////////////
 }
 
@@ -2453,11 +2456,14 @@ void shader_core_ctx::cycle()
 // caogao -- profile warp divergence
 /* sample percentage of warp progress */
 void shader_core_ctx::sample_warp_progress() {
+// TODO
+/*
   printf ("Sampling warp progress for core%i", m_sid);
   for (std::vector<shd_warp_t>::size_type iter = 0; iter != m_warp.size(); iter++) {
     // TODO: get the total number of insts for warps
     printf ("Proress for warp %u: %u committed", m_warp[iter].get_warp_id(), m_warp[iter].inst_committed);
-  }
+*/
+  ;
 }
 ///////////////////////////////////////////
 
