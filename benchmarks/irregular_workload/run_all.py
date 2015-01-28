@@ -2,8 +2,8 @@
 ### submit all jobs and the parse the results (all in local)
 #################################
 ## ALL JOBS TO SUBMIT
-jobs_list = ["GFC", "NQU", "TSP", "bfs", "cfd", "bh", "dmr"]
-#jobs_list = ["NQU", "TSP"]
+#jobs_list = ["GFC", "NQU", "TSP", "bfs", "cfd", "bh", "dmr"]
+jobs_list = ["dmr"]
 gpgpu_path = "/home/caogao/gpu_scheduling/v3-cuda4.2/"
 #################################
 

@@ -11,7 +11,8 @@ except:
   print 'Usage: trace.py filename'
   sys.exit()
 
-warps = []
+kernel = -1
+warps = [[]]
 tracefile = open(filename + '.out', 'r')
 line = tracefile.readline()
 while line:
@@ -29,19 +30,25 @@ while line:
 #      finish_cycle = line[10]
       run_time = int(line[12])
       inst_committed = int(line[14])
-      warps.append([start_cycle, run_time, inst_committed])
+      warps[kernel].append([start_cycle, run_time, inst_committed])
 #      run_time_list.append(run_time)
 #      inst_committed_list.append(inst_committed)
+  if line[0:17] == 'New kernel starts':  # profile outputs
+    kernel = kernel + 1
+    warps.append([])
   line = tracefile.readline()
 
-warps = sorted(warps, key=lambda warps: (warps[0], warps[1]))    # sort based on start cycle first, then run time
-csvfile = open(filename + '.csv', 'w+')
-csvfile.write('start_cycle' + '\t' + 'run_time' + '\t' + 'inst_committed' + '\n')
-for warp in warps:
-  for item in warp: 
-    csvfile.write(str(item))
-    csvfile.write('\t')
-  csvfile.write('\n')
+for kernel_n in xrange(kernel+1):
+  csvfile = open(filename + '_' + str(kernel_n) + '.csv', 'w+')
+  csvfile.write('new kernel' + str(kernel_n) + '\n')
+  warp = warps[kernel_n]
+  warp = sorted(warp, key=lambda warp: (warp[0], warp[1]))    # sort based on start cycle first, then run time
+  csvfile.write('start_cycle' + '\t' + 'run_time' + '\t' + 'inst_committed' + '\n')
+  for single_warp in warp:
+    for item in single_warp: 
+      csvfile.write(str(item))
+      csvfile.write('\t')
+    csvfile.write('\n')
+  csvfile.close()
 
 tracefile.close()
-csvfile.close()
