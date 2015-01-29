@@ -1,5 +1,0 @@
-#!/bin/bash
-
-INPUT=${1:-../../inputs/USA-road-d.FLA.gr}
-
-./run-all.sh -pbfs-output.txt -r2 -i $INPUT -v "bfs-wlc" 

@@ -1,0 +1,9 @@
+executable = /home/qizheng/gpgpu-sim/benchmark/irregular_workload/lonestargpu/v5.5/apps/sssp/myrun
+universe = vanilla
+log = lonestar.sssp.log.$(Cluster).$(Process)
+output = lonestar.sssp.output.$(Cluster).$(Process)
+error = lonestar.sssp.error.$(Cluster).$(Process)
+getenv = true
+
+arguments = 
+queue

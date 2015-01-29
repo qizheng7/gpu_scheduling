@@ -1,0 +1,3 @@
+#!/bin/bash
+./nsp.sh ./nsp ../../../inputs/random-42-10-3.cnf 3
+
