@@ -66,16 +66,6 @@ int main(int argc, char *argv[]) {
 	unsigned *nerr, hnerr;
 	KernelConfig kconf;
 
-#ifdef thread_profiling
-  typedef struct {
-    unsigned runtime;
-    bool parallel;
-    unsigned iteration;
-  } code_block;
- 
-  code_block *code_blocks, *hcode_blocks; 
-#endif
-
 	//cudaFuncSetCacheConfig(drelax, cudaFuncCachePreferShared);
 	if (argc != 2) {
 		printf("Usage: %s <graph>\n", argv[0]);
@@ -95,9 +85,6 @@ int main(int argc, char *argv[]) {
 	if (cudaMalloc((void **)&nerr, sizeof(unsigned)) != cudaSuccess) CudaTest("allocating nerr failed");
 	if (cudaMalloc((void **)&dist, graph.nnodes * sizeof(foru)) != cudaSuccess) CudaTest("allocating dist failed");
 	hdist = (foru *)malloc(graph.nnodes * sizeof(foru));
-#ifdef thread_profiling
-	if (cudaMalloc((void **)&code_blocks, kconf.getNumberOfBlocks() * kconf.getNumberOfBlockThreads() * sizeof(code_block)) != cudaSuccess) CudaTest("allocating code_blocks failed");
-#endif
 	kconf.setMaxThreadsPerBlock();
 	printf("initializing.\n");
 	initialize <<<kconf.getNumberOfBlocks(), kconf.getNumberOfBlockThreads()>>> (dist, graph.nnodes);
@@ -111,9 +98,6 @@ int main(int argc, char *argv[]) {
 	dverifysolution<<<kconf.getNumberOfBlocks(), kconf.getNumberOfBlockThreads()>>> (dist, graph, nerr);
 	CudaTest("dverifysolution failed");
 	cudaMemcpy(&hnerr, nerr, sizeof(hnerr), cudaMemcpyDeviceToHost);
-#ifdef thread_profiling
-	cudaMemcpy(&hcode_blocks, code_blocks, sizeof(code_blocks), cudaMemcpyDeviceToHost);
-#endif
 	printf("\tno of errors = %d.\n", hnerr);
 	
 	print_output("sssp-output.txt", hdist, dist, graph);

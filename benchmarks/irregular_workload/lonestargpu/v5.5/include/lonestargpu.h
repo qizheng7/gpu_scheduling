@@ -7,4 +7,8 @@
 #include "list.h"
 #include "component.h"
 
+#ifdef thread_profiling
+#include "thread_profiling.h"
+#endif
+
 #endif
