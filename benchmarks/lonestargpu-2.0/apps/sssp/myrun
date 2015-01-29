@@ -1,0 +1,6 @@
+#!/bin/bash
+
+INPUT=${1:-../../inputs/USA-road-d.FLA.gr}
+
+./run-all.sh -psssp-output.txt -r1 -i $INPUT -v "sssp-wlc"
+

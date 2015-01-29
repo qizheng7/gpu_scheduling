@@ -1,0 +1,6 @@
+#!/bin/bash
+
+./bh 30000 1 0  #(very small)
+#./bh 30000 50 0  #(small)
+#./bh 300000 10 0 #(medium)
+#./bh 3000000 2 0 #(large)
