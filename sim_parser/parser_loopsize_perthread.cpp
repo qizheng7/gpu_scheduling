@@ -80,13 +80,14 @@ void print_result(){
       mywarp_per_core += 1;
     int thread_range = mywarp_per_core * WARPSIZE;
     sort(threadloopsize.begin()+itr, threadloopsize.begin()+itr+thread_range);//from little to large
-    int oracleloopsize = 0;
-    int realloopsize = 0;
+    long oracleloopsize = 0;
+    long realloopsize = 0;
     for(int j=0;j<mywarp_per_core;j++){
-      oracleloopsize += threadloopsize.at((j+1)*WARPSIZE-1);
-      realloopsize += warploopsize.at(j);
+      oracleloopsize += (long)(threadloopsize.at((j+1)*WARPSIZE-1));
+      realloopsize += (long)(warploopsize.at(j));
     }
-    printf("  Core %d improves %.2f%\n",i,((float)realloopsize/(float)oracleloopsize-1.0) * 100.0);
+    //printf("real: %ld, oracle: %ld\n",realloopsize, oracleloopsize);
+    printf("  Core %d improves %.2f%\n",i,((double)realloopsize/(double)oracleloopsize-1.0) * 100.0);
 
     extra--;
     itr += thread_range;
