@@ -86,12 +86,14 @@ void print_result(){
       oracleloopsize += (long)(threadloopsize.at((j+1)*WARPSIZE-1));
       realloopsize += (long)(warploopsize.at(j));
     }
-    //printf("real: %ld, oracle: %ld\n",realloopsize, oracleloopsize);
+//    printf("real: %ld, oracle: %ld\n",realloopsize, oracleloopsize);
     printf("  Core %d improves %.2f%\n",i,((double)realloopsize/(double)oracleloopsize-1.0) * 100.0);
 
     extra--;
     itr += thread_range;
   }
+
+  kernelcount++;
 }
 
 int parse_line(char* input){
@@ -126,7 +128,6 @@ int detect_new(char* input){
 
   print_result();
   reinit();
-  kernelcount++;
   return 1;
 }
 

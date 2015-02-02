@@ -1,6 +1,6 @@
 CC = gcc
 CXX = g++
-FLAGS = -O3 -g
+FLAGS = -g
 
 all: loopsize
 
