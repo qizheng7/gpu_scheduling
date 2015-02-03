@@ -44,35 +44,25 @@ bool processnode(foru *dist, Graph &graph, unsigned work) {
 	
 	unsigned neighborsize = graph.getOutDegree(nn);
 #ifdef iteration_profiling
-//  printf("TEST\tinner_iterations\t%d\n", neighborsize);
-#endif
-/*
-#ifdef iteration_profiling
+  iteration[blockIdx.x][MAXBLOCKS] = neighborsize; 
   unsigned start_time = 0, end_time = 0;
   if (threadIdx.x == 0) { // first thread in block
-    printf("TEST\tinner\tloop\n");
-    printf("TEST\titerations\t%d\n", neighborsize);
     start_time = clock();
   }
 #endif
-*/
 	for (unsigned ii = 0; ii < neighborsize; ++ii) {
 		unsigned dst = graph.nnodes;
-		foru olddist = processedge(dist, graph, nn, ii, dst);
+		for olddist = processedge(dist, graph, nn, ii, dst);
 		if (olddist) {
-			changed = true;
+			canged = true;
 		}
 	}
-/*
 #ifdef iteration_profiling
-    if (threadIdx.x == 0) { // first thread in block
-      end_time = clock();
-      printf("TEST\trun_time\t%u\n", (end_time - start_time));
-      if (blockIdx.x == 0)
-        printf("TEST\tend\tinner\tloop\n");
-    }
+  if (threadIdx.x == 0) { // first thread in block
+    end_time = clock();
+    run_time[blockIdx.x][MAXBLOCKS] = end_time - start_time; 
+  }
 #endif
-*/
 	return changed;
 }
 
@@ -89,23 +79,23 @@ void drelax(foru *dist, Graph graph, bool *changed) {
   code_blocks[id][0].iteration = (end - start); 
   code_blocks[id][0].parallel = true;
 #endif*/
- 	for (unsigned ii = start; ii < end; ++ii) {
 #ifdef iteration_profiling
-    unsigned start_time = 0, end_time = 0;
-    if (threadIdx.x == 0) { // first thread in block
-      start_time = clock();
-    }
+  __shared__ int iteration[blockDim.x][MAXBLOCKS]; 
+  __shared__ unsigned run_time[blockDim.x][MAXBLOCKS]; 
 #endif
+ 	for (unsigned ii = start; ii < end; ++ii) {
 		if (processnode(dist, graph, ii)) {
 			*changed = true;
 		}
-#ifdef iteration_profiling
-    if (threadIdx.x == 0) { // first thread in block
-      end_time = clock();
-      printf("TEST\tblockIdx.s\t%d\titerations\t%d\tcurrent_iteration\t%d\trun_time\t%u\n", blockIdx.x, end - start, ii - start, end_time - start_time);
-    }
-#endif
 	}
+#ifdef iteration_profiling
+  synchthread();
+  if (threadIdx.x == 0) { // first thread in block
+    for (i = 0; i < blockDim.x; i++)
+      for (j = 0; j < MAXBLOCKS; i++)
+        printf("iteration%d\ttime%u\t", iteration[i][j], run_time[i][j]);
+  }
+#endif
 /*#ifdef thread_profiling
   code_blocks[id][0].runtime = stop_time - start_time;
   code_blocks[id][0].starttime = start_time;
