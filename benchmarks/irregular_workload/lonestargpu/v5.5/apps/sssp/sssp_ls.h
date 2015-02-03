@@ -2,6 +2,12 @@
 #define SSSP_VARIANT "lonestar"
 #include "cutil_subset.h"
 
+////////////////////////////////
+// caogao
+#ifndef iteration_profiling
+#define iteration_profiling
+#endif
+////////////////////////////////
 __global__
 void initialize(foru *dist, unsigned int nv) {
 	unsigned int ii = blockIdx.x * blockDim.x + threadIdx.x;
@@ -37,6 +43,19 @@ bool processnode(foru *dist, Graph &graph, unsigned work) {
 	bool changed = false;
 	
 	unsigned neighborsize = graph.getOutDegree(nn);
+#ifdef iteration_profiling
+//  printf("TEST\tinner_iterations\t%d\n", neighborsize);
+#endif
+/*
+#ifdef iteration_profiling
+  unsigned start_time = 0, end_time = 0;
+  if (threadIdx.x == 0) { // first thread in block
+    printf("TEST\tinner\tloop\n");
+    printf("TEST\titerations\t%d\n", neighborsize);
+    start_time = clock();
+  }
+#endif
+*/
 	for (unsigned ii = 0; ii < neighborsize; ++ii) {
 		unsigned dst = graph.nnodes;
 		foru olddist = processedge(dist, graph, nn, ii, dst);
@@ -44,6 +63,16 @@ bool processnode(foru *dist, Graph &graph, unsigned work) {
 			changed = true;
 		}
 	}
+/*
+#ifdef iteration_profiling
+    if (threadIdx.x == 0) { // first thread in block
+      end_time = clock();
+      printf("TEST\trun_time\t%u\n", (end_time - start_time));
+      if (blockIdx.x == 0)
+        printf("TEST\tend\tinner\tloop\n");
+    }
+#endif
+*/
 	return changed;
 }
 
@@ -54,24 +83,33 @@ void drelax(foru *dist, Graph graph, bool *changed, code_block **code_blocks) {
 void drelax(foru *dist, Graph graph, bool *changed) {
 #endif
 	unsigned id = blockIdx.x * blockDim.x + threadIdx.x;
-	unsigned start = id * (MAXBLOCKSIZE / blockDim.x), end = (id + 1) * (MAXBLOCKSIZE / blockDim.x);
+	unsigned start = id * (MAXBLOCKSIZE / blockDim.x), end = (id + 1) * (MAXBLOCKSIZE / blockDim.x); // caogao: essentially (end - start) = MAXBLOCKSIZE / blockDim.x = 1
 
-#ifdef thread_profiling
+/*#ifdef thread_profiling
   code_blocks[id][0].iteration = (end - start); 
   code_blocks[id][0].parallel = true;
-  unsigned start_time = 0, stop_time = 0;
-  start_time = clock();
-#endif
+#endif*/
  	for (unsigned ii = start; ii < end; ++ii) {
+#ifdef iteration_profiling
+    unsigned start_time = 0, end_time = 0;
+    if (threadIdx.x == 0) { // first thread in block
+      start_time = clock();
+    }
+#endif
 		if (processnode(dist, graph, ii)) {
 			*changed = true;
 		}
+#ifdef iteration_profiling
+    if (threadIdx.x == 0) { // first thread in block
+      end_time = clock();
+      printf("TEST\tblockIdx.s\t%d\titerations\t%d\tcurrent_iteration\t%d\trun_time\t%u\n", blockIdx.x, end - start, ii - start, end_time - start_time);
+    }
+#endif
 	}
-#ifdef thread_profiling
-  stop_time = clock();
+/*#ifdef thread_profiling
   code_blocks[id][0].runtime = stop_time - start_time;
   code_blocks[id][0].starttime = start_time;
-#endif
+#endif*/
 }
 
 
@@ -91,10 +129,13 @@ void sssp(foru *hdist, foru *dist, Graph &graph, long unsigned totalcommu)
 #ifdef thread_profiling
 #define MAX_KERNELS = 50;       // essentially number of iterations for this program
 #define MAX_CODE_BLOCKS = 1;    // only one code block for this kernel
+#define MAX_ITERATIONS = 50;    // max iterations in kernel
   void print_profile(const char *filename, code_block ***code_blocks); 
-  code_block ***code_blocks, ***hcode_blocks; 
+  unsigned *iteration_time, **hiteration_time;
+  code_block *code_blocks, ***hcode_blocks; 
   // [ [ [which code block] which thread] which kernel]
 	if (cudaMalloc((void **)&code_blocks, MAX_CODE_BLOCKS * kconf.getNumberOfBlocks() * kconf.getNumberOfBlockThreads() * MAX_KERNELS * sizeof(code_block)) != cudaSuccess) CudaTest("allocating code_blocks failed");
+	if (cudaMalloc((void **)&iteration_time, MAX_ITERATIONS * MAX_KERNELS * sizeof(unsigned)) != cudaSuccess) CudaTest("allocating code_blocks failed");
 #endif
 
 	printf("solving.\n");
@@ -105,9 +146,13 @@ void sssp(foru *hdist, foru *dist, Graph &graph, long unsigned totalcommu)
 
 		cudaMemcpy(changed, &hchanged, sizeof(hchanged), cudaMemcpyHostToDevice);
 
+#ifdef iteration_profiling
+	printf("TEST\tnew_kernel_iteration\t%d\n", iteration);
+	printf("TEST\t#Blocks\t%d\t#Threads_per_block\t%d\n", kconf.getNumberOfBlocks(), kconf.getNumberOfBlockThreads());
+#endif
 #ifdef thread_profiling
 		drelax <<<kconf.getNumberOfBlocks(), kconf.getNumberOfBlockThreads()>>> (dist, graph, changed, code_blocks[iteration-1]);   // kernel # : [iteration-1] 
-#endif
+#else
 		drelax <<<kconf.getNumberOfBlocks(), kconf.getNumberOfBlockThreads()>>> (dist, graph, changed);
 #endif
 		CudaTest("solving failed");

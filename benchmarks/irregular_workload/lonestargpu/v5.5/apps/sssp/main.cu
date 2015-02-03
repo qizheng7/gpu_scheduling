@@ -28,6 +28,10 @@
 #include "lonestargpu.h"
 #include "variants.h"
 #include "cutil_subset.h"
+/////////////////////////////////////////
+// caogao
+#define iteration_profiling
+/////////////////////////////////////////
 
 __global__
 void dverifysolution(foru *dist, Graph graph, unsigned *nerr) {
@@ -76,7 +80,6 @@ int main(int argc, char *argv[]) {
 
 	hgraph.read(argv[1]);
 	//hgraph.optimize();
-
 
 	long unsigned totalcommu = hgraph.cudaCopy(graph);
 
