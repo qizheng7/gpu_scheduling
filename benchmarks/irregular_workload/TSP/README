@@ -1,0 +1,31 @@
+1. Description 
+A Parallel GPU Version of the Traveling Salesman Problem
+
+2. TSP_GPU License
+Copyright (c) 2011, 2012, 2013, Texas State University-San Marcos. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted for academic, research, experimental, or personal use provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+Neither the name of Texas State University-San Marcos nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+For all other uses, please contact the Office for Commercialization and Industry Relations at Texas State University-San Marcos http://www.txstate.edu/ocir/.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+3.Compile
+nvcc -O3 -arch=sm_20 TSP_GPU.cu -o TSP_GPU
+
+4.Run
+TSP_GPU11 Example:
+The executable approximately solves the traveling salesman problem represented by the input TSPLIB database using x climbers. The minimal found tour length is printed to the standard output.
+To solve the TSPLIB 18512-city database d18512.tsp using 52 climbers (random restarts), enter:
+./TSP_GPU21 d18512.tsp 52
+
+TSP_GPU21 Example: 
+The executable approximately solves the traveling salesman problem represented by the input TSPLIB database using x climbers. The minimal tour and its cost are printed to the standard output.
+To solve the TSPLIB 100-city database kroA100.tsp using 100,000 climbers, enter:
+./TSP_GPU kroA100.tsp 100000
+
+5.Input
+Download from http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/ (symmetric traveling salesman problem)

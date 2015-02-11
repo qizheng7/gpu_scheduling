@@ -1,0 +1,33 @@
+1. Description
+Floating-point Data Compression at 75 Gb/s on a GPU
+
+2. GFC License
+Copyright (c) 2011, Texas State University-San Marcos. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted for academic, research, experimental, or personal use provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+Neither the name of Texas State University-San Marcos nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+For all other uses, please contact the Office for Commercialization and Industry Relations at Texas State University-San Marcos http://www.txstate.edu/ocir/.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+3. Compile
+1.1 -- nvcc -O3 GFC_11.cu -o GFC
+2.1 -- nvcc -O3 -arch=sm_20 GFC_21.cu -o GFC
+
+4. Run
+Compress: ./GFC (#blocks) (#warps/block) (#dim) < the input file > (outputfile)
+Example: 
+    To compress the file file.in using 28 blocks and 18 warps/block with a dimensionality of 2 and store the result in a file called file.gfc, enter:
+./GFC 28 18 2 < file.in > file.gfc
+
+Decompress: ./GFC < input file >  (outputfile)
+Example:
+To decompress the file file.gfc and store the result in file file.out, enter:
+./GFC < file.gfc > file.out
+
+
+Note that the raw data file has to be a multiple of 8 bytes long and should contain nothing but binary double-precision values. Only little-endian systems are currently supported.
+
