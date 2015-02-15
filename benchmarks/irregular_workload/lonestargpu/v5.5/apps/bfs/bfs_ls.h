@@ -11,7 +11,7 @@
 #define WARP_SIZE 32
 #define MAX_WARPS 32
 #define MAX_GROUPS 64
-#define MAX_BLOCKS 64
+#define MAX_BLOCKS 1048
 #include "nodes.h"
 //#define DEBUG 1
 //#define TEST 1
@@ -119,10 +119,6 @@ bool balance_nodes(Node_graph *node_graphs, head_Node *head_nodes, Node *node_wa
       // move to the next node
       current_node++;
       node++;
-#ifdef DEBUG
-  if (wid == 0 && bid == 0)
-    printf("edges_needed\t%u\tlength\t%u\tnode\t%u\n", edges_needed, node_graphs[node].length, node);
-#endif
     }
     if (head_nodes[tid].total_length >= edges_thread) {
       next_tid(&tid, &residue_left, &edges_thread);
@@ -135,9 +131,11 @@ bool balance_nodes(Node_graph *node_graphs, head_Node *head_nodes, Node *node_wa
     }
     if (runs++ > 256) {printf("max runs reached"); return false;}
   }
+#ifdef DEBUG
   if (wid == 0 || wid == 1)
     for (int iter = 0 ; iter < WARP_SIZE; iter++)  
       printout(&head_nodes[iter], node_warps, iter, wid);
+#endif
   return true;
 }
 ///////////////////////////////////////////
@@ -153,17 +151,8 @@ void initialize(foru *dist, unsigned int nv) {
 __device__
 bool processedge(foru *dist, Graph &graph, unsigned src, unsigned ii, unsigned &dst) {
 	//unsigned id = blockIdx.x * blockDim.x + threadIdx.x;
+//  unsigned wid = threadIdx.x / WARP_SIZE, tid = threadIdx.x % WARP_SIZE, bid = blockIdx.x;
 	dst = graph.getDestination(src, ii);
-//////////////////////////////////
-// caogao
-  unsigned wid = threadIdx.x / WARP_SIZE, tid = threadIdx.x % WARP_SIZE, bid = blockIdx.x;
-//  if (bid == 0 && wid == 0 && tid == 1) {
-//  if (src == 195 || dst == 195) {
-//    printf("before: src %u\tdst %u\tedge %u\tdist[src] %u\n", src, dst, ii, dist[src]); 
-//    printf("before: src %u\tdst %u\tedge %u\tdist[src] %utid %u\twid %u\tbid %u\n", src, dst, ii, dist[src], tid, wid, bid); 
-//  }
-//
-/////////////////////////////////// 
 	if (dst >= graph.nnodes) return 0;
 
 	foru wt = 1;
@@ -171,15 +160,6 @@ bool processedge(foru *dist, Graph &graph, unsigned src, unsigned ii, unsigned &
 	foru altdist = dist[src] + wt;
 	if (altdist < dist[dst]) {
 	 	foru olddist = atomicMin(&dist[dst], altdist);
-//////////////////////////////////
-// caogao
-//  if (bid == 0 && wid == 0 && tid == 1) {
-//  if (src == 195 || dst == 195) {
-//    printf("after: src %u\tdst %u\tedge %u\tdist[src] %u\n", src, dst, ii, dist[src]); 
-//    printf("after: src %u\tdst %u\tedge %u\tdist[src] %utid %u\twid %u\tbid %u\n", src, dst, ii, dist[src], tid, wid, bid); 
-//  }
-//
-/////////////////////////////////// 
 		if (altdist < olddist) {
 			return true;
 		} 
@@ -198,15 +178,20 @@ bool processnode(foru *dist, Graph &graph, unsigned work, Node *node_warp) {
 	unsigned neighborsize = graph.getOutDegree(nn);
 /////////////////////////////////////////////
 ///caogao
+// timer
+  unsigned wid = threadIdx.x / WARP_SIZE, tid = threadIdx.x % WARP_SIZE, bid = blockIdx.x;
+  float start_time, end_time;
+  if (bid == 0 && wid == 0 && tid == 0)
+	  start_time = clock();
+// timer
   __shared__ unsigned average[MAX_WARPS];                     // average number of edges
   __shared__ unsigned residue[MAX_WARPS];                     // residue = total - average * WARP_SIZE 
   __shared__ Node_graph node_graphs[MAX_WARPS][WARP_SIZE]; 
   __shared__ head_Node head_node[MAX_WARPS][WARP_SIZE]; 
-  unsigned wid = threadIdx.x / WARP_SIZE, tid = threadIdx.x % WARP_SIZE, bid = blockIdx.x;
   __syncthreads();
 //  (head_node + bid * blockDim.x + wid * WARP_SIZE + tid)->total_length = 0;
 //  (node_warp + bid * blockDim.x + wid * WARP_SIZE + tid)->node = 0;
-  if (bid < MAX_GROUPS) {
+  if (bid < MAX_BLOCKS) {
     node_graphs[wid][tid].node = nn;
     node_graphs[wid][tid].length = neighborsize;
     node_graphs[wid][tid].start = 0;
@@ -232,20 +217,23 @@ bool processnode(foru *dist, Graph &graph, unsigned work, Node *node_warp) {
     if (bid == 0 && 
         (wid == 0 || wid == 1) )
   #endif
-    { 
-//      printf("balance_nodes\t%u\t%u\t%u\t%u\n", average[wid], residue[wid], bid, wid);
       balance_nodes(node_graphs[wid], head_node[wid], node_warp, average[wid], residue[wid], wid, bid);
-    }
 #else
       balance_nodes(node_graphs[wid], head_node[wid], node_warp, average[wid], residue[wid], wid, bid);
 #endif
     }
   } else {
-    printf("bid bigger than MAX_GROUPS\n");
+    printf("bid %u bigger than MAX_BLOCKS\n", bid);
   }
   __syncthreads();
 /////////////////////////////////////////////
 //caogao
+// timer
+  if (bid == 0 && wid == 0 && tid == 0) {
+	  end_time = clock();
+//	  printf("\tbalanced_node runtime = %f ms.\n", (end_time - start_time) / 1000);
+  }
+// timer
 #ifdef ONE_WARP
   #ifdef TEST
     if (bid == 100 &&
@@ -261,16 +249,14 @@ bool processnode(foru *dist, Graph &graph, unsigned work, Node *node_warp) {
     unsigned node_cnt = head_node[wid][tid].total_nodes; 
     if (node_cnt == 0) return changed;
     Node* node = head_node[wid][tid].next; 
-//      printf("printout: thread %u\ttotal_length %u\ttotal_nodes %u\tnode %u\tstart %u\tlength %u\n", 
-//              iter, head_nodes[iter].total_length, head_nodes[iter].total_nodes, node->node, node->start, node->length);
   while (true) {
     for (unsigned ii = node->start; ii < (node->start + node->length); ++ii) {
       unsigned dst = graph.nnodes;
       foru olddist = processedge(dist, graph, node->node, ii, dst);
-//  #ifdef DEBUG
+  #ifdef DEBUG
       if (bid == 8 && wid == 0 && ((tid == 0) || (tid == 1))) 
         printf("balanced: processedge:%u\t%u\t%u\n", bid, wid, tid);
-//  #endif
+  #endif
       if (olddist) {
         changed = true;
       }
@@ -279,22 +265,13 @@ bool processnode(foru *dist, Graph &graph, unsigned work, Node *node_warp) {
     if (node_cnt == 0) break;
     node = node->next;
     if (node == NULL) {
-//#ifdef DEBUG
-      printf("tid %u\twid %u\tnode NULL error!\n", tid, wid); 
-      printout(&head_node[wid][tid], node_warp, tid, wid);
-//#endif
       break;
     }
-//    printf("node %u\tstart %u\tlength %u\n", node->node, node->start, node->length);
   };
   } else {
     for (unsigned ii = 0; ii < neighborsize; ++ii) {
       unsigned dst = graph.nnodes;
       foru olddist = processedge(dist, graph, nn, ii, dst);
-//#ifdef DEBUG
-    if (bid == 8 && wid == 0 && ((tid == 0) || (tid == 1))) 
-      printf("imbalanced: processedge:%u\t%u\t%u\n", bid, wid, tid);
-//#endif
       if (olddist) {
         changed = true;
       }
@@ -333,8 +310,8 @@ void bfs(Graph &graph, foru *dist)
   extern void write_solution(const char *fname, Graph &graph, foru *dist);
 //  kconf.setNumberOfBlocks(kconf.getNumberOfBlocks() * 2);
 //  kconf.setNumberOfBlockThreads(kconf.getNumberOfBlockThreads() / 2);
-	printf("Blocks%u\n", kconf.getNumberOfBlocks());
-  printf("BlockThreads%u\n", kconf.getNumberOfBlockThreads());
+	printf("Blocks: %u\n", kconf.getNumberOfBlocks());
+  printf("Threads per block: %u\n", kconf.getNumberOfBlockThreads());
 ///////////////////////////////////////
 	printf("initializing.\n");
 	assert(kconf.coversProblem(0));
@@ -358,7 +335,7 @@ void bfs(Graph &graph, foru *dist)
 
  //cudaDeviceSetLimit(cudaLimitMallocHeapSize, MAX_BLOCKS * MAX_WARPS * MAX_GROUPS * sizeof(Node) * 2);
 	if (cudaMalloc((void **)&node_warp, MAX_BLOCKS * MAX_WARPS * MAX_GROUPS * sizeof(Node)) != cudaSuccess) CudaTest("allocating changed failed");
-  printf("size:%ld\tstart_address%d\n", MAX_BLOCKS * MAX_WARPS * MAX_GROUPS * sizeof(Node), node_warp);
+//  printf("size:%ld\tstart_address%d\n", MAX_BLOCKS * MAX_WARPS * MAX_GROUPS * sizeof(Node), node_warp);
 //////////////////////////
 	do {
 		++iteration;
@@ -368,17 +345,11 @@ void bfs(Graph &graph, foru *dist)
 
 //////////////////////////
 // caogao
-//		drelax <<<kconf.getNumberOfBlocks(), kconf.getNumberOfBlockThreads()>>> (dist, graph, changed);
-
-/*    if (kconf.getNumberOfBlocks() > MAX_BLOCKS)  {
-      printf("block number exceed MAXBLOCKS\n");
-      return;
-    }*/
 //		drelax <<<kconf.getNumberOfBlocks(), kconf.getNumberOfBlockThreads()>>> (dist, graph, changed, node_warp);
 		drelax <<<kconf.getNumberOfBlocks(), kconf.getNumberOfBlockThreads()>>> (dist, graph, changed, node_warp);
 //////////////////////////
 		CudaTest("solving failed");
-////////////////////////////
+#ifdef DEBUG
     printf("iteration:%d\n", iteration);
     switch (iteration) {
     case 1:
@@ -406,12 +377,13 @@ void bfs(Graph &graph, foru *dist)
 	    write_solution("bfs-output.txt", graph, dist);
       break;
     }
+#endif
 ////////////////////////////
 		CUDA_SAFE_CALL(cudaMemcpy(&hchanged, changed, sizeof(hchanged), cudaMemcpyDeviceToHost));
 	} while (hchanged);
 	CUDA_SAFE_CALL(cudaDeviceSynchronize());
 	endtime = rtclock();
 	
-	printf("\truntime [%s] = %f ms.\n", BFS_VARIANT, 1000 * (endtime - starttime));
+	printf("iterations%u\truntime [%s] = %f ms.\n", iteration, BFS_VARIANT, 1000 * (endtime - starttime));
 
 }
