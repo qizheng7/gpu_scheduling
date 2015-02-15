@@ -12,7 +12,11 @@ ifdef debug
 FLAGS := -cudart=shared -arch=$(COMPUTECAPABILITY) -g -DLSGDEBUG=1 -G
 else
 # including -lineinfo -G causes launches to fail because of lack of resources, pity.
+#####################
+## caogao
 FLAGS := -cudart=shared -O3 -arch=$(COMPUTECAPABILITY) -g -Xptxas -v  #-lineinfo -G
+#FLAGS := -cudart=shared -O3 -maxrregcount 64 -arch=$(COMPUTECAPABILITY) -g -Xptxas -v  #-lineinfo -G
+######################
 endif
 INCLUDES := -I $(TOPLEVEL)/include -I $(CUB_DIR)
 LINKS := 

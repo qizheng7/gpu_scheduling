@@ -381,7 +381,7 @@ void bfs(Graph &graph, foru *dist)
 	  const size_t drelax2_max_blocks = maximum_residency(drelax2, BLKSIZE, 0);
 	  gb.Setup(deviceProp.multiProcessorCount * drelax2_max_blocks);
 
-	  drelax2<<<1, BLKSIZE>>>(dist, graph, nerr, *inwl, *outwl, 0, gb);
+	  drelax2<<<1, BLKSIZE>>>(dist, graph, nerr, *inwl, *outwl, 0, gb);   //caogao: initialize inwl
 	  drelax2 <<<deviceProp.multiProcessorCount * drelax2_max_blocks, BLKSIZE>>> (dist, graph, nerr, *inwl, *outwl, 1, gb);
 	}
 	else {
