@@ -2,7 +2,8 @@
 /////////////////////////////////////
 //// assgin Nodes to head Nodes only in balanced_nodes
 //TODO: not using "edges_needed" even after residues are used
-// use linked list pointer to traverse linked list (new version use headNode.total_nodes)
+//TODO: run balance node only once
+//TODO: deal with more than one outer iterations
 #define BFS_VARIANT "lonestar"
 #include "cutil_subset.h"
 
@@ -11,11 +12,14 @@
 #define WARP_SIZE 32
 #define MAX_WARPS 32
 #define MAX_GROUPS 64
-#define MAX_BLOCKS 1048
+#define MAX_BLOCKS 1024
+#define MAX_ITER 1024
 #include "nodes.h"
+#define TIMING 1
 //#define DEBUG 1
 //#define TEST 1
 //#define ONE_WARP 1
+//#define UNBALANCED 1
 
 __device__
 void printout(head_Node *head_nodes, Node *node_warps, const unsigned tid, const unsigned wid){
@@ -98,7 +102,7 @@ bool balance_nodes(Node_graph *node_graphs, head_Node *head_nodes, Node *node_wa
       // remove edges from node_graphs[node]
       node_graphs[node].length -= edges_needed;
       node_graphs[node].start += edges_needed;
-      current_node++;  //? TODO
+      current_node++;  // TODO
 #ifdef DEBUG
       printf("break node %u\tedge_needed %u\tnew_length %u\tnew_start %u\tresidue_left %u\tlength %u\ttid\t%u\n",
             node, edges_needed, node_graphs[node].length, node_graphs[node].start, residue_left,
@@ -169,7 +173,7 @@ bool processedge(foru *dist, Graph &graph, unsigned src, unsigned ii, unsigned &
 }
 
 __device__
-bool processnode(foru *dist, Graph &graph, unsigned work, Node *node_warp) {
+bool processnode(foru *dist, Graph &graph, unsigned work, Node *node_warp, float *timer) {
 	//unsigned id = blockIdx.x * blockDim.x + threadIdx.x;
 	unsigned nn = work;
 	if (nn >= graph.nnodes) return 0;
@@ -210,42 +214,48 @@ bool processnode(foru *dist, Graph &graph, unsigned work, Node *node_warp) {
       average[wid] = total / WARP_SIZE;
       residue[wid] = total % WARP_SIZE;
 #ifdef ONE_WARP
-  #ifdef TEST
-    if (bid == 100 && 
-        (wid == 0 || wid == 1) )
+  if (bid == 0 && 
+     (wid == 0 || wid == 1) )
+/*#else
+  #ifdef UNBALANCED
+    if (false)
   #else
-    if (bid == 0 && 
-        (wid == 0 || wid == 1) )
-  #endif
-      balance_nodes(node_graphs[wid], head_node[wid], node_warp, average[wid], residue[wid], wid, bid);
-#else
-      balance_nodes(node_graphs[wid], head_node[wid], node_warp, average[wid], residue[wid], wid, bid);
+    if (true)
+  #endif*/
 #endif
+      balance_nodes(node_graphs[wid], head_node[wid], node_warp, average[wid], residue[wid], wid, bid);
     }
   } else {
     printf("bid %u bigger than MAX_BLOCKS\n", bid);
   }
-  __syncthreads();
 /////////////////////////////////////////////
 //caogao
 // timer
   if (bid == 0 && wid == 0 && tid == 0) {
 	  end_time = clock();
-//	  printf("\tbalanced_node runtime = %f ms.\n", (end_time - start_time) / 1000);
+	  *timer = end_time - start_time; 
+#ifdef DEBUG
+	  printf("balanced_node runtime = %f cycles\n", (end_time - start_time)); 
+#endif
+/////////////////////////////////////////////
   }
+  __syncthreads();
 // timer
 #ifdef ONE_WARP
-  #ifdef TEST
-    if (bid == 100 &&
-       (wid == 0 || wid == 1) )
-  #else
-    if (bid == 0 &&
-       (wid == 0 || wid == 1) )
-  #endif
+  if (bid == 0 &&
+     (wid == 0 || wid == 1) )
 #else
+  #ifdef UNBALANCED
+    if (false)
+  #else
     if (true)
-#endif 
+  #endif 
+#endif
   {
+// timer
+    if (bid == 0 && wid == 0 && (tid == 0 || tid == 1))
+  	  start_time = clock();
+// timer
     unsigned node_cnt = head_node[wid][tid].total_nodes; 
     if (node_cnt == 0) return changed;
     Node* node = head_node[wid][tid].next; 
@@ -260,6 +270,12 @@ bool processnode(foru *dist, Graph &graph, unsigned work, Node *node_warp) {
       if (olddist) {
         changed = true;
       }
+////////////////////
+    if (bid == 0 && wid == 0 && (tid == 0 || tid == 1)) {
+      end_time = clock();
+      printf("node: %u edge: %u node runtime = %f cycles\n", node->node, ii, (end_time - start_time)); 
+    }
+////////////////////
     }
     node_cnt--;
     if (node_cnt == 0) break;
@@ -268,28 +284,72 @@ bool processnode(foru *dist, Graph &graph, unsigned work, Node *node_warp) {
       break;
     }
   };
+// timer
+    if (bid == 0 && wid == 0 && (tid == 0 || tid == 1)) {
+      end_time = clock();
+	    *(timer + 1) = end_time - start_time; 
+//#ifdef DEBUG
+      printf("node runtime = %f cycles\n", (end_time - start_time)); 
+//#endif
+    }
+// timer
   } else {
+// timer
+    if (bid == 0 && wid == 0 && tid == 1) 
+	    start_time = clock();
+// timer
     for (unsigned ii = 0; ii < neighborsize; ++ii) {
       unsigned dst = graph.nnodes;
       foru olddist = processedge(dist, graph, nn, ii, dst);
       if (olddist) {
         changed = true;
       }
+////////////////////
+//debug
+    if (bid == 0 && wid == 0 && tid == 1) {
+      end_time = clock();
+      printf("node: %u edge: %u node runtime = %f cycles\n", nn, ii, (end_time - start_time)); 
     }
+////////////////////
+    }
+// timer
+    if (bid == 0 && wid == 0 && tid == 1) {
+      end_time = clock();
+	    *(timer + 1) = end_time - start_time; 
+//#ifdef DEBUG
+      printf("node runtime = %f cycles\n", (end_time - start_time)); 
+//#endif
+    }
+// timer
   }
 ////////////////////////////
 	return changed;
 }
 
 __global__
-void drelax(foru *dist, Graph graph, bool *changed, Node *node_warp) {
+void drelax(foru *dist, Graph graph, bool *changed, Node *node_warp, float *timer) {
 	unsigned id = blockIdx.x * blockDim.x + threadIdx.x;
 	unsigned start = id * (MAXBLOCKSIZE / blockDim.x), end = (id + 1) * (MAXBLOCKSIZE / blockDim.x);
+  if (id == 0)
+    if ((MAXBLOCKSIZE / blockDim.x) > 1) 
+      printf("more than 1 outer iterations\n");
+// timer
+/*  float start_time, end_time;
+  unsigned wid = threadIdx.x / WARP_SIZE, tid = threadIdx.x % WARP_SIZE, bid = blockIdx.x;
+  if (bid == 0 && wid == 0 && tid == 0)
+	  start_time = clock();*/
+// timer
 	for (unsigned ii = start; ii < end; ++ii) {
-		if (processnode(dist, graph, ii, node_warp)) {
+		if (processnode(dist, graph, ii, node_warp, timer)) {
 			*changed = true;
 		}
 	}
+// timer
+/*  if (bid == 0 && wid == 0 && tid == 0) {
+    end_time = clock();
+	  *(timer + 1) = end_time - start_time; 
+  }*/
+// timer
 }
 
 
@@ -328,14 +388,20 @@ void bfs(Graph &graph, foru *dist)
 
 ////////////////////////////
 // caogao
-//  Node_graph node_graph[MAX_WARPS][WARP_SIZE]; 
-//  Node node_warp[MAX_WARPS][WARP_SIZE][2]; 
-//  head_Node *head_node;
   Node *node_warp; 
 
  //cudaDeviceSetLimit(cudaLimitMallocHeapSize, MAX_BLOCKS * MAX_WARPS * MAX_GROUPS * sizeof(Node) * 2);
 	if (cudaMalloc((void **)&node_warp, MAX_BLOCKS * MAX_WARPS * MAX_GROUPS * sizeof(Node)) != cudaSuccess) CudaTest("allocating changed failed");
 //  printf("size:%ld\tstart_address%d\n", MAX_BLOCKS * MAX_WARPS * MAX_GROUPS * sizeof(Node), node_warp);
+
+//  timer
+  float *timer, node_runtimes[MAX_ITER], balanced_nodes_time[MAX_ITER], node_runtime = 0, balanced_node_time = 0;
+  float htimer[2];
+  double starttime0[MAX_ITER], endtime0[MAX_ITER], runtime0, startime1[MAX_ITER], endtime1[MAX_ITER], runtime1;
+//  htimer = (float *) malloc(2);
+	if (cudaMalloc((void **)&timer, 2 * sizeof(float)) != cudaSuccess) CudaTest("allocating changed failed");
+//  timer
+
 //////////////////////////
 	do {
 		++iteration;
@@ -345,8 +411,16 @@ void bfs(Graph &graph, foru *dist)
 
 //////////////////////////
 // caogao
-//		drelax <<<kconf.getNumberOfBlocks(), kconf.getNumberOfBlockThreads()>>> (dist, graph, changed, node_warp);
-		drelax <<<kconf.getNumberOfBlocks(), kconf.getNumberOfBlockThreads()>>> (dist, graph, changed, node_warp);
+//		drelax <<<kconf.getNumberOfBlocks(), kconf.getNumberOfBlockThreads()>>> (dist, graph, changed);
+    starttime0[iteration-1] = rtclock();
+		drelax <<<kconf.getNumberOfBlocks(), kconf.getNumberOfBlockThreads()>>> (dist, graph, changed, node_warp, timer);
+    endtime0[iteration-1] = rtclock();
+//timer
+		CUDA_SAFE_CALL(cudaMemcpy(&htimer, timer, sizeof(timer), cudaMemcpyDeviceToHost));
+//    printf("htimer[0] %f, htimer[1] %f\n", htimer[0], htimer[1]);
+    balanced_nodes_time[iteration-1] = htimer[0];
+    node_runtimes[iteration-1] = htimer[1];
+//timer
 //////////////////////////
 		CudaTest("solving failed");
 #ifdef DEBUG
@@ -383,7 +457,17 @@ void bfs(Graph &graph, foru *dist)
 	} while (hchanged);
 	CUDA_SAFE_CALL(cudaDeviceSynchronize());
 	endtime = rtclock();
+
+  for (int i = 0; i < iteration; i++) {
+    balanced_node_time += balanced_nodes_time[i];
+    node_runtime += node_runtimes[i];
+    runtime0 = 1000000 * (endtime0[i] - starttime0[i]);
+  }
+  balanced_node_time /= iteration;
+  node_runtime /= iteration;
+  runtime0 /= iteration;
 	
-	printf("iterations%u\truntime [%s] = %f ms.\n", iteration, BFS_VARIANT, 1000 * (endtime - starttime));
+	printf("iterations %u\truntime [%s] = %f ms.\n", iteration, BFS_VARIANT, 1000 * (endtime - starttime));
+	printf("balance_node %f\t node_runtime %f drelax_runtime %f\n", balanced_node_time, node_runtime, runtime0);
 
 }
