@@ -1,8 +1,8 @@
 struct Node
 {
   unsigned node;      // node to work on 
-  unsigned start;     // starting edge number
-  unsigned length;    // end edge number
+  unsigned short start;     // starting edge number
+  unsigned short length;    // end edge number
 //  Node *next;
 };
 
