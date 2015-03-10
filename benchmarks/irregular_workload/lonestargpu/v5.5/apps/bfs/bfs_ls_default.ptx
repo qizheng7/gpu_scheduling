@@ -1,0 +1,6411 @@
+
+Fatbin elf code:
+================
+arch = sm_20
+code version = [1,7]
+producer = <unknown>
+host = linux
+compile_size = 64bit
+identifier = main.cu 
+
+Fatbin elf code:
+================
+arch = sm_20
+code version = [1,7]
+producer = cuda
+host = linux
+compile_size = 64bit
+identifier = main.cu
+
+Fatbin ptx code:
+================
+arch = sm_20
+code version = [3,2]
+producer = cuda
+host = linux
+compile_size = 64bit
+compressed
+identifier = main.cu
+ptxasOptions = -v  
+
+
+
+
+
+
+.version 3.2
+.target sm_20
+.address_size 64
+
+.file	1 "/home/caogao/gpu_scheduling/benchmarks/irregular_workload/lonestargpu/v5.5/apps/bfs/main.cu", 1424013682, 4302
+.file	2 "/home/caogao/gpu_scheduling/benchmarks/irregular_workload/lonestargpu/v5.5/apps/bfs/../../include/common.h", 1422564166, 3954
+.file	3 "/usr/local/cuda-5.5/targets/x86_64-linux/include/device_functions.h", 1374242552, 185228
+.file	4 "/home/caogao/gpu_scheduling/benchmarks/irregular_workload/lonestargpu/v5.5/apps/bfs/../../include/graph.h", 1422564166, 18886
+.file	5 "/home/caogao/gpu_scheduling/benchmarks/irregular_workload/lonestargpu/v5.5/apps/bfs/bfs_ls.h", 1424017044, 2750
+.file	6 "/home/caogao/gpu_scheduling/benchmarks/irregular_workload/lonestargpu/v5.5/apps/bfs/../../include/component.h", 1422564166, 5894
+.file	7 "/home/caogao/gpu_scheduling/benchmarks/irregular_workload/lonestargpu/v5.5/apps/bfs/../../include/list.h", 1422564166, 2103
+.file	8 "/usr/local/cuda-5.5/bin/../targets/x86_64-linux/include/sm_11_atomic_functions.h", 1374242552, 8246
+.extern .func (.param .b32 func_retval0) vprintf
+(
+.param .b64 vprintf_param_0,
+.param .b64 vprintf_param_1
+)
+;
+.extern .func (.param .b64 func_retval0) malloc
+(
+.param .b64 malloc_param_0
+)
+;
+.extern .func free
+(
+.param .b64 free_param_0
+)
+;
+.global .align 8 .b8 _ZTVSt9basic_iosIcSt11char_traitsIcEE[32];
+.global .align 8 .b8 _ZTTSi[8];
+.global .align 8 .b8 _ZTVSt15basic_streambufIcSt11char_traitsIcEE[128];
+.global .align 8 .b8 _ZTVSt13basic_filebufIcSt11char_traitsIcEE[128];
+.global .align 8 .b8 _ZTTSt14basic_ifstreamIcSt11char_traitsIcEE[8];
+.global .align 1 .b8 $str[2] = {9, 0};
+.global .align 1 .b8 $str1[28] = {37, 115, 110, 110, 111, 100, 101, 115, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 61, 32, 37, 100, 46, 10, 0};
+.global .align 1 .b8 $str2[28] = {37, 115, 110, 101, 100, 103, 101, 115, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 61, 32, 37, 100, 46, 10, 0};
+.global .align 1 .b8 $str3[34] = {37, 115, 97, 118, 103, 44, 32, 109, 97, 120, 32, 111, 117, 116, 100, 101, 103, 114, 101, 101, 32, 61, 32, 37, 46, 50, 102, 44, 32, 37, 100, 46, 10, 0};
+.global .align 1 .b8 $str4[34] = {37, 115, 97, 118, 103, 44, 32, 109, 97, 120, 32, 105, 110, 100, 101, 103, 114, 101, 101, 32, 32, 61, 32, 37, 46, 50, 102, 44, 32, 37, 100, 46, 10, 0};
+.global .align 1 .b8 $str5[28] = {37, 115, 100, 105, 97, 109, 101, 116, 101, 114, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 61, 32, 37, 100, 46, 10, 0};
+.global .align 1 .b8 $str6[7] = {37, 100, 32, 37, 100, 10, 0};
+.global .align 1 .b8 $str7[10] = {37, 100, 32, 37, 100, 32, 37, 100, 10, 0};
+.global .align 1 .b8 $str8[36] = {69, 114, 114, 111, 114, 58, 32, 110, 101, 100, 103, 101, 115, 61, 37, 100, 44, 32, 101, 100, 103, 101, 115, 99, 111, 117, 110, 116, 101, 100, 61, 37, 100, 46, 10, 0};
+.global .align 1 .b8 $str9[53] = {69, 114, 114, 111, 114, 58, 32, 37, 115, 40, 37, 100, 41, 58, 32, 116, 104, 114, 101, 97, 100, 32, 37, 100, 44, 32, 110, 111, 100, 101, 32, 37, 100, 32, 111, 117, 116, 32, 111, 102, 32, 98, 111, 117, 110, 100, 115, 32, 37, 100, 46, 10, 0};
+.global .align 1 .b8 $str10[22] = {46, 46, 47, 46, 46, 47, 105, 110, 99, 108, 117, 100, 101, 47, 103, 114, 97, 112, 104, 46, 104, 0};
+.global .align 1 .b8 $str11[62] = {69, 114, 114, 111, 114, 58, 32, 37, 115, 40, 37, 100, 41, 58, 32, 116, 104, 114, 101, 97, 100, 32, 37, 100, 44, 32, 110, 111, 100, 101, 32, 37, 100, 58, 32, 101, 100, 103, 101, 32, 37, 100, 32, 111, 117, 116, 32, 111, 102, 32, 98, 111, 117, 110, 100, 115, 32, 37, 100, 46, 10, 0};
+.global .align 1 .b8 $str12[53] = {69, 114, 114, 111, 114, 58, 32, 37, 115, 40, 37, 100, 41, 58, 32, 116, 104, 114, 101, 97, 100, 32, 37, 100, 44, 32, 101, 100, 103, 101, 32, 37, 100, 32, 111, 117, 116, 32, 111, 102, 32, 98, 111, 117, 110, 100, 115, 32, 37, 100, 46, 10, 0};
+.global .align 1 .b8 $str13[31] = {9, 37, 115, 40, 37, 100, 41, 58, 32, 100, 115, 116, 32, 37, 100, 32, 62, 61, 32, 110, 110, 111, 100, 101, 115, 32, 37, 100, 46, 10, 0};
+.global .align 1 .b8 $str14[69] = {37, 115, 40, 37, 100, 41, 58, 32, 116, 104, 114, 101, 97, 100, 32, 37, 100, 58, 32, 69, 114, 114, 111, 114, 58, 32, 109, 97, 108, 108, 111, 99, 32, 111, 102, 32, 37, 100, 32, 117, 110, 115, 105, 103, 110, 101, 100, 32, 114, 101, 116, 117, 114, 110, 101, 100, 32, 110, 111, 32, 109, 101, 109, 111, 114, 121, 46, 10, 0};
+.global .align 1 .b8 $str15[21] = {46, 46, 47, 46, 46, 47, 105, 110, 99, 108, 117, 100, 101, 47, 108, 105, 115, 116, 46, 104, 0};
+.global .align 1 .b8 $str16[57] = {37, 115, 40, 37, 100, 41, 58, 32, 116, 104, 114, 101, 97, 100, 32, 37, 100, 58, 32, 69, 114, 114, 111, 114, 58, 32, 98, 117, 102, 102, 101, 114, 32, 111, 118, 101, 114, 102, 108, 111, 119, 44, 32, 99, 97, 112, 97, 99, 105, 116, 121, 61, 37, 100, 46, 10, 0};
+.global .align 1 .b8 $str17[26] = {9, 9, 117, 110, 105, 102, 121, 105, 110, 103, 32, 37, 100, 32, 45, 62, 32, 37, 100, 32, 40, 37, 100, 41, 10, 0};
+.global .align 1 .b8 $str18[23] = {9, 37, 100, 58, 32, 110, 99, 111, 109, 112, 111, 110, 101, 110, 116, 115, 32, 61, 32, 37, 100, 10, 0};
+.global .align 1 .b8 $str19[21] = {9, 9, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 10, 0};
+.global .align 1 .b8 $str20[12] = {9, 9, 37, 100, 32, 45, 62, 32, 37, 100, 10, 0};
+
+.visible .func _Z11global_syncjPVjS0_(
+.param .b32 _Z11global_syncjPVjS0__param_0,
+.param .b64 _Z11global_syncjPVjS0__param_1,
+.param .b64 _Z11global_syncjPVjS0__param_2
+)
+{
+.reg .pred %p<8>;
+.reg .s32 %r<14>;
+.reg .s64 %rd<11>;
+
+
+ld.param.u32 %r4, [_Z11global_syncjPVjS0__param_0];
+ld.param.u64 %rd3, [_Z11global_syncjPVjS0__param_1];
+ld.param.u64 %rd4, [_Z11global_syncjPVjS0__param_2];
+.loc 2 80 1
+mov.u32 %r5, %tid.x;
+mov.u32 %r6, %ntid.y;
+mov.u32 %r7, %tid.y;
+mad.lo.s32 %r1, %r6, %r5, %r7;
+.loc 2 81 1
+mov.u32 %r8, %nctaid.y;
+mov.u32 %r9, %nctaid.x;
+mul.lo.s32 %r2, %r8, %r9;
+.loc 2 82 1
+mov.u32 %r10, %ctaid.x;
+mov.u32 %r11, %ctaid.y;
+mad.lo.s32 %r3, %r8, %r10, %r11;
+.loc 2 84 1
+setp.ne.s32	%p2, %r1, 0;
+@%p2 bra BB0_2;
+
+.loc 2 85 1
+mul.wide.u32 %rd5, %r3, 4;
+add.s64 %rd6, %rd3, %rd5;
+st.volatile.u32 [%rd6], %r4;
+.loc 3 2459 3
+membar.gl;
+
+BB0_2:
+.loc 2 88 1
+setp.ne.s32	%p3, %r3, 0;
+@%p3 bra BB0_8;
+
+.loc 2 89 1
+setp.ge.u32	%p4, %r1, %r2;
+@%p4 bra BB0_6;
+
+.loc 2 90 1
+mul.wide.u32 %rd7, %r1, 4;
+add.s64 %rd1, %rd3, %rd7;
+
+BB0_5:
+ld.volatile.u32 %r12, [%rd1];
+setp.ne.s32	%p5, %r12, %r4;
+@%p5 bra BB0_5;
+
+BB0_6:
+setp.lt.u32	%p1, %r1, %r2;
+.loc 2 94 1
+bar.sync 0;
+.loc 2 95 1
+@!%p1 bra BB0_8;
+bra.uni BB0_7;
+
+BB0_7:
+.loc 2 96 1
+mul.wide.u32 %rd8, %r1, 4;
+add.s64 %rd9, %rd4, %rd8;
+st.volatile.u32 [%rd9], %r4;
+.loc 3 2459 3
+membar.gl;
+
+BB0_8:
+.loc 2 100 1
+@%p2 bra BB0_11;
+
+.loc 2 101 1
+mul.wide.u32 %rd10, %r3, 4;
+add.s64 %rd2, %rd4, %rd10;
+
+BB0_10:
+ld.volatile.u32 %r13, [%rd2];
+setp.ne.s32	%p7, %r13, %r4;
+@%p7 bra BB0_10;
+
+BB0_11:
+.loc 2 105 1
+bar.sync 0;
+.loc 2 106 2
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _Z11processedgePjR5GraphjjRj(
+.param .b64 _Z11processedgePjR5GraphjjRj_param_0,
+.param .b64 _Z11processedgePjR5GraphjjRj_param_1,
+.param .b32 _Z11processedgePjR5GraphjjRj_param_2,
+.param .b32 _Z11processedgePjR5GraphjjRj_param_3,
+.param .b64 _Z11processedgePjR5GraphjjRj_param_4
+)
+{
+.local .align 8 .b8 __local_depot1[56];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<12>;
+.reg .s16 %rs<6>;
+.reg .s32 %r<47>;
+.reg .s64 %rd<44>;
+
+
+mov.u64 %SPL, __local_depot1;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd8, [_Z11processedgePjR5GraphjjRj_param_0];
+ld.param.u64 %rd10, [_Z11processedgePjR5GraphjjRj_param_1];
+ld.param.u32 %r16, [_Z11processedgePjR5GraphjjRj_param_2];
+ld.param.u32 %r17, [_Z11processedgePjR5GraphjjRj_param_3];
+ld.param.u64 %rd9, [_Z11processedgePjR5GraphjjRj_param_4];
+add.u64 %rd11, %SP, 0;
+.loc 4 127 1
+cvta.to.local.u64 %rd1, %rd11;
+add.u64 %rd12, %SP, 24;
+cvta.to.local.u64 %rd2, %rd12;
+.loc 4 82 1
+mov.u32 %r18, %ntid.x;
+mov.u32 %r19, %ctaid.x;
+mov.u32 %r20, %tid.x;
+mad.lo.s32 %r1, %r18, %r19, %r20;
+.loc 4 83 1
+add.s64 %rd3, %rd10, 4;
+ld.u32 %r44, [%rd10+4];
+setp.le.u32	%p1, %r44, %r16;
+@%p1 bra BB1_3;
+
+.loc 4 67 1
+ld.u64 %rd13, [%rd3+12];
+mul.wide.u32 %rd14, %r16, 4;
+add.s64 %rd15, %rd13, %rd14;
+ld.u32 %r21, [%rd15];
+.loc 4 83 43
+setp.gt.u32	%p2, %r21, %r17;
+@%p2 bra BB1_5;
+
+.loc 4 91 1
+ld.u32 %r44, [%rd3];
+
+BB1_3:
+.loc 4 92 1
+cvta.global.u64 %rd4, $str10;
+.loc 4 91 1
+setp.gt.u32	%p3, %r44, %r16;
+@%p3 bra BB1_14;
+
+.loc 4 94 1
+st.local.u64 [%rd2], %rd4;
+mov.u32 %r22, 94;
+.loc 4 94 1
+st.local.v2.u32 [%rd2+8], {%r22, %r1};
+st.local.v2.u32 [%rd2+16], {%r16, %r44};
+cvta.global.u64 %rd17, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd17;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd12;
+.param .b32 retval0;
+.loc 4 94 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r23, [retval0+0];
+}
+
+	bra.uni BB1_15;
+
+BB1_5:
+.loc 4 118 1
+ld.u32 %r6, [%rd3];
+setp.gt.u32	%p4, %r6, %r16;
+@%p4 bra BB1_7;
+
+.loc 4 127 1
+cvta.global.u64 %rd24, $str10;
+st.local.u64 [%rd1], %rd24;
+mov.u32 %r28, 127;
+.loc 4 127 1
+st.local.v2.u32 [%rd1+8], {%r28, %r1};
+st.local.v2.u32 [%rd1+16], {%r16, %r6};
+cvta.global.u64 %rd25, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd25;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd11;
+.param .b32 retval0;
+.loc 4 127 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r29, [retval0+0];
+}
+
+	mov.u32 %r45, 0;
+bra.uni BB1_11;
+
+BB1_7:
+.loc 4 67 1
+ld.u64 %rd26, [%rd3+12];
+mul.wide.u32 %rd27, %r16, 4;
+add.s64 %rd28, %rd26, %rd27;
+ld.u32 %r7, [%rd28];
+.loc 4 121 1
+setp.eq.s32	%p5, %r7, 0;
+@%p5 bra BB1_10;
+
+ld.u64 %rd29, [%rd3+28];
+mul.wide.u32 %rd30, %r16, 4;
+add.s64 %rd31, %rd29, %rd30;
+ld.u32 %r30, [%rd3];
+ld.u32 %r8, [%rd31];
+setp.ge.u32	%p6, %r8, %r30;
+@%p6 bra BB1_10;
+
+.loc 4 122 1
+ld.u64 %rd32, [%rd3+36];
+mul.wide.u32 %rd33, %r8, 4;
+add.s64 %rd34, %rd32, %rd33;
+ld.u32 %r45, [%rd34];
+bra.uni BB1_11;
+
+BB1_10:
+.loc 4 124 1
+cvta.global.u64 %rd36, $str10;
+st.local.u64 [%rd1], %rd36;
+mov.u32 %r32, 124;
+.loc 4 124 1
+st.local.v2.u32 [%rd1+8], {%r32, %r1};
+mov.u32 %r45, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd1+16], {%r45, %r7};
+cvta.global.u64 %rd37, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd37;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd11;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r33, [retval0+0];
+}
+
+
+BB1_11:
+.loc 4 84 46
+add.s32 %r11, %r45, %r17;
+.loc 4 85 1
+setp.eq.s32	%p7, %r11, 0;
+@%p7 bra BB1_15;
+
+ld.u32 %r34, [%rd3+4];
+add.s32 %r35, %r34, 1;
+setp.ge.u32	%p8, %r11, %r35;
+@%p8 bra BB1_15;
+
+.loc 4 86 1
+ld.u64 %rd38, [%rd3+44];
+mul.wide.u32 %rd39, %r11, 4;
+add.s64 %rd40, %rd38, %rd39;
+ld.u32 %r46, [%rd40];
+bra.uni BB1_16;
+
+BB1_14:
+.loc 4 67 1
+ld.u64 %rd19, [%rd3+12];
+mul.wide.u32 %rd20, %r16, 4;
+add.s64 %rd21, %rd19, %rd20;
+ld.u32 %r24, [%rd21];
+.loc 4 92 1
+st.local.u64 [%rd2], %rd4;
+mov.u32 %r25, 92;
+.loc 4 92 1
+st.local.v2.u32 [%rd2+8], {%r25, %r1};
+st.local.v2.u32 [%rd2+16], {%r16, %r17};
+st.local.u32 [%rd2+24], %r24;
+cvta.global.u64 %rd22, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd22;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd12;
+.param .b32 retval0;
+.loc 4 92 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r26, [retval0+0];
+}
+
+
+BB1_15:
+.loc 4 89 1
+ld.u32 %r46, [%rd3];
+
+BB1_16:
+.loc 5 16 11
+st.u32 [%rd9], %r46;
+.loc 5 17 1
+ld.u32 %r36, [%rd3];
+setp.lt.u32	%p9, %r46, %r36;
+@%p9 bra BB1_17;
+bra.uni BB1_20;
+
+BB1_17:
+.loc 5 21 1
+mul.wide.u32 %rd41, %r16, 4;
+add.s64 %rd42, %rd8, %rd41;
+ld.u32 %r37, [%rd42];
+add.s32 %r15, %r37, 1;
+.loc 5 22 1
+mul.wide.u32 %rd43, %r46, 4;
+add.s64 %rd7, %rd8, %rd43;
+ld.u32 %r38, [%rd7];
+setp.ge.u32	%p10, %r15, %r38;
+@%p10 bra BB1_20;
+
+.loc 5 21 1
+add.s32 %r43, %r37, 1;
+.loc 3 3769 3
+atom.min.u32 %r39, [%rd7], %r43;
+.loc 5 24 1
+setp.ge.u32	%p11, %r15, %r39;
+@%p11 bra BB1_20;
+
+mov.u16 %rs5, 1;
+bra.uni BB1_21;
+
+BB1_20:
+mov.u16 %rs5, 0;
+
+BB1_21:
+.loc 5 29 1
+cvt.u32.u16	%r40, %rs5;
+st.param.b32	[func_retval0+0], %r40;
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN5Graph14getDestinationEjj(
+.param .b64 _ZN5Graph14getDestinationEjj_param_0,
+.param .b32 _ZN5Graph14getDestinationEjj_param_1,
+.param .b32 _ZN5Graph14getDestinationEjj_param_2
+)
+{
+.local .align 8 .b8 __local_depot2[56];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<9>;
+.reg .s32 %r<40>;
+.reg .s64 %rd<38>;
+
+
+mov.u64 %SPL, __local_depot2;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd7, [_ZN5Graph14getDestinationEjj_param_0];
+ld.param.u32 %r15, [_ZN5Graph14getDestinationEjj_param_1];
+ld.param.u32 %r16, [_ZN5Graph14getDestinationEjj_param_2];
+add.u64 %rd8, %SP, 0;
+.loc 4 127 1
+cvta.to.local.u64 %rd1, %rd8;
+add.u64 %rd9, %SP, 24;
+cvta.to.local.u64 %rd2, %rd9;
+.loc 4 82 1
+mov.u32 %r17, %ntid.x;
+mov.u32 %r18, %ctaid.x;
+mov.u32 %r19, %tid.x;
+mad.lo.s32 %r1, %r17, %r18, %r19;
+.loc 4 83 1
+add.s64 %rd3, %rd7, 4;
+ld.u32 %r37, [%rd7+4];
+setp.le.u32	%p1, %r37, %r15;
+@%p1 bra BB2_3;
+
+.loc 4 67 1
+ld.u64 %rd10, [%rd3+12];
+mul.wide.u32 %rd11, %r15, 4;
+add.s64 %rd12, %rd10, %rd11;
+ld.u32 %r20, [%rd12];
+.loc 4 83 43
+setp.gt.u32	%p2, %r20, %r16;
+@%p2 bra BB2_5;
+
+.loc 4 91 1
+ld.u32 %r37, [%rd3];
+
+BB2_3:
+.loc 4 92 1
+cvta.global.u64 %rd4, $str10;
+.loc 4 91 1
+setp.gt.u32	%p3, %r37, %r15;
+@%p3 bra BB2_14;
+
+.loc 4 94 1
+st.local.u64 [%rd2], %rd4;
+mov.u32 %r21, 94;
+.loc 4 94 1
+st.local.v2.u32 [%rd2+8], {%r21, %r1};
+st.local.v2.u32 [%rd2+16], {%r15, %r37};
+cvta.global.u64 %rd14, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd14;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd9;
+.param .b32 retval0;
+.loc 4 94 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r22, [retval0+0];
+}
+
+	bra.uni BB2_15;
+
+BB2_5:
+.loc 4 118 1
+ld.u32 %r6, [%rd3];
+setp.gt.u32	%p4, %r6, %r15;
+@%p4 bra BB2_7;
+
+.loc 4 127 1
+cvta.global.u64 %rd21, $str10;
+st.local.u64 [%rd1], %rd21;
+mov.u32 %r27, 127;
+.loc 4 127 1
+st.local.v2.u32 [%rd1+8], {%r27, %r1};
+st.local.v2.u32 [%rd1+16], {%r15, %r6};
+cvta.global.u64 %rd22, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd22;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd8;
+.param .b32 retval0;
+.loc 4 127 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r28, [retval0+0];
+}
+
+	mov.u32 %r38, 0;
+bra.uni BB2_11;
+
+BB2_7:
+.loc 4 67 1
+ld.u64 %rd23, [%rd3+12];
+mul.wide.u32 %rd24, %r15, 4;
+add.s64 %rd25, %rd23, %rd24;
+ld.u32 %r7, [%rd25];
+.loc 4 121 1
+setp.eq.s32	%p5, %r7, 0;
+@%p5 bra BB2_10;
+
+ld.u64 %rd26, [%rd3+28];
+mul.wide.u32 %rd27, %r15, 4;
+add.s64 %rd28, %rd26, %rd27;
+ld.u32 %r29, [%rd3];
+ld.u32 %r8, [%rd28];
+setp.ge.u32	%p6, %r8, %r29;
+@%p6 bra BB2_10;
+
+.loc 4 122 1
+ld.u64 %rd29, [%rd3+36];
+mul.wide.u32 %rd30, %r8, 4;
+add.s64 %rd31, %rd29, %rd30;
+ld.u32 %r38, [%rd31];
+bra.uni BB2_11;
+
+BB2_10:
+.loc 4 124 1
+cvta.global.u64 %rd33, $str10;
+st.local.u64 [%rd1], %rd33;
+mov.u32 %r31, 124;
+.loc 4 124 1
+st.local.v2.u32 [%rd1+8], {%r31, %r1};
+mov.u32 %r38, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd1+16], {%r38, %r7};
+cvta.global.u64 %rd34, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd34;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd8;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r32, [retval0+0];
+}
+
+
+BB2_11:
+.loc 4 84 46
+add.s32 %r11, %r38, %r16;
+.loc 4 85 1
+setp.eq.s32	%p7, %r11, 0;
+@%p7 bra BB2_15;
+
+ld.u32 %r33, [%rd3+4];
+add.s32 %r34, %r33, 1;
+setp.ge.u32	%p8, %r11, %r34;
+@%p8 bra BB2_15;
+
+.loc 4 86 1
+ld.u64 %rd35, [%rd3+44];
+mul.wide.u32 %rd36, %r11, 4;
+add.s64 %rd37, %rd35, %rd36;
+ld.u32 %r39, [%rd37];
+bra.uni BB2_16;
+
+BB2_14:
+.loc 4 67 1
+ld.u64 %rd16, [%rd3+12];
+mul.wide.u32 %rd17, %r15, 4;
+add.s64 %rd18, %rd16, %rd17;
+ld.u32 %r23, [%rd18];
+.loc 4 92 1
+st.local.u64 [%rd2], %rd4;
+mov.u32 %r24, 92;
+.loc 4 92 1
+st.local.v2.u32 [%rd2+8], {%r24, %r1};
+st.local.v2.u32 [%rd2+16], {%r15, %r16};
+st.local.u32 [%rd2+24], %r23;
+cvta.global.u64 %rd19, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd19;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd9;
+.param .b32 retval0;
+.loc 4 92 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r25, [retval0+0];
+}
+
+
+BB2_15:
+.loc 4 89 1
+ld.u32 %r39, [%rd3];
+
+BB2_16:
+st.param.b32	[func_retval0+0], %r39;
+.loc 4 96 1
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _Z11processnodePjR5Graphj(
+.param .b64 _Z11processnodePjR5Graphj_param_0,
+.param .b64 _Z11processnodePjR5Graphj_param_1,
+.param .b32 _Z11processnodePjR5Graphj_param_2
+)
+{
+.local .align 8 .b8 __local_depot3[56];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<15>;
+.reg .s16 %rs<9>;
+.reg .s32 %r<58>;
+.reg .s64 %rd<45>;
+
+
+mov.u64 %SPL, __local_depot3;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd5, [_Z11processnodePjR5Graphj_param_0];
+ld.param.u64 %rd6, [_Z11processnodePjR5Graphj_param_1];
+ld.param.u32 %r21, [_Z11processnodePjR5Graphj_param_2];
+.loc 5 35 1
+add.s64 %rd1, %rd6, 4;
+ld.u32 %r22, [%rd6+4];
+setp.gt.u32	%p1, %r22, %r21;
+@%p1 bra BB3_2;
+
+mov.u16 %rs8, 0;
+bra.uni BB3_26;
+
+BB3_2:
+.loc 4 67 1
+ld.u64 %rd7, [%rd1+12];
+mul.wide.u32 %rd8, %r21, 4;
+add.s64 %rd9, %rd7, %rd8;
+ld.u32 %r1, [%rd9];
+.loc 5 39 1
+setp.ne.s32	%p2, %r1, 0;
+@%p2 bra BB3_4;
+
+mov.u16 %rs8, 0;
+bra.uni BB3_26;
+
+BB3_4:
+.loc 4 82 1
+mov.u32 %r24, %ctaid.x;
+mov.u32 %r25, %ntid.x;
+mov.u32 %r26, %tid.x;
+mad.lo.s32 %r2, %r25, %r24, %r26;
+mov.u16 %rs8, 0;
+mov.u32 %r50, 0;
+
+BB3_5:
+.loc 4 83 1
+ld.u32 %r51, [%rd1];
+setp.le.u32	%p3, %r51, %r21;
+@%p3 bra BB3_8;
+
+.loc 4 67 1
+ld.u64 %rd10, [%rd1+12];
+mul.wide.u32 %rd11, %r21, 4;
+add.s64 %rd12, %rd10, %rd11;
+ld.u32 %r27, [%rd12];
+.loc 4 83 43
+setp.lt.u32	%p4, %r50, %r27;
+@%p4 bra BB3_10;
+
+.loc 4 91 1
+ld.u32 %r51, [%rd1];
+
+BB3_8:
+add.u64 %rd13, %SP, 24;
+cvta.to.local.u64 %rd2, %rd13;
+.loc 4 91 1
+setp.gt.u32	%p5, %r51, %r21;
+@%p5 bra BB3_19;
+
+.loc 4 124 1
+cvta.global.u64 %rd15, $str10;
+.loc 4 94 1
+st.local.u64 [%rd2], %rd15;
+mov.u32 %r28, 94;
+.loc 4 94 1
+st.local.v2.u32 [%rd2+8], {%r28, %r2};
+st.local.v2.u32 [%rd2+16], {%r21, %r51};
+.loc 4 70 1
+cvta.global.u64 %rd16, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd16;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd13;
+.param .b32 retval0;
+.loc 4 94 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r29, [retval0+0];
+}
+
+	bra.uni BB3_20;
+
+BB3_10:
+add.u64 %rd23, %SP, 0;
+.loc 4 118 1
+ld.u32 %r8, [%rd1];
+setp.gt.u32	%p6, %r8, %r21;
+.loc 4 127 1
+cvta.to.local.u64 %rd3, %rd23;
+.loc 4 118 1
+@%p6 bra BB3_12;
+
+.loc 4 124 1
+cvta.global.u64 %rd25, $str10;
+.loc 4 127 1
+st.local.u64 [%rd3], %rd25;
+mov.u32 %r34, 127;
+.loc 4 127 1
+st.local.v2.u32 [%rd3+8], {%r34, %r2};
+st.local.v2.u32 [%rd3+16], {%r21, %r8};
+.loc 4 70 1
+cvta.global.u64 %rd26, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd26;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd23;
+.param .b32 retval0;
+.loc 4 127 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r35, [retval0+0];
+}
+
+	mov.u32 %r52, 0;
+bra.uni BB3_16;
+
+BB3_12:
+.loc 4 67 1
+ld.u64 %rd27, [%rd1+12];
+mul.wide.u32 %rd28, %r21, 4;
+add.s64 %rd29, %rd27, %rd28;
+ld.u32 %r9, [%rd29];
+.loc 4 121 1
+setp.eq.s32	%p7, %r9, 0;
+@%p7 bra BB3_15;
+
+ld.u64 %rd30, [%rd1+28];
+mul.wide.u32 %rd31, %r21, 4;
+add.s64 %rd32, %rd30, %rd31;
+ld.u32 %r36, [%rd1];
+ld.u32 %r10, [%rd32];
+setp.ge.u32	%p8, %r10, %r36;
+@%p8 bra BB3_15;
+
+.loc 4 122 1
+ld.u64 %rd33, [%rd1+36];
+mul.wide.u32 %rd34, %r10, 4;
+add.s64 %rd35, %rd33, %rd34;
+ld.u32 %r52, [%rd35];
+bra.uni BB3_16;
+
+BB3_15:
+.loc 4 124 1
+cvta.global.u64 %rd37, $str10;
+st.local.u64 [%rd3], %rd37;
+mov.u32 %r38, 124;
+.loc 4 124 1
+st.local.v2.u32 [%rd3+8], {%r38, %r2};
+mov.u32 %r52, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd3+16], {%r52, %r9};
+cvta.global.u64 %rd38, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd38;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd23;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r39, [retval0+0];
+}
+
+
+BB3_16:
+.loc 4 84 46
+add.s32 %r13, %r52, %r50;
+.loc 4 85 1
+setp.eq.s32	%p9, %r13, 0;
+@%p9 bra BB3_20;
+
+ld.u32 %r40, [%rd1+4];
+add.s32 %r41, %r40, 1;
+setp.ge.u32	%p10, %r13, %r41;
+@%p10 bra BB3_20;
+
+.loc 4 86 1
+ld.u64 %rd39, [%rd1+44];
+mul.wide.u32 %rd40, %r13, 4;
+add.s64 %rd41, %rd39, %rd40;
+ld.u32 %r56, [%rd41];
+.loc 5 17 1
+ld.u32 %r57, [%rd1];
+bra.uni BB3_21;
+
+BB3_19:
+.loc 4 67 1
+ld.u64 %rd18, [%rd1+12];
+mul.wide.u32 %rd19, %r21, 4;
+add.s64 %rd20, %rd18, %rd19;
+ld.u32 %r30, [%rd20];
+.loc 4 124 1
+cvta.global.u64 %rd21, $str10;
+.loc 4 92 1
+st.local.u64 [%rd2], %rd21;
+mov.u32 %r31, 92;
+.loc 4 92 1
+st.local.v2.u32 [%rd2+8], {%r31, %r2};
+st.local.v2.u32 [%rd2+16], {%r21, %r50};
+st.local.u32 [%rd2+24], %r30;
+cvta.global.u64 %rd22, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd22;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd13;
+.param .b32 retval0;
+.loc 4 92 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r32, [retval0+0];
+}
+
+
+BB3_20:
+.loc 4 89 1
+ld.u32 %r56, [%rd1];
+mov.u32 %r57, %r56;
+
+BB3_21:
+.loc 5 17 1
+setp.ge.u32	%p11, %r56, %r57;
+@%p11 bra BB3_25;
+
+.loc 5 21 1
+mul.wide.u32 %rd42, %r21, 4;
+add.s64 %rd43, %rd5, %rd42;
+ld.u32 %r42, [%rd43];
+add.s32 %r19, %r42, 1;
+.loc 5 22 1
+mul.wide.u32 %rd44, %r56, 4;
+add.s64 %rd4, %rd5, %rd44;
+ld.u32 %r43, [%rd4];
+setp.ge.u32	%p12, %r19, %r43;
+@%p12 bra BB3_25;
+
+.loc 5 21 1
+add.s32 %r49, %r42, 1;
+.loc 3 3769 3
+atom.min.u32 %r44, [%rd4], %r49;
+.loc 5 24 1
+setp.ge.u32	%p13, %r19, %r44;
+@%p13 bra BB3_25;
+
+mov.u16 %rs8, 1;
+
+BB3_25:
+.loc 5 39 65
+add.s32 %r50, %r50, 1;
+.loc 5 39 1
+setp.lt.u32	%p14, %r50, %r1;
+@%p14 bra BB3_5;
+
+BB3_26:
+.loc 5 46 1
+cvt.u32.u16	%r45, %rs8;
+cvt.s32.s8 %r46, %r45;
+st.param.b32	[func_retval0+0], %r46;
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN5Graph12getOutDegreeEj(
+.param .b64 _ZN5Graph12getOutDegreeEj_param_0,
+.param .b32 _ZN5Graph12getOutDegreeEj_param_1
+)
+{
+.local .align 8 .b8 __local_depot4[24];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<2>;
+.reg .s32 %r<13>;
+.reg .s64 %rd<11>;
+
+
+mov.u64 %SPL, __local_depot4;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd3, [_ZN5Graph12getOutDegreeEj_param_0];
+ld.param.u32 %r4, [_ZN5Graph12getOutDegreeEj_param_1];
+add.u64 %rd4, %SP, 0;
+.loc 4 70 1
+cvta.to.local.u64 %rd1, %rd4;
+.loc 4 66 1
+add.s64 %rd2, %rd3, 4;
+ld.u32 %r1, [%rd3+4];
+setp.gt.u32	%p1, %r1, %r4;
+@%p1 bra BB4_2;
+
+.loc 4 69 1
+mov.u32 %r6, %ntid.x;
+mov.u32 %r7, %ctaid.x;
+mov.u32 %r8, %tid.x;
+mad.lo.s32 %r9, %r6, %r7, %r8;
+.loc 4 70 1
+cvta.global.u64 %rd6, $str10;
+st.local.u64 [%rd1], %rd6;
+mov.u32 %r10, 70;
+.loc 4 70 1
+st.local.v2.u32 [%rd1+8], {%r10, %r9};
+st.local.v2.u32 [%rd1+16], {%r4, %r1};
+cvta.global.u64 %rd7, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd7;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd4;
+.param .b32 retval0;
+.loc 4 70 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r11, [retval0+0];
+}
+
+	mov.u32 %r12, 0;
+bra.uni BB4_3;
+
+BB4_2:
+.loc 4 67 1
+ld.u64 %rd8, [%rd2+12];
+mul.wide.u32 %rd9, %r4, 4;
+add.s64 %rd10, %rd8, %rd9;
+ld.u32 %r12, [%rd10];
+
+BB4_3:
+st.param.b32	[func_retval0+0], %r12;
+.loc 4 71 1
+ret;
+}
+
+.visible .entry _Z11dprintstats5Graph(
+.param .align 8 .b8 _Z11dprintstats5Graph_param_0[104]
+)
+{
+.local .align 8 .b8 __local_depot5[80];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<12>;
+.reg .s16 %rs<15>;
+.reg .s32 %r<48>;
+.reg .s64 %rd<46>;
+.reg .f64 %fd<4>;
+
+
+mov.u64 %SPL, __local_depot5;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd18, [_Z11dprintstats5Graph_param_0+88];
+ld.param.u64 %rd17, [_Z11dprintstats5Graph_param_0+80];
+ld.param.u64 %rd16, [_Z11dprintstats5Graph_param_0+64];
+ld.param.u64 %rd11, [_Z11dprintstats5Graph_param_0+24];
+ld.param.u64 %rd10, [_Z11dprintstats5Graph_param_0+16];
+ld.param.u32 %r16, [_Z11dprintstats5Graph_param_0+8];
+ld.param.u32 %r15, [_Z11dprintstats5Graph_param_0+4];
+add.u64 %rd19, %SP, 48;
+cvta.to.local.u64 %rd20, %rd19;
+mov.u16 %rs13, 0;
+.loc 3 2570 3
+st.local.u8 [%rd20+1], %rs13;
+mov.u16 %rs14, 9;
+.loc 3 2570 3
+st.local.u8 [%rd20], %rs14;
+.loc 4 547 1
+setp.ne.s32	%p1, %r15, 0;
+@%p1 bra BB5_2;
+
+mov.u32 %r47, 0;
+bra.uni BB5_18;
+
+BB5_2:
+.loc 4 77 1
+mov.u32 %r20, %ctaid.x;
+mov.u32 %r21, %ntid.x;
+mov.u32 %r22, %tid.x;
+mad.lo.s32 %r1, %r21, %r20, %r22;
+.loc 4 587 37
+cvta.to.global.u64 %rd43, %rd11;
+cvta.to.global.u64 %rd44, %rd10;
+mov.u32 %r43, 0;
+
+BB5_3:
+.loc 4 66 1
+setp.lt.u32	%p2, %r43, %r15;
+@%p2 bra BB5_5;
+
+add.u64 %rd21, %SP, 24;
+.loc 4 70 1
+cvta.to.local.u64 %rd22, %rd21;
+.loc 4 78 1
+cvta.global.u64 %rd23, $str10;
+.loc 4 70 1
+st.local.u64 [%rd22], %rd23;
+mov.u32 %r24, 70;
+.loc 4 70 1
+st.local.v2.u32 [%rd22+8], {%r24, %r1};
+st.local.v2.u32 [%rd22+16], {%r43, %r15};
+.loc 4 78 1
+cvta.global.u64 %rd24, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd24;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd21;
+.param .b32 retval0;
+.loc 4 70 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r25, [retval0+0];
+}
+
+	mov.u32 %r44, 0;
+bra.uni BB5_6;
+
+BB5_5:
+.loc 4 67 1
+ld.global.u32 %r44, [%rd44];
+
+BB5_6:
+.loc 4 587 37
+cvta.to.global.u64 %rd25, %rd17;
+.loc 4 550 1
+ld.global.u32 %r26, [%rd25];
+setp.le.u32	%p3, %r44, %r26;
+@%p3 bra BB5_8;
+
+.loc 4 551 1
+st.global.u32 [%rd25], %r44;
+
+BB5_8:
+.loc 4 74 1
+@%p2 bra BB5_10;
+
+add.u64 %rd27, %SP, 0;
+.loc 4 78 1
+cvta.to.local.u64 %rd28, %rd27;
+cvta.global.u64 %rd29, $str10;
+st.local.u64 [%rd28], %rd29;
+mov.u32 %r28, 78;
+.loc 4 78 1
+st.local.v2.u32 [%rd28+8], {%r28, %r1};
+st.local.v2.u32 [%rd28+16], {%r43, %r15};
+cvta.global.u64 %rd30, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd30;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd27;
+.param .b32 retval0;
+.loc 4 78 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r29, [retval0+0];
+}
+
+	mov.u32 %r45, 0;
+bra.uni BB5_11;
+
+BB5_10:
+.loc 4 75 1
+ld.global.u32 %r45, [%rd43];
+
+BB5_11:
+.loc 4 587 37
+cvta.to.global.u64 %rd31, %rd18;
+.loc 4 555 1
+ld.global.u32 %r30, [%rd31];
+setp.le.u32	%p5, %r45, %r30;
+@%p5 bra BB5_13;
+
+.loc 4 556 1
+st.global.u32 [%rd31], %r45;
+
+BB5_13:
+.loc 4 547 31
+add.s32 %r43, %r43, 1;
+.loc 4 547 1
+add.s64 %rd44, %rd44, 4;
+add.s64 %rd43, %rd43, 4;
+setp.lt.u32	%p6, %r43, %r15;
+@%p6 bra BB5_3;
+
+.loc 4 587 37
+cvta.to.global.u64 %rd45, %rd16;
+.loc 4 538 1
+@%p1 bra BB5_16;
+
+mov.u32 %r47, 0;
+bra.uni BB5_18;
+
+BB5_16:
+mov.u32 %r46, 0;
+mov.u32 %r47, %r46;
+
+BB5_17:
+.loc 4 539 1
+ld.global.u32 %r33, [%rd45];
+setp.lt.u32	%p8, %r33, %r15;
+setp.gt.u32	%p9, %r33, %r47;
+and.pred %p10, %p8, %p9;
+selp.b32	%r47, %r33, %r47, %p10;
+.loc 4 538 1
+add.s64 %rd45, %rd45, 4;
+.loc 4 538 31
+add.s32 %r46, %r46, 1;
+.loc 4 538 1
+setp.lt.u32	%p11, %r46, %r15;
+@%p11 bra BB5_17;
+
+BB5_18:
+add.u64 %rd33, %SP, 56;
+cvta.to.local.u64 %rd34, %rd33;
+.loc 4 566 1
+st.local.u64 [%rd34], %rd19;
+st.local.u32 [%rd34+8], %r15;
+cvta.global.u64 %rd36, $str1;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd36;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd33;
+.param .b32 retval0;
+.loc 4 566 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r36, [retval0+0];
+}
+
+	.loc 4 567 1
+st.local.u64 [%rd34], %rd19;
+st.local.u32 [%rd34+8], %r16;
+cvta.global.u64 %rd37, $str2;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd37;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd33;
+.param .b32 retval0;
+.loc 4 567 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r37, [retval0+0];
+}
+
+	.loc 4 568 1
+cvt.rn.f64.u32	%fd1, %r16;
+cvt.rn.f64.u32	%fd2, %r15;
+.loc 3 3614 3
+div.rn.f64 %fd3, %fd1, %fd2;
+.loc 4 587 37
+cvta.to.global.u64 %rd38, %rd17;
+.loc 4 568 108
+ld.global.u32 %r38, [%rd38];
+.loc 4 568 1
+st.local.u64 [%rd34], %rd19;
+st.local.f64 [%rd34+8], %fd3;
+st.local.u32 [%rd34+16], %r38;
+cvta.global.u64 %rd39, $str3;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd39;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd33;
+.param .b32 retval0;
+.loc 4 568 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r39, [retval0+0];
+}
+
+	.loc 4 587 37
+cvta.to.global.u64 %rd40, %rd18;
+.loc 4 569 108
+ld.global.u32 %r40, [%rd40];
+.loc 4 569 1
+st.local.u64 [%rd34], %rd19;
+st.local.f64 [%rd34+8], %fd3;
+st.local.u32 [%rd34+16], %r40;
+cvta.global.u64 %rd41, $str4;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd41;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd33;
+.param .b32 retval0;
+.loc 4 569 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r41, [retval0+0];
+}
+
+	.loc 4 570 1
+st.local.u64 [%rd34], %rd19;
+st.local.u32 [%rd34+8], %r47;
+cvta.global.u64 %rd42, $str5;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd42;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd33;
+.param .b32 retval0;
+.loc 4 570 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r42, [retval0+0];
+}
+
+	.loc 4 589 2
+ret;
+}
+
+.visible .func _ZN5Graph13printStats1x1Ev(
+.param .b64 _ZN5Graph13printStats1x1Ev_param_0
+)
+{
+.local .align 8 .b8 __local_depot6[80];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<12>;
+.reg .s16 %rs<3>;
+.reg .s32 %r<53>;
+.reg .s64 %rd<36>;
+.reg .f64 %fd<7>;
+
+
+mov.u64 %SPL, __local_depot6;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd8, [_ZN5Graph13printStats1x1Ev_param_0];
+add.u64 %rd9, %SP, 24;
+.loc 4 70 1
+cvta.to.local.u64 %rd1, %rd9;
+add.u64 %rd10, %SP, 48;
+cvta.to.local.u64 %rd11, %rd10;
+mov.u16 %rs1, 0;
+.loc 3 2570 3
+st.local.u8 [%rd11+1], %rs1;
+mov.u16 %rs2, 9;
+.loc 3 2570 3
+st.local.u8 [%rd11], %rs2;
+.loc 4 547 1
+add.s64 %rd2, %rd8, 4;
+ld.u32 %r50, [%rd8+4];
+setp.eq.s32	%p1, %r50, 0;
+@%p1 bra BB6_13;
+
+.loc 4 77 1
+mov.u32 %r19, %ctaid.x;
+mov.u32 %r20, %ntid.x;
+mov.u32 %r21, %tid.x;
+mad.lo.s32 %r2, %r20, %r19, %r21;
+mov.u32 %r47, 0;
+
+BB6_2:
+.loc 4 66 1
+setp.lt.u32	%p2, %r47, %r50;
+@%p2 bra BB6_4;
+
+.loc 4 78 1
+cvta.global.u64 %rd13, $str10;
+.loc 4 70 1
+st.local.u64 [%rd1], %rd13;
+mov.u32 %r23, 70;
+.loc 4 70 1
+st.local.v2.u32 [%rd1+8], {%r23, %r2};
+st.local.v2.u32 [%rd1+16], {%r47, %r50};
+.loc 4 78 1
+cvta.global.u64 %rd14, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd14;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd9;
+.param .b32 retval0;
+.loc 4 70 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r24, [retval0+0];
+}
+
+	mov.u32 %r48, 0;
+bra.uni BB6_5;
+
+BB6_4:
+.loc 4 67 1
+ld.u64 %rd15, [%rd2+12];
+mul.wide.u32 %rd16, %r47, 4;
+add.s64 %rd17, %rd15, %rd16;
+ld.u32 %r48, [%rd17];
+
+BB6_5:
+.loc 4 550 1
+ld.u64 %rd3, [%rd2+76];
+ld.u32 %r25, [%rd3];
+setp.le.u32	%p3, %r48, %r25;
+@%p3 bra BB6_7;
+
+.loc 4 551 1
+st.u32 [%rd3], %r48;
+
+BB6_7:
+.loc 4 74 1
+ld.u32 %r7, [%rd2];
+setp.lt.u32	%p4, %r47, %r7;
+@%p4 bra BB6_9;
+
+add.u64 %rd18, %SP, 0;
+.loc 4 78 1
+cvta.to.local.u64 %rd19, %rd18;
+cvta.global.u64 %rd20, $str10;
+st.local.u64 [%rd19], %rd20;
+mov.u32 %r27, 78;
+.loc 4 78 1
+st.local.v2.u32 [%rd19+8], {%r27, %r2};
+st.local.v2.u32 [%rd19+16], {%r47, %r7};
+cvta.global.u64 %rd21, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd21;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd18;
+.param .b32 retval0;
+.loc 4 78 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r28, [retval0+0];
+}
+
+	mov.u32 %r49, 0;
+bra.uni BB6_10;
+
+BB6_9:
+.loc 4 75 1
+ld.u64 %rd22, [%rd2+20];
+mul.wide.u32 %rd23, %r47, 4;
+add.s64 %rd24, %rd22, %rd23;
+ld.u32 %r49, [%rd24];
+
+BB6_10:
+.loc 4 555 1
+ld.u64 %rd4, [%rd2+84];
+ld.u32 %r29, [%rd4];
+setp.le.u32	%p5, %r49, %r29;
+@%p5 bra BB6_12;
+
+.loc 4 556 1
+st.u32 [%rd4], %r49;
+
+BB6_12:
+.loc 4 547 31
+add.s32 %r47, %r47, 1;
+.loc 4 547 1
+ld.u32 %r50, [%rd2];
+setp.lt.u32	%p6, %r47, %r50;
+@%p6 bra BB6_2;
+
+BB6_13:
+.loc 4 538 1
+setp.ne.s32	%p7, %r50, 0;
+@%p7 bra BB6_15;
+
+mov.u32 %r52, 0;
+bra.uni BB6_17;
+
+BB6_15:
+.loc 4 539 1
+ld.u64 %rd35, [%rd2+60];
+mov.u32 %r51, 0;
+mov.u32 %r52, %r51;
+
+BB6_16:
+.loc 4 539 1
+ld.u32 %r32, [%rd35];
+setp.lt.u32	%p8, %r32, %r50;
+setp.gt.u32	%p9, %r32, %r52;
+and.pred %p10, %p8, %p9;
+selp.b32	%r52, %r32, %r52, %p10;
+.loc 4 538 1
+add.s64 %rd35, %rd35, 4;
+.loc 4 538 31
+add.s32 %r51, %r51, 1;
+.loc 4 538 1
+setp.lt.u32	%p11, %r51, %r50;
+@%p11 bra BB6_16;
+
+BB6_17:
+.loc 4 544 21
+st.u32 [%rd2+92], %r52;
+add.u64 %rd25, %SP, 56;
+cvta.to.local.u64 %rd26, %rd25;
+.loc 4 566 1
+st.local.u64 [%rd26], %rd10;
+st.local.u32 [%rd26+8], %r50;
+cvta.global.u64 %rd28, $str1;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd28;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd25;
+.param .b32 retval0;
+.loc 4 566 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r34, [retval0+0];
+}
+
+	.loc 4 567 1
+ld.u32 %r35, [%rd2+4];
+st.local.u64 [%rd26], %rd10;
+st.local.u32 [%rd26+8], %r35;
+cvta.global.u64 %rd29, $str2;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd29;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd25;
+.param .b32 retval0;
+.loc 4 567 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r36, [retval0+0];
+}
+
+	.loc 4 568 1
+ld.u32 %r37, [%rd2+4];
+cvt.rn.f64.u32	%fd1, %r37;
+ld.u32 %r38, [%rd2];
+cvt.rn.f64.u32	%fd2, %r38;
+.loc 3 3614 3
+div.rn.f64 %fd3, %fd1, %fd2;
+.loc 4 568 108
+ld.u64 %rd30, [%rd2+76];
+ld.u32 %r39, [%rd30];
+.loc 4 568 1
+st.local.u64 [%rd26], %rd10;
+st.local.f64 [%rd26+8], %fd3;
+st.local.u32 [%rd26+16], %r39;
+cvta.global.u64 %rd31, $str3;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd31;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd25;
+.param .b32 retval0;
+.loc 4 568 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r40, [retval0+0];
+}
+
+	.loc 4 569 1
+ld.u32 %r41, [%rd2+4];
+cvt.rn.f64.u32	%fd4, %r41;
+ld.u32 %r42, [%rd2];
+cvt.rn.f64.u32	%fd5, %r42;
+.loc 3 3614 3
+div.rn.f64 %fd6, %fd4, %fd5;
+.loc 4 569 108
+ld.u64 %rd32, [%rd2+84];
+ld.u32 %r43, [%rd32];
+.loc 4 569 1
+st.local.u64 [%rd26], %rd10;
+st.local.f64 [%rd26+8], %fd6;
+st.local.u32 [%rd26+16], %r43;
+cvta.global.u64 %rd33, $str4;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd33;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd25;
+.param .b32 retval0;
+.loc 4 569 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r44, [retval0+0];
+}
+
+	.loc 4 570 1
+ld.u32 %r45, [%rd2+92];
+st.local.u64 [%rd26], %rd10;
+st.local.u32 [%rd26+8], %r45;
+cvta.global.u64 %rd34, $str5;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd34;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd25;
+.param .b32 retval0;
+.loc 4 570 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r46, [retval0+0];
+}
+
+	.loc 4 571 1
+ret;
+}
+
+.visible .entry _Z14dcomputelevels5GraphPb(
+.param .align 8 .b8 _Z14dcomputelevels5GraphPb_param_0[104],
+.param .u64 _Z14dcomputelevels5GraphPb_param_1
+)
+{
+.local .align 8 .b8 __local_depot7[80];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<14>;
+.reg .s16 %rs<23>;
+.reg .s32 %r<56>;
+.reg .s64 %rd<41>;
+
+
+mov.u64 %SPL, __local_depot7;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd10, [_Z14dcomputelevels5GraphPb_param_0+64];
+ld.param.u64 %rd8, [_Z14dcomputelevels5GraphPb_param_0+48];
+ld.param.u64 %rd7, [_Z14dcomputelevels5GraphPb_param_0+40];
+ld.param.u64 %rd6, [_Z14dcomputelevels5GraphPb_param_0+32];
+ld.param.u32 %r17, [_Z14dcomputelevels5GraphPb_param_0+8];
+ld.param.u32 %r16, [_Z14dcomputelevels5GraphPb_param_0+4];
+ld.param.u64 %rd4, [_Z14dcomputelevels5GraphPb_param_0+16];
+ld.param.u64 %rd13, [_Z14dcomputelevels5GraphPb_param_1];
+.loc 4 590 33
+cvta.to.global.u64 %rd1, %rd4;
+.loc 4 512 1
+mov.u32 %r20, %ntid.x;
+mov.u32 %r21, %ctaid.x;
+mov.u32 %r22, %tid.x;
+mad.lo.s32 %r23, %r20, %r21, %r22;
+.loc 4 515 1
+setp.lt.u32	%p1, %r23, %r16;
+@%p1 bra BB7_2;
+
+mov.u16 %rs22, 0;
+bra.uni BB7_19;
+
+BB7_2:
+.loc 4 590 33
+cvta.to.global.u64 %rd14, %rd10;
+.loc 4 516 1
+mul.wide.u32 %rd15, %r23, 4;
+add.s64 %rd16, %rd14, %rd15;
+ld.global.u32 %r1, [%rd16];
+.loc 4 67 1
+add.s64 %rd2, %rd1, %rd15;
+ld.global.u32 %r2, [%rd2];
+.loc 4 520 1
+setp.ne.s32	%p2, %r2, 0;
+@%p2 bra BB7_4;
+
+mov.u16 %rs22, 0;
+bra.uni BB7_19;
+
+BB7_4:
+.loc 4 523 1
+add.s32 %r3, %r1, 1;
+mov.u16 %rs22, 0;
+mov.u32 %r53, 0;
+.loc 4 85 1
+add.s32 %r48, %r17, 1;
+.loc 4 590 33
+cvta.to.global.u64 %rd31, %rd8;
+cvta.to.global.u64 %rd21, %rd6;
+cvta.to.global.u64 %rd24, %rd7;
+
+BB7_5:
+.loc 4 67 1
+ld.global.u32 %r29, [%rd2];
+.loc 4 83 43
+setp.lt.u32	%p3, %r53, %r29;
+@%p3 bra BB7_7;
+
+add.u64 %rd17, %SP, 24;
+cvta.to.local.u64 %rd18, %rd17;
+.loc 4 67 1
+ld.global.u32 %r30, [%rd2];
+.loc 4 124 1
+cvta.global.u64 %rd19, $str10;
+.loc 4 92 1
+st.local.u64 [%rd18], %rd19;
+mov.u32 %r31, 92;
+.loc 4 92 1
+st.local.v2.u32 [%rd18+8], {%r31, %r23};
+st.local.v2.u32 [%rd18+16], {%r23, %r53};
+st.local.u32 [%rd18+24], %r30;
+cvta.global.u64 %rd20, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd20;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd17;
+.param .b32 retval0;
+.loc 4 92 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r36, [retval0+0];
+}
+
+	.loc 4 590 33
+mov.u32 %r55, %r16;
+bra.uni BB7_13;
+
+BB7_7:
+.loc 4 67 1
+ld.global.u32 %r6, [%rd2];
+.loc 4 121 1
+setp.eq.s32	%p4, %r6, 0;
+@%p4 bra BB7_10;
+
+mul.wide.u32 %rd22, %r23, 4;
+add.s64 %rd23, %rd21, %rd22;
+ld.global.u32 %r7, [%rd23];
+setp.ge.u32	%p5, %r7, %r16;
+@%p5 bra BB7_10;
+
+.loc 4 122 1
+mul.wide.u32 %rd25, %r7, 4;
+add.s64 %rd26, %rd24, %rd25;
+ld.global.u32 %r54, [%rd26];
+bra.uni BB7_11;
+
+BB7_10:
+add.u64 %rd27, %SP, 0;
+.loc 4 127 1
+cvta.to.local.u64 %rd28, %rd27;
+.loc 4 124 1
+cvta.global.u64 %rd29, $str10;
+st.local.u64 [%rd28], %rd29;
+mov.u32 %r42, 124;
+.loc 4 124 1
+st.local.v2.u32 [%rd28+8], {%r42, %r23};
+mov.u32 %r54, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd28+16], {%r54, %r6};
+cvta.global.u64 %rd30, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd30;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd27;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r47, [retval0+0];
+}
+
+
+BB7_11:
+.loc 4 84 46
+add.s32 %r10, %r54, %r53;
+.loc 4 85 1
+setp.lt.u32	%p6, %r10, %r48;
+setp.ne.s32	%p7, %r10, 0;
+and.pred %p8, %p6, %p7;
+.loc 4 590 33
+mov.u32 %r55, %r16;
+.loc 4 85 1
+@!%p8 bra BB7_13;
+bra.uni BB7_12;
+
+BB7_12:
+.loc 4 86 1
+mul.wide.u32 %rd32, %r10, 4;
+add.s64 %rd33, %rd31, %rd32;
+ld.global.u32 %r55, [%rd33];
+
+BB7_13:
+.loc 4 523 1
+setp.ge.u32	%p9, %r55, %r16;
+@%p9 bra BB7_15;
+
+mul.wide.u32 %rd35, %r55, 4;
+add.s64 %rd3, %rd14, %rd35;
+ld.global.u32 %r49, [%rd3];
+setp.gt.u32	%p10, %r49, %r3;
+@%p10 bra BB7_17;
+
+BB7_15:
+setp.lt.u32	%p11, %r55, %r16;
+.loc 4 526 1
+@%p11 bra BB7_18;
+
+add.u64 %rd36, %SP, 56;
+cvta.to.local.u64 %rd37, %rd36;
+.loc 4 124 1
+cvta.global.u64 %rd38, $str10;
+.loc 4 527 1
+st.local.u64 [%rd37], %rd38;
+mov.u32 %r50, 527;
+.loc 4 527 1
+st.local.v2.u32 [%rd37+8], {%r50, %r55};
+st.local.u32 [%rd37+16], %r16;
+cvta.global.u64 %rd39, $str13;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd39;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd36;
+.param .b32 retval0;
+.loc 4 527 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r51, [retval0+0];
+}
+
+	bra.uni BB7_18;
+
+BB7_17:
+.loc 4 523 1
+add.s32 %r52, %r1, 1;
+.loc 4 524 1
+st.global.u32 [%rd3], %r52;
+mov.u16 %rs22, 1;
+
+BB7_18:
+.loc 4 520 59
+add.s32 %r53, %r53, 1;
+.loc 4 520 1
+setp.lt.u32	%p12, %r53, %r2;
+@%p12 bra BB7_5;
+
+BB7_19:
+.loc 4 591 5
+and.b16 %rs20, %rs22, 255;
+setp.eq.s16	%p13, %rs20, 0;
+@%p13 bra BB7_21;
+
+cvta.to.global.u64 %rd40, %rd13;
+mov.u16 %rs21, 1;
+.loc 4 592 1
+st.global.u8 [%rd40], %rs21;
+
+BB7_21:
+.loc 4 594 2
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN5Graph13computeLevelsEv(
+.param .b64 _ZN5Graph13computeLevelsEv_param_0
+)
+{
+.local .align 8 .b8 __local_depot8[80];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<15>;
+.reg .s16 %rs<9>;
+.reg .s32 %r<98>;
+.reg .s64 %rd<49>;
+
+
+mov.u64 %SPL, __local_depot8;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd5, [_ZN5Graph13computeLevelsEv_param_0];
+.loc 4 512 1
+mov.u32 %r22, %ntid.x;
+mov.u32 %r23, %ctaid.x;
+mov.u32 %r24, %tid.x;
+mad.lo.s32 %r1, %r22, %r23, %r24;
+.loc 4 515 1
+add.s64 %rd1, %rd5, 4;
+ld.u32 %r25, [%rd5+4];
+setp.lt.u32	%p1, %r1, %r25;
+@%p1 bra BB8_2;
+
+mov.u16 %rs8, 0;
+bra.uni BB8_27;
+
+BB8_2:
+.loc 4 516 1
+ld.u64 %rd6, [%rd1+60];
+mul.wide.u32 %rd7, %r1, 4;
+add.s64 %rd8, %rd6, %rd7;
+ld.u32 %r2, [%rd8];
+.loc 4 67 1
+ld.u64 %rd9, [%rd1+12];
+add.s64 %rd10, %rd9, %rd7;
+ld.u32 %r3, [%rd10];
+.loc 4 520 1
+setp.ne.s32	%p2, %r3, 0;
+@%p2 bra BB8_4;
+
+mov.u16 %rs8, 0;
+bra.uni BB8_27;
+
+BB8_4:
+.loc 4 523 1
+add.s32 %r4, %r2, 1;
+mov.u16 %rs8, 0;
+mov.u32 %r90, 0;
+
+BB8_5:
+.loc 4 83 1
+ld.u32 %r91, [%rd1];
+setp.ge.u32	%p3, %r1, %r91;
+@%p3 bra BB8_8;
+
+.loc 4 67 1
+ld.u64 %rd11, [%rd1+12];
+mul.wide.u32 %rd12, %r1, 4;
+add.s64 %rd13, %rd11, %rd12;
+ld.u32 %r35, [%rd13];
+.loc 4 83 43
+setp.lt.u32	%p4, %r90, %r35;
+@%p4 bra BB8_10;
+
+.loc 4 91 1
+ld.u32 %r91, [%rd1];
+
+BB8_8:
+setp.lt.u32	%p5, %r1, %r91;
+add.u64 %rd14, %SP, 24;
+cvta.to.local.u64 %rd2, %rd14;
+.loc 4 91 1
+@%p5 bra BB8_19;
+
+.loc 4 124 1
+cvta.global.u64 %rd16, $str10;
+.loc 4 94 1
+st.local.u64 [%rd2], %rd16;
+mov.u32 %r40, 94;
+.loc 4 94 1
+st.local.v2.u32 [%rd2+8], {%r40, %r1};
+st.local.v2.u32 [%rd2+16], {%r1, %r91};
+.loc 4 70 1
+cvta.global.u64 %rd17, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd17;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd14;
+.param .b32 retval0;
+.loc 4 94 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r45, [retval0+0];
+}
+
+	bra.uni BB8_20;
+
+BB8_10:
+add.u64 %rd24, %SP, 0;
+.loc 4 118 1
+ld.u32 %r10, [%rd1];
+setp.lt.u32	%p6, %r1, %r10;
+.loc 4 127 1
+cvta.to.local.u64 %rd3, %rd24;
+.loc 4 118 1
+@%p6 bra BB8_12;
+
+.loc 4 124 1
+cvta.global.u64 %rd26, $str10;
+.loc 4 127 1
+st.local.u64 [%rd3], %rd26;
+mov.u32 %r58, 127;
+.loc 4 127 1
+st.local.v2.u32 [%rd3+8], {%r58, %r1};
+st.local.v2.u32 [%rd3+16], {%r1, %r10};
+.loc 4 70 1
+cvta.global.u64 %rd27, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd27;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd24;
+.param .b32 retval0;
+.loc 4 127 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r63, [retval0+0];
+}
+
+	mov.u32 %r92, 0;
+bra.uni BB8_16;
+
+BB8_12:
+.loc 4 67 1
+ld.u64 %rd28, [%rd1+12];
+mul.wide.u32 %rd29, %r1, 4;
+add.s64 %rd30, %rd28, %rd29;
+ld.u32 %r11, [%rd30];
+.loc 4 121 1
+setp.eq.s32	%p7, %r11, 0;
+@%p7 bra BB8_15;
+
+ld.u64 %rd31, [%rd1+28];
+mul.wide.u32 %rd32, %r1, 4;
+add.s64 %rd33, %rd31, %rd32;
+ld.u32 %r72, [%rd1];
+ld.u32 %r12, [%rd33];
+setp.ge.u32	%p8, %r12, %r72;
+@%p8 bra BB8_15;
+
+.loc 4 122 1
+ld.u64 %rd34, [%rd1+36];
+mul.wide.u32 %rd35, %r12, 4;
+add.s64 %rd36, %rd34, %rd35;
+ld.u32 %r92, [%rd36];
+bra.uni BB8_16;
+
+BB8_15:
+.loc 4 124 1
+cvta.global.u64 %rd38, $str10;
+st.local.u64 [%rd3], %rd38;
+mov.u32 %r74, 124;
+.loc 4 124 1
+st.local.v2.u32 [%rd3+8], {%r74, %r1};
+mov.u32 %r92, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd3+16], {%r92, %r11};
+cvta.global.u64 %rd39, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd39;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd24;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r79, [retval0+0];
+}
+
+
+BB8_16:
+.loc 4 84 46
+add.s32 %r15, %r92, %r90;
+.loc 4 85 1
+setp.eq.s32	%p9, %r15, 0;
+@%p9 bra BB8_20;
+
+ld.u32 %r80, [%rd1+4];
+add.s32 %r81, %r80, 1;
+setp.ge.u32	%p10, %r15, %r81;
+@%p10 bra BB8_20;
+
+.loc 4 86 1
+ld.u64 %rd40, [%rd1+44];
+mul.wide.u32 %rd41, %r15, 4;
+add.s64 %rd42, %rd40, %rd41;
+ld.u32 %r96, [%rd42];
+.loc 4 523 1
+ld.u32 %r97, [%rd1];
+bra.uni BB8_21;
+
+BB8_19:
+.loc 4 67 1
+ld.u64 %rd19, [%rd1+12];
+mul.wide.u32 %rd20, %r1, 4;
+add.s64 %rd21, %rd19, %rd20;
+ld.u32 %r50, [%rd21];
+.loc 4 124 1
+cvta.global.u64 %rd22, $str10;
+.loc 4 92 1
+st.local.u64 [%rd2], %rd22;
+mov.u32 %r51, 92;
+.loc 4 92 1
+st.local.v2.u32 [%rd2+8], {%r51, %r1};
+st.local.v2.u32 [%rd2+16], {%r1, %r90};
+st.local.u32 [%rd2+24], %r50;
+cvta.global.u64 %rd23, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd23;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd14;
+.param .b32 retval0;
+.loc 4 92 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r52, [retval0+0];
+}
+
+
+BB8_20:
+.loc 4 89 1
+ld.u32 %r96, [%rd1];
+mov.u32 %r97, %r96;
+
+BB8_21:
+.loc 4 523 1
+setp.ge.u32	%p11, %r96, %r97;
+@%p11 bra BB8_23;
+
+ld.u64 %rd43, [%rd1+60];
+mul.wide.u32 %rd44, %r96, 4;
+add.s64 %rd4, %rd43, %rd44;
+ld.u32 %r82, [%rd4];
+setp.gt.u32	%p12, %r82, %r4;
+@%p12 bra BB8_25;
+
+BB8_23:
+setp.lt.u32	%p13, %r96, %r97;
+.loc 4 526 1
+@%p13 bra BB8_26;
+
+add.u64 %rd45, %SP, 56;
+cvta.to.local.u64 %rd46, %rd45;
+.loc 4 124 1
+cvta.global.u64 %rd47, $str10;
+.loc 4 527 1
+st.local.u64 [%rd46], %rd47;
+mov.u32 %r83, 527;
+.loc 4 527 1
+st.local.v2.u32 [%rd46+8], {%r83, %r96};
+st.local.u32 [%rd46+16], %r97;
+cvta.global.u64 %rd48, $str13;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd48;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd45;
+.param .b32 retval0;
+.loc 4 527 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r84, [retval0+0];
+}
+
+	bra.uni BB8_26;
+
+BB8_25:
+.loc 4 523 1
+add.s32 %r89, %r2, 1;
+.loc 4 524 1
+st.u32 [%rd4], %r89;
+mov.u16 %rs8, 1;
+
+BB8_26:
+.loc 4 520 59
+add.s32 %r90, %r90, 1;
+.loc 4 520 1
+setp.lt.u32	%p14, %r90, %r3;
+@%p14 bra BB8_5;
+
+BB8_27:
+.loc 4 531 1
+cvt.u32.u16	%r85, %rs8;
+cvt.s32.s8 %r86, %r85;
+st.param.b32	[func_retval0+0], %r86;
+ret;
+}
+
+.visible .entry _Z11dinitlevels5Graph(
+.param .align 8 .b8 _Z11dinitlevels5Graph_param_0[104]
+)
+{
+.reg .pred %p<2>;
+.reg .s32 %r<6>;
+.reg .s64 %rd<5>;
+
+
+ld.param.u32 %r1, [_Z11dinitlevels5Graph_param_0+4];
+ld.param.u64 %rd2, [_Z11dinitlevels5Graph_param_0+64];
+.loc 4 595 37
+cvta.to.global.u64 %rd1, %rd2;
+.loc 4 581 1
+mov.u32 %r3, %ntid.x;
+mov.u32 %r4, %ctaid.x;
+mov.u32 %r5, %tid.x;
+mad.lo.s32 %r2, %r3, %r4, %r5;
+.loc 4 582 1
+setp.ge.u32	%p1, %r2, %r1;
+@%p1 bra BB9_2;
+
+.loc 4 582 1
+mul.wide.u32 %rd3, %r2, 4;
+add.s64 %rd4, %rd1, %rd3;
+st.global.u32 [%rd4], %r1;
+
+BB9_2:
+.loc 4 597 2
+ret;
+}
+
+.visible .func _ZN5Graph10initLevelsEv(
+.param .b64 _ZN5Graph10initLevelsEv_param_0
+)
+{
+.reg .pred %p<2>;
+.reg .s32 %r<6>;
+.reg .s64 %rd<6>;
+
+
+ld.param.u64 %rd2, [_ZN5Graph10initLevelsEv_param_0];
+.loc 4 581 1
+mov.u32 %r3, %ctaid.x;
+mov.u32 %r4, %ntid.x;
+mov.u32 %r5, %tid.x;
+mad.lo.s32 %r1, %r4, %r3, %r5;
+.loc 4 582 1
+add.s64 %rd1, %rd2, 4;
+ld.u32 %r2, [%rd2+4];
+setp.ge.u32	%p1, %r1, %r2;
+@%p1 bra BB10_2;
+
+.loc 4 582 1
+ld.u64 %rd3, [%rd1+60];
+mul.wide.u32 %rd4, %r1, 4;
+add.s64 %rd5, %rd3, %rd4;
+st.u32 [%rd5], %r2;
+
+BB10_2:
+.loc 4 583 2
+ret;
+}
+
+.visible .entry _Z9dprint1x15Graph(
+.param .align 8 .b8 _Z9dprint1x15Graph_param_0[104]
+)
+{
+.local .align 8 .b8 __local_depot11[152];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<23>;
+.reg .s16 %rs<13>;
+.reg .s32 %r<103>;
+.reg .s64 %rd<86>;
+
+
+mov.u64 %SPL, __local_depot11;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd8, [_Z9dprint1x15Graph_param_0+56];
+ld.param.u64 %rd7, [_Z9dprint1x15Graph_param_0+48];
+ld.param.u64 %rd6, [_Z9dprint1x15Graph_param_0+40];
+ld.param.u64 %rd5, [_Z9dprint1x15Graph_param_0+32];
+ld.param.u64 %rd3, [_Z9dprint1x15Graph_param_0+16];
+ld.param.u32 %r29, [_Z9dprint1x15Graph_param_0+8];
+ld.param.u32 %r1, [_Z9dprint1x15Graph_param_0+4];
+add.u64 %rd12, %SP, 136;
+.loc 4 154 1
+cvta.to.local.u64 %rd13, %rd12;
+cvta.global.u64 %rd14, $str6;
+st.local.v2.u32 [%rd13], {%r1, %r29};
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd14;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd12;
+.param .b32 retval0;
+.loc 4 154 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r32, [retval0+0];
+}
+
+	mov.u32 %r102, 0;
+.loc 4 155 1
+setp.ne.s32	%p1, %r1, 0;
+@%p1 bra BB11_1;
+bra.uni BB11_32;
+
+BB11_1:
+mov.u32 %r93, %r102;
+.loc 4 598 37
+cvta.to.global.u64 %rd48, %rd7;
+cvta.to.global.u64 %rd77, %rd8;
+
+BB11_2:
+.loc 4 66 1
+setp.lt.u32	%p2, %r93, %r1;
+@%p2 bra BB11_4;
+
+add.u64 %rd15, %SP, 112;
+.loc 4 70 1
+cvta.to.local.u64 %rd16, %rd15;
+.loc 4 124 1
+cvta.global.u64 %rd17, $str10;
+.loc 4 70 1
+st.local.u64 [%rd16], %rd17;
+mov.u32 %r36, 70;
+.loc 4 82 1
+mov.u32 %r37, %ctaid.x;
+mov.u32 %r38, %ntid.x;
+mov.u32 %r39, %tid.x;
+mad.lo.s32 %r40, %r38, %r37, %r39;
+.loc 4 70 1
+st.local.v2.u32 [%rd16+8], {%r36, %r40};
+st.local.v2.u32 [%rd16+16], {%r93, %r1};
+.loc 4 70 1
+cvta.global.u64 %rd18, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd18;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd15;
+.param .b32 retval0;
+.loc 4 70 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r41, [retval0+0];
+}
+
+	mov.u32 %r94, 0;
+bra.uni BB11_5;
+
+BB11_4:
+.loc 4 598 37
+cvta.to.global.u64 %rd19, %rd3;
+.loc 4 67 1
+mul.wide.u32 %rd20, %r93, 4;
+add.s64 %rd21, %rd19, %rd20;
+.loc 4 67 1
+ld.global.u32 %r94, [%rd21];
+
+BB11_5:
+.loc 4 157 1
+setp.eq.s32	%p3, %r94, 0;
+@%p3 bra BB11_31;
+
+mov.u32 %r95, 0;
+
+BB11_7:
+add.u64 %rd22, %SP, 80;
+cvta.to.local.u64 %rd1, %rd22;
+.loc 4 83 1
+setp.ge.u32	%p4, %r93, %r1;
+@%p4 bra BB11_10;
+
+.loc 4 598 37
+cvta.to.global.u64 %rd23, %rd3;
+.loc 4 67 1
+mul.wide.u32 %rd24, %r93, 4;
+add.s64 %rd25, %rd23, %rd24;
+ld.global.u32 %r43, [%rd25];
+.loc 4 83 43
+setp.lt.u32	%p5, %r95, %r43;
+@%p5 bra BB11_12;
+
+.loc 4 91 1
+@%p2 bra BB11_11;
+
+BB11_10:
+.loc 4 124 1
+cvta.global.u64 %rd27, $str10;
+.loc 4 94 1
+st.local.u64 [%rd1], %rd27;
+mov.u32 %r44, 94;
+.loc 4 82 1
+mov.u32 %r45, %ctaid.x;
+mov.u32 %r46, %ntid.x;
+mov.u32 %r47, %tid.x;
+mad.lo.s32 %r48, %r46, %r45, %r47;
+.loc 4 94 1
+st.local.v2.u32 [%rd1+8], {%r44, %r48};
+st.local.v2.u32 [%rd1+16], {%r93, %r1};
+.loc 4 70 1
+cvta.global.u64 %rd28, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd28;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd22;
+.param .b32 retval0;
+.loc 4 94 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r49, [retval0+0];
+}
+
+	mov.u32 %r98, %r1;
+mov.u32 %r99, %r98;
+bra.uni BB11_18;
+
+BB11_11:
+.loc 4 67 1
+mul.wide.u32 %rd31, %r93, 4;
+add.s64 %rd32, %rd23, %rd31;
+.loc 4 67 1
+ld.global.u32 %r50, [%rd32];
+.loc 4 124 1
+cvta.global.u64 %rd33, $str10;
+.loc 4 92 1
+st.local.u64 [%rd1], %rd33;
+mov.u32 %r51, 92;
+.loc 4 82 1
+mov.u32 %r52, %ctaid.x;
+mov.u32 %r53, %ntid.x;
+mov.u32 %r54, %tid.x;
+mad.lo.s32 %r55, %r53, %r52, %r54;
+.loc 4 92 1
+st.local.v2.u32 [%rd1+8], {%r51, %r55};
+st.local.v2.u32 [%rd1+16], {%r93, %r95};
+st.local.u32 [%rd1+24], %r50;
+.loc 4 109 1
+cvta.global.u64 %rd34, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd34;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd22;
+.param .b32 retval0;
+.loc 4 92 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r56, [retval0+0];
+}
+
+	mov.u32 %r97, %r1;
+mov.u32 %r99, %r97;
+bra.uni BB11_18;
+
+BB11_12:
+.loc 4 67 1
+mul.wide.u32 %rd36, %r93, 4;
+add.s64 %rd37, %rd23, %rd36;
+.loc 4 67 1
+ld.global.u32 %r8, [%rd37];
+.loc 4 121 1
+setp.eq.s32	%p7, %r8, 0;
+@%p7 bra BB11_15;
+
+.loc 4 598 37
+cvta.to.global.u64 %rd38, %rd5;
+.loc 4 121 1
+mul.wide.u32 %rd39, %r93, 4;
+add.s64 %rd40, %rd38, %rd39;
+ld.global.u32 %r9, [%rd40];
+setp.ge.u32	%p8, %r9, %r1;
+@%p8 bra BB11_15;
+
+.loc 4 598 37
+cvta.to.global.u64 %rd41, %rd6;
+.loc 4 122 1
+mul.wide.u32 %rd42, %r9, 4;
+add.s64 %rd43, %rd41, %rd42;
+ld.global.u32 %r96, [%rd43];
+bra.uni BB11_16;
+
+BB11_15:
+add.u64 %rd44, %SP, 56;
+.loc 4 127 1
+cvta.to.local.u64 %rd45, %rd44;
+.loc 4 124 1
+cvta.global.u64 %rd46, $str10;
+st.local.u64 [%rd45], %rd46;
+mov.u32 %r58, 124;
+.loc 4 82 1
+mov.u32 %r59, %ctaid.x;
+mov.u32 %r60, %ntid.x;
+mov.u32 %r61, %tid.x;
+mad.lo.s32 %r62, %r60, %r59, %r61;
+.loc 4 124 1
+st.local.v2.u32 [%rd45+8], {%r58, %r62};
+mov.u32 %r96, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd45+16], {%r96, %r8};
+cvta.global.u64 %rd47, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd47;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd44;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r63, [retval0+0];
+}
+
+
+BB11_16:
+.loc 4 85 1
+add.s32 %r64, %r29, 1;
+.loc 4 84 46
+add.s32 %r12, %r96, %r95;
+.loc 4 85 1
+setp.lt.u32	%p9, %r12, %r64;
+setp.ne.s32	%p10, %r12, 0;
+and.pred %p11, %p9, %p10;
+mov.u32 %r99, %r1;
+@!%p11 bra BB11_18;
+bra.uni BB11_17;
+
+BB11_17:
+.loc 4 86 1
+mul.wide.u32 %rd49, %r12, 4;
+add.s64 %rd50, %rd48, %rd49;
+ld.global.u32 %r13, [%rd50];
+mov.u32 %r99, %r13;
+
+BB11_18:
+.loc 4 96 1
+mov.u32 %r14, %r99;
+add.u64 %rd51, %SP, 24;
+cvta.to.local.u64 %rd2, %rd51;
+.loc 4 100 1
+@%p4 bra BB11_21;
+
+.loc 4 598 37
+cvta.to.global.u64 %rd52, %rd3;
+.loc 4 67 1
+mul.wide.u32 %rd53, %r93, 4;
+add.s64 %rd54, %rd52, %rd53;
+.loc 4 67 1
+ld.global.u32 %r65, [%rd54];
+.loc 4 100 43
+setp.lt.u32	%p13, %r95, %r65;
+@%p13 bra BB11_23;
+
+.loc 4 108 1
+@%p2 bra BB11_22;
+
+BB11_21:
+.loc 4 124 1
+cvta.global.u64 %rd56, $str10;
+.loc 4 111 1
+st.local.u64 [%rd2], %rd56;
+mov.u32 %r67, 111;
+.loc 4 82 1
+mov.u32 %r68, %ctaid.x;
+mov.u32 %r69, %ntid.x;
+mov.u32 %r70, %tid.x;
+mad.lo.s32 %r71, %r69, %r68, %r70;
+.loc 4 111 1
+st.local.v2.u32 [%rd2+8], {%r67, %r71};
+st.local.v2.u32 [%rd2+16], {%r93, %r1};
+.loc 4 70 1
+cvta.global.u64 %rd57, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd57;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd51;
+.param .b32 retval0;
+.loc 4 111 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r72, [retval0+0];
+}
+
+	mov.u32 %r101, 1000000000;
+bra.uni BB11_30;
+
+BB11_22:
+.loc 4 67 1
+mul.wide.u32 %rd60, %r93, 4;
+add.s64 %rd61, %rd52, %rd60;
+.loc 4 67 1
+ld.global.u32 %r74, [%rd61];
+.loc 4 124 1
+cvta.global.u64 %rd62, $str10;
+.loc 4 109 1
+st.local.u64 [%rd2], %rd62;
+mov.u32 %r75, 109;
+.loc 4 82 1
+mov.u32 %r76, %ctaid.x;
+mov.u32 %r77, %ntid.x;
+mov.u32 %r78, %tid.x;
+mad.lo.s32 %r79, %r77, %r76, %r78;
+.loc 4 109 1
+st.local.v2.u32 [%rd2+8], {%r75, %r79};
+st.local.v2.u32 [%rd2+16], {%r93, %r95};
+st.local.u32 [%rd2+24], %r74;
+cvta.global.u64 %rd63, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd63;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd51;
+.param .b32 retval0;
+.loc 4 109 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r80, [retval0+0];
+}
+
+	mov.u32 %r101, 1000000000;
+bra.uni BB11_30;
+
+BB11_23:
+.loc 4 67 1
+mul.wide.u32 %rd65, %r93, 4;
+add.s64 %rd66, %rd52, %rd65;
+.loc 4 67 1
+ld.global.u32 %r15, [%rd66];
+.loc 4 121 1
+setp.eq.s32	%p15, %r15, 0;
+@%p15 bra BB11_26;
+
+.loc 4 598 37
+cvta.to.global.u64 %rd67, %rd5;
+.loc 4 121 1
+mul.wide.u32 %rd68, %r93, 4;
+add.s64 %rd69, %rd67, %rd68;
+.loc 4 121 1
+ld.global.u32 %r16, [%rd69];
+setp.ge.u32	%p16, %r16, %r1;
+@%p16 bra BB11_26;
+
+.loc 4 598 37
+cvta.to.global.u64 %rd70, %rd6;
+.loc 4 122 1
+mul.wide.u32 %rd71, %r16, 4;
+add.s64 %rd72, %rd70, %rd71;
+ld.global.u32 %r100, [%rd72];
+bra.uni BB11_27;
+
+BB11_26:
+add.u64 %rd73, %SP, 0;
+.loc 4 127 1
+cvta.to.local.u64 %rd74, %rd73;
+.loc 4 124 1
+cvta.global.u64 %rd75, $str10;
+.loc 4 124 1
+st.local.u64 [%rd74], %rd75;
+mov.u32 %r82, 124;
+.loc 4 82 1
+mov.u32 %r83, %ctaid.x;
+mov.u32 %r84, %ntid.x;
+mov.u32 %r85, %tid.x;
+mad.lo.s32 %r86, %r84, %r83, %r85;
+.loc 4 124 1
+st.local.v2.u32 [%rd74+8], {%r82, %r86};
+mov.u32 %r100, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd74+16], {%r100, %r15};
+.loc 4 124 1
+cvta.global.u64 %rd76, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd76;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd73;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r87, [retval0+0];
+}
+
+
+BB11_27:
+.loc 4 85 1
+add.s32 %r88, %r29, 1;
+.loc 4 101 46
+add.s32 %r19, %r100, %r95;
+.loc 4 102 1
+setp.lt.u32	%p17, %r19, %r88;
+setp.ne.s32	%p18, %r19, 0;
+and.pred %p19, %p17, %p18;
+@%p19 bra BB11_29;
+
+mov.u32 %r101, 1000000000;
+bra.uni BB11_30;
+
+BB11_29:
+.loc 4 103 1
+mul.wide.u32 %rd78, %r19, 4;
+add.s64 %rd79, %rd77, %rd78;
+ld.global.u32 %r101, [%rd79];
+
+BB11_30:
+.loc 4 160 1
+st.local.v2.u32 [%rd13], {%r93, %r14};
+st.local.u32 [%rd13+8], %r101;
+cvta.global.u64 %rd82, $str7;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd82;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd12;
+.param .b32 retval0;
+.loc 4 160 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r90, [retval0+0];
+}
+
+	.loc 4 161 1
+add.s32 %r102, %r102, 1;
+.loc 4 157 57
+add.s32 %r95, %r95, 1;
+.loc 4 157 1
+setp.lt.u32	%p20, %r95, %r94;
+@%p20 bra BB11_7;
+
+BB11_31:
+.loc 4 155 31
+add.s32 %r93, %r93, 1;
+.loc 4 155 1
+setp.lt.u32	%p21, %r93, %r1;
+@%p21 bra BB11_2;
+
+BB11_32:
+.loc 4 164 1
+setp.eq.s32	%p22, %r29, %r102;
+@%p22 bra BB11_34;
+
+.loc 4 165 1
+cvta.global.u64 %rd85, $str8;
+st.local.v2.u32 [%rd13], {%r29, %r102};
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd85;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd12;
+.param .b32 retval0;
+.loc 4 165 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r92, [retval0+0];
+}
+
+
+BB11_34:
+.loc 4 600 2
+ret;
+}
+
+.visible .func _ZN5Graph8print1x1Ev(
+.param .b64 _ZN5Graph8print1x1Ev_param_0
+)
+{
+.local .align 8 .b8 __local_depot12[152];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<23>;
+.reg .s32 %r<141>;
+.reg .s64 %rd<87>;
+
+
+mov.u64 %SPL, __local_depot12;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd6, [_ZN5Graph8print1x1Ev_param_0];
+add.u64 %rd7, %SP, 136;
+.loc 4 154 1
+cvta.to.local.u64 %rd8, %rd7;
+add.s64 %rd1, %rd6, 4;
+ld.u32 %r41, [%rd6+8];
+ld.u32 %r42, [%rd6+4];
+cvta.global.u64 %rd9, $str6;
+st.local.v2.u32 [%rd8], {%r42, %r41};
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd9;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd7;
+.param .b32 retval0;
+.loc 4 154 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r43, [retval0+0];
+}
+
+	.loc 4 155 1
+ld.u32 %r125, [%rd6+4];
+mov.u32 %r140, 0;
+.loc 4 155 1
+setp.ne.s32	%p1, %r125, 0;
+@%p1 bra BB12_1;
+bra.uni BB12_42;
+
+BB12_1:
+mov.u32 %r126, %r140;
+
+BB12_2:
+.loc 4 66 1
+setp.lt.u32	%p2, %r126, %r125;
+@%p2 bra BB12_4;
+
+add.u64 %rd10, %SP, 112;
+.loc 4 70 1
+cvta.to.local.u64 %rd11, %rd10;
+.loc 4 124 1
+cvta.global.u64 %rd12, $str10;
+.loc 4 70 1
+st.local.u64 [%rd11], %rd12;
+mov.u32 %r47, 70;
+.loc 4 82 1
+mov.u32 %r48, %ctaid.x;
+mov.u32 %r49, %ntid.x;
+mov.u32 %r50, %tid.x;
+mad.lo.s32 %r51, %r49, %r48, %r50;
+.loc 4 70 1
+st.local.v2.u32 [%rd11+8], {%r47, %r51};
+st.local.v2.u32 [%rd11+16], {%r126, %r125};
+.loc 4 70 1
+cvta.global.u64 %rd13, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd13;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd10;
+.param .b32 retval0;
+.loc 4 70 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r52, [retval0+0];
+}
+
+	mov.u32 %r127, 0;
+bra.uni BB12_5;
+
+BB12_4:
+.loc 4 67 1
+ld.u64 %rd14, [%rd1+12];
+mul.wide.u32 %rd15, %r126, 4;
+add.s64 %rd16, %rd14, %rd15;
+ld.u32 %r127, [%rd16];
+
+BB12_5:
+.loc 4 157 1
+setp.eq.s32	%p3, %r127, 0;
+@%p3 bra BB12_41;
+
+mov.u32 %r128, 0;
+
+BB12_7:
+.loc 4 83 1
+ld.u32 %r129, [%rd1];
+setp.ge.u32	%p4, %r126, %r129;
+@%p4 bra BB12_10;
+
+.loc 4 67 1
+ld.u64 %rd17, [%rd1+12];
+mul.wide.u32 %rd18, %r126, 4;
+add.s64 %rd19, %rd17, %rd18;
+ld.u32 %r54, [%rd19];
+.loc 4 83 43
+setp.lt.u32	%p5, %r128, %r54;
+@%p5 bra BB12_12;
+
+.loc 4 91 1
+ld.u32 %r129, [%rd1];
+
+BB12_10:
+add.u64 %rd20, %SP, 80;
+cvta.to.local.u64 %rd2, %rd20;
+.loc 4 91 1
+setp.lt.u32	%p6, %r126, %r129;
+@%p6 bra BB12_21;
+
+.loc 4 124 1
+cvta.global.u64 %rd22, $str10;
+.loc 4 94 1
+st.local.u64 [%rd2], %rd22;
+mov.u32 %r55, 94;
+.loc 4 82 1
+mov.u32 %r56, %ctaid.x;
+mov.u32 %r57, %ntid.x;
+mov.u32 %r58, %tid.x;
+mad.lo.s32 %r59, %r57, %r56, %r58;
+.loc 4 94 1
+st.local.v2.u32 [%rd2+8], {%r55, %r59};
+st.local.v2.u32 [%rd2+16], {%r126, %r129};
+.loc 4 70 1
+cvta.global.u64 %rd23, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd23;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd20;
+.param .b32 retval0;
+.loc 4 94 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r60, [retval0+0];
+}
+
+	bra.uni BB12_22;
+
+BB12_12:
+add.u64 %rd30, %SP, 56;
+.loc 4 118 1
+ld.u32 %r13, [%rd1];
+setp.lt.u32	%p7, %r126, %r13;
+.loc 4 127 1
+cvta.to.local.u64 %rd3, %rd30;
+.loc 4 118 1
+@%p7 bra BB12_14;
+
+.loc 4 124 1
+cvta.global.u64 %rd32, $str10;
+.loc 4 127 1
+st.local.u64 [%rd3], %rd32;
+mov.u32 %r69, 127;
+.loc 4 82 1
+mov.u32 %r70, %ctaid.x;
+mov.u32 %r71, %ntid.x;
+mov.u32 %r72, %tid.x;
+mad.lo.s32 %r73, %r71, %r70, %r72;
+.loc 4 127 1
+st.local.v2.u32 [%rd3+8], {%r69, %r73};
+st.local.v2.u32 [%rd3+16], {%r126, %r13};
+.loc 4 70 1
+cvta.global.u64 %rd33, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd33;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd30;
+.param .b32 retval0;
+.loc 4 127 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r74, [retval0+0];
+}
+
+	mov.u32 %r130, 0;
+bra.uni BB12_18;
+
+BB12_14:
+.loc 4 67 1
+ld.u64 %rd34, [%rd1+12];
+mul.wide.u32 %rd35, %r126, 4;
+add.s64 %rd36, %rd34, %rd35;
+ld.u32 %r14, [%rd36];
+.loc 4 121 1
+setp.eq.s32	%p8, %r14, 0;
+@%p8 bra BB12_17;
+
+ld.u64 %rd37, [%rd1+28];
+mul.wide.u32 %rd38, %r126, 4;
+add.s64 %rd39, %rd37, %rd38;
+ld.u32 %r75, [%rd1];
+ld.u32 %r15, [%rd39];
+setp.ge.u32	%p9, %r15, %r75;
+@%p9 bra BB12_17;
+
+.loc 4 122 1
+ld.u64 %rd40, [%rd1+36];
+mul.wide.u32 %rd41, %r15, 4;
+add.s64 %rd42, %rd40, %rd41;
+ld.u32 %r130, [%rd42];
+bra.uni BB12_18;
+
+BB12_17:
+.loc 4 124 1
+cvta.global.u64 %rd44, $str10;
+st.local.u64 [%rd3], %rd44;
+mov.u32 %r77, 124;
+.loc 4 82 1
+mov.u32 %r78, %ctaid.x;
+mov.u32 %r79, %ntid.x;
+mov.u32 %r80, %tid.x;
+mad.lo.s32 %r81, %r79, %r78, %r80;
+.loc 4 124 1
+st.local.v2.u32 [%rd3+8], {%r77, %r81};
+mov.u32 %r130, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd3+16], {%r130, %r14};
+cvta.global.u64 %rd45, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd45;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd30;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r82, [retval0+0];
+}
+
+
+BB12_18:
+.loc 4 84 46
+add.s32 %r18, %r130, %r128;
+.loc 4 85 1
+setp.eq.s32	%p10, %r18, 0;
+@%p10 bra BB12_22;
+
+ld.u32 %r83, [%rd1+4];
+add.s32 %r84, %r83, 1;
+setp.ge.u32	%p11, %r18, %r84;
+@%p11 bra BB12_22;
+
+.loc 4 86 1
+ld.u64 %rd46, [%rd1+44];
+mul.wide.u32 %rd47, %r18, 4;
+add.s64 %rd48, %rd46, %rd47;
+ld.u32 %r136, [%rd48];
+.loc 4 100 1
+ld.u32 %r137, [%rd1];
+bra.uni BB12_23;
+
+BB12_21:
+.loc 4 67 1
+ld.u64 %rd25, [%rd1+12];
+mul.wide.u32 %rd26, %r126, 4;
+add.s64 %rd27, %rd25, %rd26;
+ld.u32 %r61, [%rd27];
+.loc 4 124 1
+cvta.global.u64 %rd28, $str10;
+.loc 4 92 1
+st.local.u64 [%rd2], %rd28;
+mov.u32 %r62, 92;
+.loc 4 82 1
+mov.u32 %r63, %ctaid.x;
+mov.u32 %r64, %ntid.x;
+mov.u32 %r65, %tid.x;
+mad.lo.s32 %r66, %r64, %r63, %r65;
+.loc 4 92 1
+st.local.v2.u32 [%rd2+8], {%r62, %r66};
+st.local.v2.u32 [%rd2+16], {%r126, %r128};
+st.local.u32 [%rd2+24], %r61;
+.loc 4 109 1
+cvta.global.u64 %rd29, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd29;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd20;
+.param .b32 retval0;
+.loc 4 92 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r67, [retval0+0];
+}
+
+
+BB12_22:
+.loc 4 89 1
+ld.u32 %r136, [%rd1];
+mov.u32 %r137, %r136;
+
+BB12_23:
+.loc 4 96 1
+mov.u32 %r135, %r137;
+.loc 4 100 1
+setp.ge.u32	%p12, %r126, %r135;
+@%p12 bra BB12_26;
+
+.loc 4 67 1
+ld.u64 %rd49, [%rd1+12];
+mul.wide.u32 %rd50, %r126, 4;
+add.s64 %rd51, %rd49, %rd50;
+ld.u32 %r85, [%rd51];
+.loc 4 100 43
+setp.lt.u32	%p13, %r128, %r85;
+@%p13 bra BB12_29;
+
+.loc 4 108 1
+ld.u32 %r135, [%rd1];
+
+BB12_26:
+add.u64 %rd52, %SP, 24;
+cvta.to.local.u64 %rd4, %rd52;
+.loc 4 108 1
+setp.lt.u32	%p14, %r126, %r135;
+@%p14 bra BB12_28;
+
+.loc 4 124 1
+cvta.global.u64 %rd54, $str10;
+.loc 4 111 1
+st.local.u64 [%rd4], %rd54;
+mov.u32 %r87, 111;
+.loc 4 82 1
+mov.u32 %r88, %ctaid.x;
+mov.u32 %r89, %ntid.x;
+mov.u32 %r90, %tid.x;
+mad.lo.s32 %r91, %r89, %r88, %r90;
+.loc 4 111 1
+st.local.v2.u32 [%rd4+8], {%r87, %r91};
+st.local.v2.u32 [%rd4+16], {%r126, %r135};
+.loc 4 70 1
+cvta.global.u64 %rd55, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd55;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd52;
+.param .b32 retval0;
+.loc 4 111 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r92, [retval0+0];
+}
+
+	mov.u32 %r139, 1000000000;
+bra.uni BB12_40;
+
+BB12_28:
+.loc 4 67 1
+ld.u64 %rd57, [%rd1+12];
+mul.wide.u32 %rd58, %r126, 4;
+add.s64 %rd59, %rd57, %rd58;
+ld.u32 %r94, [%rd59];
+.loc 4 124 1
+cvta.global.u64 %rd60, $str10;
+.loc 4 109 1
+st.local.u64 [%rd4], %rd60;
+mov.u32 %r95, 109;
+.loc 4 82 1
+mov.u32 %r96, %ctaid.x;
+mov.u32 %r97, %ntid.x;
+mov.u32 %r98, %tid.x;
+mad.lo.s32 %r99, %r97, %r96, %r98;
+.loc 4 109 1
+st.local.v2.u32 [%rd4+8], {%r95, %r99};
+st.local.v2.u32 [%rd4+16], {%r126, %r128};
+st.local.u32 [%rd4+24], %r94;
+cvta.global.u64 %rd61, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd61;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd52;
+.param .b32 retval0;
+.loc 4 109 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r100, [retval0+0];
+}
+
+	mov.u32 %r139, 1000000000;
+bra.uni BB12_40;
+
+BB12_29:
+add.u64 %rd62, %SP, 0;
+.loc 4 118 1
+ld.u32 %r26, [%rd1];
+setp.lt.u32	%p15, %r126, %r26;
+.loc 4 127 1
+cvta.to.local.u64 %rd5, %rd62;
+.loc 4 118 1
+@%p15 bra BB12_31;
+
+.loc 4 124 1
+cvta.global.u64 %rd64, $str10;
+.loc 4 127 1
+st.local.u64 [%rd5], %rd64;
+mov.u32 %r102, 127;
+.loc 4 82 1
+mov.u32 %r103, %ctaid.x;
+mov.u32 %r104, %ntid.x;
+mov.u32 %r105, %tid.x;
+mad.lo.s32 %r106, %r104, %r103, %r105;
+.loc 4 127 1
+st.local.v2.u32 [%rd5+8], {%r102, %r106};
+st.local.v2.u32 [%rd5+16], {%r126, %r26};
+.loc 4 70 1
+cvta.global.u64 %rd65, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd65;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd62;
+.param .b32 retval0;
+.loc 4 127 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r107, [retval0+0];
+}
+
+	mov.u32 %r138, 0;
+bra.uni BB12_35;
+
+BB12_31:
+.loc 4 67 1
+ld.u64 %rd66, [%rd1+12];
+mul.wide.u32 %rd67, %r126, 4;
+add.s64 %rd68, %rd66, %rd67;
+ld.u32 %r27, [%rd68];
+.loc 4 121 1
+setp.eq.s32	%p16, %r27, 0;
+@%p16 bra BB12_34;
+
+ld.u64 %rd69, [%rd1+28];
+mul.wide.u32 %rd70, %r126, 4;
+add.s64 %rd71, %rd69, %rd70;
+ld.u32 %r108, [%rd1];
+ld.u32 %r28, [%rd71];
+setp.ge.u32	%p17, %r28, %r108;
+@%p17 bra BB12_34;
+
+.loc 4 122 1
+ld.u64 %rd72, [%rd1+36];
+mul.wide.u32 %rd73, %r28, 4;
+add.s64 %rd74, %rd72, %rd73;
+ld.u32 %r138, [%rd74];
+bra.uni BB12_35;
+
+BB12_34:
+.loc 4 124 1
+cvta.global.u64 %rd76, $str10;
+.loc 4 124 1
+st.local.u64 [%rd5], %rd76;
+mov.u32 %r110, 124;
+.loc 4 82 1
+mov.u32 %r111, %ctaid.x;
+mov.u32 %r112, %ntid.x;
+mov.u32 %r113, %tid.x;
+mad.lo.s32 %r114, %r112, %r111, %r113;
+.loc 4 124 1
+st.local.v2.u32 [%rd5+8], {%r110, %r114};
+mov.u32 %r138, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd5+16], {%r138, %r27};
+.loc 4 124 1
+cvta.global.u64 %rd77, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd77;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd62;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r115, [retval0+0];
+}
+
+
+BB12_35:
+.loc 4 101 46
+add.s32 %r31, %r138, %r128;
+.loc 4 102 1
+setp.ne.s32	%p18, %r31, 0;
+@%p18 bra BB12_37;
+
+mov.u32 %r139, 1000000000;
+bra.uni BB12_40;
+
+BB12_37:
+.loc 4 102 1
+ld.u32 %r116, [%rd1+4];
+add.s32 %r117, %r116, 1;
+setp.lt.u32	%p19, %r31, %r117;
+@%p19 bra BB12_39;
+
+mov.u32 %r139, 1000000000;
+bra.uni BB12_40;
+
+BB12_39:
+.loc 4 103 1
+ld.u64 %rd78, [%rd1+52];
+mul.wide.u32 %rd79, %r31, 4;
+add.s64 %rd80, %rd78, %rd79;
+ld.u32 %r139, [%rd80];
+
+BB12_40:
+.loc 4 160 1
+st.local.v2.u32 [%rd8], {%r126, %r136};
+st.local.u32 [%rd8+8], %r139;
+cvta.global.u64 %rd83, $str7;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd83;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd7;
+.param .b32 retval0;
+.loc 4 160 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r120, [retval0+0];
+}
+
+	.loc 4 161 1
+add.s32 %r140, %r140, 1;
+.loc 4 157 57
+add.s32 %r128, %r128, 1;
+.loc 4 157 1
+setp.lt.u32	%p20, %r128, %r127;
+@%p20 bra BB12_7;
+
+BB12_41:
+.loc 4 155 1
+ld.u32 %r125, [%rd1];
+.loc 4 155 31
+add.s32 %r126, %r126, 1;
+.loc 4 155 1
+setp.lt.u32	%p21, %r126, %r125;
+@%p21 bra BB12_2;
+
+BB12_42:
+.loc 4 164 1
+ld.u32 %r40, [%rd1+4];
+setp.eq.s32	%p22, %r40, %r140;
+@%p22 bra BB12_44;
+
+.loc 4 165 1
+cvta.global.u64 %rd86, $str8;
+st.local.v2.u32 [%rd8], {%r40, %r140};
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd86;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd7;
+.param .b32 retval0;
+.loc 4 165 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r122, [retval0+0];
+}
+
+
+BB12_44:
+.loc 4 167 2
+ret;
+}
+
+.visible .entry _Z8print1x114ComponentSpace(
+.param .align 8 .b8 _Z8print1x114ComponentSpace_param_0[32]
+)
+{
+.local .align 8 .b8 __local_depot13[8];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<3>;
+.reg .s32 %r<10>;
+.reg .s64 %rd<13>;
+
+
+mov.u64 %SPL, __local_depot13;
+cvta.local.u64 %SP, %SPL;
+ld.param.u32 %r1, [_Z8print1x114ComponentSpace_param_0];
+ld.param.u64 %rd7, [_Z8print1x114ComponentSpace_param_0+24];
+add.u64 %rd8, %SP, 0;
+.loc 6 59 1
+cvta.to.local.u64 %rd1, %rd8;
+.loc 6 63 63
+cvta.to.global.u64 %rd12, %rd7;
+.loc 6 57 1
+cvta.global.u64 %rd3, $str19;
+mov.u64 %rd9, 0;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd3;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd9;
+.param .b32 retval0;
+.loc 6 57 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r4, [retval0+0];
+}
+
+	.loc 6 58 1
+setp.eq.s32	%p1, %r1, 0;
+@%p1 bra BB13_3;
+
+.loc 6 59 1
+cvta.global.u64 %rd4, $str20;
+mov.u32 %r9, 0;
+
+BB13_2:
+.loc 6 59 1
+ld.global.u32 %r6, [%rd12];
+st.local.v2.u32 [%rd1], {%r9, %r6};
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd4;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd8;
+.param .b32 retval0;
+.loc 6 59 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r7, [retval0+0];
+}
+
+	.loc 6 58 1
+add.s64 %rd12, %rd12, 4;
+.loc 6 58 34
+add.s32 %r9, %r9, 1;
+.loc 6 58 1
+setp.lt.u32	%p2, %r9, %r1;
+@%p2 bra BB13_2;
+
+BB13_3:
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd3;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd9;
+.param .b32 retval0;
+.loc 6 61 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r8, [retval0+0];
+}
+
+	.loc 6 65 2
+ret;
+}
+
+.visible .func _ZN14ComponentSpace8print1x1Ev(
+.param .b64 _ZN14ComponentSpace8print1x1Ev_param_0
+)
+{
+.local .align 8 .b8 __local_depot14[8];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<3>;
+.reg .s32 %r<11>;
+.reg .s64 %rd<12>;
+
+
+mov.u64 %SPL, __local_depot14;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd3, [_ZN14ComponentSpace8print1x1Ev_param_0];
+add.u64 %rd5, %SP, 0;
+.loc 6 59 1
+cvta.to.local.u64 %rd1, %rd5;
+.loc 6 57 1
+cvta.global.u64 %rd2, $str19;
+mov.u64 %rd6, 0;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd2;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd6;
+.param .b32 retval0;
+.loc 6 57 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r3, [retval0+0];
+}
+
+	.loc 6 58 1
+ld.u32 %r4, [%rd3];
+setp.eq.s32	%p1, %r4, 0;
+@%p1 bra BB14_3;
+
+.loc 6 59 1
+cvta.global.u64 %rd4, $str20;
+mov.u32 %r10, 0;
+
+BB14_2:
+.loc 6 59 1
+ld.u64 %rd7, [%rd3+24];
+mul.wide.u32 %rd8, %r10, 4;
+add.s64 %rd9, %rd7, %rd8;
+ld.u32 %r6, [%rd9];
+st.local.v2.u32 [%rd1], {%r10, %r6};
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd4;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd5;
+.param .b32 retval0;
+.loc 6 59 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r7, [retval0+0];
+}
+
+	.loc 6 58 1
+ld.u32 %r8, [%rd3];
+.loc 6 58 34
+add.s32 %r10, %r10, 1;
+.loc 6 58 1
+setp.lt.u32	%p2, %r10, %r8;
+@%p2 bra BB14_2;
+
+BB14_3:
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd2;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd6;
+.param .b32 retval0;
+.loc 6 61 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r9, [retval0+0];
+}
+
+	.loc 6 62 2
+ret;
+}
+
+.visible .entry _Z7dinitcsjPjS_(
+.param .u32 _Z7dinitcsjPjS__param_0,
+.param .u64 _Z7dinitcsjPjS__param_1,
+.param .u64 _Z7dinitcsjPjS__param_2
+)
+{
+.reg .pred %p<2>;
+.reg .s32 %r<7>;
+.reg .s64 %rd<8>;
+
+
+ld.param.u32 %r2, [_Z7dinitcsjPjS__param_0];
+ld.param.u64 %rd3, [_Z7dinitcsjPjS__param_1];
+ld.param.u64 %rd4, [_Z7dinitcsjPjS__param_2];
+cvta.to.global.u64 %rd1, %rd4;
+cvta.to.global.u64 %rd2, %rd3;
+.loc 6 90 1
+mov.u32 %r3, %ntid.x;
+mov.u32 %r4, %ctaid.x;
+mov.u32 %r5, %tid.x;
+mad.lo.s32 %r1, %r3, %r4, %r5;
+.loc 6 91 1
+setp.ge.u32	%p1, %r1, %r2;
+@%p1 bra BB15_2;
+
+.loc 6 93 1
+mul.wide.u32 %rd5, %r1, 4;
+add.s64 %rd6, %rd2, %rd5;
+mov.u32 %r6, 1;
+.loc 6 93 1
+st.global.u32 [%rd6], %r6;
+.loc 6 94 1
+add.s64 %rd7, %rd1, %rd5;
+st.global.u32 [%rd7], %r1;
+
+BB15_2:
+.loc 6 96 2
+ret;
+}
+
+.visible .entry _Z10initializePjj(
+.param .u64 _Z10initializePjj_param_0,
+.param .u32 _Z10initializePjj_param_1
+)
+{
+.reg .pred %p<2>;
+.reg .s32 %r<7>;
+.reg .s64 %rd<5>;
+
+
+ld.param.u64 %rd2, [_Z10initializePjj_param_0];
+ld.param.u32 %r2, [_Z10initializePjj_param_1];
+cvta.to.global.u64 %rd1, %rd2;
+.loc 5 6 1
+mov.u32 %r3, %ntid.x;
+mov.u32 %r4, %ctaid.x;
+mov.u32 %r5, %tid.x;
+mad.lo.s32 %r1, %r3, %r4, %r5;
+.loc 5 7 1
+setp.ge.u32	%p1, %r1, %r2;
+@%p1 bra BB16_2;
+
+.loc 5 8 1
+mul.wide.u32 %rd3, %r1, 4;
+add.s64 %rd4, %rd1, %rd3;
+mov.u32 %r6, 1000000000;
+.loc 5 8 1
+st.global.u32 [%rd4], %r6;
+
+BB16_2:
+.loc 5 10 2
+ret;
+}
+
+.visible .entry _Z6drelaxPj5GraphPb(
+.param .u64 _Z6drelaxPj5GraphPb_param_0,
+.param .align 8 .b8 _Z6drelaxPj5GraphPb_param_1[104],
+.param .u64 _Z6drelaxPj5GraphPb_param_2
+)
+{
+.local .align 8 .b8 __local_depot17[56];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<16>;
+.reg .s16 %rs<23>;
+.reg .s32 %r<60>;
+.reg .s64 %rd<47>;
+
+
+mov.u64 %SPL, __local_depot17;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd2, [_Z6drelaxPj5GraphPb_param_0];
+ld.param.u64 %rd7, [_Z6drelaxPj5GraphPb_param_1+48];
+ld.param.u64 %rd6, [_Z6drelaxPj5GraphPb_param_1+40];
+ld.param.u64 %rd5, [_Z6drelaxPj5GraphPb_param_1+32];
+ld.param.u64 %rd3, [_Z6drelaxPj5GraphPb_param_1+16];
+ld.param.u32 %r21, [_Z6drelaxPj5GraphPb_param_1+8];
+ld.param.u32 %r20, [_Z6drelaxPj5GraphPb_param_1+4];
+ld.param.u64 %rd12, [_Z6drelaxPj5GraphPb_param_2];
+.loc 5 51 1
+mov.u32 %r24, %ntid.x;
+mov.u32 %r25, %ctaid.x;
+mov.u32 %r26, %tid.x;
+mad.lo.s32 %r27, %r24, %r25, %r26;
+mov.u32 %r28, 1024;
+.loc 5 52 1
+div.u32 %r1, %r28, %r24;
+mul.lo.s32 %r56, %r1, %r27;
+add.s32 %r30, %r27, 1;
+mul.lo.s32 %r2, %r1, %r30;
+.loc 5 54 1
+setp.ge.u32	%p1, %r56, %r2;
+@%p1 bra BB17_22;
+
+.loc 4 85 1
+add.s32 %r51, %r21, 1;
+.loc 5 50 33
+cvta.to.global.u64 %rd39, %rd7;
+cvta.to.global.u64 %rd29, %rd5;
+cvta.to.global.u64 %rd32, %rd6;
+cvta.to.global.u64 %rd42, %rd2;
+cvta.to.global.u64 %rd46, %rd12;
+
+BB17_2:
+.loc 5 35 1
+setp.lt.u32	%p2, %r56, %r20;
+@%p2 bra BB17_4;
+
+mov.u16 %rs22, 0;
+bra.uni BB17_19;
+
+BB17_4:
+.loc 5 50 33
+cvta.to.global.u64 %rd13, %rd3;
+.loc 4 67 1
+mul.wide.u32 %rd14, %r56, 4;
+add.s64 %rd15, %rd13, %rd14;
+ld.global.u32 %r5, [%rd15];
+mov.u16 %rs22, 0;
+.loc 5 39 1
+setp.ne.s32	%p3, %r5, 0;
+@%p3 bra BB17_5;
+bra.uni BB17_19;
+
+BB17_5:
+mov.u32 %r57, 0;
+
+BB17_6:
+.loc 4 67 1
+mul.wide.u32 %rd17, %r56, 4;
+add.s64 %rd18, %rd13, %rd17;
+.loc 4 67 1
+ld.global.u32 %r36, [%rd18];
+.loc 4 83 43
+setp.lt.u32	%p4, %r57, %r36;
+@%p4 bra BB17_8;
+
+add.u64 %rd19, %SP, 24;
+cvta.to.local.u64 %rd20, %rd19;
+.loc 4 67 1
+mul.wide.u32 %rd22, %r56, 4;
+add.s64 %rd23, %rd13, %rd22;
+.loc 4 67 1
+ld.global.u32 %r37, [%rd23];
+.loc 4 124 1
+cvta.global.u64 %rd24, $str10;
+.loc 4 92 1
+st.local.u64 [%rd20], %rd24;
+mov.u32 %r38, 92;
+.loc 4 92 1
+st.local.v2.u32 [%rd20+8], {%r38, %r27};
+st.local.v2.u32 [%rd20+16], {%r56, %r57};
+st.local.u32 [%rd20+24], %r37;
+cvta.global.u64 %rd25, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd25;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd19;
+.param .b32 retval0;
+.loc 4 92 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r43, [retval0+0];
+}
+
+	.loc 5 50 33
+mov.u32 %r59, %r20;
+bra.uni BB17_14;
+
+BB17_8:
+.loc 4 67 1
+mul.wide.u32 %rd27, %r56, 4;
+add.s64 %rd28, %rd13, %rd27;
+.loc 4 67 1
+ld.global.u32 %r8, [%rd28];
+.loc 4 121 1
+setp.eq.s32	%p5, %r8, 0;
+@%p5 bra BB17_11;
+
+mul.wide.u32 %rd30, %r56, 4;
+add.s64 %rd31, %rd29, %rd30;
+ld.global.u32 %r9, [%rd31];
+setp.ge.u32	%p6, %r9, %r20;
+@%p6 bra BB17_11;
+
+.loc 4 122 1
+mul.wide.u32 %rd33, %r9, 4;
+add.s64 %rd34, %rd32, %rd33;
+ld.global.u32 %r58, [%rd34];
+bra.uni BB17_12;
+
+BB17_11:
+add.u64 %rd35, %SP, 0;
+.loc 4 127 1
+cvta.to.local.u64 %rd36, %rd35;
+.loc 4 124 1
+cvta.global.u64 %rd37, $str10;
+st.local.u64 [%rd36], %rd37;
+mov.u32 %r45, 124;
+.loc 4 124 1
+st.local.v2.u32 [%rd36+8], {%r45, %r27};
+mov.u32 %r58, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd36+16], {%r58, %r8};
+cvta.global.u64 %rd38, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd38;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd35;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r50, [retval0+0];
+}
+
+
+BB17_12:
+.loc 4 84 46
+add.s32 %r12, %r58, %r57;
+.loc 4 85 1
+setp.lt.u32	%p7, %r12, %r51;
+setp.ne.s32	%p8, %r12, 0;
+and.pred %p9, %p7, %p8;
+.loc 5 50 33
+mov.u32 %r59, %r20;
+.loc 4 85 1
+@!%p9 bra BB17_14;
+bra.uni BB17_13;
+
+BB17_13:
+.loc 4 86 1
+mul.wide.u32 %rd40, %r12, 4;
+add.s64 %rd41, %rd39, %rd40;
+ld.global.u32 %r59, [%rd41];
+
+BB17_14:
+.loc 5 17 1
+setp.ge.u32	%p10, %r59, %r20;
+@%p10 bra BB17_18;
+
+.loc 5 21 1
+mul.wide.u32 %rd43, %r56, 4;
+add.s64 %rd44, %rd42, %rd43;
+ld.global.u32 %r52, [%rd44];
+add.s32 %r16, %r52, 1;
+.loc 5 22 1
+mul.wide.u32 %rd45, %r59, 4;
+add.s64 %rd1, %rd42, %rd45;
+ld.global.u32 %r53, [%rd1];
+setp.ge.u32	%p11, %r16, %r53;
+@%p11 bra BB17_18;
+
+.loc 5 21 1
+add.s32 %r55, %r52, 1;
+.loc 3 3769 3
+atom.global.min.u32 %r54, [%rd1], %r55;
+.loc 5 24 1
+setp.ge.u32	%p12, %r16, %r54;
+@%p12 bra BB17_18;
+
+mov.u16 %rs22, 1;
+
+BB17_18:
+.loc 5 39 65
+add.s32 %r57, %r57, 1;
+.loc 5 39 1
+setp.lt.u32	%p13, %r57, %r5;
+@%p13 bra BB17_6;
+
+BB17_19:
+.loc 5 55 5
+and.b16 %rs20, %rs22, 255;
+setp.eq.s16	%p14, %rs20, 0;
+@%p14 bra BB17_21;
+
+mov.u16 %rs21, 1;
+.loc 5 56 1
+st.global.u8 [%rd46], %rs21;
+
+BB17_21:
+.loc 5 54 56
+add.s32 %r56, %r56, 1;
+.loc 5 54 1
+setp.lt.u32	%p15, %r56, %r2;
+@%p15 bra BB17_2;
+
+BB17_22:
+.loc 5 59 2
+ret;
+}
+
+.visible .entry _Z15dverifysolutionPj5GraphS_(
+.param .u64 _Z15dverifysolutionPj5GraphS__param_0,
+.param .align 8 .b8 _Z15dverifysolutionPj5GraphS__param_1[104],
+.param .u64 _Z15dverifysolutionPj5GraphS__param_2
+)
+{
+.local .align 8 .b8 __local_depot18[56];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<11>;
+.reg .s16 %rs<13>;
+.reg .s32 %r<55>;
+.reg .s64 %rd<38>;
+
+
+mov.u64 %SPL, __local_depot18;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd4, [_Z15dverifysolutionPj5GraphS__param_0];
+ld.param.u64 %rd9, [_Z15dverifysolutionPj5GraphS__param_1+48];
+ld.param.u64 %rd8, [_Z15dverifysolutionPj5GraphS__param_1+40];
+ld.param.u64 %rd7, [_Z15dverifysolutionPj5GraphS__param_1+32];
+ld.param.u64 %rd5, [_Z15dverifysolutionPj5GraphS__param_1+16];
+ld.param.u32 %r15, [_Z15dverifysolutionPj5GraphS__param_1+8];
+ld.param.u32 %r14, [_Z15dverifysolutionPj5GraphS__param_1+4];
+ld.param.u64 %rd14, [_Z15dverifysolutionPj5GraphS__param_2];
+.loc 1 35 1
+mov.u32 %r18, %ntid.x;
+mov.u32 %r19, %ctaid.x;
+mov.u32 %r20, %tid.x;
+mad.lo.s32 %r21, %r18, %r19, %r20;
+.loc 1 36 1
+setp.ge.u32	%p1, %r21, %r14;
+@%p1 bra BB18_14;
+
+.loc 1 34 29
+cvta.to.global.u64 %rd15, %rd5;
+.loc 4 67 1
+mul.wide.u32 %rd16, %r21, 4;
+add.s64 %rd1, %rd15, %rd16;
+ld.global.u32 %r1, [%rd1];
+.loc 1 38 1
+setp.eq.s32	%p2, %r1, 0;
+@%p2 bra BB18_14;
+
+.loc 1 34 29
+cvta.to.global.u64 %rd17, %rd7;
+.loc 4 121 1
+mul.wide.u32 %rd18, %r21, 4;
+add.s64 %rd2, %rd17, %rd18;
+cvta.to.global.u64 %rd19, %rd4;
+.loc 1 43 1
+add.s64 %rd3, %rd19, %rd18;
+mov.u32 %r52, 0;
+.loc 4 85 1
+add.s32 %r46, %r15, 1;
+.loc 1 34 29
+cvta.to.global.u64 %rd31, %rd9;
+cvta.to.global.u64 %rd24, %rd8;
+cvta.to.global.u64 %rd37, %rd14;
+
+BB18_3:
+.loc 4 67 1
+ld.global.u32 %r31, [%rd1];
+.loc 4 83 43
+setp.lt.u32	%p3, %r52, %r31;
+@%p3 bra BB18_5;
+
+add.u64 %rd20, %SP, 24;
+cvta.to.local.u64 %rd21, %rd20;
+.loc 4 67 1
+ld.global.u32 %r32, [%rd1];
+.loc 4 124 1
+cvta.global.u64 %rd22, $str10;
+.loc 4 92 1
+st.local.u64 [%rd21], %rd22;
+mov.u32 %r33, 92;
+.loc 4 92 1
+st.local.v2.u32 [%rd21+8], {%r33, %r21};
+st.local.v2.u32 [%rd21+16], {%r21, %r52};
+st.local.u32 [%rd21+24], %r32;
+cvta.global.u64 %rd23, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd23;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd20;
+.param .b32 retval0;
+.loc 4 92 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r38, [retval0+0];
+}
+
+	.loc 1 34 29
+mov.u32 %r54, %r14;
+bra.uni BB18_11;
+
+BB18_5:
+.loc 4 67 1
+ld.global.u32 %r4, [%rd1];
+.loc 4 121 1
+setp.eq.s32	%p4, %r4, 0;
+@%p4 bra BB18_8;
+
+ld.global.u32 %r5, [%rd2];
+setp.ge.u32	%p5, %r5, %r14;
+@%p5 bra BB18_8;
+
+.loc 4 122 1
+mul.wide.u32 %rd25, %r5, 4;
+add.s64 %rd26, %rd24, %rd25;
+ld.global.u32 %r53, [%rd26];
+bra.uni BB18_9;
+
+BB18_8:
+add.u64 %rd27, %SP, 0;
+.loc 4 127 1
+cvta.to.local.u64 %rd28, %rd27;
+.loc 4 124 1
+cvta.global.u64 %rd29, $str10;
+st.local.u64 [%rd28], %rd29;
+mov.u32 %r40, 124;
+.loc 4 124 1
+st.local.v2.u32 [%rd28+8], {%r40, %r21};
+mov.u32 %r53, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd28+16], {%r53, %r4};
+cvta.global.u64 %rd30, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd30;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd27;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r45, [retval0+0];
+}
+
+
+BB18_9:
+.loc 4 84 46
+add.s32 %r8, %r53, %r52;
+.loc 4 85 1
+setp.lt.u32	%p6, %r8, %r46;
+setp.ne.s32	%p7, %r8, 0;
+and.pred %p8, %p6, %p7;
+.loc 1 34 29
+mov.u32 %r54, %r14;
+.loc 4 85 1
+@!%p8 bra BB18_11;
+bra.uni BB18_10;
+
+BB18_10:
+.loc 4 86 1
+mul.wide.u32 %rd32, %r8, 4;
+add.s64 %rd33, %rd31, %rd32;
+ld.global.u32 %r54, [%rd33];
+
+BB18_11:
+.loc 1 43 1
+ld.global.u32 %r47, [%rd3];
+add.s32 %r48, %r47, 1;
+mul.wide.u32 %rd35, %r54, 4;
+add.s64 %rd36, %rd19, %rd35;
+ld.global.u32 %r49, [%rd36];
+setp.ge.u32	%p9, %r48, %r49;
+@%p9 bra BB18_13;
+
+.loc 1 45 1
+ld.global.u32 %r50, [%rd37];
+add.s32 %r51, %r50, 1;
+st.global.u32 [%rd37], %r51;
+
+BB18_13:
+.loc 1 38 62
+add.s32 %r52, %r52, 1;
+.loc 1 38 1
+setp.lt.u32	%p10, %r52, %r1;
+@%p10 bra BB18_3;
+
+BB18_14:
+.loc 1 49 2
+ret;
+}
+
+.visible .func _ZN5Graph12computeStatsEv(
+.param .b64 _ZN5Graph12computeStatsEv_param_0
+)
+{
+.local .align 8 .b8 __local_depot19[48];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<12>;
+.reg .s32 %r<40>;
+.reg .s64 %rd<22>;
+
+
+mov.u64 %SPL, __local_depot19;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd10, [_ZN5Graph12computeStatsEv_param_0];
+add.u64 %rd11, %SP, 0;
+.loc 4 78 1
+cvta.to.local.u64 %rd1, %rd11;
+.loc 4 547 1
+add.s64 %rd2, %rd10, 4;
+ld.u32 %r37, [%rd10+4];
+setp.eq.s32	%p1, %r37, 0;
+@%p1 bra BB19_13;
+
+.loc 4 77 1
+mov.u32 %r19, %ctaid.x;
+mov.u32 %r20, %ntid.x;
+mov.u32 %r21, %tid.x;
+mad.lo.s32 %r2, %r20, %r19, %r21;
+.loc 4 78 1
+cvta.global.u64 %rd3, $str9;
+cvta.global.u64 %rd4, $str10;
+mov.u32 %r34, 0;
+
+BB19_2:
+.loc 4 66 1
+setp.lt.u32	%p2, %r34, %r37;
+@%p2 bra BB19_4;
+
+add.u64 %rd12, %SP, 24;
+.loc 4 70 1
+cvta.to.local.u64 %rd13, %rd12;
+st.local.u64 [%rd13], %rd4;
+mov.u32 %r23, 70;
+.loc 4 70 1
+st.local.v2.u32 [%rd13+8], {%r23, %r2};
+st.local.v2.u32 [%rd13+16], {%r34, %r37};
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd3;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd12;
+.param .b32 retval0;
+.loc 4 70 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r24, [retval0+0];
+}
+
+	mov.u32 %r35, 0;
+bra.uni BB19_5;
+
+BB19_4:
+.loc 4 67 1
+ld.u64 %rd14, [%rd2+12];
+mul.wide.u32 %rd15, %r34, 4;
+add.s64 %rd16, %rd14, %rd15;
+ld.u32 %r35, [%rd16];
+
+BB19_5:
+.loc 4 550 1
+ld.u64 %rd5, [%rd2+76];
+ld.u32 %r25, [%rd5];
+setp.le.u32	%p3, %r35, %r25;
+@%p3 bra BB19_7;
+
+.loc 4 551 1
+st.u32 [%rd5], %r35;
+
+BB19_7:
+.loc 4 74 1
+ld.u32 %r7, [%rd2];
+setp.lt.u32	%p4, %r34, %r7;
+@%p4 bra BB19_9;
+
+.loc 4 78 1
+st.local.u64 [%rd1], %rd4;
+mov.u32 %r27, 78;
+.loc 4 78 1
+st.local.v2.u32 [%rd1+8], {%r27, %r2};
+st.local.v2.u32 [%rd1+16], {%r34, %r7};
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd3;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd11;
+.param .b32 retval0;
+.loc 4 78 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r28, [retval0+0];
+}
+
+	mov.u32 %r36, 0;
+bra.uni BB19_10;
+
+BB19_9:
+.loc 4 75 1
+ld.u64 %rd18, [%rd2+20];
+mul.wide.u32 %rd19, %r34, 4;
+add.s64 %rd20, %rd18, %rd19;
+ld.u32 %r36, [%rd20];
+
+BB19_10:
+.loc 4 555 1
+ld.u64 %rd6, [%rd2+84];
+ld.u32 %r29, [%rd6];
+setp.le.u32	%p5, %r36, %r29;
+@%p5 bra BB19_12;
+
+.loc 4 556 1
+st.u32 [%rd6], %r36;
+
+BB19_12:
+.loc 4 547 31
+add.s32 %r34, %r34, 1;
+.loc 4 547 1
+ld.u32 %r37, [%rd2];
+setp.lt.u32	%p6, %r34, %r37;
+@%p6 bra BB19_2;
+
+BB19_13:
+.loc 4 538 1
+setp.ne.s32	%p7, %r37, 0;
+@%p7 bra BB19_15;
+
+mov.u32 %r39, 0;
+bra.uni BB19_17;
+
+BB19_15:
+.loc 4 539 1
+ld.u64 %rd21, [%rd2+60];
+mov.u32 %r38, 0;
+mov.u32 %r39, %r38;
+
+BB19_16:
+.loc 4 539 1
+ld.u32 %r32, [%rd21];
+setp.lt.u32	%p8, %r32, %r37;
+setp.gt.u32	%p9, %r32, %r39;
+and.pred %p10, %p8, %p9;
+selp.b32	%r39, %r32, %r39, %p10;
+.loc 4 538 1
+add.s64 %rd21, %rd21, 4;
+.loc 4 538 31
+add.s32 %r38, %r38, 1;
+.loc 4 538 1
+setp.lt.u32	%p11, %r38, %r37;
+@%p11 bra BB19_16;
+
+BB19_17:
+.loc 4 544 21
+st.u32 [%rd2+92], %r39;
+.loc 4 510 2
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN5Graph9getWeightEjj(
+.param .b64 _ZN5Graph9getWeightEjj_param_0,
+.param .b32 _ZN5Graph9getWeightEjj_param_1,
+.param .b32 _ZN5Graph9getWeightEjj_param_2
+)
+{
+.local .align 8 .b8 __local_depot20[56];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<9>;
+.reg .s32 %r<40>;
+.reg .s64 %rd<38>;
+
+
+mov.u64 %SPL, __local_depot20;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd7, [_ZN5Graph9getWeightEjj_param_0];
+ld.param.u32 %r13, [_ZN5Graph9getWeightEjj_param_1];
+ld.param.u32 %r14, [_ZN5Graph9getWeightEjj_param_2];
+add.u64 %rd8, %SP, 0;
+.loc 4 127 1
+cvta.to.local.u64 %rd1, %rd8;
+add.u64 %rd9, %SP, 24;
+cvta.to.local.u64 %rd2, %rd9;
+.loc 4 99 1
+mov.u32 %r15, %ntid.x;
+mov.u32 %r16, %ctaid.x;
+mov.u32 %r17, %tid.x;
+mad.lo.s32 %r1, %r15, %r16, %r17;
+.loc 4 100 1
+add.s64 %rd3, %rd7, 4;
+ld.u32 %r37, [%rd7+4];
+setp.le.u32	%p1, %r37, %r13;
+@%p1 bra BB20_3;
+
+.loc 4 67 1
+ld.u64 %rd10, [%rd3+12];
+mul.wide.u32 %rd11, %r13, 4;
+add.s64 %rd12, %rd10, %rd11;
+ld.u32 %r18, [%rd12];
+.loc 4 100 43
+setp.gt.u32	%p2, %r18, %r14;
+@%p2 bra BB20_6;
+
+.loc 4 108 1
+ld.u32 %r37, [%rd3];
+
+BB20_3:
+.loc 4 109 1
+cvta.global.u64 %rd4, $str10;
+.loc 4 108 1
+setp.gt.u32	%p3, %r37, %r13;
+@%p3 bra BB20_5;
+
+.loc 4 111 1
+st.local.u64 [%rd2], %rd4;
+mov.u32 %r20, 111;
+.loc 4 111 1
+st.local.v2.u32 [%rd2+8], {%r20, %r1};
+st.local.v2.u32 [%rd2+16], {%r13, %r37};
+cvta.global.u64 %rd14, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd14;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd9;
+.param .b32 retval0;
+.loc 4 111 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r21, [retval0+0];
+}
+
+	mov.u32 %r39, 1000000000;
+bra.uni BB20_17;
+
+BB20_5:
+.loc 4 67 1
+ld.u64 %rd16, [%rd3+12];
+mul.wide.u32 %rd17, %r13, 4;
+add.s64 %rd18, %rd16, %rd17;
+ld.u32 %r23, [%rd18];
+.loc 4 109 1
+st.local.u64 [%rd2], %rd4;
+mov.u32 %r24, 109;
+.loc 4 109 1
+st.local.v2.u32 [%rd2+8], {%r24, %r1};
+st.local.v2.u32 [%rd2+16], {%r13, %r14};
+st.local.u32 [%rd2+24], %r23;
+cvta.global.u64 %rd19, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd19;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd9;
+.param .b32 retval0;
+.loc 4 109 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r25, [retval0+0];
+}
+
+	mov.u32 %r39, 1000000000;
+bra.uni BB20_17;
+
+BB20_6:
+.loc 4 118 1
+ld.u32 %r5, [%rd3];
+setp.gt.u32	%p4, %r5, %r13;
+@%p4 bra BB20_8;
+
+.loc 4 127 1
+cvta.global.u64 %rd21, $str10;
+st.local.u64 [%rd1], %rd21;
+mov.u32 %r27, 127;
+.loc 4 127 1
+st.local.v2.u32 [%rd1+8], {%r27, %r1};
+st.local.v2.u32 [%rd1+16], {%r13, %r5};
+cvta.global.u64 %rd22, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd22;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd8;
+.param .b32 retval0;
+.loc 4 127 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r28, [retval0+0];
+}
+
+	mov.u32 %r38, 0;
+bra.uni BB20_12;
+
+BB20_8:
+.loc 4 67 1
+ld.u64 %rd23, [%rd3+12];
+mul.wide.u32 %rd24, %r13, 4;
+add.s64 %rd25, %rd23, %rd24;
+ld.u32 %r6, [%rd25];
+.loc 4 121 1
+setp.eq.s32	%p5, %r6, 0;
+@%p5 bra BB20_11;
+
+ld.u64 %rd26, [%rd3+28];
+mul.wide.u32 %rd27, %r13, 4;
+add.s64 %rd28, %rd26, %rd27;
+ld.u32 %r29, [%rd3];
+ld.u32 %r7, [%rd28];
+setp.ge.u32	%p6, %r7, %r29;
+@%p6 bra BB20_11;
+
+.loc 4 122 1
+ld.u64 %rd29, [%rd3+36];
+mul.wide.u32 %rd30, %r7, 4;
+add.s64 %rd31, %rd29, %rd30;
+ld.u32 %r38, [%rd31];
+bra.uni BB20_12;
+
+BB20_11:
+.loc 4 124 1
+cvta.global.u64 %rd33, $str10;
+st.local.u64 [%rd1], %rd33;
+mov.u32 %r31, 124;
+.loc 4 124 1
+st.local.v2.u32 [%rd1+8], {%r31, %r1};
+mov.u32 %r38, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd1+16], {%r38, %r6};
+cvta.global.u64 %rd34, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd34;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd8;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r32, [retval0+0];
+}
+
+
+BB20_12:
+.loc 4 101 46
+add.s32 %r10, %r38, %r14;
+.loc 4 102 1
+setp.ne.s32	%p7, %r10, 0;
+@%p7 bra BB20_14;
+
+mov.u32 %r39, 1000000000;
+bra.uni BB20_17;
+
+BB20_14:
+.loc 4 102 1
+ld.u32 %r33, [%rd3+4];
+add.s32 %r34, %r33, 1;
+setp.lt.u32	%p8, %r10, %r34;
+@%p8 bra BB20_16;
+
+mov.u32 %r39, 1000000000;
+bra.uni BB20_17;
+
+BB20_16:
+.loc 4 103 1
+ld.u64 %rd35, [%rd3+52];
+mul.wide.u32 %rd36, %r10, 4;
+add.s64 %rd37, %rd35, %rd36;
+ld.u32 %r39, [%rd37];
+
+BB20_17:
+st.param.b32	[func_retval0+0], %r39;
+.loc 4 113 1
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN5Graph11getInDegreeEj(
+.param .b64 _ZN5Graph11getInDegreeEj_param_0,
+.param .b32 _ZN5Graph11getInDegreeEj_param_1
+)
+{
+.local .align 8 .b8 __local_depot21[24];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<2>;
+.reg .s32 %r<13>;
+.reg .s64 %rd<11>;
+
+
+mov.u64 %SPL, __local_depot21;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd3, [_ZN5Graph11getInDegreeEj_param_0];
+ld.param.u32 %r4, [_ZN5Graph11getInDegreeEj_param_1];
+add.u64 %rd4, %SP, 0;
+.loc 4 78 1
+cvta.to.local.u64 %rd1, %rd4;
+.loc 4 74 1
+add.s64 %rd2, %rd3, 4;
+ld.u32 %r1, [%rd3+4];
+setp.gt.u32	%p1, %r1, %r4;
+@%p1 bra BB21_2;
+
+.loc 4 77 1
+mov.u32 %r6, %ntid.x;
+mov.u32 %r7, %ctaid.x;
+mov.u32 %r8, %tid.x;
+mad.lo.s32 %r9, %r6, %r7, %r8;
+.loc 4 78 1
+cvta.global.u64 %rd6, $str10;
+st.local.u64 [%rd1], %rd6;
+mov.u32 %r10, 78;
+.loc 4 78 1
+st.local.v2.u32 [%rd1+8], {%r10, %r9};
+st.local.v2.u32 [%rd1+16], {%r4, %r1};
+cvta.global.u64 %rd7, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd7;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd4;
+.param .b32 retval0;
+.loc 4 78 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r11, [retval0+0];
+}
+
+	mov.u32 %r12, 0;
+bra.uni BB21_3;
+
+BB21_2:
+.loc 4 75 1
+ld.u64 %rd8, [%rd2+20];
+mul.wide.u32 %rd9, %r4, 4;
+add.s64 %rd10, %rd8, %rd9;
+ld.u32 %r12, [%rd10];
+
+BB21_3:
+st.param.b32	[func_retval0+0], %r12;
+.loc 4 79 1
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN5Graph12getFirstEdgeEj(
+.param .b64 _ZN5Graph12getFirstEdgeEj_param_0,
+.param .b32 _ZN5Graph12getFirstEdgeEj_param_1
+)
+{
+.local .align 8 .b8 __local_depot22[24];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<4>;
+.reg .s32 %r<19>;
+.reg .s64 %rd<20>;
+
+
+mov.u64 %SPL, __local_depot22;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd3, [_ZN5Graph12getFirstEdgeEj_param_0];
+ld.param.u32 %r7, [_ZN5Graph12getFirstEdgeEj_param_1];
+add.u64 %rd4, %SP, 0;
+.loc 4 127 1
+cvta.to.local.u64 %rd2, %rd4;
+.loc 4 117 1
+mov.u32 %r8, %ntid.x;
+mov.u32 %r9, %ctaid.x;
+mov.u32 %r10, %tid.x;
+mad.lo.s32 %r1, %r8, %r9, %r10;
+.loc 4 118 1
+add.s64 %rd1, %rd3, 4;
+ld.u32 %r2, [%rd3+4];
+setp.gt.u32	%p1, %r2, %r7;
+@%p1 bra BB22_2;
+
+.loc 4 127 1
+cvta.global.u64 %rd6, $str10;
+st.local.u64 [%rd2], %rd6;
+mov.u32 %r12, 127;
+.loc 4 127 1
+st.local.v2.u32 [%rd2+8], {%r12, %r1};
+st.local.v2.u32 [%rd2+16], {%r7, %r2};
+cvta.global.u64 %rd7, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd7;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd4;
+.param .b32 retval0;
+.loc 4 127 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r13, [retval0+0];
+}
+
+	mov.u32 %r18, 0;
+bra.uni BB22_6;
+
+BB22_2:
+.loc 4 67 1
+ld.u64 %rd8, [%rd1+12];
+mul.wide.u32 %rd9, %r7, 4;
+add.s64 %rd10, %rd8, %rd9;
+ld.u32 %r3, [%rd10];
+.loc 4 121 1
+setp.eq.s32	%p2, %r3, 0;
+@%p2 bra BB22_5;
+
+ld.u64 %rd11, [%rd1+28];
+mul.wide.u32 %rd12, %r7, 4;
+add.s64 %rd13, %rd11, %rd12;
+ld.u32 %r14, [%rd1];
+ld.u32 %r4, [%rd13];
+setp.ge.u32	%p3, %r4, %r14;
+@%p3 bra BB22_5;
+
+.loc 4 122 1
+ld.u64 %rd14, [%rd1+36];
+mul.wide.u32 %rd15, %r4, 4;
+add.s64 %rd16, %rd14, %rd15;
+ld.u32 %r18, [%rd16];
+bra.uni BB22_6;
+
+BB22_5:
+.loc 4 124 1
+cvta.global.u64 %rd18, $str10;
+st.local.u64 [%rd2], %rd18;
+mov.u32 %r16, 124;
+.loc 4 124 1
+st.local.v2.u32 [%rd2+8], {%r16, %r1};
+mov.u32 %r18, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd2+16], {%r18, %r3};
+cvta.global.u64 %rd19, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd19;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd4;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r17, [retval0+0];
+}
+
+
+BB22_6:
+st.param.b32	[func_retval0+0], %r18;
+.loc 4 128 1
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN5Graph10getMinEdgeEj(
+.param .b64 _ZN5Graph10getMinEdgeEj_param_0,
+.param .b32 _ZN5Graph10getMinEdgeEj_param_1
+)
+{
+.local .align 8 .b8 __local_depot23[136];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<20>;
+.reg .s32 %r<84>;
+.reg .s64 %rd<76>;
+
+
+mov.u64 %SPL, __local_depot23;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd8, [_ZN5Graph10getMinEdgeEj_param_0];
+ld.param.u32 %r29, [_ZN5Graph10getMinEdgeEj_param_1];
+add.u64 %rd9, %SP, 112;
+.loc 4 149 1
+cvta.to.local.u64 %rd2, %rd9;
+.loc 4 131 1
+mov.u32 %r30, %ntid.x;
+mov.u32 %r31, %ctaid.x;
+mov.u32 %r32, %tid.x;
+mad.lo.s32 %r1, %r30, %r31, %r32;
+.loc 4 132 1
+add.s64 %rd1, %rd8, 4;
+ld.u32 %r2, [%rd8+4];
+setp.gt.u32	%p1, %r2, %r29;
+@%p1 bra BB23_2;
+
+.loc 4 149 1
+cvta.global.u64 %rd11, $str10;
+st.local.u64 [%rd2], %rd11;
+mov.u32 %r34, 149;
+.loc 4 149 1
+st.local.v2.u32 [%rd2+8], {%r34, %r1};
+st.local.v2.u32 [%rd2+16], {%r29, %r2};
+cvta.global.u64 %rd12, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd12;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd9;
+.param .b32 retval0;
+.loc 4 149 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r35, [retval0+0];
+}
+
+	mov.u32 %r83, 0;
+bra.uni BB23_36;
+
+BB23_2:
+.loc 4 67 1
+ld.u64 %rd13, [%rd1+12];
+mul.wide.u32 %rd14, %r29, 4;
+add.s64 %rd15, %rd13, %rd14;
+ld.u32 %r3, [%rd15];
+.loc 4 134 1
+setp.eq.s32	%p2, %r3, 0;
+@%p2 bra BB23_35;
+
+.loc 4 100 1
+ld.u32 %r4, [%rd1];
+setp.le.u32	%p3, %r4, %r29;
+@%p3 bra BB23_11;
+
+.loc 4 67 1
+cvt.u64.u32	%rd3, %r29;
+ld.u64 %rd16, [%rd1+12];
+mul.wide.u32 %rd17, %r29, 4;
+add.s64 %rd18, %rd16, %rd17;
+ld.u32 %r5, [%rd18];
+setp.eq.s32	%p4, %r5, 0;
+.loc 4 100 43
+@%p4 bra BB23_11;
+
+.loc 4 121 1
+ld.u64 %rd19, [%rd1+28];
+shl.b64 %rd20, %rd3, 2;
+add.s64 %rd21, %rd19, %rd20;
+ld.u32 %r36, [%rd1];
+ld.u32 %r6, [%rd21];
+setp.lt.u32	%p5, %r6, %r36;
+@%p5 bra BB23_7;
+
+add.u64 %rd22, %SP, 56;
+.loc 4 127 1
+cvta.to.local.u64 %rd23, %rd22;
+.loc 4 124 1
+cvta.global.u64 %rd24, $str10;
+st.local.u64 [%rd23], %rd24;
+mov.u32 %r38, 124;
+.loc 4 124 1
+st.local.v2.u32 [%rd23+8], {%r38, %r1};
+mov.u32 %r77, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd23+16], {%r77, %r5};
+cvta.global.u64 %rd25, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd25;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd22;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r39, [retval0+0];
+}
+
+	bra.uni BB23_8;
+
+BB23_7:
+.loc 4 122 1
+ld.u64 %rd26, [%rd1+36];
+mul.wide.u32 %rd27, %r6, 4;
+add.s64 %rd28, %rd26, %rd27;
+ld.u32 %r77, [%rd28];
+
+BB23_8:
+.loc 4 102 1
+setp.ne.s32	%p6, %r77, 0;
+@%p6 bra BB23_9;
+bra.uni BB23_14;
+
+BB23_9:
+ld.u32 %r40, [%rd1+4];
+add.s32 %r41, %r40, 1;
+setp.lt.u32	%p7, %r77, %r41;
+@%p7 bra BB23_10;
+bra.uni BB23_14;
+
+BB23_10:
+.loc 4 103 1
+ld.u64 %rd29, [%rd1+52];
+mul.wide.u32 %rd30, %r77, 4;
+add.s64 %rd31, %rd29, %rd30;
+ld.u32 %r79, [%rd31];
+bra.uni BB23_15;
+
+BB23_11:
+.loc 4 108 1
+setp.gt.u32	%p8, %r4, %r29;
+.loc 4 109 1
+cvta.global.u64 %rd4, $str10;
+add.u64 %rd32, %SP, 80;
+cvta.to.local.u64 %rd5, %rd32;
+.loc 4 108 1
+@%p8 bra BB23_13;
+
+.loc 4 111 1
+st.local.u64 [%rd5], %rd4;
+mov.u32 %r45, 111;
+.loc 4 111 1
+st.local.v2.u32 [%rd5+8], {%r45, %r1};
+st.local.v2.u32 [%rd5+16], {%r29, %r4};
+cvta.global.u64 %rd35, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd35;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd32;
+.param .b32 retval0;
+.loc 4 111 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r46, [retval0+0];
+}
+
+	bra.uni BB23_14;
+
+BB23_13:
+.loc 4 67 1
+ld.u64 %rd37, [%rd1+12];
+mul.wide.u32 %rd38, %r29, 4;
+add.s64 %rd39, %rd37, %rd38;
+ld.u32 %r48, [%rd39];
+.loc 4 109 1
+st.local.u64 [%rd5], %rd4;
+mov.u32 %r49, 109;
+.loc 4 109 1
+st.local.v2.u32 [%rd5+8], {%r49, %r1};
+mov.u32 %r50, 0;
+.loc 4 109 1
+st.local.v2.u32 [%rd5+16], {%r29, %r50};
+st.local.u32 [%rd5+24], %r48;
+cvta.global.u64 %rd40, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd40;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd32;
+.param .b32 retval0;
+.loc 4 109 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r51, [retval0+0];
+}
+
+
+BB23_14:
+mov.u32 %r79, 1000000000;
+
+BB23_15:
+mov.u32 %r83, 0;
+.loc 4 137 1
+setp.gt.u32	%p9, %r3, 1;
+@%p9 bra BB23_16;
+bra.uni BB23_36;
+
+BB23_16:
+mov.u32 %r78, 1;
+
+BB23_17:
+.loc 4 100 1
+ld.u32 %r80, [%rd1];
+setp.le.u32	%p10, %r80, %r29;
+@%p10 bra BB23_20;
+
+.loc 4 67 1
+ld.u64 %rd41, [%rd1+12];
+mul.wide.u32 %rd42, %r29, 4;
+add.s64 %rd43, %rd41, %rd42;
+ld.u32 %r55, [%rd43];
+.loc 4 100 43
+setp.lt.u32	%p11, %r78, %r55;
+@%p11 bra BB23_23;
+
+.loc 4 108 1
+ld.u32 %r80, [%rd1];
+
+BB23_20:
+add.u64 %rd44, %SP, 24;
+cvta.to.local.u64 %rd6, %rd44;
+.loc 4 108 1
+setp.gt.u32	%p12, %r80, %r29;
+@%p12 bra BB23_22;
+
+.loc 4 124 1
+cvta.global.u64 %rd46, $str10;
+.loc 4 111 1
+st.local.u64 [%rd6], %rd46;
+mov.u32 %r57, 111;
+.loc 4 111 1
+st.local.v2.u32 [%rd6+8], {%r57, %r1};
+st.local.v2.u32 [%rd6+16], {%r29, %r80};
+.loc 4 70 1
+cvta.global.u64 %rd47, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd47;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd44;
+.param .b32 retval0;
+.loc 4 111 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r58, [retval0+0];
+}
+
+	mov.u32 %r82, 1000000000;
+bra.uni BB23_34;
+
+BB23_22:
+.loc 4 67 1
+ld.u64 %rd49, [%rd1+12];
+mul.wide.u32 %rd50, %r29, 4;
+add.s64 %rd51, %rd49, %rd50;
+ld.u32 %r60, [%rd51];
+.loc 4 124 1
+cvta.global.u64 %rd52, $str10;
+.loc 4 109 1
+st.local.u64 [%rd6], %rd52;
+mov.u32 %r61, 109;
+.loc 4 109 1
+st.local.v2.u32 [%rd6+8], {%r61, %r1};
+st.local.v2.u32 [%rd6+16], {%r29, %r78};
+st.local.u32 [%rd6+24], %r60;
+cvta.global.u64 %rd53, $str11;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd53;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd44;
+.param .b32 retval0;
+.loc 4 109 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r62, [retval0+0];
+}
+
+	mov.u32 %r82, 1000000000;
+bra.uni BB23_34;
+
+BB23_23:
+add.u64 %rd54, %SP, 0;
+.loc 4 118 1
+ld.u32 %r17, [%rd1];
+setp.gt.u32	%p13, %r17, %r29;
+.loc 4 127 1
+cvta.to.local.u64 %rd7, %rd54;
+.loc 4 118 1
+@%p13 bra BB23_25;
+
+.loc 4 124 1
+cvta.global.u64 %rd56, $str10;
+.loc 4 127 1
+st.local.u64 [%rd7], %rd56;
+mov.u32 %r64, 127;
+.loc 4 127 1
+st.local.v2.u32 [%rd7+8], {%r64, %r1};
+st.local.v2.u32 [%rd7+16], {%r29, %r17};
+.loc 4 70 1
+cvta.global.u64 %rd57, $str9;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd57;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd54;
+.param .b32 retval0;
+.loc 4 127 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r65, [retval0+0];
+}
+
+	mov.u32 %r81, 0;
+bra.uni BB23_29;
+
+BB23_25:
+.loc 4 67 1
+ld.u64 %rd58, [%rd1+12];
+mul.wide.u32 %rd59, %r29, 4;
+add.s64 %rd60, %rd58, %rd59;
+ld.u32 %r18, [%rd60];
+.loc 4 121 1
+setp.eq.s32	%p14, %r18, 0;
+@%p14 bra BB23_28;
+
+ld.u64 %rd61, [%rd1+28];
+mul.wide.u32 %rd62, %r29, 4;
+add.s64 %rd63, %rd61, %rd62;
+ld.u32 %r66, [%rd1];
+ld.u32 %r19, [%rd63];
+setp.ge.u32	%p15, %r19, %r66;
+@%p15 bra BB23_28;
+
+.loc 4 122 1
+ld.u64 %rd64, [%rd1+36];
+mul.wide.u32 %rd65, %r19, 4;
+add.s64 %rd66, %rd64, %rd65;
+ld.u32 %r81, [%rd66];
+bra.uni BB23_29;
+
+BB23_28:
+.loc 4 124 1
+cvta.global.u64 %rd68, $str10;
+st.local.u64 [%rd7], %rd68;
+mov.u32 %r68, 124;
+.loc 4 124 1
+st.local.v2.u32 [%rd7+8], {%r68, %r1};
+mov.u32 %r81, 0;
+.loc 4 124 1
+st.local.v2.u32 [%rd7+16], {%r81, %r18};
+cvta.global.u64 %rd69, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd69;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd54;
+.param .b32 retval0;
+.loc 4 124 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r69, [retval0+0];
+}
+
+
+BB23_29:
+.loc 4 101 46
+add.s32 %r22, %r81, %r78;
+.loc 4 102 1
+setp.ne.s32	%p16, %r22, 0;
+@%p16 bra BB23_31;
+
+mov.u32 %r82, 1000000000;
+bra.uni BB23_34;
+
+BB23_31:
+.loc 4 102 1
+ld.u32 %r70, [%rd1+4];
+add.s32 %r71, %r70, 1;
+setp.lt.u32	%p17, %r22, %r71;
+@%p17 bra BB23_33;
+
+mov.u32 %r82, 1000000000;
+bra.uni BB23_34;
+
+BB23_33:
+.loc 4 103 1
+ld.u64 %rd70, [%rd1+52];
+mul.wide.u32 %rd71, %r22, 4;
+add.s64 %rd72, %rd70, %rd71;
+ld.u32 %r82, [%rd72];
+
+BB23_34:
+.loc 4 139 1
+setp.lt.u32	%p18, %r82, %r79;
+selp.b32	%r83, %r78, %r83, %p18;
+min.u32 %r79, %r82, %r79;
+.loc 4 137 60
+add.s32 %r78, %r78, 1;
+.loc 4 137 1
+setp.lt.u32	%p19, %r78, %r3;
+@%p19 bra BB23_17;
+bra.uni BB23_36;
+
+BB23_35:
+.loc 4 146 1
+cvta.global.u64 %rd74, $str10;
+st.local.u64 [%rd2], %rd74;
+mov.u32 %r75, 146;
+.loc 4 146 1
+st.local.v2.u32 [%rd2+8], {%r75, %r1};
+mov.u32 %r83, 0;
+.loc 4 146 1
+st.local.v2.u32 [%rd2+16], {%r83, %r83};
+cvta.global.u64 %rd75, $str12;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd75;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd9;
+.param .b32 retval0;
+.loc 4 146 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r76, [retval0+0];
+}
+
+
+BB23_36:
+st.param.b32	[func_retval0+0], %r83;
+.loc 4 150 1
+ret;
+}
+
+.visible .func _ZN5Graph12computeInOutEv(
+.param .b64 _ZN5Graph12computeInOutEv_param_0
+)
+{
+.local .align 8 .b8 __local_depot24[48];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<7>;
+.reg .s32 %r<28>;
+.reg .s64 %rd<18>;
+
+
+mov.u64 %SPL, __local_depot24;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd7, [_ZN5Graph12computeInOutEv_param_0];
+add.u64 %rd8, %SP, 0;
+.loc 4 78 1
+cvta.to.local.u64 %rd1, %rd8;
+.loc 4 547 1
+add.s64 %rd2, %rd7, 4;
+ld.u32 %r24, [%rd7+4];
+setp.eq.s32	%p1, %r24, 0;
+@%p1 bra BB24_13;
+
+.loc 4 77 1
+mov.u32 %r13, %ctaid.x;
+mov.u32 %r14, %ntid.x;
+mov.u32 %r15, %tid.x;
+mad.lo.s32 %r2, %r14, %r13, %r15;
+.loc 4 78 1
+cvta.global.u64 %rd3, $str9;
+cvta.global.u64 %rd4, $str10;
+mov.u32 %r25, 0;
+
+BB24_2:
+.loc 4 66 1
+setp.lt.u32	%p2, %r25, %r24;
+@%p2 bra BB24_4;
+
+add.u64 %rd9, %SP, 24;
+.loc 4 70 1
+cvta.to.local.u64 %rd10, %rd9;
+st.local.u64 [%rd10], %rd4;
+mov.u32 %r17, 70;
+.loc 4 70 1
+st.local.v2.u32 [%rd10+8], {%r17, %r2};
+st.local.v2.u32 [%rd10+16], {%r25, %r24};
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd3;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd9;
+.param .b32 retval0;
+.loc 4 70 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r18, [retval0+0];
+}
+
+	mov.u32 %r26, 0;
+bra.uni BB24_5;
+
+BB24_4:
+.loc 4 67 1
+ld.u64 %rd11, [%rd2+12];
+mul.wide.u32 %rd12, %r25, 4;
+add.s64 %rd13, %rd11, %rd12;
+ld.u32 %r26, [%rd13];
+
+BB24_5:
+.loc 4 550 1
+ld.u64 %rd5, [%rd2+76];
+ld.u32 %r19, [%rd5];
+setp.le.u32	%p3, %r26, %r19;
+@%p3 bra BB24_7;
+
+.loc 4 551 1
+st.u32 [%rd5], %r26;
+
+BB24_7:
+.loc 4 74 1
+ld.u32 %r7, [%rd2];
+setp.lt.u32	%p4, %r25, %r7;
+@%p4 bra BB24_9;
+
+.loc 4 78 1
+st.local.u64 [%rd1], %rd4;
+mov.u32 %r21, 78;
+.loc 4 78 1
+st.local.v2.u32 [%rd1+8], {%r21, %r2};
+st.local.v2.u32 [%rd1+16], {%r25, %r7};
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd3;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd8;
+.param .b32 retval0;
+.loc 4 78 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r22, [retval0+0];
+}
+
+	mov.u32 %r27, 0;
+bra.uni BB24_10;
+
+BB24_9:
+.loc 4 75 1
+ld.u64 %rd15, [%rd2+20];
+mul.wide.u32 %rd16, %r25, 4;
+add.s64 %rd17, %rd15, %rd16;
+ld.u32 %r27, [%rd17];
+
+BB24_10:
+.loc 4 555 1
+ld.u64 %rd6, [%rd2+84];
+ld.u32 %r23, [%rd6];
+setp.le.u32	%p5, %r27, %r23;
+@%p5 bra BB24_12;
+
+.loc 4 556 1
+st.u32 [%rd6], %r27;
+
+BB24_12:
+.loc 4 547 31
+add.s32 %r25, %r25, 1;
+.loc 4 547 1
+ld.u32 %r24, [%rd2];
+setp.lt.u32	%p6, %r25, %r24;
+@%p6 bra BB24_2;
+
+BB24_13:
+.loc 4 559 2
+ret;
+}
+
+.visible .func _ZN5Graph15computeDiameterEv(
+.param .b64 _ZN5Graph15computeDiameterEv_param_0
+)
+{
+.reg .pred %p<6>;
+.reg .s32 %r<13>;
+.reg .s64 %rd<7>;
+
+
+ld.param.u64 %rd5, [_ZN5Graph15computeDiameterEv_param_0];
+.loc 4 538 1
+add.s64 %rd1, %rd5, 4;
+ld.u32 %r1, [%rd5+4];
+setp.ne.s32	%p1, %r1, 0;
+@%p1 bra BB25_2;
+
+mov.u32 %r12, 0;
+bra.uni BB25_4;
+
+BB25_2:
+.loc 4 539 1
+ld.u64 %rd6, [%rd1+60];
+mov.u32 %r12, 0;
+mov.u32 %r11, %r12;
+
+BB25_3:
+.loc 4 539 1
+ld.u32 %r9, [%rd6];
+setp.lt.u32	%p2, %r9, %r1;
+setp.gt.u32	%p3, %r9, %r12;
+and.pred %p4, %p2, %p3;
+selp.b32	%r12, %r9, %r12, %p4;
+.loc 4 538 1
+add.s64 %rd6, %rd6, 4;
+.loc 4 538 31
+add.s32 %r11, %r11, 1;
+.loc 4 538 1
+setp.lt.u32	%p5, %r11, %r1;
+@%p5 bra BB25_3;
+
+BB25_4:
+.loc 4 544 21
+st.u32 [%rd1+92], %r12;
+.loc 4 545 2
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN5Graph12findMaxLevelEv(
+.param .b64 _ZN5Graph12findMaxLevelEv_param_0
+)
+{
+.reg .pred %p<6>;
+.reg .s32 %r<13>;
+.reg .s64 %rd<7>;
+
+
+ld.param.u64 %rd5, [_ZN5Graph12findMaxLevelEv_param_0];
+.loc 4 538 1
+add.s64 %rd1, %rd5, 4;
+ld.u32 %r1, [%rd5+4];
+setp.ne.s32	%p1, %r1, 0;
+@%p1 bra BB26_2;
+
+mov.u32 %r12, 0;
+bra.uni BB26_4;
+
+BB26_2:
+.loc 4 539 1
+ld.u64 %rd6, [%rd1+60];
+mov.u32 %r12, 0;
+mov.u32 %r11, %r12;
+
+BB26_3:
+.loc 4 539 1
+ld.u32 %r9, [%rd6];
+setp.lt.u32	%p2, %r9, %r1;
+setp.gt.u32	%p3, %r9, %r12;
+and.pred %p4, %p2, %p3;
+selp.b32	%r12, %r9, %r12, %p4;
+.loc 4 538 1
+add.s64 %rd6, %rd6, 4;
+.loc 4 538 31
+add.s32 %r11, %r11, 1;
+.loc 4 538 1
+setp.lt.u32	%p5, %r11, %r1;
+@%p5 bra BB26_3;
+
+BB26_4:
+st.param.b32	[func_retval0+0], %r12;
+.loc 4 541 1
+ret;
+}
+
+.visible .func _ZN4ListC1Ej(
+.param .b64 _ZN4ListC1Ej_param_0,
+.param .b32 _ZN4ListC1Ej_param_1
+)
+{
+.local .align 8 .b8 __local_depot27[24];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<3>;
+.reg .s32 %r<9>;
+.reg .s64 %rd<11>;
+
+
+mov.u64 %SPL, __local_depot27;
+cvta.local.u64 %SP, %SPL;
+ld.param.u32 %r2, [_ZN4ListC1Ej_param_1];
+add.u64 %rd3, %SP, 0;
+cvta.to.local.u64 %rd1, %rd3;
+.loc 7 19 1
+mov.u32 %r3, %ntid.x;
+mov.u32 %r4, %ctaid.x;
+mov.u32 %r5, %tid.x;
+mad.lo.s32 %r1, %r3, %r4, %r5;
+ld.param.u64 %rd4, [_ZN4ListC1Ej_param_0];
+.loc 7 20 1
+add.s64 %rd2, %rd4, 12;
+mov.u32 %r6, 0;
+.loc 7 22 1
+st.v2.u32 [%rd4+8], {%r6, %r6};
+mov.u64 %rd5, 0;
+.loc 7 21 1
+st.u64 [%rd4], %rd5;
+.loc 7 24 1
+setp.eq.s32	%p1, %r2, 0;
+@%p1 bra BB27_4;
+
+.loc 7 25 1
+mul.wide.u32 %rd6, %r2, 4;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd6;
+.param .b64 retval0;
+.loc 7 25 31
+call.uni (retval0), 
+malloc, 
+(
+param0
+);
+ld.param.b64	%rd7, [retval0+0];
+}
+
+	.loc 7 26 1
+setp.eq.s64	%p2, %rd7, 0;
+.loc 7 25 31
+st.u64 [%rd2+-12], %rd7;
+.loc 7 26 1
+@%p2 bra BB27_3;
+
+.loc 7 29 1
+st.u32 [%rd2], %r2;
+bra.uni BB27_4;
+
+BB27_3:
+.loc 7 27 1
+cvta.global.u64 %rd9, $str15;
+st.local.u64 [%rd1], %rd9;
+mov.u32 %r7, 27;
+.loc 7 27 1
+st.local.v2.u32 [%rd1+8], {%r7, %r1};
+st.local.u32 [%rd1+16], %r2;
+cvta.global.u64 %rd10, $str14;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd10;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd3;
+.param .b32 retval0;
+.loc 7 27 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r8, [retval0+0];
+}
+
+
+BB27_4:
+.loc 7 32 2
+ret;
+}
+
+.visible .func _ZN4ListC2Ej(
+.param .b64 _ZN4ListC2Ej_param_0,
+.param .b32 _ZN4ListC2Ej_param_1
+)
+{
+.local .align 8 .b8 __local_depot28[24];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<3>;
+.reg .s32 %r<9>;
+.reg .s64 %rd<11>;
+
+
+mov.u64 %SPL, __local_depot28;
+cvta.local.u64 %SP, %SPL;
+ld.param.u32 %r2, [_ZN4ListC2Ej_param_1];
+add.u64 %rd3, %SP, 0;
+cvta.to.local.u64 %rd1, %rd3;
+.loc 7 19 1
+mov.u32 %r3, %ntid.x;
+mov.u32 %r4, %ctaid.x;
+mov.u32 %r5, %tid.x;
+mad.lo.s32 %r1, %r3, %r4, %r5;
+ld.param.u64 %rd4, [_ZN4ListC2Ej_param_0];
+.loc 7 20 1
+add.s64 %rd2, %rd4, 12;
+mov.u32 %r6, 0;
+.loc 7 22 1
+st.v2.u32 [%rd4+8], {%r6, %r6};
+mov.u64 %rd5, 0;
+.loc 7 21 1
+st.u64 [%rd4], %rd5;
+.loc 7 24 1
+setp.eq.s32	%p1, %r2, 0;
+@%p1 bra BB28_4;
+
+.loc 7 25 1
+mul.wide.u32 %rd6, %r2, 4;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd6;
+.param .b64 retval0;
+.loc 7 25 31
+call.uni (retval0), 
+malloc, 
+(
+param0
+);
+ld.param.b64	%rd7, [retval0+0];
+}
+
+	.loc 7 26 1
+setp.eq.s64	%p2, %rd7, 0;
+.loc 7 25 31
+st.u64 [%rd2+-12], %rd7;
+.loc 7 26 1
+@%p2 bra BB28_3;
+
+.loc 7 29 1
+st.u32 [%rd2], %r2;
+bra.uni BB28_4;
+
+BB28_3:
+.loc 7 27 1
+cvta.global.u64 %rd9, $str15;
+st.local.u64 [%rd1], %rd9;
+mov.u32 %r7, 27;
+.loc 7 27 1
+st.local.v2.u32 [%rd1+8], {%r7, %r1};
+st.local.u32 [%rd1+16], %r2;
+cvta.global.u64 %rd10, $str14;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd10;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd3;
+.param .b32 retval0;
+.loc 7 27 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r8, [retval0+0];
+}
+
+
+BB28_4:
+.loc 7 34 2
+ret;
+}
+
+.visible .func _ZN4List4initEPjjj(
+.param .b64 _ZN4List4initEPjjj_param_0,
+.param .b64 _ZN4List4initEPjjj_param_1,
+.param .b32 _ZN4List4initEPjjj_param_2,
+.param .b32 _ZN4List4initEPjjj_param_3
+)
+{
+.reg .s32 %r<3>;
+.reg .s64 %rd<3>;
+
+
+ld.param.u64 %rd1, [_ZN4List4initEPjjj_param_0];
+ld.param.u64 %rd2, [_ZN4List4initEPjjj_param_1];
+ld.param.u32 %r1, [_ZN4List4initEPjjj_param_2];
+ld.param.u32 %r2, [_ZN4List4initEPjjj_param_3];
+.loc 7 34 1
+st.u64 [%rd1], %rd2;
+.loc 7 35 1
+st.v2.u32 [%rd1+8], {%r1, %r2};
+.loc 7 37 2
+ret;
+}
+
+.visible .func _ZN4List4pushEj(
+.param .b64 _ZN4List4pushEj_param_0,
+.param .b32 _ZN4List4pushEj_param_1
+)
+{
+.local .align 8 .b8 __local_depot30[24];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<3>;
+.reg .s32 %r<16>;
+.reg .s64 %rd<11>;
+
+
+mov.u64 %SPL, __local_depot30;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd2, [_ZN4List4pushEj_param_0];
+ld.param.u32 %r5, [_ZN4List4pushEj_param_1];
+add.u64 %rd5, %SP, 0;
+cvta.to.local.u64 %rd1, %rd5;
+.loc 7 39 1
+ld.u64 %rd3, [%rd2];
+setp.eq.s64	%p1, %rd3, 0;
+@%p1 bra BB30_3;
+
+ld.v2.u32 {%r6, %r7}, [%rd2+8];
+mov.u32 %r15, %r7;
+setp.ge.u32	%p2, %r6, %r7;
+@%p2 bra BB30_4;
+
+.loc 7 40 1
+add.s32 %r8, %r6, 1;
+st.u32 [%rd2+8], %r8;
+mul.wide.u32 %rd6, %r6, 4;
+add.s64 %rd7, %rd3, %rd6;
+st.u32 [%rd7], %r5;
+bra.uni BB30_5;
+
+BB30_3:
+.loc 7 43 1
+ld.u32 %r15, [%rd2+12];
+
+BB30_4:
+.loc 7 42 1
+mov.u32 %r9, %ntid.x;
+mov.u32 %r10, %ctaid.x;
+mov.u32 %r11, %tid.x;
+mad.lo.s32 %r12, %r9, %r10, %r11;
+.loc 7 43 1
+cvta.global.u64 %rd8, $str15;
+st.local.u64 [%rd1], %rd8;
+mov.u32 %r13, 43;
+.loc 7 43 1
+st.local.v2.u32 [%rd1+8], {%r13, %r12};
+st.local.u32 [%rd1+16], %r15;
+cvta.global.u64 %rd9, $str16;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd9;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd5;
+.param .b32 retval0;
+.loc 7 43 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r14, [retval0+0];
+}
+
+
+BB30_5:
+.loc 7 45 2
+ret;
+}
+
+.visible .func (.param .b64 func_retval0) _ZN4List7toArrayEv(
+.param .b64 _ZN4List7toArrayEv_param_0
+)
+{
+.reg .s64 %rd<3>;
+
+
+ld.param.u64 %rd1, [_ZN4List7toArrayEv_param_0];
+.loc 7 47 1
+ld.u64 %rd2, [%rd1];
+st.param.b64	[func_retval0+0], %rd2;
+ret;
+}
+
+.visible .func _ZN4List5clearEv(
+.param .b64 _ZN4List5clearEv_param_0
+)
+{
+.reg .pred %p<2>;
+.reg .s32 %r<2>;
+.reg .s64 %rd<3>;
+
+
+ld.param.u64 %rd1, [_ZN4List5clearEv_param_0];
+.loc 7 50 1
+ld.u64 %rd2, [%rd1];
+setp.eq.s64	%p1, %rd2, 0;
+@%p1 bra BB32_2;
+
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd2;
+.loc 7 50 1
+call.uni 
+free, 
+(
+param0
+);
+}
+
+
+BB32_2:
+mov.u32 %r1, 0;
+.loc 7 51 1
+st.v2.u32 [%rd1+8], {%r1, %r1};
+.loc 7 53 2
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN4List4sizeEv(
+.param .b64 _ZN4List4sizeEv_param_0
+)
+{
+.reg .s32 %r<2>;
+.reg .s64 %rd<2>;
+
+
+ld.param.u64 %rd1, [_ZN4List4sizeEv_param_0];
+.loc 7 55 1
+ld.u32 %r1, [%rd1+8];
+st.param.b32	[func_retval0+0], %r1;
+ret;
+}
+
+.visible .func _ZN4List4uniqEPjj(
+.param .b64 _ZN4List4uniqEPjj_param_0,
+.param .b64 _ZN4List4uniqEPjj_param_1,
+.param .b32 _ZN4List4uniqEPjj_param_2
+)
+{
+.local .align 8 .b8 __local_depot34[24];
+.reg .b64 %SP;
+.reg .b64 %SPL;
+.reg .pred %p<7>;
+.reg .s32 %r<15>;
+.reg .s64 %rd<34>;
+
+
+mov.u64 %SPL, __local_depot34;
+cvta.local.u64 %SP, %SPL;
+ld.param.u64 %rd14, [_ZN4List4uniqEPjj_param_0];
+ld.param.u64 %rd15, [_ZN4List4uniqEPjj_param_1];
+ld.param.u32 %r6, [_ZN4List4uniqEPjj_param_2];
+add.u64 %rd16, %SP, 0;
+cvta.to.local.u64 %rd1, %rd16;
+.loc 7 58 1
+mov.u32 %r7, %ntid.x;
+mov.u32 %r8, %ctaid.x;
+mov.u32 %r9, %tid.x;
+mad.lo.s32 %r1, %r7, %r8, %r9;
+.loc 7 55 1
+add.s64 %rd2, %rd14, 8;
+ld.u32 %r2, [%rd14+8];
+.loc 7 60 1
+setp.eq.s32	%p1, %r2, 0;
+@%p1 bra BB34_11;
+
+.loc 7 62 1
+mul.wide.u32 %rd17, %r2, 4;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd17;
+.param .b64 retval0;
+.loc 7 62 62
+call.uni (retval0), 
+malloc, 
+(
+param0
+);
+ld.param.b64	%rd3, [retval0+0];
+}
+
+	.loc 7 63 1
+setp.eq.s64	%p2, %rd3, 0;
+@%p2 bra BB34_10;
+
+.loc 7 70 1
+ld.u64 %rd28, [%rd2+-8];
+mov.u32 %r14, 0;
+mov.u64 %rd27, 0;
+mov.u64 %rd32, %rd3;
+
+BB34_3:
+.loc 7 69 1
+mov.u64 %rd29, %rd32;
+mov.u64 %rd8, %rd29;
+add.s64 %rd19, %rd28, %rd27;
+.loc 7 70 1
+ld.u32 %r4, [%rd19];
+.loc 7 71 1
+setp.ge.u32	%p3, %r4, %r6;
+mov.u64 %rd33, %rd8;
+@%p3 bra BB34_6;
+
+mul.wide.u32 %rd20, %r4, 4;
+add.s64 %rd21, %rd15, %rd20;
+ld.u32 %r11, [%rd21];
+setp.ne.s32	%p4, %r11, %r1;
+mov.u64 %rd30, %rd8;
+mov.u64 %rd33, %rd30;
+@%p4 bra BB34_6;
+
+.loc 7 72 1
+add.s64 %rd9, %rd8, 4;
+st.u32 [%rd8], %r4;
+.loc 7 70 1
+ld.u64 %rd28, [%rd14];
+mov.u64 %rd33, %rd9;
+
+BB34_6:
+.loc 7 69 59
+mov.u64 %rd32, %rd33;
+.loc 7 69 1
+add.s64 %rd27, %rd27, 4;
+.loc 7 69 59
+add.s32 %r14, %r14, 1;
+.loc 7 69 1
+setp.lt.u32	%p5, %r14, %r2;
+@%p5 bra BB34_3;
+
+.loc 7 50 1
+setp.eq.s64	%p6, %rd28, 0;
+@%p6 bra BB34_9;
+
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd28;
+.loc 7 50 1
+call.uni 
+free, 
+(
+param0
+);
+}
+
+
+BB34_9:
+.loc 7 76 1
+sub.s64 %rd22, %rd32, %rd3;
+shr.u64 %rd23, %rd22, 2;
+.loc 7 34 1
+st.u64 [%rd14], %rd3;
+.loc 7 35 1
+st.u32 [%rd14+8], %rd23;
+.loc 7 36 1
+st.u32 [%rd14+12], %r2;
+bra.uni BB34_11;
+
+BB34_10:
+.loc 7 64 1
+cvta.global.u64 %rd25, $str15;
+st.local.u64 [%rd1], %rd25;
+mov.u32 %r12, 64;
+.loc 7 64 1
+st.local.v2.u32 [%rd1+8], {%r12, %r1};
+st.local.u32 [%rd1+16], %r2;
+cvta.global.u64 %rd26, $str14;
+
+	{
+.reg .b32 temp_param_reg;
+.param .b64 param0;
+st.param.b64	[param0+0], %rd26;
+.param .b64 param1;
+st.param.b64	[param1+0], %rd16;
+.param .b32 retval0;
+.loc 7 64 1
+call.uni (retval0), 
+vprintf, 
+(
+param0, 
+param1
+);
+ld.param.b32	%r13, [retval0+0];
+}
+
+
+BB34_11:
+.loc 7 77 2
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN14ComponentSpace16numberOfElementsEv(
+.param .b64 _ZN14ComponentSpace16numberOfElementsEv_param_0
+)
+{
+.reg .s32 %r<2>;
+.reg .s64 %rd<2>;
+
+
+ld.param.u64 %rd1, [_ZN14ComponentSpace16numberOfElementsEv_param_0];
+.loc 6 71 1
+ld.u32 %r1, [%rd1];
+st.param.b32	[func_retval0+0], %r1;
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN14ComponentSpace18numberOfComponentsEv(
+.param .b64 _ZN14ComponentSpace18numberOfComponentsEv_param_0
+)
+{
+.reg .s32 %r<2>;
+.reg .s64 %rd<3>;
+
+
+ld.param.u64 %rd1, [_ZN14ComponentSpace18numberOfComponentsEv_param_0];
+.loc 6 74 1
+ld.u64 %rd2, [%rd1+8];
+ld.u32 %r1, [%rd2];
+st.param.b32	[func_retval0+0], %r1;
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN14ComponentSpace6isBossEj(
+.param .b64 _ZN14ComponentSpace6isBossEj_param_0,
+.param .b32 _ZN14ComponentSpace6isBossEj_param_1
+)
+{
+.reg .pred %p<2>;
+.reg .s32 %r<4>;
+.reg .s64 %rd<5>;
+
+
+ld.param.u64 %rd1, [_ZN14ComponentSpace6isBossEj_param_0];
+ld.param.u32 %r1, [_ZN14ComponentSpace6isBossEj_param_1];
+.loc 6 108 1
+ld.u64 %rd2, [%rd1+24];
+mul.wide.u32 %rd3, %r1, 4;
+add.s64 %rd4, %rd2, %rd3;
+.loc 3 3824 3
+atom.cas.b32 %r2, [%rd4], %r1, %r1;
+.loc 6 108 64
+setp.eq.s32	%p1, %r2, %r1;
+selp.u32	%r3, 1, 0, %p1;
+st.param.b32	[func_retval0+0], %r3;
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN14ComponentSpace4findEjb(
+.param .b64 _ZN14ComponentSpace4findEjb_param_0,
+.param .b32 _ZN14ComponentSpace4findEjb_param_1,
+.param .b32 _ZN14ComponentSpace4findEjb_param_2
+)
+{
+.reg .pred %p<4>;
+.reg .s16 %rs<3>;
+.reg .s32 %r<8>;
+.reg .s64 %rd<15>;
+
+
+ld.param.u64 %rd3, [_ZN14ComponentSpace4findEjb_param_0];
+ld.param.u32 %r7, [_ZN14ComponentSpace4findEjb_param_1];
+.loc 6 108 1
+add.s64 %rd1, %rd3, 24;
+cvt.u64.u32	%rd2, %r7;
+ld.u64 %rd4, [%rd3+24];
+mul.wide.u32 %rd5, %r7, 4;
+add.s64 %rd6, %rd4, %rd5;
+.loc 3 3824 3
+atom.cas.b32 %r5, [%rd6], %r7, %r7;
+.loc 6 108 64
+setp.eq.s32	%p1, %r5, %r7;
+ld.param.s8 %rs1, [_ZN14ComponentSpace4findEjb_param_2];
+@%p1 bra BB38_2;
+
+BB38_1:
+.loc 6 116 1
+ld.u64 %rd7, [%rd1];
+mul.wide.u32 %rd8, %r7, 4;
+add.s64 %rd9, %rd7, %rd8;
+ld.u32 %r7, [%rd9];
+.loc 6 108 1
+mul.wide.u32 %rd10, %r7, 4;
+add.s64 %rd11, %rd7, %rd10;
+.loc 3 3824 3
+atom.cas.b32 %r6, [%rd11], %r7, %r7;
+.loc 6 115 15
+setp.ne.s32	%p2, %r6, %r7;
+@%p2 bra BB38_1;
+
+BB38_2:
+.loc 6 118 1
+and.b16 %rs2, %rs1, 255;
+setp.eq.s16	%p3, %rs2, 0;
+@%p3 bra BB38_4;
+
+.loc 6 118 1
+ld.u64 %rd12, [%rd1];
+shl.b64 %rd13, %rd2, 2;
+add.s64 %rd14, %rd12, %rd13;
+st.u32 [%rd14], %r7;
+
+BB38_4:
+st.param.b32	[func_retval0+0], %r7;
+.loc 6 119 1
+ret;
+}
+
+.visible .func (.param .b32 func_retval0) _ZN14ComponentSpace5unifyEjj(
+.param .b64 _ZN14ComponentSpace5unifyEjj_param_0,
+.param .b32 _ZN14ComponentSpace5unifyEjj_param_1,
+.param .b32 _ZN14ComponentSpace5unifyEjj_param_2
+)
+{
+.reg .pred %p<6>;
+.reg .s16 %rs<7>;
+.reg .s32 %r<12>;
+.reg .s64 %rd<19>;
+
+
+ld.param.u64 %rd3, [_ZN14ComponentSpace5unifyEjj_param_0];
+ld.param.u32 %r2, [_ZN14ComponentSpace5unifyEjj_param_1];
+ld.param.u32 %r3, [_ZN14ComponentSpace5unifyEjj_param_2];
+.loc 6 108 1
+add.s64 %rd1, %rd3, 24;
+ld.u64 %rd4, [%rd3+24];
+mul.wide.u32 %rd5, %r2, 4;
+add.s64 %rd6, %rd4, %rd5;
+.loc 3 3824 3
+atom.cas.b32 %r4, [%rd6], %r2, %r2;
+.loc 6 126 7
+setp.eq.s32	%p1, %r4, %r2;
+@%p1 bra BB39_2;
+
+mov.u16 %rs6, 0;
+bra.uni BB39_7;
+
+BB39_2:
+.loc 6 108 1
+ld.u64 %rd7, [%rd1];
+mul.wide.u32 %rd8, %r3, 4;
+add.s64 %rd9, %rd7, %rd8;
+.loc 3 3824 3
+atom.cas.b32 %r5, [%rd9], %r3, %r3;
+.loc 6 127 7
+setp.ne.s32	%p2, %r5, %r3;
+.loc 6 134 1
+setp.eq.s32	%p3, %r2, %r3;
+.loc 6 127 7
+or.pred %p4, %p2, %p3;
+@!%p4 bra BB39_4;
+bra.uni BB39_3;
+
+BB39_3:
+mov.u16 %rs6, 0;
+bra.uni BB39_7;
+
+BB39_4:
+max.u32 %r1, %r2, %r3;
+min.u32 %r6, %r3, %r2;
+.loc 6 146 1
+cvt.u64.u32	%rd2, %r6;
+ld.u64 %rd10, [%rd1];
+mul.wide.u32 %rd11, %r6, 4;
+add.s64 %rd12, %rd10, %rd11;
+.loc 3 3824 3
+atom.cas.b32 %r7, [%rd12], %r6, %r1;
+.loc 6 147 1
+setp.eq.s32	%p5, %r7, %r6;
+@%p5 bra BB39_6;
+
+mov.u16 %rs6, 0;
+bra.uni BB39_7;
+
+BB39_6:
+.loc 6 154 1
+ld.u64 %rd13, [%rd1+-8];
+mul.wide.u32 %rd14, %r1, 4;
+add.s64 %rd15, %rd13, %rd14;
+shl.b64 %rd16, %rd2, 2;
+add.s64 %rd17, %rd13, %rd16;
+ld.u32 %r8, [%rd17];
+.loc 3 3713 3
+atom.add.u32 %r9, [%rd15], %r8;
+.loc 6 159 1
+ld.u64 %rd18, [%rd1+-16];
+.loc 3 3713 3
+atom.add.u32 %r10, [%rd18], -1;
+mov.u16 %rs6, 1;
+
+BB39_7:
+.loc 6 164 10
+cvt.u32.u16	%r11, %rs6;
+st.param.b32	[func_retval0+0], %r11;
+ret;
+}
+
+
