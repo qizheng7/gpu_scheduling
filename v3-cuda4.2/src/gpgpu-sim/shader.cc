@@ -50,14 +50,7 @@
 #define PRIORITIZE_MSHR_OVER_WB 1
 #define MAX(a,b) (((a)>(b))?(a):(b))
 
-<<<<<<< HEAD
-//Irregular_Study
-#include "irregular.h"
-//end
-
-=======
 #include "reg_study.h"
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 
 //#define DETAILED
     
@@ -143,13 +136,6 @@ shader_core_ctx::shader_core_ctx( class gpgpu_sim *gpu,
                                          CONCRETE_SCHEDULER_TWO_LEVEL_ACTIVE :
                                          sched_config.find("gto") != std::string::npos ?
                                          CONCRETE_SCHEDULER_GTO :
-<<<<<<< HEAD
-                                         //Irregular_Study
-                                         sched_config.find("oracle_instcommit") != std::string::npos ?
-                                         CONCRETE_SCHEDULER_CRI_ORACLE_INSTCOMMIT :
-                                         //end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
                                          NUM_CONCRETE_SCHEDULERS;
     assert ( scheduler != NUM_CONCRETE_SCHEDULERS );
     
@@ -199,25 +185,6 @@ shader_core_ctx::shader_core_ctx( class gpgpu_sim *gpu,
                                      )
                 );
                 break;
-<<<<<<< HEAD
-            //Irregular_Study
-            case CONCRETE_SCHEDULER_CRI_ORACLE_INSTCOMMIT:
-                schedulers.push_back(
-                    new oracle_instcommit_scheduler( m_stats,
-                                                     this,
-                                                     m_scoreboard,
-                                                     m_simt_stack,
-                                                     &m_warp,
-                                                     &m_pipeline_reg[ID_OC_SP],
-                                                     &m_pipeline_reg[ID_OC_SFU],
-                                                     &m_pipeline_reg[ID_OC_MEM],
-                                                     i
-                                                   )
-                );
-                break;
-            //end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
             default:
                 abort();
         };
@@ -671,21 +638,11 @@ void shader_core_ctx::fetch()
                 }
                 if( did_exit ){ 
                     m_warp[warp_id].set_done_exit();
-<<<<<<< HEAD
-                    //Irregular_Study
-                    unsigned tdynwid = m_warp[warp_id].get_dynamic_warp_id();
-                    assert(warp_id <= INSTCOMMIT_MAX_WARP);
-                    assert(instcommit_dyn_warp_id[get_sid()][warp_id] == tdynwid);
-                    instcommit_dyn_warp_id[get_sid()][warp_id] = -1;
-                    warp_committed_inst[get_sid()][warp_id] = 0;
-                    //end
-=======
 //Qi Zheng -- VCA study
 /*
 printf("VCA -- Warpexit: %u %u\n",
 	warp_id, m_warp[warp_id].get_dynamic_warp_id());
 */
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 		}
             }
 
@@ -833,10 +790,6 @@ void scheduler_unit::order_lrr( std::vector< T >& result_list,
  *                           with the oldest warps having the most priority, then the priority_function
  *                           would compare the age of the two warps.
  */
-<<<<<<< HEAD
-
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 template < class T >
 void scheduler_unit::order_by_priority( std::vector< T >& result_list,
                                         const typename std::vector< T >& input_list,
@@ -866,42 +819,6 @@ void scheduler_unit::order_by_priority( std::vector< T >& result_list,
         for ( unsigned count = 0; count < num_warps_to_add; ++count, ++iter ) {
             result_list.push_back( *iter );
         }
-<<<<<<< HEAD
-//Irregular_Study      
-    } else if ( ORDERED_PRIORITY_INST_COMMIT == ordering ) {
-        std::sort( temp.begin(), temp.end(), priority_func );
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-        typename std::vector< T >::iterator titer = temp.begin();
-        long tcount = 0;
-        for ( unsigned count = 0; count < num_warps_to_add; ++count, ++titer ) {
-          if(!(*titer)) continue;
-          unsigned tdw = (*titer)->get_dynamic_warp_id();
-          unsigned tw = (*titer)->get_warp_id();
-          if(tw < INSTCOMMIT_MAX_WARP){
-            tcount += warp_committed_inst[get_sid()][tw];
-          }
-        }
-
-        if(tcount > 0){
-          titer = temp.begin();
-          for ( unsigned count = 0; count < num_warps_to_add; ++count, ++titer ) {
-            if(!(*titer)) continue;
-            unsigned tdw = (*titer)->get_dynamic_warp_id();
-            unsigned tw = (*titer)->get_warp_id();
-            if(tw < INSTCOMMIT_MAX_WARP){
-              printf("Cycle: %lld, Core: %d, d_id:%u, w_id:%u, commitinst:%u\n",gpu_tot_sim_cycle+gpu_sim_cycle, get_sid(), tdw,tw,warp_committed_inst[get_sid()][tw]);
-            }
-          }
-          printf("\n");
-        }
-#endif
-        typename std::vector< T >::iterator iter = temp.begin();
-        for ( unsigned count = 0; count < num_warps_to_add; ++count, ++iter ) {
-            result_list.push_back( *iter );
-        }
-//end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
     } else {
         fprintf( stderr, "Unknown ordering - %d\n", ordering );
         abort();
@@ -916,26 +833,11 @@ void scheduler_unit::cycle()
     bool issued_inst = false; // of these we issued one
 
     order_warps();
-<<<<<<< HEAD
-
-    for ( std::vector< shd_warp_t* >::const_iterator iter = m_next_cycle_prioritized_warps.begin();
-          iter != m_next_cycle_prioritized_warps.end();
-          iter++ ) {
-
-        // Don't consider warps that are not yet valid
-        if ( (*iter) == NULL || (*iter)->done_exit() ) {
-/*
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u is invalid\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-#endif
-*/
-=======
     for ( std::vector< shd_warp_t* >::const_iterator iter = m_next_cycle_prioritized_warps.begin();
           iter != m_next_cycle_prioritized_warps.end();
           iter++ ) {
         // Don't consider warps that are not yet valid
         if ( (*iter) == NULL || (*iter)->done_exit() ) {
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
             continue;
         }
         SCHED_DPRINTF( "Testing (warp_id %u, dynamic_warp_id %u)\n",
@@ -976,16 +878,6 @@ void scheduler_unit::cycle()
                                 issued_inst=true;
                                 warp_inst_issued = true;
                             }
-<<<<<<< HEAD
-/*
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-                            else{
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u is MEM structure hazard\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-                            }
-#endif
-*/
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
                         } else {
                             bool sp_pipe_avail = m_sp_out->has_free();
                             bool sfu_pipe_avail = m_sfu_out->has_free();
@@ -1003,26 +895,8 @@ void scheduler_unit::cycle()
                                     warp_inst_issued = true;
                                 }
                             } 
-<<<<<<< HEAD
-/*
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-                            else{
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u is SP/SFU structure hazard\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-                            }
-#endif
-*/
- 
                         }
                     } else {
-/*
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u has data hazard\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-#endif
-*/
-=======
-                        }
-                    } else {
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
                         SCHED_DPRINTF( "Warp (warp_id %u, dynamic_warp_id %u) fails scoreboard\n",
                                        (*iter)->get_warp_id(), (*iter)->get_dynamic_warp_id() );
                     }
@@ -1042,25 +916,8 @@ void scheduler_unit::cycle()
                 do_on_warp_issued( warp_id, issued, iter );
             }
             checked++;
-<<<<<<< HEAD
-        }//while loop on each warp
-/*
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-        if(valid_inst == false && checked == 0){
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u does not have valid instruction\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-        }else if(valid_inst == false && checked > 0){
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u has control hazard\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-        }
-#endif
-*/
-        if ( issued ) {
-          //Qi Zheng
-          printf("Issued--Cycle: %lld, ",gpu_tot_sim_cycle+gpu_sim_cycle);
-          printf("Warp: %d\n",(*iter)->get_dynamic_warp_id());
-=======
         }
         if ( issued ) {
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
             // This might be a bit inefficient, but we need to maintain
             // two ordered list for proper scheduler execution.
             // We could remove the need for this loop by associating a
@@ -1073,58 +930,17 @@ void scheduler_unit::cycle()
                     m_last_supervised_issued = supervised_iter;
                 }
             }
-<<<<<<< HEAD
-/*
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u successfully issued\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-#endif
-*/
-            break;
-        } 
-    }//for loop among all warps
-
-    // issue stall statistics:
-    if( !valid_inst )
-=======
             break;
         } 
     }
 
     // issue stall statistics:
     if( !valid_inst ) 
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
         m_stats->shader_cycle_distro[0]++; // idle or control hazard
     else if( !ready_inst ) 
         m_stats->shader_cycle_distro[1]++; // waiting for RAW hazards (possibly due to memory) 
     else if( !issued_inst ) 
         m_stats->shader_cycle_distro[2]++; // pipeline stalled
-<<<<<<< HEAD
-
-//Qi Zheng
-    if(!(valid_inst && ready_inst && issued_inst)){
-      if(this->get_sid() == 0) {
-        printf("Study--Cycle:%lld, ",gpu_tot_sim_cycle+gpu_sim_cycle);
-        printf("W0: %u, W1: %u, W2: %u, all: %u\n",  m_stats->shader_cycle_distro[0], m_stats->shader_cycle_distro[1], m_stats->shader_cycle_distro[2],m_stats->shader_cycle_distro[0]+m_stats->shader_cycle_distro[1]+m_stats->shader_cycle_distro[2]);
-      }
-    }
-
-    //Irregular_Study
-#ifdef IRREGULAR_MOT
-    if(!(valid_inst && ready_inst && issued_inst)){
-      unsigned int warpcounter = 0;
-      for ( std::vector< shd_warp_t* >::const_iterator iter = m_next_cycle_prioritized_warps.begin();
-            iter != m_next_cycle_prioritized_warps.end();
-            iter++ ){
-        if ( (*iter) != NULL && (!(*iter)->done_exit()) ) {
-          warpcounter++;
-        }
-      }
-      printf("Core %d stall_at_cycle %lld Active_warp %u\n", this->get_sid(),gpu_tot_sim_cycle+gpu_sim_cycle, warpcounter);
-    }
-#endif
-    //end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 }
 
 void scheduler_unit::do_on_warp_issued( unsigned warp_id,
@@ -1147,40 +963,6 @@ bool scheduler_unit::sort_warps_by_oldest_dynamic_id(shd_warp_t* lhs, shd_warp_t
     }
 }
 
-<<<<<<< HEAD
-//Irregular_Study
-bool scheduler_unit::sort_warps_by_inst_commit(shd_warp_t* lhs, shd_warp_t* rhs)
-{
-    if(!(rhs && lhs)){
-      return lhs < rhs;
-    }
-
-    unsigned tsid = lhs->get_tsid(); 
-    unsigned ltdid = lhs->get_dynamic_warp_id();
-    unsigned ltwid = lhs->get_warp_id();
-    unsigned rtdid = rhs->get_dynamic_warp_id();
-    unsigned rtwid = rhs->get_warp_id();
-    if(ltwid > INSTCOMMIT_MAX_WARP || rtwid > INSTCOMMIT_MAX_WARP){
-      //printf("Core: %u, lwid: %u ldid: %u, rwid: %u rdid: %u\n", tsid, ltwid, ltdid, rtwid, rtdid);
-      //assert(0);
-      return ltdid < rtdid;
-    }
-    assert(ltwid <= INSTCOMMIT_MAX_WARP && rtwid <= INSTCOMMIT_MAX_WARP);
-    if(instcommit_dyn_warp_id[tsid][ltwid] != ltdid && 
-       instcommit_dyn_warp_id[tsid][ltwid] != -1    &&
-       instcommit_dyn_warp_id[tsid][rtwid] != rtdid && 
-       instcommit_dyn_warp_id[tsid][rtwid] != -1 ){ 
-//        printf("Cycle: %lld, Core: %d, d_id:%u, w_id:%u, stored_id:%u\n",gpu_tot_sim_cycle+gpu_sim_cycle, tsid, tdynwid,twid,instcommit_dyn_warp_id[tsid][twid]);
-        assert(0);
-    }
-    unsigned linstcommit = warp_committed_inst[tsid][ltwid];
-    unsigned rinstcommit = warp_committed_inst[tsid][rtwid];
-    return (linstcommit < rinstcommit); 
-}
-//end
-
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 void lrr_scheduler::order_warps()
 {
     order_lrr( m_next_cycle_prioritized_warps,
@@ -1199,21 +981,6 @@ void gto_scheduler::order_warps()
                        scheduler_unit::sort_warps_by_oldest_dynamic_id );
 }
 
-<<<<<<< HEAD
-//Irregular_Study
-void oracle_instcommit_scheduler::order_warps()
-{
-    order_by_priority( m_next_cycle_prioritized_warps,
-                       m_supervised_warps,
-                       m_last_supervised_issued,
-                       m_supervised_warps.size(),
-                       ORDERED_PRIORITY_INST_COMMIT,
-                       scheduler_unit::sort_warps_by_inst_commit );
-}
-//end
-
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 void
 two_level_active_scheduler::do_on_warp_issued( unsigned warp_id,
                                                unsigned num_issued,
@@ -1237,8 +1004,6 @@ two_level_active_scheduler::do_on_warp_issued( unsigned warp_id,
 
 void two_level_active_scheduler::order_warps()
 {
-<<<<<<< HEAD
-=======
 //Qi Zheng -- VCA study
 /*
 printf("  In the order_warps: there are %d active warps -- ",m_next_cycle_prioritized_warps.size());
@@ -1247,7 +1012,6 @@ for(int i=0;i<m_next_cycle_prioritized_warps.size();i++){
 }
 printf("\n");
 */
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
     //Move waiting warps to m_pending_warps
     unsigned num_demoted = 0;
     for (std::vector< shd_warp_t* >::iterator iter = m_next_cycle_prioritized_warps.begin();
@@ -1262,8 +1026,6 @@ printf("\n");
 	}
 
 	if( waiting ) {
-<<<<<<< HEAD
-=======
 //Qi Zheng -- VCA study
 	    if( (*iter)->get_warp_id() != -1 ){
 /*
@@ -1273,7 +1035,6 @@ printf("\n");
 */
 	    }
 
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 	    m_pending_warps.push_back(*iter);
 	    iter = m_next_cycle_prioritized_warps.erase(iter);
             SCHED_DPRINTF( "DEMOTED warp_id=%d, dynamic_warp_id=%d\n",
@@ -1299,8 +1060,6 @@ printf("\n");
             SCHED_DPRINTF( "PROMOTED warp_id=%d, dynamic_warp_id=%d\n",
                            (m_next_cycle_prioritized_warps.back())->get_warp_id(),
                            (m_next_cycle_prioritized_warps.back())->get_dynamic_warp_id() );
-<<<<<<< HEAD
-=======
 //Qi Zheng -- VCA study
             if( (m_next_cycle_prioritized_warps.back())->get_warp_id() != -1 ){
 /*
@@ -1309,7 +1068,6 @@ printf("\n");
                                (m_next_cycle_prioritized_warps.back())->get_dynamic_warp_id() );
 */
             }
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
             ++num_promoted;
     	}
     } else {
@@ -1487,13 +1245,10 @@ void ldst_unit::set_icnt_power_stats(unsigned &simt_to_mem) const{
 
 void shader_core_ctx::warp_inst_complete(const warp_inst_t &inst)
 {
-<<<<<<< HEAD
-=======
    #if 0
       printf("[warp_inst_complete] uid=%u core=%u warp=%u pc=%#x @ time=%llu issued@%llu\n", 
              inst.get_uid(), m_sid, inst.warp_id(), inst.pc, gpu_tot_sim_cycle + gpu_sim_cycle, inst.get_issue_cycle()); 
    #endif
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
   if(inst.op4==SP__OP)
 	  m_stats->m_num_sp_committed[m_sid]++;
   else if(inst.op4==SFU__OP)
@@ -1509,27 +1264,6 @@ void shader_core_ctx::warp_inst_complete(const warp_inst_t &inst)
   m_stats->m_num_sim_winsn[m_sid]++;
   m_gpu->gpu_sim_insn += inst.active_count();
   inst.completed(gpu_tot_sim_cycle + gpu_sim_cycle);
-<<<<<<< HEAD
-
-  //Irregular_Study
-  unsigned tdynwid = inst.dynamic_warp_id();
-  unsigned twid = inst.warp_id();
-  assert(twid <= INSTCOMMIT_MAX_WARP);
-  if(instcommit_dyn_warp_id[get_sid()][twid] != tdynwid && instcommit_dyn_warp_id[get_sid()][twid] != -1){
-    printf("Cycle: %lld, Core: %d, d_id:%u, w_id:%u, stored_id:%u\n",gpu_tot_sim_cycle+gpu_sim_cycle, get_sid(), tdynwid,twid,instcommit_dyn_warp_id[get_sid()][twid]);
-    assert(0);
-  }
-  if(instcommit_dyn_warp_id[get_sid()][twid] == -1) {
-    instcommit_dyn_warp_id[get_sid()][twid] = tdynwid;
-  }
-  warp_committed_inst[get_sid()][twid] += inst.active_count();
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-    printf("Cycle: %lld, Core: %d, d_id:%u, w_id:%u, finish:%u--",gpu_tot_sim_cycle+gpu_sim_cycle, get_sid(), tdynwid,twid,inst.active_count());
-    inst.print(stdout); 
-#endif
-  //end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 }
 
 void shader_core_ctx::writeback()
@@ -3277,10 +3011,7 @@ bool opndcoll_rfu_t::collector_unit_t::allocate( register_set* pipeline_reg_set,
    m_output_register = output_reg_set;
    warp_inst_t **pipeline_reg = pipeline_reg_set->get_ready();
    if( (pipeline_reg) and !((*pipeline_reg)->empty()) ) {
-<<<<<<< HEAD
-=======
 //Qi Zheng -- VCA study
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
        //collect the num of global loads
        if((*pipeline_reg)->space.get_type() == global_space){
            if(!((*pipeline_reg)->is_store())){
@@ -3291,8 +3022,6 @@ bool opndcoll_rfu_t::collector_unit_t::allocate( register_set* pipeline_reg_set,
    	       }    
            }
        }
-<<<<<<< HEAD
-=======
 #ifdef RF_TRACE
 //   printf("/*========================*/\n");
    bool AnyRegFlag = false;
@@ -3451,7 +3180,6 @@ bool opndcoll_rfu_t::collector_unit_t::allocate( register_set* pipeline_reg_set,
         }
      }
 #endif
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
       m_warp_id = (*pipeline_reg)->warp_id();
       for( unsigned op=0; op < MAX_REG_OPERANDS; op++ ) {
          int reg_num = (*pipeline_reg)->arch_reg.src[op]; // this math needs to match that used in function_info::ptx_decode_inst

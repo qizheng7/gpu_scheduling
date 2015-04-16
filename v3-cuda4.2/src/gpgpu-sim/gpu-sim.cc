@@ -76,14 +76,6 @@ class  gpgpu_sim_wrapper {};
 
 #define MAX(a,b) (((a)>(b))?(a):(b))
 
-<<<<<<< HEAD
-//Irregular_Study
-#include "irregular.h"
-
-//Irregular_Study
-unsigned instcommit_dyn_warp_id[INSTCOMMIT_SM][INSTCOMMIT_MAX_WARP]; 
-unsigned long long warp_committed_inst[INSTCOMMIT_SM][INSTCOMMIT_MAX_WARP];
-=======
 #include "reg_study.h"
 
 //#ifdef RF_STUDY
@@ -93,8 +85,6 @@ std::vector< std::map<unsigned, unsigned long long> >* reg_acc_count;
 std::vector< std::map<unsigned, unsigned long long> >* reg_last_acc;
 unsigned long long* vector_size; 
 //#endif
-
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 
 bool g_interactive_debugger_enabled=false;
 
@@ -603,11 +593,8 @@ void gpgpu_sim::set_prop( cudaDeviceProp *prop )
 
 const struct cudaDeviceProp *gpgpu_sim::get_prop() const
 {
-<<<<<<< HEAD
-=======
   //Qi Zheng
   printf("%zd\n",m_cuda_properties->maxThreadsPerMultiProcessor);
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
    return m_cuda_properties;
 }
 
@@ -702,16 +689,6 @@ void gpgpu_sim::init()
     }
 #endif
 
-<<<<<<< HEAD
-    //Irregular_Study
-    for(int ttp=0;ttp<INSTCOMMIT_MAX_WARP;ttp++){
-      for(int smc=0;smc<INSTCOMMIT_SM;smc++){
-        instcommit_dyn_warp_id[smc][ttp] = -1; 
-        warp_committed_inst[smc][ttp] = 0;
-      }
-    }
-    //end
-=======
 //#ifdef RF_STUDY
     warp_idx = new std::map<unsigned, unsigned> [ m_config.num_shader() ]; 
     reg_tot_dist = new std::vector< std::map<unsigned, unsigned long long> > [ m_config.num_shader() ]; 
@@ -722,7 +699,6 @@ void gpgpu_sim::init()
 		vector_size[j] = 0;
     }
 //#endif
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 }
 
 void gpgpu_sim::update_stats() {
@@ -819,16 +795,6 @@ void gpgpu_sim::gpu_print_stat()
    std::string kernel_info_str = executed_kernel_info_string(); 
    fprintf(statfout, "%s", kernel_info_str.c_str()); 
 
-<<<<<<< HEAD
-    //Irregular_Study
-    for(int ttp=0;ttp<INSTCOMMIT_MAX_WARP;ttp++){
-      for(int smc=0;smc<INSTCOMMIT_SM;smc++){
-        instcommit_dyn_warp_id[smc][ttp] = -1; 
-        warp_committed_inst[smc][ttp] = 0;
-      }
-    }
-    //end
-=======
 #ifdef RF_STUDY
    unsigned long long tot_dist = 0;
    unsigned long long tot_acc = 0;
@@ -859,7 +825,6 @@ void gpgpu_sim::gpu_print_stat()
    tot_dist = 0;
    tot_acc = 0;
 #endif
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 
    printf("gpu_sim_cycle = %lld\n", gpu_sim_cycle);
    printf("gpu_sim_insn = %lld\n", gpu_sim_insn);
