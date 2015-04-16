@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$DISABLE_SHIM" == "0" ] || [ -z "$DISABLE_SHIM" ]; then
+    $CUDA_INSTALL_PATH/bin/cuobjdump "$@" | 
+    sed '/^compressed$/d' | 
+    sed 's/^.visible .entry/.entry/g' | 
+    sed 's/producer = <unknown>/producer = unknown/' | 
+    sed '/^.file/s/",[0-9 ,]\+$/"/'
+else
+    $CUDA_INSTALL_PATH/bin/cuobjdump "$@"
+fi;

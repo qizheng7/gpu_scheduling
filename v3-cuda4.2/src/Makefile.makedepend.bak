@@ -1,0 +1,333 @@
+# DO NOT DELETE
+
+../build/4020/release/abstract_hardware_model.o: abstract_hardware_model.h
+../build/4020/release/abstract_hardware_model.o: cuda-sim/memory.h
+../build/4020/release/abstract_hardware_model.o: abstract_hardware_model.h
+../build/4020/release/abstract_hardware_model.o: tr1_hash_map.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/assert.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/features.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/predefs.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/sys/cdefs.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/wordsize.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/gnu/stubs.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/gnu/stubs-64.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/string.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/xlocale.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/stdio.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/types.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/typesizes.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/libio.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/_G_config.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/wchar.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/wchar.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/stdio_lim.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/sys_errlist.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/stdlib.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/waitflags.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/waitstatus.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/endian.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/endian.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/byteswap.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/sys/types.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/time.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/sys/select.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/select.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/sigset.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/time.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/sys/sysmacros.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/pthreadtypes.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/alloca.h
+../build/4020/release/abstract_hardware_model.o: cuda-sim/ptx_ir.h
+../build/4020/release/abstract_hardware_model.o: cuda-sim/ptx_sim.h
+../build/4020/release/abstract_hardware_model.o: cuda-sim/opcodes.h
+../build/4020/release/abstract_hardware_model.o: cuda-sim/opcodes.def
+../build/4020/release/abstract_hardware_model.o: cuda-sim/memory.h
+../build/4020/release/abstract_hardware_model.o: option_parser.h
+../build/4020/release/abstract_hardware_model.o: cuda-sim/ptx-stats.h
+../build/4020/release/abstract_hardware_model.o: cuda-sim/cuda-sim.h
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/shader.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/math.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/huge_val.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/huge_valf.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/huge_vall.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/inf.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/nan.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/mathdef.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/mathcalls.h
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/delayqueue.h
+../build/4020/release/abstract_hardware_model.o: intersim/statwraper.h
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/gpu-misc.h
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/stack.h
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/dram.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/zlib.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/zconf.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/zlibdefs.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/unistd.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/posix_opt.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/bits/confname.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/getopt.h
+../build/4020/release/abstract_hardware_model.o: /usr/include/ctype.h
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/scoreboard.h
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/mem_fetch.h
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/addrdec.h
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/mem_fetch_status.tup
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/stats.h
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/gpu-cache.h
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/gpu-sim.h trace.h
+../build/4020/release/abstract_hardware_model.o: trace_streams.tup
+../build/4020/release/abstract_hardware_model.o: gpgpu-sim/shader.h
+../build/4020/release/abstract_hardware_model.o: option_parser.h
+../build/4020/release/debug.o: debug.h abstract_hardware_model.h
+../build/4020/release/debug.o: gpgpu-sim/shader.h /usr/include/stdio.h
+../build/4020/release/debug.o: /usr/include/features.h
+../build/4020/release/debug.o: /usr/include/bits/predefs.h
+../build/4020/release/debug.o: /usr/include/sys/cdefs.h
+../build/4020/release/debug.o: /usr/include/bits/wordsize.h
+../build/4020/release/debug.o: /usr/include/gnu/stubs.h
+../build/4020/release/debug.o: /usr/include/gnu/stubs-64.h
+../build/4020/release/debug.o: /usr/include/bits/types.h
+../build/4020/release/debug.o: /usr/include/bits/typesizes.h
+../build/4020/release/debug.o: /usr/include/libio.h /usr/include/_G_config.h
+../build/4020/release/debug.o: /usr/include/wchar.h /usr/include/bits/wchar.h
+../build/4020/release/debug.o: /usr/include/xlocale.h
+../build/4020/release/debug.o: /usr/include/bits/stdio_lim.h
+../build/4020/release/debug.o: /usr/include/bits/sys_errlist.h
+../build/4020/release/debug.o: /usr/include/stdlib.h
+../build/4020/release/debug.o: /usr/include/bits/waitflags.h
+../build/4020/release/debug.o: /usr/include/bits/waitstatus.h
+../build/4020/release/debug.o: /usr/include/endian.h
+../build/4020/release/debug.o: /usr/include/bits/endian.h
+../build/4020/release/debug.o: /usr/include/bits/byteswap.h
+../build/4020/release/debug.o: /usr/include/sys/types.h /usr/include/time.h
+../build/4020/release/debug.o: /usr/include/sys/select.h
+../build/4020/release/debug.o: /usr/include/bits/select.h
+../build/4020/release/debug.o: /usr/include/bits/sigset.h
+../build/4020/release/debug.o: /usr/include/bits/time.h
+../build/4020/release/debug.o: /usr/include/sys/sysmacros.h
+../build/4020/release/debug.o: /usr/include/bits/pthreadtypes.h
+../build/4020/release/debug.o: /usr/include/alloca.h /usr/include/math.h
+../build/4020/release/debug.o: /usr/include/bits/huge_val.h
+../build/4020/release/debug.o: /usr/include/bits/huge_valf.h
+../build/4020/release/debug.o: /usr/include/bits/huge_vall.h
+../build/4020/release/debug.o: /usr/include/bits/inf.h
+../build/4020/release/debug.o: /usr/include/bits/nan.h
+../build/4020/release/debug.o: /usr/include/bits/mathdef.h
+../build/4020/release/debug.o: /usr/include/bits/mathcalls.h
+../build/4020/release/debug.o: /usr/include/assert.h gpgpu-sim/delayqueue.h
+../build/4020/release/debug.o: intersim/statwraper.h gpgpu-sim/gpu-misc.h
+../build/4020/release/debug.o: gpgpu-sim/stack.h abstract_hardware_model.h
+../build/4020/release/debug.o: gpgpu-sim/dram.h /usr/include/zlib.h
+../build/4020/release/debug.o: /usr/include/zconf.h /usr/include/zlibdefs.h
+../build/4020/release/debug.o: /usr/include/unistd.h
+../build/4020/release/debug.o: /usr/include/bits/posix_opt.h
+../build/4020/release/debug.o: /usr/include/bits/confname.h
+../build/4020/release/debug.o: /usr/include/getopt.h /usr/include/ctype.h
+../build/4020/release/debug.o: gpgpu-sim/scoreboard.h gpgpu-sim/mem_fetch.h
+../build/4020/release/debug.o: gpgpu-sim/addrdec.h option_parser.h
+../build/4020/release/debug.o: gpgpu-sim/mem_fetch_status.tup
+../build/4020/release/debug.o: gpgpu-sim/stats.h gpgpu-sim/gpu-cache.h
+../build/4020/release/debug.o: tr1_hash_map.h gpgpu-sim/gpu-sim.h trace.h
+../build/4020/release/debug.o: trace_streams.tup gpgpu-sim/shader.h
+../build/4020/release/debug.o: cuda-sim/ptx_sim.h cuda-sim/opcodes.h
+../build/4020/release/debug.o: cuda-sim/opcodes.def cuda-sim/memory.h
+../build/4020/release/debug.o: cuda-sim/cuda-sim.h gpgpu-sim/shader.h
+../build/4020/release/debug.o: cuda-sim/ptx_sim.h cuda-sim/ptx_ir.h
+../build/4020/release/debug.o: /usr/include/string.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpusim_entrypoint.h
+../build/4020/release/gpgpusim_entrypoint.o: abstract_hardware_model.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/time.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/types.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/features.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/predefs.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/sys/cdefs.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/wordsize.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/gnu/stubs.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/gnu/stubs-64.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/typesizes.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/stdio.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/libio.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/_G_config.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/wchar.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/wchar.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/xlocale.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/stdio_lim.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/sys_errlist.h
+../build/4020/release/gpgpusim_entrypoint.o: option_parser.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/stdlib.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/waitflags.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/waitstatus.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/endian.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/endian.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/byteswap.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/sys/types.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/sys/select.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/select.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/sigset.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/time.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/sys/sysmacros.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/pthreadtypes.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/alloca.h
+../build/4020/release/gpgpusim_entrypoint.o: cuda-sim/cuda-sim.h
+../build/4020/release/gpgpusim_entrypoint.o: abstract_hardware_model.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/shader.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/math.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/huge_val.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/huge_valf.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/huge_vall.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/inf.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/nan.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/mathdef.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/mathcalls.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/assert.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/delayqueue.h
+../build/4020/release/gpgpusim_entrypoint.o: intersim/statwraper.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/gpu-misc.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/stack.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/dram.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/zlib.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/zconf.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/zlibdefs.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/unistd.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/posix_opt.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/confname.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/getopt.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/ctype.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/scoreboard.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/mem_fetch.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/addrdec.h
+../build/4020/release/gpgpusim_entrypoint.o: option_parser.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/mem_fetch_status.tup
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/stats.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/gpu-cache.h
+../build/4020/release/gpgpusim_entrypoint.o: tr1_hash_map.h
+../build/4020/release/gpgpusim_entrypoint.o: cuda-sim/ptx_sim.h
+../build/4020/release/gpgpusim_entrypoint.o: cuda-sim/opcodes.h
+../build/4020/release/gpgpusim_entrypoint.o: cuda-sim/opcodes.def
+../build/4020/release/gpgpusim_entrypoint.o: cuda-sim/memory.h
+../build/4020/release/gpgpusim_entrypoint.o: cuda-sim/ptx_ir.h
+../build/4020/release/gpgpusim_entrypoint.o: cuda-sim/ptx_parser.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/gpu-sim.h trace.h
+../build/4020/release/gpgpusim_entrypoint.o: trace_streams.tup
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/shader.h
+../build/4020/release/gpgpusim_entrypoint.o: gpgpu-sim/icnt_wrapper.h
+../build/4020/release/gpgpusim_entrypoint.o: stream_manager.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/pthread.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/sched.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/sched.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/setjmp.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/semaphore.h
+../build/4020/release/gpgpusim_entrypoint.o: /usr/include/bits/semaphore.h
+../build/4020/release/option_parser.o: /usr/include/stdio.h
+../build/4020/release/option_parser.o: /usr/include/features.h
+../build/4020/release/option_parser.o: /usr/include/bits/predefs.h
+../build/4020/release/option_parser.o: /usr/include/sys/cdefs.h
+../build/4020/release/option_parser.o: /usr/include/bits/wordsize.h
+../build/4020/release/option_parser.o: /usr/include/gnu/stubs.h
+../build/4020/release/option_parser.o: /usr/include/gnu/stubs-64.h
+../build/4020/release/option_parser.o: /usr/include/bits/types.h
+../build/4020/release/option_parser.o: /usr/include/bits/typesizes.h
+../build/4020/release/option_parser.o: /usr/include/libio.h
+../build/4020/release/option_parser.o: /usr/include/_G_config.h
+../build/4020/release/option_parser.o: /usr/include/wchar.h
+../build/4020/release/option_parser.o: /usr/include/bits/wchar.h
+../build/4020/release/option_parser.o: /usr/include/xlocale.h
+../build/4020/release/option_parser.o: /usr/include/bits/stdio_lim.h
+../build/4020/release/option_parser.o: /usr/include/bits/sys_errlist.h
+../build/4020/release/option_parser.o: /usr/include/stdlib.h
+../build/4020/release/option_parser.o: /usr/include/bits/waitflags.h
+../build/4020/release/option_parser.o: /usr/include/bits/waitstatus.h
+../build/4020/release/option_parser.o: /usr/include/endian.h
+../build/4020/release/option_parser.o: /usr/include/bits/endian.h
+../build/4020/release/option_parser.o: /usr/include/bits/byteswap.h
+../build/4020/release/option_parser.o: /usr/include/sys/types.h
+../build/4020/release/option_parser.o: /usr/include/time.h
+../build/4020/release/option_parser.o: /usr/include/sys/select.h
+../build/4020/release/option_parser.o: /usr/include/bits/select.h
+../build/4020/release/option_parser.o: /usr/include/bits/sigset.h
+../build/4020/release/option_parser.o: /usr/include/bits/time.h
+../build/4020/release/option_parser.o: /usr/include/sys/sysmacros.h
+../build/4020/release/option_parser.o: /usr/include/bits/pthreadtypes.h
+../build/4020/release/option_parser.o: /usr/include/alloca.h
+../build/4020/release/option_parser.o: /usr/include/assert.h
+../build/4020/release/option_parser.o: /usr/include/string.h option_parser.h
+../build/4020/release/stream_manager.o: stream_manager.h
+../build/4020/release/stream_manager.o: abstract_hardware_model.h
+../build/4020/release/stream_manager.o: /usr/include/pthread.h
+../build/4020/release/stream_manager.o: /usr/include/features.h
+../build/4020/release/stream_manager.o: /usr/include/bits/predefs.h
+../build/4020/release/stream_manager.o: /usr/include/sys/cdefs.h
+../build/4020/release/stream_manager.o: /usr/include/bits/wordsize.h
+../build/4020/release/stream_manager.o: /usr/include/gnu/stubs.h
+../build/4020/release/stream_manager.o: /usr/include/gnu/stubs-64.h
+../build/4020/release/stream_manager.o: /usr/include/endian.h
+../build/4020/release/stream_manager.o: /usr/include/bits/endian.h
+../build/4020/release/stream_manager.o: /usr/include/bits/byteswap.h
+../build/4020/release/stream_manager.o: /usr/include/sched.h
+../build/4020/release/stream_manager.o: /usr/include/bits/types.h
+../build/4020/release/stream_manager.o: /usr/include/bits/typesizes.h
+../build/4020/release/stream_manager.o: /usr/include/time.h
+../build/4020/release/stream_manager.o: /usr/include/bits/sched.h
+../build/4020/release/stream_manager.o: /usr/include/bits/pthreadtypes.h
+../build/4020/release/stream_manager.o: /usr/include/bits/setjmp.h
+../build/4020/release/stream_manager.o: gpgpusim_entrypoint.h
+../build/4020/release/stream_manager.o: cuda-sim/cuda-sim.h
+../build/4020/release/stream_manager.o: abstract_hardware_model.h
+../build/4020/release/stream_manager.o: gpgpu-sim/shader.h
+../build/4020/release/stream_manager.o: /usr/include/stdio.h
+../build/4020/release/stream_manager.o: /usr/include/libio.h
+../build/4020/release/stream_manager.o: /usr/include/_G_config.h
+../build/4020/release/stream_manager.o: /usr/include/wchar.h
+../build/4020/release/stream_manager.o: /usr/include/bits/wchar.h
+../build/4020/release/stream_manager.o: /usr/include/xlocale.h
+../build/4020/release/stream_manager.o: /usr/include/bits/stdio_lim.h
+../build/4020/release/stream_manager.o: /usr/include/bits/sys_errlist.h
+../build/4020/release/stream_manager.o: /usr/include/stdlib.h
+../build/4020/release/stream_manager.o: /usr/include/bits/waitflags.h
+../build/4020/release/stream_manager.o: /usr/include/bits/waitstatus.h
+../build/4020/release/stream_manager.o: /usr/include/sys/types.h
+../build/4020/release/stream_manager.o: /usr/include/sys/select.h
+../build/4020/release/stream_manager.o: /usr/include/bits/select.h
+../build/4020/release/stream_manager.o: /usr/include/bits/sigset.h
+../build/4020/release/stream_manager.o: /usr/include/bits/time.h
+../build/4020/release/stream_manager.o: /usr/include/sys/sysmacros.h
+../build/4020/release/stream_manager.o: /usr/include/alloca.h
+../build/4020/release/stream_manager.o: /usr/include/math.h
+../build/4020/release/stream_manager.o: /usr/include/bits/huge_val.h
+../build/4020/release/stream_manager.o: /usr/include/bits/huge_valf.h
+../build/4020/release/stream_manager.o: /usr/include/bits/huge_vall.h
+../build/4020/release/stream_manager.o: /usr/include/bits/inf.h
+../build/4020/release/stream_manager.o: /usr/include/bits/nan.h
+../build/4020/release/stream_manager.o: /usr/include/bits/mathdef.h
+../build/4020/release/stream_manager.o: /usr/include/bits/mathcalls.h
+../build/4020/release/stream_manager.o: /usr/include/assert.h
+../build/4020/release/stream_manager.o: gpgpu-sim/delayqueue.h
+../build/4020/release/stream_manager.o: intersim/statwraper.h
+../build/4020/release/stream_manager.o: gpgpu-sim/gpu-misc.h
+../build/4020/release/stream_manager.o: gpgpu-sim/stack.h gpgpu-sim/dram.h
+../build/4020/release/stream_manager.o: /usr/include/zlib.h
+../build/4020/release/stream_manager.o: /usr/include/zconf.h
+../build/4020/release/stream_manager.o: /usr/include/zlibdefs.h
+../build/4020/release/stream_manager.o: /usr/include/unistd.h
+../build/4020/release/stream_manager.o: /usr/include/bits/posix_opt.h
+../build/4020/release/stream_manager.o: /usr/include/bits/confname.h
+../build/4020/release/stream_manager.o: /usr/include/getopt.h
+../build/4020/release/stream_manager.o: /usr/include/ctype.h
+../build/4020/release/stream_manager.o: gpgpu-sim/scoreboard.h
+../build/4020/release/stream_manager.o: gpgpu-sim/mem_fetch.h
+../build/4020/release/stream_manager.o: gpgpu-sim/addrdec.h option_parser.h
+../build/4020/release/stream_manager.o: gpgpu-sim/mem_fetch_status.tup
+../build/4020/release/stream_manager.o: gpgpu-sim/stats.h
+../build/4020/release/stream_manager.o: gpgpu-sim/gpu-cache.h tr1_hash_map.h
+../build/4020/release/stream_manager.o: cuda-sim/ptx_sim.h cuda-sim/opcodes.h
+../build/4020/release/stream_manager.o: cuda-sim/opcodes.def
+../build/4020/release/stream_manager.o: cuda-sim/memory.h gpgpu-sim/gpu-sim.h
+../build/4020/release/stream_manager.o: trace.h trace_streams.tup
+../build/4020/release/stream_manager.o: gpgpu-sim/shader.h
+../build/4020/release/trace.o: trace.h trace_streams.tup
+../build/4020/release/trace.o: /usr/include/string.h /usr/include/features.h
+../build/4020/release/trace.o: /usr/include/bits/predefs.h
+../build/4020/release/trace.o: /usr/include/sys/cdefs.h
+../build/4020/release/trace.o: /usr/include/bits/wordsize.h
+../build/4020/release/trace.o: /usr/include/gnu/stubs.h
+../build/4020/release/trace.o: /usr/include/gnu/stubs-64.h
+../build/4020/release/trace.o: /usr/include/xlocale.h
