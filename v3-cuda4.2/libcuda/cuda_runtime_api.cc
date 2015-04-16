@@ -924,7 +924,10 @@ __host__ cudaError_t CUDARTAPI cudaLaunch( const char *hostFun )
 //Qi Zheng -- VCA study
 //	printf("VCA -- blocksize: %u\n",blockDim.x*blockDim.y*blockDim.z);
 	printf("New kernel starts!\n");
+<<<<<<< HEAD
         printf("Threadblock_size %u\n",blockDim.x*blockDim.y*blockDim.z/32);
+=======
+>>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 
 	stream_operation op(grid,g_ptx_sim_mode,stream);
 	g_stream_manager->push(op);

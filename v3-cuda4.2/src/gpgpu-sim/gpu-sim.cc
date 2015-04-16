@@ -76,12 +76,25 @@ class  gpgpu_sim_wrapper {};
 
 #define MAX(a,b) (((a)>(b))?(a):(b))
 
+<<<<<<< HEAD
 //Irregular_Study
 #include "irregular.h"
 
 //Irregular_Study
 unsigned instcommit_dyn_warp_id[INSTCOMMIT_SM][INSTCOMMIT_MAX_WARP]; 
 unsigned long long warp_committed_inst[INSTCOMMIT_SM][INSTCOMMIT_MAX_WARP];
+=======
+#include "reg_study.h"
+
+//#ifdef RF_STUDY
+std::map<unsigned, unsigned  >* warp_idx; 
+std::vector< std::map<unsigned, unsigned long long> >* reg_tot_dist; 
+std::vector< std::map<unsigned, unsigned long long> >* reg_acc_count;
+std::vector< std::map<unsigned, unsigned long long> >* reg_last_acc;
+unsigned long long* vector_size; 
+//#endif
+
+>>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 
 bool g_interactive_debugger_enabled=false;
 
@@ -590,6 +603,11 @@ void gpgpu_sim::set_prop( cudaDeviceProp *prop )
 
 const struct cudaDeviceProp *gpgpu_sim::get_prop() const
 {
+<<<<<<< HEAD
+=======
+  //Qi Zheng
+  printf("%zd\n",m_cuda_properties->maxThreadsPerMultiProcessor);
+>>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
    return m_cuda_properties;
 }
 
@@ -684,6 +702,7 @@ void gpgpu_sim::init()
     }
 #endif
 
+<<<<<<< HEAD
     //Irregular_Study
     for(int ttp=0;ttp<INSTCOMMIT_MAX_WARP;ttp++){
       for(int smc=0;smc<INSTCOMMIT_SM;smc++){
@@ -692,6 +711,18 @@ void gpgpu_sim::init()
       }
     }
     //end
+=======
+//#ifdef RF_STUDY
+    warp_idx = new std::map<unsigned, unsigned> [ m_config.num_shader() ]; 
+    reg_tot_dist = new std::vector< std::map<unsigned, unsigned long long> > [ m_config.num_shader() ]; 
+    reg_acc_count = new std::vector< std::map<unsigned, unsigned long long> > [ m_config.num_shader() ];
+    reg_last_acc = new std::vector< std::map<unsigned, unsigned long long> > [ m_config.num_shader() ];
+    vector_size = new unsigned long long[ m_config.num_shader() ];
+    for(int j=0;j<m_config.num_shader();j++){
+		vector_size[j] = 0;
+    }
+//#endif
+>>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 }
 
 void gpgpu_sim::update_stats() {
@@ -788,6 +819,7 @@ void gpgpu_sim::gpu_print_stat()
    std::string kernel_info_str = executed_kernel_info_string(); 
    fprintf(statfout, "%s", kernel_info_str.c_str()); 
 
+<<<<<<< HEAD
     //Irregular_Study
     for(int ttp=0;ttp<INSTCOMMIT_MAX_WARP;ttp++){
       for(int smc=0;smc<INSTCOMMIT_SM;smc++){
@@ -796,6 +828,38 @@ void gpgpu_sim::gpu_print_stat()
       }
     }
     //end
+=======
+#ifdef RF_STUDY
+   unsigned long long tot_dist = 0;
+   unsigned long long tot_acc = 0;
+   for(int j = 0;j < m_config.num_shader();j++){
+       for(int myi=0;myi<reg_tot_dist[j].size();myi++){
+           std::map<unsigned,unsigned long long>::iterator myit_acc = reg_acc_count[j].at(myi).begin();
+           std::map<unsigned,unsigned long long>::iterator myit = reg_tot_dist[j].at(myi).begin();
+           for(;myit != reg_tot_dist[j].at(myi).end();myit++){
+               tot_dist += myit->second;
+               tot_acc += (myit_acc->second - 1);
+               myit_acc++;
+           }
+       }
+   }
+   double avg_dist = ((double)tot_dist) / tot_acc;
+   printf("============RF Study=========\n");
+   printf("Avg acc dist: %f\n",avg_dist);
+   printf("Total dist: %lu\n",tot_dist);
+   printf("Total acc:    %lu\n",tot_acc);
+   printf("=============================\n");
+   for(int j=0;j<m_config.num_shader();j++){
+   	warp_idx[j].clear();
+   	reg_tot_dist[j].clear();
+   	reg_acc_count[j].clear();
+   	reg_last_acc[j].clear();
+	vector_size[j] = 0;
+   }
+   tot_dist = 0;
+   tot_acc = 0;
+#endif
+>>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 
    printf("gpu_sim_cycle = %lld\n", gpu_sim_cycle);
    printf("gpu_sim_insn = %lld\n", gpu_sim_insn);

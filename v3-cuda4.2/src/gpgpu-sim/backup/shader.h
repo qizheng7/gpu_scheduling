@@ -53,6 +53,8 @@
 #include "stats.h"
 #include "gpu-cache.h"
 
+
+
 #define NO_OP_FLAG            0xFF
 
 /* READ_PACKET_SIZE:
@@ -211,13 +213,6 @@ public:
     unsigned get_dynamic_warp_id() const { return m_dynamic_warp_id; }
     unsigned get_warp_id() const { return m_warp_id; }
 
-<<<<<<< HEAD
-    //Irregular_Study
-    inline unsigned get_tsid() const;
-    //end
-
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 private:
     static const unsigned IBUFFER_SIZE=2;
     class shader_core_ctx *m_shader;
@@ -283,12 +278,6 @@ enum concrete_scheduler
     CONCRETE_SCHEDULER_LRR = 0,
     CONCRETE_SCHEDULER_GTO,
     CONCRETE_SCHEDULER_TWO_LEVEL_ACTIVE,
-<<<<<<< HEAD
-    //Irregular_Study
-    CONCRETE_SCHEDULER_CRI_ORACLE_INSTCOMMIT,
-    //end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
     NUM_CONCRETE_SCHEDULERS
 };
 
@@ -334,12 +323,6 @@ public:
         // No greedy scheduling based on last to issue. Only the priority function determines
         // priority
         ORDERED_PRIORITY_FUNC_ONLY,
-<<<<<<< HEAD
-        //Irregular_Study
-        ORDERED_PRIORITY_INST_COMMIT,
-        //end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
         NUM_ORDERING,
     };
     template < typename U >
@@ -350,12 +333,6 @@ public:
                             OrderingType age_ordering,
                             bool (*priority_func)(U lhs, U rhs) );
     static bool sort_warps_by_oldest_dynamic_id(shd_warp_t* lhs, shd_warp_t* rhs);
-<<<<<<< HEAD
-    //Irregular_Study
-    static bool sort_warps_by_inst_commit(shd_warp_t* lhs, shd_warp_t* rhs);
-    //end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 
     // Derived classes can override this function to populate
     // m_supervised_warps with their scheduling policies
@@ -405,9 +382,9 @@ public:
 	: scheduler_unit ( stats, shader, scoreboard, simt, warp, sp_out, sfu_out, mem_out, id ){}
 	virtual ~lrr_scheduler () {}
 	virtual void order_warps ();
-        virtual void done_adding_supervised_warps() {
-            m_last_supervised_issued = m_supervised_warps.end();
-        }
+    virtual void done_adding_supervised_warps() {
+        m_last_supervised_issued = m_supervised_warps.end();
+    }
 };
 
 class gto_scheduler : public scheduler_unit {
@@ -422,9 +399,10 @@ public:
 	: scheduler_unit ( stats, shader, scoreboard, simt, warp, sp_out, sfu_out, mem_out, id ){}
 	virtual ~gto_scheduler () {}
 	virtual void order_warps ();
-        virtual void done_adding_supervised_warps() {
-            m_last_supervised_issued = m_supervised_warps.begin();
-        }
+    virtual void done_adding_supervised_warps() {
+        m_last_supervised_issued = m_supervised_warps.begin();
+    }
+
 };
 
 
@@ -440,26 +418,26 @@ public:
                           char* config_str )
 	: scheduler_unit ( stats, shader, scoreboard, simt, warp, sp_out, sfu_out, mem_out, id ),
 	  m_pending_warps()
-	{
-		int ret = sscanf( config_str,
+    {
+        int ret = sscanf( config_str,
                           "two_level_active:%d:%d:%d",
                           &m_max_active_warps,
                           (int*)&m_inner_level_prioritization,
                           (int*)&m_outer_level_prioritization );
-        	assert( 3 == ret );
-	}
+        assert( 3 == ret );
+    }
 	virtual ~two_level_active_scheduler () {}
-	virtual void order_warps();
+    virtual void order_warps();
 	void add_supervised_warp_id(int i) {
-		if ( m_next_cycle_prioritized_warps.size() < m_max_active_warps ) {
-			m_next_cycle_prioritized_warps.push_back( &warp(i) );
-		} else {
-			m_pending_warps.push_back(&warp(i));
-        	}
+        if ( m_next_cycle_prioritized_warps.size() < m_max_active_warps ) {
+            m_next_cycle_prioritized_warps.push_back( &warp(i) );
+        } else {
+		    m_pending_warps.push_back(&warp(i));
+        }
 	}
-    	virtual void done_adding_supervised_warps() {
-        	m_last_supervised_issued = m_supervised_warps.begin();
-    	}
+    virtual void done_adding_supervised_warps() {
+        m_last_supervised_issued = m_supervised_warps.begin();
+    }
 
 protected:
     virtual void do_on_warp_issued( unsigned warp_id,
@@ -468,33 +446,12 @@ protected:
 
 private:
 	std::deque< shd_warp_t* > m_pending_warps; 
-    	scheduler_prioritization_type m_inner_level_prioritization;
-    	scheduler_prioritization_type m_outer_level_prioritization;
+    scheduler_prioritization_type m_inner_level_prioritization;
+    scheduler_prioritization_type m_outer_level_prioritization;
 	unsigned m_max_active_warps;
 };
 
 
-<<<<<<< HEAD
-//Irregular_Study
-class oracle_instcommit_scheduler : public scheduler_unit {
-public:
-	oracle_instcommit_scheduler ( shader_core_stats* stats, shader_core_ctx* shader,
-                                      Scoreboard* scoreboard, simt_stack** simt,
-                                      std::vector<shd_warp_t>* warp,
-                                      register_set* sp_out,
-                                      register_set* sfu_out,
-                                      register_set* mem_out,
-                                      int id )
-	: scheduler_unit ( stats, shader, scoreboard, simt, warp, sp_out, sfu_out, mem_out, id ){}
-	virtual ~oracle_instcommit_scheduler () {}
-	virtual void order_warps ();
-        virtual void done_adding_supervised_warps() {
-            m_last_supervised_issued = m_supervised_warps.end();
-        }
-};
-//end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 
 class opndcoll_rfu_t { // operand collector based register file unit
 public:
@@ -514,12 +471,12 @@ public:
    // modifiers
    bool writeback( const warp_inst_t &warp ); // might cause stall 
 
-   void step(unsigned m_sid)
+   void step()
    {
         dispatch_ready_cu();   
         allocate_reads();
         for( unsigned p = 0 ; p < m_in_ports.size(); p++ ) 
-            allocate_cu( p , m_sid );
+            allocate_cu( p );
         process_banks();
    }
 
@@ -542,9 +499,9 @@ private:
    {
       m_arbiter.reset_alloction();
    }
-   
+
    void dispatch_ready_cu();
-   void allocate_cu( unsigned port, unsigned m_sid );
+   void allocate_cu( unsigned port );
    void allocate_reads();
 
    // types
@@ -806,7 +763,7 @@ private:
                 unsigned log2_warp_size,
                 const core_config *config,
                 opndcoll_rfu_t *rfu ); 
-      bool allocate( register_set* pipeline_reg, register_set* output_reg, unsigned m_sid );
+      bool allocate( register_set* pipeline_reg, register_set* output_reg );
 
       void collect_operand( unsigned op )
       {
@@ -1230,9 +1187,7 @@ struct shader_core_config : public core_config
                           &n_thread_per_shader,
                           &warp_size);
         if(ntok != 2) {
-#ifdef DETAILED
            printf("GPGPU-Sim uArch: error while parsing configuration string gpgpu_shader_core_pipeline_opt\n");
-#endif
            abort();
 	}
 
@@ -1250,10 +1205,8 @@ struct shader_core_config : public core_config
 	delete[] tokd;
 
         if (n_thread_per_shader > MAX_THREAD_PER_SM) {
-#ifdef DETAILED
            printf("GPGPU-Sim uArch: Error ** increase MAX_THREAD_PER_SM in abstract_hardware_model.h from %u to %u\n", 
                   MAX_THREAD_PER_SM, n_thread_per_shader);
-#endif
            abort();
         }
         max_warps_per_shader =  n_thread_per_shader/warp_size;
@@ -1344,12 +1297,12 @@ struct shader_core_config : public core_config
 
 struct shader_core_stats_pod {
 
-    void* shader_core_stats_pod_start[]; // DO NOT MOVE FROM THE TOP - spaceless pointer to the start of this structure
-    unsigned long long *shader_cycles;
+	void* shader_core_stats_pod_start[]; // DO NOT MOVE FROM THE TOP - spaceless pointer to the start of this structure
+	unsigned long long *shader_cycles;
     unsigned *m_num_sim_insn; // number of scalar thread instructions committed by this shader core
     unsigned *m_num_sim_winsn; // number of warp instructions committed by this shader core
-    unsigned *m_last_num_sim_insn;
-    unsigned *m_last_num_sim_winsn;
+	unsigned *m_last_num_sim_insn;
+	unsigned *m_last_num_sim_winsn;
     unsigned *m_num_decoded_insn; // number of instructions decoded by this shader core
     float *m_pipeline_duty_cycle;
     unsigned *m_num_FPdecoded_insn;
@@ -1427,13 +1380,6 @@ struct shader_core_stats_pod {
     unsigned *l1d_write_access;		// L1 Data cache write access
     unsigned *l1d_write_miss;		// L1 Data cache write miss
 
-    //Qi Zheng -- VCA study
-    unsigned gpgpu_n_global_load_insn;
-    unsigned gpgpu_n_global_store_insn;
-    unsigned gpgpu_n_local_load_insn;
-    unsigned gpgpu_n_local_store_insn;
-
-    unsigned gpgpu_n_global_load_access;
 };
 
 class shader_core_stats : public shader_core_stats_pod {
@@ -1499,15 +1445,6 @@ public:
 
         m_shader_dynamic_warp_issue_distro.resize( config->num_shader() );
         m_shader_warp_slot_issue_distro.resize( config->num_shader() );
-
-	/*
-	//RF STUDY//
-	warp_idx = new std::map<unsigned,unsigned>[ config->num_shader() ];
-	reg_tot_dist = new std::vector< std::map<unsigned, unsigned long long> >[ config->num_shader() ];
-	reg_acc_cout = new std::vector< std::map<unsigned, unsigned long long> >[ config->num_shader() ];
-	reg_last_acc = new std::vector< std::map<unsigned, unsigned long long> >[ config->num_shader() ];
-	vector_size = 0;
-	*/
     }
 
     void new_grid()
@@ -1537,15 +1474,6 @@ private:
     std::vector<unsigned> m_last_shader_dynamic_warp_issue_distro;
     std::vector< std::vector<unsigned> > m_shader_warp_slot_issue_distro;
     std::vector<unsigned> m_last_shader_warp_slot_issue_distro;
-
-    /*
-    //RF STUDY//
-    std::map<unsigned,unsigned>* warp_idx; //identify the position of a warp of a core in the following vectors
-    std::vector< std::map<unsigned, unsigned long long> >* reg_tot_dist; //the total distance of a reg in a warp
-    std::vector< std::map<unsigned, unsigned long long> >* reg_acc_count;//the total accesses of a reg in a warp
-    std::vector< std::map<unsigned, unsigned long long> >* reg_last_acc; //the lastest cycle that a reg is accessed
-    unsigned long long vector_size;
-    */
 
     friend class power_stat_t;
     friend class shader_core_ctx;
@@ -1620,10 +1548,8 @@ public:
         assert(k);
         m_kernel=k; 
         k->inc_running(); 
-#ifdef DETAILED
         printf("GPGPU-Sim uArch: Shader %d bind to kernel %u \'%s\'\n", m_sid, m_kernel->get_uid(),
                  m_kernel->name().c_str() );
-#endif
     }
    
     // accessors
@@ -1766,9 +1692,6 @@ public:
 	 void incsfuactivelanes_stat(unsigned active_count) {m_stats->m_active_sfu_lanes[m_sid]=m_stats->m_active_sfu_lanes[m_sid]+active_count;}
 	 void incfuactivelanes_stat(unsigned active_count) {m_stats->m_active_fu_lanes[m_sid]=m_stats->m_active_fu_lanes[m_sid]+active_count;}
 	 void incfumemactivelanes_stat(unsigned active_count) {m_stats->m_active_fu_mem_lanes[m_sid]=m_stats->m_active_fu_mem_lanes[m_sid]+active_count;}
-
-//Qi Zheng -- VCA study
-         void incgloballoadaccess(){m_stats->gpgpu_n_global_load_access++;}
 private:
 	 unsigned inactive_lanes_accesses_sfu(unsigned active_count,double latency){
       return  ( ((32-active_count)>>1)*latency) + ( ((32-active_count)>>3)*latency) + ( ((32-active_count)>>3)*latency);
@@ -1837,7 +1760,6 @@ private:
 
     // decode/dispatch
     std::vector<shd_warp_t>   m_warp;   // per warp information array
-    std::vector<int> m_warp_thnum;
     barrier_set_t             m_barriers;
     ifetch_buffer_t           m_inst_fetch_buffer;
     std::vector<register_set> m_pipeline_reg;
@@ -1959,11 +1881,4 @@ private:
 
 inline int scheduler_unit::get_sid() const { return m_shader->get_sid(); }
 
-<<<<<<< HEAD
-//Irregular_Study
-inline unsigned shd_warp_t::get_tsid() const{ return m_shader->get_sid(); }
-//end
-
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 #endif /* SHADER_H */

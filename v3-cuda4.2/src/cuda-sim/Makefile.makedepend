@@ -106,10 +106,16 @@
 ../../build/4020/release/cuda-sim/cuda-sim.o: ../gpgpu-sim/gpu-cache.h
 ../../build/4020/release/cuda-sim/cuda-sim.o: ../tr1_hash_map.h ptx_sim.h
 ../../build/4020/release/cuda-sim/cuda-sim.o: opcodes.h opcodes.def memory.h
+<<<<<<< HEAD
 ../../build/4020/release/cuda-sim/cuda-sim.o: /usr/include/string.h
 ../../build/4020/release/cuda-sim/cuda-sim.o: instructions.h ptx_ir.h
 ../../build/4020/release/cuda-sim/cuda-sim.o: ptx.tab.h ptx-stats.h
 ../../build/4020/release/cuda-sim/cuda-sim.o: ptx_loader.h ptx_parser.h
+=======
+../../build/4020/release/cuda-sim/cuda-sim.o: /usr/include/string.h ptx_ir.h
+../../build/4020/release/cuda-sim/cuda-sim.o: ptx-stats.h ptx_loader.h
+../../build/4020/release/cuda-sim/cuda-sim.o: ptx_parser.h
+>>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 ../../build/4020/release/cuda-sim/cuda-sim.o: ../gpgpu-sim/gpu-sim.h
 ../../build/4020/release/cuda-sim/cuda-sim.o: ../trace.h ../trace_streams.tup
 ../../build/4020/release/cuda-sim/cuda-sim.o: ../gpgpu-sim/shader.h
@@ -122,7 +128,11 @@
 ../../build/4020/release/cuda-sim/cuda-sim.o: /usr/include/bits/sched.h
 ../../build/4020/release/cuda-sim/cuda-sim.o: /usr/include/bits/setjmp.h
 ../../build/4020/release/cuda-sim/cuda-sim.o: ../../version
+<<<<<<< HEAD
 ../../build/4020/release/cuda-sim/instructions.o: instructions.h ptx_ir.h
+=======
+../../build/4020/release/cuda-sim/instructions.o: ptx_ir.h
+>>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 ../../build/4020/release/cuda-sim/instructions.o: ../abstract_hardware_model.h
 ../../build/4020/release/cuda-sim/instructions.o: /usr/include/assert.h
 ../../build/4020/release/cuda-sim/instructions.o: /usr/include/features.h
@@ -161,7 +171,10 @@
 ../../build/4020/release/cuda-sim/instructions.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/cuda-sim/instructions.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/cuda-sim/instructions.o: ../option_parser.h
+<<<<<<< HEAD
 ../../build/4020/release/cuda-sim/instructions.o: ptx.tab.h
+=======
+>>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 ../../build/4020/release/cuda-sim/instructions.o: /usr/include/math.h
 ../../build/4020/release/cuda-sim/instructions.o: /usr/include/bits/huge_val.h
 ../../build/4020/release/cuda-sim/instructions.o: /usr/include/bits/huge_valf.h
@@ -272,8 +285,13 @@
 ../../build/4020/release/cuda-sim/ptx_ir.o: /usr/include/bits/wchar.h
 ../../build/4020/release/cuda-sim/ptx_ir.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/cuda-sim/ptx_ir.o: /usr/include/bits/sys_errlist.h
+<<<<<<< HEAD
 ../../build/4020/release/cuda-sim/ptx_ir.o: ../option_parser.h ptx.tab.h
 ../../build/4020/release/cuda-sim/ptx_ir.o: cuda-sim.h ../gpgpu-sim/shader.h
+=======
+../../build/4020/release/cuda-sim/ptx_ir.o: ../option_parser.h cuda-sim.h
+../../build/4020/release/cuda-sim/ptx_ir.o: ../gpgpu-sim/shader.h
+>>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 ../../build/4020/release/cuda-sim/ptx_ir.o: /usr/include/math.h
 ../../build/4020/release/cuda-sim/ptx_ir.o: /usr/include/bits/huge_val.h
 ../../build/4020/release/cuda-sim/ptx_ir.o: /usr/include/bits/huge_valf.h
@@ -413,8 +431,12 @@
 ../../build/4020/release/cuda-sim/ptx_parser.o: /usr/include/bits/wchar.h
 ../../build/4020/release/cuda-sim/ptx_parser.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/cuda-sim/ptx_parser.o: /usr/include/bits/sys_errlist.h
+<<<<<<< HEAD
 ../../build/4020/release/cuda-sim/ptx_parser.o: ../option_parser.h ptx.tab.h
 ../../build/4020/release/cuda-sim/ptx_parser.o: ptx_parser_decode.def
+=======
+../../build/4020/release/cuda-sim/ptx_parser.o: ../option_parser.h
+>>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 ../../build/4020/release/cuda-sim/ptx_sim.o: ptx_sim.h /usr/include/stdlib.h
 ../../build/4020/release/cuda-sim/ptx_sim.o: /usr/include/features.h
 ../../build/4020/release/cuda-sim/ptx_sim.o: /usr/include/bits/predefs.h
@@ -452,7 +474,11 @@
 ../../build/4020/release/cuda-sim/ptx_sim.o: /usr/include/bits/stdio_lim.h
 ../../build/4020/release/cuda-sim/ptx_sim.o: /usr/include/bits/sys_errlist.h
 ../../build/4020/release/cuda-sim/ptx_sim.o: ptx_ir.h ../option_parser.h
+<<<<<<< HEAD
 ../../build/4020/release/cuda-sim/ptx_sim.o: ptx.tab.h ../gpgpu-sim/gpu-sim.h
+=======
+../../build/4020/release/cuda-sim/ptx_sim.o: ../gpgpu-sim/gpu-sim.h
+>>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 ../../build/4020/release/cuda-sim/ptx_sim.o: ../trace.h ../trace_streams.tup
 ../../build/4020/release/cuda-sim/ptx_sim.o: ../gpgpu-sim/addrdec.h
 ../../build/4020/release/cuda-sim/ptx_sim.o: ../gpgpu-sim/shader.h

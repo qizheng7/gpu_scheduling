@@ -49,18 +49,8 @@
 
 #define PRIORITIZE_MSHR_OVER_WB 1
 #define MAX(a,b) (((a)>(b))?(a):(b))
-
-<<<<<<< HEAD
-//Irregular_Study
-#include "irregular.h"
-//end
-
-=======
-#include "reg_study.h"
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
-
-//#define DETAILED
     
+
 /////////////////////////////////////////////////////////////////////////////
 
 std::list<unsigned> shader_core_ctx::get_regs_written( const inst_t &fvt ) const
@@ -143,13 +133,6 @@ shader_core_ctx::shader_core_ctx( class gpgpu_sim *gpu,
                                          CONCRETE_SCHEDULER_TWO_LEVEL_ACTIVE :
                                          sched_config.find("gto") != std::string::npos ?
                                          CONCRETE_SCHEDULER_GTO :
-<<<<<<< HEAD
-                                         //Irregular_Study
-                                         sched_config.find("oracle_instcommit") != std::string::npos ?
-                                         CONCRETE_SCHEDULER_CRI_ORACLE_INSTCOMMIT :
-                                         //end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
                                          NUM_CONCRETE_SCHEDULERS;
     assert ( scheduler != NUM_CONCRETE_SCHEDULERS );
     
@@ -199,25 +182,6 @@ shader_core_ctx::shader_core_ctx( class gpgpu_sim *gpu,
                                      )
                 );
                 break;
-<<<<<<< HEAD
-            //Irregular_Study
-            case CONCRETE_SCHEDULER_CRI_ORACLE_INSTCOMMIT:
-                schedulers.push_back(
-                    new oracle_instcommit_scheduler( m_stats,
-                                                     this,
-                                                     m_scoreboard,
-                                                     m_simt_stack,
-                                                     &m_warp,
-                                                     &m_pipeline_reg[ID_OC_SP],
-                                                     &m_pipeline_reg[ID_OC_SFU],
-                                                     &m_pipeline_reg[ID_OC_MEM],
-                                                     i
-                                                   )
-                );
-                break;
-            //end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
             default:
                 abort();
         };
@@ -450,13 +414,6 @@ void shader_core_stats::print( FILE* fout ) const
 */
    fprintf(fout, "gpgpu_n_load_insn  = %d\n", gpgpu_n_load_insn);
    fprintf(fout, "gpgpu_n_store_insn = %d\n", gpgpu_n_store_insn);
-//Qi Zheng -- VCA study
-   fprintf(fout, "gpgpu_n_global_load_insn  = %d\n", gpgpu_n_global_load_insn);
-   fprintf(fout, "gpgpu_n_global_store_insn = %d\n", gpgpu_n_global_store_insn);
-   fprintf(fout, "gpgpu_n_local_load_insn  = %d\n", gpgpu_n_local_load_insn);
-   fprintf(fout, "gpgpu_n_local_store_insn = %d\n", gpgpu_n_local_store_insn);
-   fprintf(fout, "gpgpu_n_global_load_access = %d\n", gpgpu_n_global_load_access);
-
    fprintf(fout, "gpgpu_n_shmem_insn = %d\n", gpgpu_n_shmem_insn);
    fprintf(fout, "gpgpu_n_tex_insn = %d\n", gpgpu_n_tex_insn);
    fprintf(fout, "gpgpu_n_const_mem_insn = %d\n", gpgpu_n_const_insn);
@@ -669,24 +626,8 @@ void shader_core_ctx::fetch()
                         did_exit=true;
                     }
                 }
-                if( did_exit ){ 
+                if( did_exit ) 
                     m_warp[warp_id].set_done_exit();
-<<<<<<< HEAD
-                    //Irregular_Study
-                    unsigned tdynwid = m_warp[warp_id].get_dynamic_warp_id();
-                    assert(warp_id <= INSTCOMMIT_MAX_WARP);
-                    assert(instcommit_dyn_warp_id[get_sid()][warp_id] == tdynwid);
-                    instcommit_dyn_warp_id[get_sid()][warp_id] = -1;
-                    warp_committed_inst[get_sid()][warp_id] = 0;
-                    //end
-=======
-//Qi Zheng -- VCA study
-/*
-printf("VCA -- Warpexit: %u %u\n",
-	warp_id, m_warp[warp_id].get_dynamic_warp_id());
-*/
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
-		}
             }
 
             // this code fetches instructions from the i-cache or generates memory requests
@@ -794,10 +735,10 @@ shd_warp_t& scheduler_unit::warp(int i){
  * @param last_issued_from_input:  An iterator pointing the last member in the input_list that issued.
  *                                 Since this function orders in a RR fashion, the object pointed
  *                                 to by this iterator will be last in the prioritization list
- * @param num_warps_to_add: The number of warps you want the scheduler to pick between this cycle.
+ * @param num_warps_to_add: The number of warps you want the scheudler to pick between this cycle.
  *                          Normally, this will be all the warps availible on the core, i.e.
  *                          m_supervised_warps.size(). However, a more sophisticated scheduler may wish to
- *                          limit this number. If the number is < m_supervised_warps.size(), then only
+ *                          limit this number. If the number if < m_supervised_warps.size(), then only
  *                          the warps with highest RR priority will be placed in the result_list.
  */
 template < class T >
@@ -833,10 +774,6 @@ void scheduler_unit::order_lrr( std::vector< T >& result_list,
  *                           with the oldest warps having the most priority, then the priority_function
  *                           would compare the age of the two warps.
  */
-<<<<<<< HEAD
-
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 template < class T >
 void scheduler_unit::order_by_priority( std::vector< T >& result_list,
                                         const typename std::vector< T >& input_list,
@@ -866,42 +803,6 @@ void scheduler_unit::order_by_priority( std::vector< T >& result_list,
         for ( unsigned count = 0; count < num_warps_to_add; ++count, ++iter ) {
             result_list.push_back( *iter );
         }
-<<<<<<< HEAD
-//Irregular_Study      
-    } else if ( ORDERED_PRIORITY_INST_COMMIT == ordering ) {
-        std::sort( temp.begin(), temp.end(), priority_func );
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-        typename std::vector< T >::iterator titer = temp.begin();
-        long tcount = 0;
-        for ( unsigned count = 0; count < num_warps_to_add; ++count, ++titer ) {
-          if(!(*titer)) continue;
-          unsigned tdw = (*titer)->get_dynamic_warp_id();
-          unsigned tw = (*titer)->get_warp_id();
-          if(tw < INSTCOMMIT_MAX_WARP){
-            tcount += warp_committed_inst[get_sid()][tw];
-          }
-        }
-
-        if(tcount > 0){
-          titer = temp.begin();
-          for ( unsigned count = 0; count < num_warps_to_add; ++count, ++titer ) {
-            if(!(*titer)) continue;
-            unsigned tdw = (*titer)->get_dynamic_warp_id();
-            unsigned tw = (*titer)->get_warp_id();
-            if(tw < INSTCOMMIT_MAX_WARP){
-              printf("Cycle: %lld, Core: %d, d_id:%u, w_id:%u, commitinst:%u\n",gpu_tot_sim_cycle+gpu_sim_cycle, get_sid(), tdw,tw,warp_committed_inst[get_sid()][tw]);
-            }
-          }
-          printf("\n");
-        }
-#endif
-        typename std::vector< T >::iterator iter = temp.begin();
-        for ( unsigned count = 0; count < num_warps_to_add; ++count, ++iter ) {
-            result_list.push_back( *iter );
-        }
-//end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
     } else {
         fprintf( stderr, "Unknown ordering - %d\n", ordering );
         abort();
@@ -916,26 +817,11 @@ void scheduler_unit::cycle()
     bool issued_inst = false; // of these we issued one
 
     order_warps();
-<<<<<<< HEAD
-
-    for ( std::vector< shd_warp_t* >::const_iterator iter = m_next_cycle_prioritized_warps.begin();
-          iter != m_next_cycle_prioritized_warps.end();
-          iter++ ) {
-
-        // Don't consider warps that are not yet valid
-        if ( (*iter) == NULL || (*iter)->done_exit() ) {
-/*
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u is invalid\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-#endif
-*/
-=======
     for ( std::vector< shd_warp_t* >::const_iterator iter = m_next_cycle_prioritized_warps.begin();
           iter != m_next_cycle_prioritized_warps.end();
           iter++ ) {
         // Don't consider warps that are not yet valid
         if ( (*iter) == NULL || (*iter)->done_exit() ) {
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
             continue;
         }
         SCHED_DPRINTF( "Testing (warp_id %u, dynamic_warp_id %u)\n",
@@ -958,7 +844,7 @@ void scheduler_unit::cycle()
                 if( pc != pI->pc ) {
                     SCHED_DPRINTF( "Warp (warp_id %u, dynamic_warp_id %u) control hazard instruction flush\n",
                                    (*iter)->get_warp_id(), (*iter)->get_dynamic_warp_id() );
-                   // control hazard
+                    // control hazard
                     warp(warp_id).set_next_pc(pc);
                     warp(warp_id).ibuffer_flush();
                 } else {
@@ -976,16 +862,6 @@ void scheduler_unit::cycle()
                                 issued_inst=true;
                                 warp_inst_issued = true;
                             }
-<<<<<<< HEAD
-/*
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-                            else{
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u is MEM structure hazard\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-                            }
-#endif
-*/
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
                         } else {
                             bool sp_pipe_avail = m_sp_out->has_free();
                             bool sfu_pipe_avail = m_sfu_out->has_free();
@@ -1003,26 +879,8 @@ void scheduler_unit::cycle()
                                     warp_inst_issued = true;
                                 }
                             } 
-<<<<<<< HEAD
-/*
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-                            else{
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u is SP/SFU structure hazard\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-                            }
-#endif
-*/
- 
                         }
                     } else {
-/*
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u has data hazard\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-#endif
-*/
-=======
-                        }
-                    } else {
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
                         SCHED_DPRINTF( "Warp (warp_id %u, dynamic_warp_id %u) fails scoreboard\n",
                                        (*iter)->get_warp_id(), (*iter)->get_dynamic_warp_id() );
                     }
@@ -1042,25 +900,8 @@ void scheduler_unit::cycle()
                 do_on_warp_issued( warp_id, issued, iter );
             }
             checked++;
-<<<<<<< HEAD
-        }//while loop on each warp
-/*
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-        if(valid_inst == false && checked == 0){
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u does not have valid instruction\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-        }else if(valid_inst == false && checked > 0){
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u has control hazard\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-        }
-#endif
-*/
-        if ( issued ) {
-          //Qi Zheng
-          printf("Issued--Cycle: %lld, ",gpu_tot_sim_cycle+gpu_sim_cycle);
-          printf("Warp: %d\n",(*iter)->get_dynamic_warp_id());
-=======
         }
         if ( issued ) {
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
             // This might be a bit inefficient, but we need to maintain
             // two ordered list for proper scheduler execution.
             // We could remove the need for this loop by associating a
@@ -1073,58 +914,17 @@ void scheduler_unit::cycle()
                     m_last_supervised_issued = supervised_iter;
                 }
             }
-<<<<<<< HEAD
-/*
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-          printf("Cycle: %lld, Core: %u, d_id:%u, w_id:%u successfully issued\n",gpu_tot_sim_cycle+gpu_sim_cycle,get_sid(),(*iter)->get_dynamic_warp_id(), (*iter)->get_warp_id());
-#endif
-*/
-            break;
-        } 
-    }//for loop among all warps
-
-    // issue stall statistics:
-    if( !valid_inst )
-=======
             break;
         } 
     }
 
     // issue stall statistics:
     if( !valid_inst ) 
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
         m_stats->shader_cycle_distro[0]++; // idle or control hazard
     else if( !ready_inst ) 
         m_stats->shader_cycle_distro[1]++; // waiting for RAW hazards (possibly due to memory) 
     else if( !issued_inst ) 
         m_stats->shader_cycle_distro[2]++; // pipeline stalled
-<<<<<<< HEAD
-
-//Qi Zheng
-    if(!(valid_inst && ready_inst && issued_inst)){
-      if(this->get_sid() == 0) {
-        printf("Study--Cycle:%lld, ",gpu_tot_sim_cycle+gpu_sim_cycle);
-        printf("W0: %u, W1: %u, W2: %u, all: %u\n",  m_stats->shader_cycle_distro[0], m_stats->shader_cycle_distro[1], m_stats->shader_cycle_distro[2],m_stats->shader_cycle_distro[0]+m_stats->shader_cycle_distro[1]+m_stats->shader_cycle_distro[2]);
-      }
-    }
-
-    //Irregular_Study
-#ifdef IRREGULAR_MOT
-    if(!(valid_inst && ready_inst && issued_inst)){
-      unsigned int warpcounter = 0;
-      for ( std::vector< shd_warp_t* >::const_iterator iter = m_next_cycle_prioritized_warps.begin();
-            iter != m_next_cycle_prioritized_warps.end();
-            iter++ ){
-        if ( (*iter) != NULL && (!(*iter)->done_exit()) ) {
-          warpcounter++;
-        }
-      }
-      printf("Core %d stall_at_cycle %lld Active_warp %u\n", this->get_sid(),gpu_tot_sim_cycle+gpu_sim_cycle, warpcounter);
-    }
-#endif
-    //end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 }
 
 void scheduler_unit::do_on_warp_issued( unsigned warp_id,
@@ -1147,40 +947,6 @@ bool scheduler_unit::sort_warps_by_oldest_dynamic_id(shd_warp_t* lhs, shd_warp_t
     }
 }
 
-<<<<<<< HEAD
-//Irregular_Study
-bool scheduler_unit::sort_warps_by_inst_commit(shd_warp_t* lhs, shd_warp_t* rhs)
-{
-    if(!(rhs && lhs)){
-      return lhs < rhs;
-    }
-
-    unsigned tsid = lhs->get_tsid(); 
-    unsigned ltdid = lhs->get_dynamic_warp_id();
-    unsigned ltwid = lhs->get_warp_id();
-    unsigned rtdid = rhs->get_dynamic_warp_id();
-    unsigned rtwid = rhs->get_warp_id();
-    if(ltwid > INSTCOMMIT_MAX_WARP || rtwid > INSTCOMMIT_MAX_WARP){
-      //printf("Core: %u, lwid: %u ldid: %u, rwid: %u rdid: %u\n", tsid, ltwid, ltdid, rtwid, rtdid);
-      //assert(0);
-      return ltdid < rtdid;
-    }
-    assert(ltwid <= INSTCOMMIT_MAX_WARP && rtwid <= INSTCOMMIT_MAX_WARP);
-    if(instcommit_dyn_warp_id[tsid][ltwid] != ltdid && 
-       instcommit_dyn_warp_id[tsid][ltwid] != -1    &&
-       instcommit_dyn_warp_id[tsid][rtwid] != rtdid && 
-       instcommit_dyn_warp_id[tsid][rtwid] != -1 ){ 
-//        printf("Cycle: %lld, Core: %d, d_id:%u, w_id:%u, stored_id:%u\n",gpu_tot_sim_cycle+gpu_sim_cycle, tsid, tdynwid,twid,instcommit_dyn_warp_id[tsid][twid]);
-        assert(0);
-    }
-    unsigned linstcommit = warp_committed_inst[tsid][ltwid];
-    unsigned rinstcommit = warp_committed_inst[tsid][rtwid];
-    return (linstcommit < rinstcommit); 
-}
-//end
-
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 void lrr_scheduler::order_warps()
 {
     order_lrr( m_next_cycle_prioritized_warps,
@@ -1199,21 +965,6 @@ void gto_scheduler::order_warps()
                        scheduler_unit::sort_warps_by_oldest_dynamic_id );
 }
 
-<<<<<<< HEAD
-//Irregular_Study
-void oracle_instcommit_scheduler::order_warps()
-{
-    order_by_priority( m_next_cycle_prioritized_warps,
-                       m_supervised_warps,
-                       m_last_supervised_issued,
-                       m_supervised_warps.size(),
-                       ORDERED_PRIORITY_INST_COMMIT,
-                       scheduler_unit::sort_warps_by_inst_commit );
-}
-//end
-
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 void
 two_level_active_scheduler::do_on_warp_issued( unsigned warp_id,
                                                unsigned num_issued,
@@ -1237,60 +988,32 @@ two_level_active_scheduler::do_on_warp_issued( unsigned warp_id,
 
 void two_level_active_scheduler::order_warps()
 {
-<<<<<<< HEAD
-=======
-//Qi Zheng -- VCA study
-/*
-printf("  In the order_warps: there are %d active warps -- ",m_next_cycle_prioritized_warps.size());
-for(int i=0;i<m_next_cycle_prioritized_warps.size();i++){
-	printf("%d ", m_next_cycle_prioritized_warps.at(i)->get_warp_id());
-}
-printf("\n");
-*/
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
-    //Move waiting warps to m_pending_warps
+	//Move waiting warps to m_pending_warps
     unsigned num_demoted = 0;
-    for (std::vector< shd_warp_t* >::iterator iter = m_next_cycle_prioritized_warps.begin();
-	iter != m_next_cycle_prioritized_warps.end(); ) {
-        bool waiting = (*iter)->waiting();
-	for (int i=0; i<4; i++){
-	    const warp_inst_t* inst = (*iter)->ibuffer_next_inst();
-	    //Is the instruction waiting on a long operation?
-	    if ( inst && inst->in[i] > 0 && this->m_scoreboard->islongop((*iter)->get_warp_id(), inst->in[i])){
-	        waiting = true;
-	    }
-	}
+	for (	std::vector< shd_warp_t* >::iterator iter = m_next_cycle_prioritized_warps.begin();
+			iter != m_next_cycle_prioritized_warps.end(); ) {
+		bool waiting = (*iter)->waiting();
+		for (int i=0; i<4; i++){
+			const warp_inst_t* inst = (*iter)->ibuffer_next_inst();
+			//Is the instruction waiting on a long operation?
+			if ( inst && inst->in[i] > 0 && this->m_scoreboard->islongop((*iter)->get_warp_id(), inst->in[i])){
+				waiting = true;
+			}
+		}
 
-	if( waiting ) {
-<<<<<<< HEAD
-=======
-//Qi Zheng -- VCA study
-	    if( (*iter)->get_warp_id() != -1 ){
-/*
-	        printf("DEMOTED warp_id= %d dynamic_warp_id= %d\n",
-	                 (*iter)->get_warp_id(),
-	                 (*iter)->get_dynamic_warp_id());
-*/
-	    }
-
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
-	    m_pending_warps.push_back(*iter);
-	    iter = m_next_cycle_prioritized_warps.erase(iter);
+		if( waiting ) {
+			m_pending_warps.push_back(*iter);
+			iter = m_next_cycle_prioritized_warps.erase(iter);
             SCHED_DPRINTF( "DEMOTED warp_id=%d, dynamic_warp_id=%d\n",
                            (*iter)->get_warp_id(),
                            (*iter)->get_dynamic_warp_id() );
-/*
-	    printf("  DEMOTED warp_id= %d dynamic_warp_id= %d\n",
-	             (*iter)->get_warp_id(),
-	             (*iter)->get_dynamic_warp_id());
-*/
             ++num_demoted;
-	} else {
+		} else {
             ++iter;
         }
-    }
+	}
 
-    //If there is space in m_next_cycle_prioritized_warps, promote the next m_pending_warps
+	//If there is space in m_next_cycle_prioritized_warps, promote the next m_pending_warps
     unsigned num_promoted = 0;
     if ( SCHEDULER_PRIORITIZATION_SRR == m_outer_level_prioritization ) {
         while ( m_next_cycle_prioritized_warps.size() < m_max_active_warps ) {
@@ -1299,17 +1022,6 @@ printf("\n");
             SCHED_DPRINTF( "PROMOTED warp_id=%d, dynamic_warp_id=%d\n",
                            (m_next_cycle_prioritized_warps.back())->get_warp_id(),
                            (m_next_cycle_prioritized_warps.back())->get_dynamic_warp_id() );
-<<<<<<< HEAD
-=======
-//Qi Zheng -- VCA study
-            if( (m_next_cycle_prioritized_warps.back())->get_warp_id() != -1 ){
-/*
-                printf("PROMOTED warp_id= %d dynamic_warp_id= %d\n",
-                               (m_next_cycle_prioritized_warps.back())->get_warp_id(),
-                               (m_next_cycle_prioritized_warps.back())->get_dynamic_warp_id() );
-*/
-            }
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
             ++num_promoted;
     	}
     } else {
@@ -1400,9 +1112,9 @@ int shader_core_ctx::test_res_bus(int latency){
 
 void shader_core_ctx::execute()
 {
-    for(unsigned i=0; i<num_result_bus; i++){
-	*(m_result_bus[i]) >>=1;
-    }
+	for(unsigned i=0; i<num_result_bus; i++){
+		*(m_result_bus[i]) >>=1;
+	}
     for( unsigned n=0; n < m_num_function_units; n++ ) {
         unsigned multiplier = m_fu[n]->clock_multiplier();
         for( unsigned c=0; c < multiplier; c++ ){ 
@@ -1487,13 +1199,10 @@ void ldst_unit::set_icnt_power_stats(unsigned &simt_to_mem) const{
 
 void shader_core_ctx::warp_inst_complete(const warp_inst_t &inst)
 {
-<<<<<<< HEAD
-=======
    #if 0
       printf("[warp_inst_complete] uid=%u core=%u warp=%u pc=%#x @ time=%llu issued@%llu\n", 
              inst.get_uid(), m_sid, inst.warp_id(), inst.pc, gpu_tot_sim_cycle + gpu_sim_cycle, inst.get_issue_cycle()); 
    #endif
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
   if(inst.op4==SP__OP)
 	  m_stats->m_num_sp_committed[m_sid]++;
   else if(inst.op4==SFU__OP)
@@ -1509,27 +1218,6 @@ void shader_core_ctx::warp_inst_complete(const warp_inst_t &inst)
   m_stats->m_num_sim_winsn[m_sid]++;
   m_gpu->gpu_sim_insn += inst.active_count();
   inst.completed(gpu_tot_sim_cycle + gpu_sim_cycle);
-<<<<<<< HEAD
-
-  //Irregular_Study
-  unsigned tdynwid = inst.dynamic_warp_id();
-  unsigned twid = inst.warp_id();
-  assert(twid <= INSTCOMMIT_MAX_WARP);
-  if(instcommit_dyn_warp_id[get_sid()][twid] != tdynwid && instcommit_dyn_warp_id[get_sid()][twid] != -1){
-    printf("Cycle: %lld, Core: %d, d_id:%u, w_id:%u, stored_id:%u\n",gpu_tot_sim_cycle+gpu_sim_cycle, get_sid(), tdynwid,twid,instcommit_dyn_warp_id[get_sid()][twid]);
-    assert(0);
-  }
-  if(instcommit_dyn_warp_id[get_sid()][twid] == -1) {
-    instcommit_dyn_warp_id[get_sid()][twid] = tdynwid;
-  }
-  warp_committed_inst[get_sid()][twid] += inst.active_count();
-#ifdef DEBUG_ORACLE_INSTCOMMIT
-    printf("Cycle: %lld, Core: %d, d_id:%u, w_id:%u, finish:%u--",gpu_tot_sim_cycle+gpu_sim_cycle, get_sid(), tdynwid,twid,inst.active_count());
-    inst.print(stdout); 
-#endif
-  //end
-=======
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
 }
 
 void shader_core_ctx::writeback()
@@ -2075,7 +1763,7 @@ void ldst_unit::issue( register_set &reg_set )
 void ldst_unit::cycle()
 {
    writeback();
-   m_operand_collector->step(m_sid);
+   m_operand_collector->step();
    for( unsigned stage=0; (stage+1)<m_pipeline_depth; stage++ ) 
        if( m_pipeline_reg[stage]->empty() && !m_pipeline_reg[stage+1]->empty() )
             move_warp(m_pipeline_reg[stage], m_pipeline_reg[stage+1]);
@@ -2180,38 +1868,21 @@ void shader_core_ctx::register_cta_thread_exit( unsigned cta_num )
 {
    assert( m_cta_status[cta_num] > 0 );
    m_cta_status[cta_num]--;
-
    if (!m_cta_status[cta_num]) {
       m_n_active_cta--;
       m_barriers.deallocate_barrier(cta_num);
       shader_CTA_count_unlog(m_sid, 1);
-
-#ifdef DETAILED
       printf("GPGPU-Sim uArch: Shader %d finished CTA #%d (%lld,%lld), %u CTAs running\n", m_sid, cta_num, gpu_sim_cycle, gpu_tot_sim_cycle,
              m_n_active_cta );
-#endif
-
       if( m_n_active_cta == 0 ) {
           assert( m_kernel != NULL );
           m_kernel->dec_running();
-
-#ifdef DETAILED
           printf("GPGPU-Sim uArch: Shader %u empty (release kernel %u \'%s\').\n", m_sid, m_kernel->get_uid(),
                  m_kernel->name().c_str() );
-#endif
-
           if( m_kernel->no_more_ctas_to_run() ) {
               if( !m_kernel->running() ) {
-
-#ifdef DETAILED
                   printf("GPGPU-Sim uArch: GPU detected kernel \'%s\' finished on shader %u.\n", m_kernel->name().c_str(), m_sid );
                   m_gpu->set_kernel_done( m_kernel );
-#endif
-#ifndef DETAILED
-		m_kernel->name().c_str();
-		m_gpu->set_kernel_done( m_kernel );
-#endif
-
               }
           }
           m_kernel=NULL;
@@ -2260,7 +1931,6 @@ void gpgpu_sim::shader_print_scheduler_stat( FILE* fout, bool print_dynamic_info
     } else {
         snprintf( name_buff, STR_SIZE - 1, "warp_id" );
     }
-#ifdef DETAILED 
     fprintf( fout,
              "Shader %d %s issue ditsribution:\n",
              scheduler_sampling_core,
@@ -2282,7 +1952,6 @@ void gpgpu_sim::shader_print_scheduler_stat( FILE* fout, bool print_dynamic_info
         fprintf( fout, "%d, ", *iter );
     }
     fprintf( fout, "\n" );
-#endif
 }
 
 
@@ -2617,7 +2286,6 @@ unsigned int shader_core_config::max_cta( const kernel_info_t &k ) const
 
    //Limit by n_threads/shader
    unsigned int result_thread = n_thread_per_shader / padded_cta_size;
-   //printf("tps:%d, padded_cat_size:%d\n",n_thread_per_shader, padded_cta_size);
 
    const struct gpgpu_ptx_sim_kernel_info *kernel_info = ptx_sim_kernel_info(kernel);
 
@@ -2642,16 +2310,12 @@ unsigned int shader_core_config::max_cta( const kernel_info_t &k ) const
    static const struct gpgpu_ptx_sim_kernel_info* last_kinfo = NULL;
    if (last_kinfo != kernel_info) {   //Only print out stats if kernel_info struct changes
       last_kinfo = kernel_info;
-
-//#ifdef DETAILED
       printf ("GPGPU-Sim uArch: CTA/core = %u, limited by:", result);
       if (result == result_thread) printf (" threads");
       if (result == result_shmem) printf (" shmem");
       if (result == result_regs) printf (" regs");
       if (result == result_cta) printf (" cta_limit");
       printf ("\n");
-//#endif
-
    }
 
     //gpu_max_cta_per_shader is limited by number of CTAs if not enough to keep all cores busy    
@@ -3174,7 +2838,7 @@ void opndcoll_rfu_t::dispatch_ready_cu()
    }
 }
 
-void opndcoll_rfu_t::allocate_cu( unsigned port_num, unsigned m_sid )
+void opndcoll_rfu_t::allocate_cu( unsigned port_num )
 {
    input_port_t& inp = m_in_ports[port_num];
    for (unsigned i = 0; i < inp.m_in.size(); i++) {
@@ -3186,7 +2850,7 @@ void opndcoll_rfu_t::allocate_cu( unsigned port_num, unsigned m_sid )
               for (unsigned k = 0; k < cu_set.size(); k++) {
                   if(cu_set[k].is_free()) {
                      collector_unit_t *cu = &cu_set[k];
-                     allocated = cu->allocate(inp.m_in[i],inp.m_out[i], m_sid);
+                     allocated = cu->allocate(inp.m_in[i],inp.m_out[i]);
                      m_arbiter.add_read_requests(cu);
                      break;
                   }
@@ -3217,7 +2881,6 @@ void opndcoll_rfu_t::allocate_reads()
       unsigned cu = op.get_oc_id();
       unsigned operand = op.get_operand();
       m_cu[cu]->collect_operand(operand);
-
       if(m_shader->get_config()->gpgpu_clock_gated_reg_file){
     	  unsigned active_count=0;
     	  for(unsigned i=0;i<m_shader->get_config()->warp_size;i=i+m_shader->get_config()->n_regfile_gating_group){
@@ -3269,7 +2932,7 @@ void opndcoll_rfu_t::collector_unit_t::init( unsigned n,
    m_bank_warp_shift=log2_warp_size;
 }
 
-bool opndcoll_rfu_t::collector_unit_t::allocate( register_set* pipeline_reg_set, register_set* output_reg_set, unsigned m_sid ) 
+bool opndcoll_rfu_t::collector_unit_t::allocate( register_set* pipeline_reg_set, register_set* output_reg_set ) 
 {
    assert(m_free);
    assert(m_not_ready.none());
@@ -3277,181 +2940,6 @@ bool opndcoll_rfu_t::collector_unit_t::allocate( register_set* pipeline_reg_set,
    m_output_register = output_reg_set;
    warp_inst_t **pipeline_reg = pipeline_reg_set->get_ready();
    if( (pipeline_reg) and !((*pipeline_reg)->empty()) ) {
-<<<<<<< HEAD
-=======
-//Qi Zheng -- VCA study
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
-       //collect the num of global loads
-       if((*pipeline_reg)->space.get_type() == global_space){
-           if(!((*pipeline_reg)->is_store())){
-   	       for(int op=0;op<MAX_REG_OPERANDS;op++){
-                   if((*pipeline_reg)->arch_reg.dst[op] >=0){
-                       m_rfu->shader_core()->incgloballoadaccess();
-       		   }  
-   	       }    
-           }
-       }
-<<<<<<< HEAD
-=======
-#ifdef RF_TRACE
-//   printf("/*========================*/\n");
-   bool AnyRegFlag = false;
-   for(int op=0;op<MAX_REG_OPERANDS;op++){
-       if((*pipeline_reg)->arch_reg.src[op] >=0 || (*pipeline_reg)->arch_reg.dst[op] >=0 ) {
-           AnyRegFlag = true;
-	   break;
-       }
-   }
-   if(AnyRegFlag){
-	bool tempflag = false;
-   	//printf("RF_DETAILED -- Cur_cycle: %d\n",gpu_sim_cycle);
-   	printf("shader_id: %d w_id: %d dynaw_id: %d", m_sid,(*pipeline_reg)->warp_id(), (*pipeline_reg)->dynamic_warp_id());
-   	//(*pipeline_reg)->print_insn(stdout);
-   	printf(" src: ");
-   	for(int op=0;op<MAX_REG_OPERANDS;op++){
-       		if((*pipeline_reg)->arch_reg.src[op] >=0){
-       	    		printf("%d,", (*pipeline_reg)->arch_reg.src[op] );
-			tempflag = true;
-       		}
-   	} 
-	if(tempflag == false) printf("n/a");
-	tempflag = false;
-   	printf(" dst: ");
-   	for(int op=0;op<MAX_REG_OPERANDS;op++){
-        	if((*pipeline_reg)->arch_reg.dst[op] >=0){
-           		printf("%d,", (*pipeline_reg)->arch_reg.dst[op] );
-			tempflag = true;
-       		}
-   	} 
-	if(tempflag == false) printf("n/a");
-   	printf("\n");
-   }
-//   printf("/*========================*/\n");
-#endif
-#ifdef RF_STUDY
-    //find the position of a warp in the vector
-    unsigned dw_id = (*pipeline_reg)->dynamic_warp_id(); 
-    std::map< unsigned, unsigned >::iterator warp_it = warp_idx[m_sid].find(dw_id); 
-    unsigned warp_pos;
-    if(warp_it == warp_idx[m_sid].end()){
-        warp_idx[m_sid][dw_id] = vector_size[m_sid];
-        warp_pos = vector_size[m_sid];
-        vector_size[m_sid]++;
-        assert(reg_tot_dist[m_sid].size() == (vector_size[m_sid]-1));
-        for(int op=0;op<MAX_REG_OPERANDS;op++){
-            int reg_id = (*pipeline_reg)->arch_reg.src[op];
-            if(reg_id >=0){
-                if(reg_tot_dist[m_sid].size() == (vector_size[m_sid]-1)){
-                    assert(reg_acc_count[m_sid].size() == (vector_size[m_sid]-1));
-                    assert(reg_last_acc[m_sid].size() == (vector_size[m_sid]-1));
-                    map<unsigned, unsigned long long> temppair;
-                    temppair[reg_id] = 0;
-                    reg_tot_dist[m_sid].push_back(temppair);
-                    temppair[reg_id] = 1;
-                    reg_acc_count[m_sid].push_back(temppair);
-                    temppair[reg_id] = gpu_sim_cycle;
-                    reg_last_acc[m_sid].push_back(temppair);
-                }else if(reg_tot_dist[m_sid].size() == vector_size[m_sid]){
-                    assert(reg_acc_count[m_sid].size() == vector_size[m_sid]);
-                    assert(reg_last_acc[m_sid].size() == vector_size[m_sid]);
-                    if(reg_tot_dist[m_sid][warp_pos].find(reg_id) == reg_tot_dist[m_sid][warp_pos].end()){
-                        assert(reg_acc_count[m_sid][warp_pos].find(reg_id) == reg_acc_count[m_sid][warp_pos].end());
-                        assert(reg_last_acc[m_sid][warp_pos].find(reg_id) == reg_last_acc[m_sid][warp_pos].end());
-                        (reg_tot_dist[m_sid][warp_pos])[reg_id] = 0; 
-                        (reg_acc_count[m_sid][warp_pos])[reg_id] = 1;
-                        (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                    }else{
-                        assert(reg_acc_count[m_sid][warp_pos].find(reg_id) != reg_acc_count[m_sid][warp_pos].end());
-                        assert(reg_last_acc[m_sid][warp_pos].find(reg_id) != reg_last_acc[m_sid][warp_pos].end());
-                        unsigned long long olddist = reg_tot_dist[m_sid][warp_pos].find(reg_id)->second;
-                        (reg_tot_dist[m_sid][warp_pos])[reg_id] = olddist + gpu_sim_cycle - (reg_last_acc[m_sid][warp_pos])[reg_id];
-                        (reg_acc_count[m_sid][warp_pos])[reg_id]++;
-                        (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                    }
-                }else{
-                    assert(0);
-                }
-            }
-        }
-        for(int op=0;op<MAX_REG_OPERANDS;op++){
-            int reg_id = (*pipeline_reg)->arch_reg.dst[op];
-            if(reg_id >=0){
-                if(reg_tot_dist[m_sid].size() == (vector_size[m_sid]-1)){
-                    assert(reg_acc_count[m_sid].size() == (vector_size[m_sid]-1));
-                    assert(reg_last_acc[m_sid].size() == (vector_size[m_sid]-1));
-                    map<unsigned, unsigned long long> temppair;
-                    temppair[reg_id] = 0;
-                    reg_tot_dist[m_sid].push_back(temppair);
-                    temppair[reg_id] = 1;
-                    reg_acc_count[m_sid].push_back(temppair);
-                    temppair[reg_id] = gpu_sim_cycle;
-                    reg_last_acc[m_sid].push_back(temppair);
-                }else if(reg_tot_dist[m_sid].size() == vector_size[m_sid]){
-                    assert(reg_acc_count[m_sid].size() == vector_size[m_sid]);
-                    assert(reg_last_acc[m_sid].size() == vector_size[m_sid]);
-                    if(reg_tot_dist[m_sid][warp_pos].find(reg_id) == reg_tot_dist[m_sid][warp_pos].end()){
-                        assert(reg_acc_count[m_sid][warp_pos].find(reg_id) == reg_acc_count[m_sid][warp_pos].end());
-                        assert(reg_last_acc[m_sid][warp_pos].find(reg_id) == reg_last_acc[m_sid][warp_pos].end());
-                        (reg_tot_dist[m_sid][warp_pos])[reg_id] = 0; 
-                        (reg_acc_count[m_sid][warp_pos])[reg_id] = 1;
-                        (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                    }else{
-                        assert(reg_acc_count[m_sid][warp_pos].find(reg_id) != reg_acc_count[m_sid][warp_pos].end());
-                        assert(reg_last_acc[m_sid][warp_pos].find(reg_id) != reg_last_acc[m_sid][warp_pos].end());
-                        unsigned long long olddist = reg_tot_dist[m_sid][warp_pos].find(reg_id)->second;
-                        (reg_tot_dist[m_sid][warp_pos])[reg_id] = olddist + gpu_sim_cycle - (reg_last_acc[m_sid][warp_pos])[reg_id];
-                        (reg_acc_count[m_sid][warp_pos])[reg_id]++;
-                        (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                    }
-                }else{
-                    assert(0);
-                }
-            }
-        }
-    } else {
-        warp_pos = warp_it->second;
-        //find the corresponding reg of this warp
-        for(int op=0;op<MAX_REG_OPERANDS;op++){
-            int reg_id = (*pipeline_reg)->arch_reg.src[op];
-            if(reg_id >=0){
-                if(reg_tot_dist[m_sid][warp_pos].find(reg_id) == reg_tot_dist[m_sid][warp_pos].end()){
-                    assert(reg_acc_count[m_sid][warp_pos].find(reg_id) == reg_acc_count[m_sid][warp_pos].end());
-                    assert(reg_last_acc[m_sid][warp_pos].find(reg_id) == reg_last_acc[m_sid][warp_pos].end());
-                    (reg_tot_dist[m_sid][warp_pos])[reg_id] = 0; 
-                    (reg_acc_count[m_sid][warp_pos])[reg_id] = 1;
-                    (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                }else{
-                    assert(reg_acc_count[m_sid][warp_pos].find(reg_id) != reg_acc_count[m_sid][warp_pos].end());
-                    assert(reg_last_acc[m_sid][warp_pos].find(reg_id) != reg_last_acc[m_sid][warp_pos].end());
-                    unsigned long long olddist = reg_tot_dist[m_sid][warp_pos].find(reg_id)->second;
-                    (reg_tot_dist[m_sid][warp_pos])[reg_id] = olddist + gpu_sim_cycle - (reg_last_acc[m_sid][warp_pos])[reg_id];
-                    (reg_acc_count[m_sid][warp_pos])[reg_id]++;
-                    (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                }
-            }
-        }
-        for(int op=0;op<MAX_REG_OPERANDS;op++){
-            int reg_id = (*pipeline_reg)->arch_reg.dst[op];
-            if(reg_id >=0){
-                if(reg_tot_dist[m_sid][warp_pos].find(reg_id) == reg_tot_dist[m_sid][warp_pos].end()){
-                    assert(reg_acc_count[m_sid][warp_pos].find(reg_id) == reg_acc_count[m_sid][warp_pos].end());
-                    assert(reg_last_acc[m_sid][warp_pos].find(reg_id) == reg_last_acc[m_sid][warp_pos].end());
-                    (reg_tot_dist[m_sid][warp_pos])[reg_id] = 0; 
-                    (reg_acc_count[m_sid][warp_pos])[reg_id] = 1;
-                    (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                }else{
-                    assert(reg_acc_count[m_sid][warp_pos].find(reg_id) != reg_acc_count[m_sid][warp_pos].end());
-                    assert(reg_last_acc[m_sid][warp_pos].find(reg_id) != reg_last_acc[m_sid][warp_pos].end());
-                    unsigned long long olddist = reg_tot_dist[m_sid][warp_pos].find(reg_id)->second;
-                    (reg_tot_dist[m_sid][warp_pos])[reg_id] = olddist + gpu_sim_cycle - (reg_last_acc[m_sid][warp_pos])[reg_id];
-                    (reg_acc_count[m_sid][warp_pos])[reg_id]++;
-                    (reg_last_acc[m_sid][warp_pos])[reg_id] = gpu_sim_cycle;
-                }
-            }
-        }
-     }
-#endif
->>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
       m_warp_id = (*pipeline_reg)->warp_id();
       for( unsigned op=0; op < MAX_REG_OPERANDS; op++ ) {
          int reg_num = (*pipeline_reg)->arch_reg.src[op]; // this math needs to match that used in function_info::ptx_decode_inst

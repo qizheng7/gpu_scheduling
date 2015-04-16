@@ -54,6 +54,7 @@ cuobjdump_to_ptxplus.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
 cuobjdump_to_ptxplus.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
 cuobjdump_to_ptxplus.o: /usr/include/bits/pthreadtypes.h
 cuobjdump_to_ptxplus.o: /usr/include/alloca.h
+<<<<<<< HEAD
 elf_lexer.o: /usr/include/stdio.h /usr/include/features.h
 elf_lexer.o: /usr/include/bits/predefs.h /usr/include/sys/cdefs.h
 elf_lexer.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
@@ -171,3 +172,5 @@ sass_parser.o: /usr/include/sys/select.h /usr/include/bits/select.h
 sass_parser.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
 sass_parser.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
 sass_parser.o: /usr/include/alloca.h
+=======
+>>>>>>> 1ad55bf05c65e667fba459204d4a93ce84ede7c0
